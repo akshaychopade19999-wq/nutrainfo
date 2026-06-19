@@ -164,25 +164,72 @@ button{cursor:pointer;font-family:var(--ff-sans);}
 }
 .btn-outline-w:hover{border-color:rgba(255,255,255,.45);color:#fff;}
 
-/* Signature: Nutrient Ring */
-.hero-ring-wrap{position:relative;width:380px;height:380px;}
-.ring-svg{width:100%;height:100%;}
-.ring-center{
-  position:absolute;inset:0;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-}
-.ring-center .rc-big{
-  font-family:var(--ff-serif);
-  font-size:2.8rem;color:#fff;line-height:1;
-}
-.ring-center .rc-lbl{font-size:.75rem;color:rgba(255,255,255,.45);letter-spacing:.8px;text-transform:uppercase;margin-top:4px;}
-.ring-legend{
-  display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;
-  margin-top:18px;
-}
-.rl-item{display:flex;align-items:center;gap:7px;font-size:.72rem;color:rgba(255,255,255,.5);letter-spacing:.01em;}
-.rl-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
-
+/* ══════════════════════════════════════════════
+   PREMIUM ORBITAL FOOD EXPLORER
+══════════════════════════════════════════════ */
+.orbital-showcase{position:relative;width:420px;height:480px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:20px;}
+.orbital-hub{position:relative;width:200px;height:200px;display:flex;align-items:center;justify-content:center;z-index:10;}
+.hub-glow{position:absolute;inset:-20px;border-radius:50%;background:radial-gradient(circle,rgba(30,138,94,.25) 0%,transparent 70%);animation:hubPulse 3s ease-in-out infinite;}
+@keyframes hubPulse{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.15);opacity:.9;}}
+.hub-ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(82,183,136,.3);animation:hubSpin 12s linear infinite;}
+.hub-ring::before{content:'';position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(82,183,136,.15);border-top-color:var(--sage);animation:hubSpin 8s linear infinite reverse;}
+@keyframes hubSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.hub-core{position:relative;width:160px;height:160px;border-radius:50%;background:linear-gradient(145deg,rgba(13,43,32,.9),rgba(26,92,64,.95));border:1px solid rgba(82,183,136,.25);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(30,138,94,.2),inset 0 2px 20px rgba(255,255,255,.05);overflow:hidden;}
+.hub-core input{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;border:none;background:transparent;color:#fff;text-align:center;font-family:var(--ff-sans);font-size:.85rem;font-weight:500;padding:20px;outline:none;opacity:0;transition:opacity .3s;z-index:2;}
+.hub-core input::placeholder{color:rgba(255,255,255,.4);font-size:.8rem;}
+.hub-core:hover input,.hub-core input:focus,.hub-core input:not(:placeholder-shown){opacity:1;background:rgba(13,43,32,.95);}
+.hub-core:hover .hub-icon,.hub-core input:focus~.hub-icon,.hub-core input:not(:placeholder-shown)~.hub-icon{opacity:0;transform:scale(.5);}
+.hub-icon{font-size:2.5rem;transition:all .3s ease;pointer-events:none;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3));}
+.orbital-suggestions{position:absolute;top:210px;left:50%;transform:translateX(-50%);width:280px;background:rgba(255,255,255,.97);border-radius:var(--r-lg);box-shadow:0 20px 60px rgba(0,0,0,.25);z-index:100;display:none;overflow:hidden;backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.5);}
+.orbital-suggestions.active{display:block;animation:suggestPop .3s cubic-bezier(.34,1.56,.64,1);}
+@keyframes suggestPop{from{opacity:0;transform:translateX(-50%) translateY(-10px) scale(.95);}to{opacity:1;transform:translateX(-50%) translateY(0) scale(1);}}
+.os-item{padding:12px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(0,0,0,.05);transition:background .15s;}
+.os-item:hover{background:var(--mist);}
+.os-item .os-emoji{font-size:1.5rem;width:32px;text-align:center;}
+.os-item .os-info{flex:1;}
+.os-item .os-name{font-weight:600;font-size:.9rem;color:var(--ink);}
+.os-item .os-local{font-size:.75rem;color:var(--light);}
+.os-item .os-cat{font-size:.7rem;color:var(--mint);background:rgba(30,138,94,.1);padding:2px 10px;border-radius:var(--r-sm);}
+.orbital-food-display{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(180deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.03) 100%);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-xl);padding:22px;backdrop-filter:blur(12px);transition:all .4s cubic-bezier(.34,1.56,.64,1);}
+.ofd-header{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.ofd-emoji{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--leaf));display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 4px 16px rgba(30,138,94,.3);animation:emojiBounce 2s ease-in-out infinite;}
+@keyframes emojiBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.ofd-names h3{font-family:var(--ff-serif);font-size:1.4rem;color:#fff;font-weight:400;line-height:1;}
+.ofd-names span{font-size:.85rem;color:var(--sage);font-weight:500;}
+.ofd-cal-badge{margin-left:auto;text-align:right;}
+.ofd-cal-badge span{font-family:var(--ff-serif);font-size:1.8rem;color:var(--gold);line-height:1;display:block;}
+.ofd-cal-badge small{font-size:.7rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;}
+.ofd-macro-rings{display:flex;justify-content:center;gap:16px;margin-bottom:16px;}
+.omr-ring{position:relative;width:80px;height:80px;}
+.omr-ring svg{width:100%;height:100%;transform:rotate(-90deg);}
+.omr-ring .track{fill:none;stroke:rgba(255,255,255,.08);stroke-width:6;}
+.omr-ring .fill{fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 1s cubic-bezier(.34,1.56,.64,1);}
+.protein-ring .fill{stroke:#40916C;}
+.carbs-ring .fill{stroke:#E9C46A;}
+.fat-ring .fill{stroke:#F4A261;}
+.fiber-ring .fill{stroke:#74C69D;}
+.omr-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.omr-val{font-family:var(--ff-serif);font-size:1.1rem;font-weight:700;color:#fff;line-height:1;}
+.omr-name{font-size:.6rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.8px;margin-top:2px;}
+.ofd-tags{display:flex;gap:8px;justify-content:center;margin-bottom:14px;}
+.ofd-tag{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;padding:5px 14px;border-radius:var(--r-pill);font-weight:500;}
+.tag-dot{width:6px;height:6px;border-radius:50%;display:inline-block;}
+.gi-tag{background:rgba(109,40,217,.15);color:#c4b5fd;}
+.gi-tag .tag-dot{background:#8b5cf6;}
+.bio-tag{background:rgba(16,185,129,.15);color:#6ee7b7;}
+.bio-tag .tag-dot{background:#10b981;}
+.cat-tag{background:rgba(59,130,246,.15);color:#93c5fd;}
+.ofd-quick-stats{display:flex;gap:12px;}
+.oqs-item{flex:1;text-align:center;}
+.oqs-bar{height:4px;background:rgba(255,255,255,.08);border-radius:2px;margin-bottom:6px;overflow:hidden;}
+.oqs-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--mint),var(--sage));transition:width .8s cubic-bezier(.34,1.56,.64,1);}
+.oqs-item span{font-size:.65rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;}
+.food-orbit{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:340px;height:340px;pointer-events:none;z-index:1;}
+.orbit-item{position:absolute;top:50%;left:50%;width:40px;height:40px;margin:-20px;animation:orbitFloat 6s ease-in-out infinite;}
+.orbit-item span{display:block;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.2rem;backdrop-filter:blur(4px);transform:rotate(var(--angle)) translateX(140px) rotate(calc(var(--angle) * -1));animation:orbitCounter 6s ease-in-out infinite;}
+@keyframes orbitFloat{0%,100%{transform:rotate(0deg);}50%{transform:rotate(10deg);}}
+@keyframes orbitCounter{0%,100%{transform:rotate(var(--angle)) translateX(140px) rotate(calc(var(--angle) * -1));}50%{transform:rotate(var(--angle)) translateX(155px) rotate(calc(var(--angle) * -1));}}
+@media(max-width:860px){.orbital-showcase{width:100%;max-width:400px;height:auto;min-height:500px;}.food-orbit{display:none;}}
 /* ══════════════════════════════════════════════
    STATS STRIP
 ══════════════════════════════════════════════ */
@@ -807,54 +854,50 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
         </div>
       </div>
 
-      <!-- Signature: Nutrient Ring -->
-      <div>
-        <svg class="ring-svg" viewBox="0 0 380 380" style="overflow:visible;">
-          <!-- Outer decorative rings -->
-          <circle cx="190" cy="190" r="170" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-          <circle cx="190" cy="190" r="145" fill="none" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
-          <!-- Main nutrient arcs -->
-          <!-- Protein: 25% -->
-          <circle cx="190" cy="190" r="130" fill="none" stroke="rgba(64,145,108,.15)" stroke-width="22"/>
-          <circle cx="190" cy="190" r="130" fill="none"
-            stroke="#40916C" stroke-width="22"
-            stroke-dasharray="204 814" stroke-dashoffset="0"
-            stroke-linecap="round" transform="rotate(-90 190 190)"/>
-          <!-- Carbs: 45% -->
-          <circle cx="190" cy="190" r="130" fill="none"
-            stroke="#E9C46A" stroke-width="22"
-            stroke-dasharray="367 814" stroke-dashoffset="-214"
-            stroke-linecap="round" transform="rotate(-90 190 190)"/>
-          <!-- Fat: 20% -->
-          <circle cx="190" cy="190" r="130" fill="none"
-            stroke="#F4A261" stroke-width="22"
-            stroke-dasharray="163 814" stroke-dashoffset="-591"
-            stroke-linecap="round" transform="rotate(-90 190 190)"/>
-          <!-- Fiber: 10% -->
-          <circle cx="190" cy="190" r="130" fill="none"
-            stroke="#74C69D" stroke-width="22"
-            stroke-dasharray="81 814" stroke-dashoffset="-764"
-            stroke-linecap="round" transform="rotate(-90 190 190)"/>
-
-          <!-- Inner circle bg -->
-          <circle cx="190" cy="190" r="98" fill="rgba(255,255,255,.04)"/>
-          <circle cx="190" cy="190" r="98" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-
-          <!-- Labels on ring -->
-          <text x="190" y="56" text-anchor="middle" fill="#40916C" font-size="11" font-weight="700" letter-spacing="1" font-family="DM Sans,sans-serif">PROTEIN 25%</text>
-          <text x="338" y="210" text-anchor="middle" fill="#E9C46A" font-size="11" font-weight="700" letter-spacing="1" font-family="DM Sans,sans-serif">CARBS</text>
-          <text x="338" y="224" text-anchor="middle" fill="#E9C46A" font-size="11" font-weight="700" letter-spacing="1" font-family="DM Sans,sans-serif">45%</text>
-          <text x="55" y="260" text-anchor="middle" fill="#F4A261" font-size="11" font-weight="700" letter-spacing="1" font-family="DM Sans,sans-serif">FAT 20%</text>
-          <text x="140" y="318" text-anchor="middle" fill="#74C69D" font-size="11" font-weight="700" letter-spacing="1" font-family="DM Sans,sans-serif">FIBER 10%</text>
-        </svg>
-
-        <div style="position:relative;margin-top:-295px;margin-left:100px;text-align:center;pointer-events:none;">
-          <div style="font-family:'Instrument Serif',serif;font-size:3rem;color:#fff;line-height:1;">250</div>
-          <div style="font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.8px;text-transform:uppercase;margin-top:4px;">kcal / 100g</div>
+      <!-- Premium Orbital Food Explorer -->
+      <div class="orbital-showcase">
+        <div class="orbital-hub">
+          <div class="hub-glow"></div>
+          <div class="hub-ring"></div>
+          <div class="hub-core">
+            <input type="text" id="orbitalSearch" placeholder="Search food..." autocomplete="off" oninput="orbitalSearch()">
+            <div class="hub-icon">🔍</div>
+          </div>
         </div>
-        <div style="margin-top:205px;"></div>
+        <div class="orbital-suggestions" id="orbitalSuggestions"></div>
+        <div class="orbital-food-display" id="orbitalFoodDisplay">
+          <div class="ofd-header">
+            <div class="ofd-emoji" id="ofdEmoji">🧀</div>
+            <div class="ofd-names">
+              <h3 id="ofdName">Paneer</h3>
+              <span id="ofdLocal">पनीर</span>
+            </div>
+            <div class="ofd-cal-badge"><span id="ofdCal">265</span><small>kcal/100g</small></div>
+          </div>
+          <div class="ofd-macro-rings">
+            <div class="omr-ring protein-ring"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42"/><circle class="fill" id="proteinArc" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="180"/></svg><div class="omr-label"><span class="omr-val" id="proteinVal">18.3</span><span class="omr-name">Protein</span></div></div>
+            <div class="omr-ring carbs-ring"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42"/><circle class="fill" id="carbsArc" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="250"/></svg><div class="omr-label"><span class="omr-val" id="carbsVal">1.2</span><span class="omr-name">Carbs</span></div></div>
+            <div class="omr-ring fat-ring"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42"/><circle class="fill" id="fatArc" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="200"/></svg><div class="omr-label"><span class="omr-val" id="fatVal">20.8</span><span class="omr-name">Fat</span></div></div>
+            <div class="omr-ring fiber-ring"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42"/><circle class="fill" id="fiberArc" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264"/></svg><div class="omr-label"><span class="omr-val" id="fiberVal">0</span><span class="omr-name">Fiber</span></div></div>
+          </div>
+          <div class="ofd-tags">
+            <span class="ofd-tag gi-tag"><span class="tag-dot"></span>GI: <b id="ofdGi">—</b></span>
+            <span class="ofd-tag bio-tag"><span class="tag-dot"></span>Bio: <b id="ofdBio">High</b></span>
+            <span class="ofd-tag cat-tag" id="ofdCat">Dairy</span>
+          </div>
+          <div class="ofd-quick-stats">
+            <div class="oqs-item"><div class="oqs-bar"><div class="oqs-fill" id="proteinBar" style="width:27%"></div></div><span>Protein</span></div>
+            <div class="oqs-item"><div class="oqs-bar"><div class="oqs-fill" id="carbsBar" style="width:2%"></div></div><span>Carbs</span></div>
+            <div class="oqs-item"><div class="oqs-bar"><div class="oqs-fill" id="fatBar" style="width:31%"></div></div><span>Fat</span></div>
+          </div>
+        </div>
+        <div class="food-orbit" id="foodOrbit">
+          <div class="orbit-item" style="--delay:0s;--angle:0deg;"><span>🫘</span></div>
+          <div class="orbit-item" style="--delay:1.5s;--angle:90deg;"><span>🍚</span></div>
+          <div class="orbit-item" style="--delay:3s;--angle:180deg;"><span>🥬</span></div>
+         <div class="orbit-item" style="--delay:4.5s;--angle:270deg;"><span>🥜</span></div>
+        </div>
       </div>
-    </div>
   </header>
 
   <!-- STATS -->
@@ -1850,7 +1893,135 @@ function renderResearch(){
     </div>
   `).join('');
 }
+/* ════════════════════════════════════
+   ORBITAL FOOD EXPLORER — 21 FOODS
+════════════════════════════════════ */
+const ORBITAL_FOODS = [
+  { name: "Paneer", local: "पनीर", cat: "Dairy", emoji: "🧀", protein: 18.3, carbs: 1.2, fat: 20.8, fiber: 0, calories: 265, gi: "—", bio: "High" },
+  { name: "Soy Chunks", local: "सोया चंक्स", cat: "Soy", emoji: "🫘", protein: 52.0, carbs: 33.0, fat: 0.5, fiber: 13.0, calories: 345, gi: "Low", bio: "High" },
+  { name: "Soybeans", local: "सोयाबीन", cat: "Soy", emoji: "🫘", protein: 36.5, carbs: 30.2, fat: 19.9, fiber: 9.3, calories: 446, gi: "Low", bio: "Moderate" },
+  { name: "Tempeh", local: "टेम्पेह", cat: "Soy", emoji: "🧈", protein: 20.3, carbs: 9.4, fat: 10.8, fiber: 1.4, calories: 193, gi: "Low", bio: "High" },
+  { name: "Tofu", local: "टोफू", cat: "Soy", emoji: "🧊", protein: 15.7, carbs: 3.9, fat: 8.7, fiber: 2.3, calories: 144, gi: "Low", bio: "High" },
+  { name: "Moong Dal", local: "मूंग दाल", cat: "Pulses", emoji: "🫘", protein: 24.0, carbs: 63.0, fat: 1.2, fiber: 16.0, calories: 347, gi: "Low", bio: "Moderate" },
+  { name: "Urad Dal", local: "उड़द दाल", cat: "Pulses", emoji: "🫘", protein: 25.0, carbs: 59.0, fat: 1.6, fiber: 18.0, calories: 341, gi: "Low", bio: "Moderate" },
+  { name: "Masoor Dal", local: "मसूर दाल", cat: "Pulses", emoji: "🫘", protein: 25.0, carbs: 60.0, fat: 1.1, fiber: 11.0, calories: 353, gi: "Low", bio: "Moderate" },
+  { name: "Toor Dal", local: "अरहर दाल", cat: "Pulses", emoji: "🫘", protein: 22.0, carbs: 63.0, fat: 1.7, fiber: 15.0, calories: 343, gi: "Low", bio: "Moderate" },
+  { name: "Chana Dal", local: "चना दाल", cat: "Pulses", emoji: "🫘", protein: 22.0, carbs: 61.0, fat: 6.0, fiber: 11.0, calories: 364, gi: "Low", bio: "Moderate" },
+  { name: "Chickpeas", local: "छोले", cat: "Pulses", emoji: "🍛", protein: 20.5, carbs: 63.0, fat: 6.0, fiber: 12.0, calories: 378, gi: "Low", bio: "Moderate" },
+  { name: "Rajma", local: "राजमा", cat: "Pulses", emoji: "🫘", protein: 24.0, carbs: 60.0, fat: 0.8, fiber: 25.0, calories: 333, gi: "Low", bio: "Moderate" },
+  { name: "Black Beans", local: "काले बीन्स", cat: "Pulses", emoji: "🫘", protein: 21.6, carbs: 63.0, fat: 0.9, fiber: 16.0, calories: 341, gi: "Low", bio: "Moderate" },
+  { name: "Peanuts", local: "मूंगफली", cat: "Nuts", emoji: "🥜", protein: 25.8, carbs: 16.1, fat: 49.2, fiber: 8.5, calories: 567, gi: "Low", bio: "Moderate" },
+  { name: "Almonds", local: "बादाम", cat: "Nuts", emoji: "🌰", protein: 21.2, carbs: 21.6, fat: 49.9, fiber: 12.5, calories: 579, gi: "Very Low", bio: "Moderate" },
+  { name: "Pistachios", local: "पिस्ता", cat: "Nuts", emoji: "🌰", protein: 20.2, carbs: 28.0, fat: 45.3, fiber: 10.6, calories: 562, gi: "Low", bio: "Moderate" },
+  { name: "Pumpkin Seeds", local: "कद्दू के बीज", cat: "Seeds", emoji: "🎃", protein: 30.2, carbs: 10.7, fat: 49.0, fiber: 6.0, calories: 559, gi: "Low", bio: "High" },
+  { name: "Hemp Seeds", local: "भांग के बीज", cat: "Seeds", emoji: "🌿", protein: 31.6, carbs: 8.7, fat: 48.8, fiber: 4.0, calories: 553, gi: "Low", bio: "High" },
+  { name: "Sunflower Seeds", local: "सूरजमुखी के बीज", cat: "Seeds", emoji: "🌻", protein: 20.8, carbs: 20.0, fat: 51.5, fiber: 8.6, calories: 584, gi: "Low", bio: "Moderate" },
+  { name: "Oats", local: "जई", cat: "Grains", emoji: "🌾", protein: 16.9, carbs: 66.3, fat: 6.9, fiber: 10.6, calories: 389, gi: "Low", bio: "Moderate" },
+  { name: "Quinoa", local: "किनोआ", cat: "Grains", emoji: "🌾", protein: 14.1, carbs: 64.2, fat: 6.1, fiber: 7.0, calories: 368, gi: "Low", bio: "Moderate" }
+];
 
+function setArc(id, value, max) {
+  const arc = document.getElementById(id);
+  if (!arc) return;
+  const circumference = 264;
+  const pct = Math.min(value / max, 1);
+  const offset = circumference - (pct * circumference);
+  arc.style.strokeDashoffset = offset;
+}
+
+function orbitalDisplay(food) {
+  document.getElementById('ofdEmoji').textContent = food.emoji;
+  document.getElementById('ofdName').textContent = food.name;
+  document.getElementById('ofdLocal').textContent = food.local;
+  document.getElementById('ofdCal').textContent = food.calories;
+  document.getElementById('proteinVal').textContent = food.protein;
+  document.getElementById('carbsVal').textContent = food.carbs;
+  document.getElementById('fatVal').textContent = food.fat;
+  document.getElementById('fiberVal').textContent = food.fiber;
+  document.getElementById('ofdGi').textContent = food.gi;
+  document.getElementById('ofdBio').textContent = food.bio;
+  document.getElementById('ofdCat').textContent = food.cat;
+
+  setArc('proteinArc', food.protein, 60);
+  setArc('carbsArc', food.carbs, 80);
+  setArc('fatArc', food.fat, 60);
+  setArc('fiberArc', food.fiber, 30);
+
+  const total = food.protein + food.carbs + food.fat + 0.1;
+  document.getElementById('proteinBar').style.width = Math.min((food.protein / total) * 100, 100) + '%';
+  document.getElementById('carbsBar').style.width = Math.min((food.carbs / total) * 100, 100) + '%';
+  document.getElementById('fatBar').style.width = Math.min((food.fat / total) * 100, 100) + '%';
+}
+
+function orbitalSearch() {
+  const input = document.getElementById('orbitalSearch');
+  const query = input.value.toLowerCase().trim();
+  const suggestions = document.getElementById('orbitalSuggestions');
+  
+  if (query.length < 1) {
+    suggestions.classList.remove('active');
+    return;
+  }
+  
+  const matches = ORBITAL_FOODS.filter(f => 
+    f.name.toLowerCase().includes(query) || 
+    f.local.includes(query) ||
+    f.cat.toLowerCase().includes(query)
+  ).slice(0, 5);
+  
+  if (matches.length === 0) {
+    suggestions.innerHTML = '<div class="os-item" style="padding:16px;text-align:center;color:var(--mid);"><span>No foods found</span></div>';
+    suggestions.classList.add('active');
+    return;
+  }
+  
+  suggestions.innerHTML = matches.map(f => `
+    <div class="os-item" data-name="${f.name}">
+      <span class="os-emoji">${f.emoji}</span>
+      <div class="os-info">
+        <div class="os-name">${f.name}</div>
+        <div class="os-local">${f.local}</div>
+      </div>
+      <span class="os-cat">${f.cat}</span>
+    </div>
+  `).join('');
+  
+  suggestions.classList.add('active');
+  
+  document.querySelectorAll('.os-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const name = this.getAttribute('data-name');
+      const food = ORBITAL_FOODS.find(f => f.name === name);
+      if (food) {
+        orbitalDisplay(food);
+        input.value = '';
+        suggestions.classList.remove('active');
+      }
+    });
+  });
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.orbital-hub')) {
+    document.getElementById('orbitalSuggestions').classList.remove('active');
+  }
+});
+
+document.getElementById('orbitalSearch').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    const query = this.value.toLowerCase().trim();
+    const food = ORBITAL_FOODS.find(f => f.name.toLowerCase() === query);
+    if (food) {
+      orbitalDisplay(food);
+      this.value = '';
+      document.getElementById('orbitalSuggestions').classList.remove('active');
+    }
+  }
+});
+
+window.addEventListener('load', () => {
+  orbitalDisplay(ORBITAL_FOODS[0]);
+});
 /* ════════════════════════════════════
    INIT
 ════════════════════════════════════ */
