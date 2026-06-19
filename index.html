@@ -1837,7 +1837,7 @@ let ORBITAL_FOODS = [];
 // Load foods from JSON
 async function loadFoods() {
   try {
-    const response = await fetch('foods.json');
+    const response = await fetch('./foods.json');
     const data = await response.json();
     ALL_FOODS = data.foods;
     ORBITAL_FOODS = data.foods;
