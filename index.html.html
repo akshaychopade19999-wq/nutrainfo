@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NutraInfo – Evidence-Based Nutrition for India</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════════════
+   DESIGN TOKENS
+   Palette: deep forest green + warm ivory + gold
+   Signature: organic circular data-ring on hero
+══════════════════════════════════════════════ */
+:root {
+  --forest:   #1A3A2A;
+  --leaf:     #2D6A4F;
+  --mint:     #40916C;
+  --sage:     #74C69D;
+  --mist:     #D8F3DC;
+  --ivory:    #FAFAF6;
+  --paper:    #F3F1EA;
+  --gold:     #E9C46A;
+  --amber:    #F4A261;
+  --rust:     #E76F51;
+  --ink:      #1C1C1C;
+  --mid:      #555F52;
+  --light:    #8A9E8A;
+  --border:   #E2EBE2;
+
+  --ff-serif: 'Instrument Serif', Georgia, serif;
+  --ff-sans:  'DM Sans', system-ui, sans-serif;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+  --max: 1160px;
+
+  --sh-card: 0 2px 16px rgba(26,58,42,.08);
+  --sh-hover: 0 8px 32px rgba(26,58,42,.14);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:var(--ff-sans);background:var(--ivory);color:var(--ink);line-height:1.65;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+button{cursor:pointer;font-family:var(--ff-sans);}
+
+/* ── Progress ── */
+#pbar{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--leaf),var(--gold));z-index:9999;transition:width .08s;}
+
+/* ── Nav ── */
+.nav{
+  position:sticky;top:0;z-index:800;
+  background:var(--forest);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.nav-inner{
+  max-width:var(--max);margin:0 auto;
+  padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--ff-serif);font-size:1.25rem;color:#fff;
+}
+.nav-logo-icon{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--mint),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-style:normal;
+}
+.nav-links{display:flex;gap:2px;list-style:none;align-items:center;}
+.nav-links a{
+  color:rgba(255,255,255,.6);
+  font-size:0.82rem;font-weight:500;
+  padding:6px 12px;border-radius:var(--r-pill);
+  transition:color .15s,background .15s;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.09);}
+.nav-links a.active{color:var(--sage);}
+.nav-cta{background:var(--mint)!important;color:#fff!important;font-weight:600!important;padding:7px 18px!important;}
+.nav-cta:hover{background:var(--leaf)!important;}
+.ham{display:none;background:none;border:none;flex-direction:column;gap:5px;padding:4px;}
+.ham span{display:block;width:20px;height:2px;background:rgba(255,255,255,.7);border-radius:2px;}
+.mob-menu{display:none;background:rgba(26,58,42,.97);padding:12px 20px 20px;flex-direction:column;gap:4px;}
+.mob-menu a{color:rgba(255,255,255,.7);font-size:.92rem;padding:9px 14px;border-radius:var(--r-sm);display:block;}
+.mob-menu a:hover{background:rgba(255,255,255,.07);color:#fff;}
+.mob-menu.open{display:flex;}
+@media(max-width:760px){.nav-links{display:none;}.ham{display:flex;}}
+
+/* ── Pages ── */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ══════════════════════════════════════════════
+   HOME — HERO
+══════════════════════════════════════════════ */
+.hero{
+  background:var(--forest);
+  padding:80px 24px 100px;
+  position:relative;overflow:hidden;
+}
+.hero-blob1{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(64,145,108,.2) 0%,transparent 65%);
+  top:-100px;right:-80px;pointer-events:none;
+}
+.hero-blob2{
+  position:absolute;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(233,196,106,.12) 0%,transparent 70%);
+  bottom:-60px;left:10%;pointer-events:none;
+}
+.hero-inner{
+  max-width:var(--max);margin:0 auto;
+  display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center;
+  position:relative;z-index:1;
+}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;}.hero-ring-wrap{display:none;}}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(116,198,157,.15);
+  border:1px solid rgba(116,198,157,.3);
+  color:var(--sage);
+  font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  padding:5px 14px;border-radius:var(--r-pill);margin-bottom:22px;
+}
+.hero h1{
+  font-family:var(--ff-serif);
+  font-size:clamp(2.6rem,5.5vw,4.4rem);
+  line-height:1.08;color:#fff;
+  margin-bottom:18px;
+  font-weight:400;
+}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{
+  font-size:1.05rem;color:rgba(255,255,255,.52);
+  max-width:480px;margin-bottom:36px;line-height:1.7;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-green{
+  background:var(--mint);color:#fff;
+  font-weight:600;font-size:.93rem;
+  padding:13px 28px;border-radius:var(--r-pill);
+  border:none;transition:background .15s,transform .15s,box-shadow .15s;
+  display:inline-flex;align-items:center;gap:7px;
+}
+.btn-green:hover{background:var(--leaf);transform:translateY(-1px);box-shadow:0 6px 20px rgba(45,106,79,.4);}
+.btn-outline-w{
+  background:transparent;
+  border:1.5px solid rgba(255,255,255,.22);color:rgba(255,255,255,.8);
+  font-weight:500;font-size:.93rem;
+  padding:13px 28px;border-radius:var(--r-pill);
+  transition:border-color .15s;
+}
+.btn-outline-w:hover{border-color:rgba(255,255,255,.55);}
+
+/* Signature: Nutrient Ring */
+.hero-ring-wrap{position:relative;width:380px;height:380px;}
+.ring-svg{width:100%;height:100%;}
+.ring-center{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.ring-center .rc-big{
+  font-family:var(--ff-serif);
+  font-size:2.8rem;color:#fff;line-height:1;
+}
+.ring-center .rc-lbl{font-size:.75rem;color:rgba(255,255,255,.45);letter-spacing:.8px;text-transform:uppercase;margin-top:4px;}
+.ring-legend{
+  display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;
+  margin-top:20px;
+}
+.rl-item{display:flex;align-items:center;gap:7px;font-size:.78rem;color:rgba(255,255,255,.6);}
+.rl-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+
+/* ══════════════════════════════════════════════
+   STATS STRIP
+══════════════════════════════════════════════ */
+.stats-strip{
+  background:var(--leaf);
+  display:flex;overflow:hidden;
+}
+.ss-cell{
+  flex:1;text-align:center;padding:24px 16px;
+  border-right:1px solid rgba(255,255,255,.15);
+}
+.ss-cell:last-child{border-right:none;}
+.ss-num{font-family:var(--ff-serif);font-size:2rem;color:#fff;line-height:1;}
+.ss-lbl{font-size:.78rem;color:rgba(255,255,255,.65);margin-top:4px;}
+@media(max-width:600px){
+  .stats-strip{flex-wrap:wrap;}
+  .ss-cell{flex:0 0 50%;border-bottom:1px solid rgba(255,255,255,.15);}
+  .ss-cell:nth-child(2){border-right:none;}
+}
+
+/* ══════════════════════════════════════════════
+   SHARED SECTION LAYOUT
+══════════════════════════════════════════════ */
+.sec{padding:72px 24px;}
+.sec-paper{background:var(--paper);}
+.sec-forest{background:var(--forest);}
+.sec-mist{background:var(--mist);}
+.wrap{max-width:var(--max);margin:0 auto;}
+.eyebrow{
+  font-size:.7rem;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--mint);margin-bottom:10px;
+}
+.sec-forest .eyebrow{color:var(--sage);}
+.sec-mist .eyebrow{color:var(--leaf);}
+.h2{
+  font-family:var(--ff-serif);
+  font-size:clamp(1.7rem,3.5vw,2.6rem);
+  font-weight:400;line-height:1.15;
+  margin-bottom:10px;
+}
+.sec-forest .h2{color:#fff;}
+.sub{font-size:.97rem;color:var(--mid);max-width:500px;margin-bottom:42px;}
+.sec-forest .sub{color:rgba(255,255,255,.45);}
+@media(max-width:600px){.sec{padding:50px 18px;}}
+
+/* ══════════════════════════════════════════════
+   TAGS
+══════════════════════════════════════════════ */
+.tag{
+  display:inline-block;
+  font-size:.66rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;
+  padding:3px 10px;border-radius:var(--r-pill);
+}
+.tg-green{background:rgba(45,106,79,.12);color:var(--leaf);}
+.tg-gold{background:rgba(233,196,106,.2);color:#8A6200;}
+.tg-amber{background:rgba(244,162,97,.15);color:#B85500;}
+.tg-rust{background:rgba(231,111,81,.12);color:#C04020;}
+.tg-sage{background:rgba(116,198,157,.2);color:var(--mint);}
+
+/* ══════════════════════════════════════════════
+   FEATURE CARDS — HOME
+══════════════════════════════════════════════ */
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:18px;
+}
+.feat-card{
+  background:#fff;
+  border:1.5px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:28px 24px;
+  cursor:pointer;
+  transition:box-shadow .2s,transform .15s,border-color .2s;
+}
+.feat-card:hover{box-shadow:var(--sh-hover);transform:translateY(-3px);border-color:var(--sage);}
+.feat-icon{font-size:2.4rem;margin-bottom:14px;}
+.feat-card h3{font-family:var(--ff-serif);font-size:1.1rem;font-weight:400;margin-bottom:7px;}
+.feat-card p{font-size:.82rem;color:var(--mid);}
+
+/* ══════════════════════════════════════════════
+   FOOD DATABASE PAGE
+══════════════════════════════════════════════ */
+.food-search-bar{
+  display:flex;gap:10px;margin-bottom:36px;flex-wrap:wrap;
+}
+.food-search-bar input{
+  flex:1;min-width:220px;
+  padding:13px 20px;border-radius:var(--r-pill);
+  border:1.5px solid var(--border);
+  font-family:var(--ff-sans);font-size:.95rem;
+  background:#fff;outline:none;
+  transition:border-color .15s;
+}
+.food-search-bar input:focus{border-color:var(--mint);}
+.food-search-bar button{
+  background:var(--mint);color:#fff;
+  border:none;padding:13px 26px;border-radius:var(--r-pill);
+  font-weight:600;font-size:.93rem;
+  transition:background .15s;
+}
+.food-search-bar button:hover{background:var(--leaf);}
+
+.food-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;}
+.food-cat-btn{
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:var(--r-pill);padding:7px 16px;
+  font-size:.82rem;font-weight:500;color:var(--mid);
+  transition:all .15s;
+}
+.food-cat-btn.active,.food-cat-btn:hover{
+  background:var(--mint);color:#fff;border-color:var(--mint);
+}
+
+.food-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:18px;
+}
+.food-card{
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:var(--r-lg);overflow:hidden;
+  cursor:pointer;
+  transition:box-shadow .2s,transform .18s;
+}
+.food-card:hover{box-shadow:var(--sh-hover);transform:translateY(-3px);}
+.food-thumb{
+  height:130px;display:flex;align-items:center;justify-content:center;
+  font-size:4.5rem;
+}
+.food-body{padding:18px;}
+.food-body h3{font-family:var(--ff-serif);font-size:1.05rem;font-weight:400;margin-bottom:4px;}
+.food-body .food-local{font-size:.75rem;color:var(--light);margin-bottom:10px;}
+.food-macros{display:flex;gap:10px;}
+.fm-item{
+  flex:1;background:var(--paper);
+  border-radius:var(--r-sm);
+  padding:8px;text-align:center;
+}
+.fm-val{font-family:var(--ff-serif);font-size:1rem;color:var(--forest);line-height:1;}
+.fm-lbl{font-size:.65rem;color:var(--light);margin-top:2px;text-transform:uppercase;letter-spacing:.5px;}
+
+/* Food Detail Modal */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(26,58,42,.6);
+  z-index:2000;display:flex;align-items:center;justify-content:center;
+  padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{
+  background:#fff;border-radius:var(--r-xl);
+  max-width:700px;width:100%;max-height:85vh;overflow-y:auto;
+  transform:scale(.95);transition:transform .2s;
+}
+.modal-overlay.open .modal-box{transform:scale(1);}
+.modal-head{
+  background:var(--forest);
+  padding:32px 36px 28px;
+  border-radius:var(--r-xl) var(--r-xl) 0 0;
+  position:relative;
+}
+.modal-head h2{font-family:var(--ff-serif);font-size:1.8rem;color:#fff;font-weight:400;margin-bottom:4px;}
+.modal-head p{font-size:.85rem;color:rgba(255,255,255,.5);}
+.modal-close{
+  position:absolute;top:20px;right:24px;
+  background:rgba(255,255,255,.15);border:none;color:#fff;
+  width:32px;height:32px;border-radius:50%;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s;
+}
+.modal-close:hover{background:rgba(255,255,255,.25);}
+.modal-body{padding:28px 36px;}
+@media(max-width:500px){.modal-body{padding:20px;}.modal-head{padding:24px 20px 20px;}}
+
+.nutrient-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:8px;}
+.nutrient-table th{
+  text-align:left;padding:8px 12px;
+  font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--mid);border-bottom:2px solid var(--border);
+}
+.nutrient-table td{
+  padding:9px 12px;border-bottom:1px solid var(--border);
+}
+.nutrient-table tr:last-child td{border-bottom:none;}
+.nutrient-table tr:hover td{background:var(--paper);}
+.nt-bar{
+  height:5px;background:var(--border);border-radius:3px;margin-top:4px;
+}
+.nt-fill{height:100%;border-radius:3px;background:var(--mint);}
+
+/* ══════════════════════════════════════════════
+   CALCULATORS PAGE
+══════════════════════════════════════════════ */
+.calc-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
+.ctab{
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:var(--r-pill);padding:8px 18px;
+  font-size:.83rem;font-weight:600;color:var(--mid);
+  transition:all .15s;
+}
+.ctab.active,.ctab:hover{background:var(--mint);color:#fff;border-color:var(--mint);}
+
+.calc-panel{display:none;}
+.calc-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+@media(max-width:680px){.calc-panel.active{grid-template-columns:1fr;}}
+
+.calc-form{}
+.calc-title{font-family:var(--ff-serif);font-size:1.5rem;font-weight:400;margin-bottom:6px;}
+.calc-desc{font-size:.85rem;color:var(--mid);margin-bottom:24px;}
+.cfield{margin-bottom:20px;}
+.cfield label{
+  display:flex;justify-content:space-between;
+  font-size:.82rem;font-weight:600;color:var(--mid);margin-bottom:8px;
+}
+.cfield label span{color:var(--mint);font-weight:700;}
+.cfield input[type=range]{
+  -webkit-appearance:none;width:100%;height:5px;
+  background:var(--border);border-radius:3px;outline:none;
+}
+.cfield input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:19px;height:19px;border-radius:50%;
+  background:var(--mint);cursor:pointer;
+  box-shadow:0 2px 8px rgba(45,106,79,.35);
+}
+.cfield select,.cfield input[type=text]{
+  width:100%;padding:11px 16px;border-radius:var(--r-md);
+  border:1.5px solid var(--border);
+  font-family:var(--ff-sans);font-size:.9rem;
+  background:#fff;outline:none;
+  transition:border-color .15s;
+}
+.cfield select:focus,.cfield input[type=text]:focus{border-color:var(--mint);}
+
+.calc-result{
+  background:var(--forest);border-radius:var(--r-lg);
+  padding:32px 28px;
+}
+.cr-label{font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;}
+.cr-main{font-family:var(--ff-serif);font-size:3rem;color:var(--gold);line-height:1;margin-bottom:6px;}
+.cr-unit{font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:20px;}
+.cr-rows{display:flex;flex-direction:column;gap:12px;}
+.cr-row{
+  background:rgba(255,255,255,.06);
+  border-radius:var(--r-sm);padding:12px 16px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.cr-row-lbl{font-size:.8rem;color:rgba(255,255,255,.55);}
+.cr-row-val{font-family:var(--ff-serif);font-size:1.1rem;color:#fff;}
+
+/* ══════════════════════════════════════════════
+   DEFICIENCY CHECKER
+══════════════════════════════════════════════ */
+.symptom-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));
+  gap:12px;margin-bottom:28px;
+}
+.sym-btn{
+  background:#fff;border:2px solid var(--border);
+  border-radius:var(--r-md);padding:16px 14px;text-align:center;
+  cursor:pointer;transition:all .18s;
+}
+.sym-btn:hover{border-color:var(--sage);transform:translateY(-2px);}
+.sym-btn.sel{border-color:var(--mint);background:rgba(64,145,108,.07);}
+.sym-btn .si{font-size:2rem;margin-bottom:7px;display:block;}
+.sym-btn span{font-size:.83rem;font-weight:500;display:block;}
+
+.deficiency-result{
+  display:none;
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:var(--r-lg);padding:28px;margin-top:28px;
+}
+.deficiency-result.show{display:block;}
+.def-disclaimer{
+  background:rgba(233,196,106,.15);border:1px solid rgba(233,196,106,.4);
+  border-radius:var(--r-md);padding:14px 18px;
+  font-size:.82rem;color:#6B4800;margin-bottom:24px;
+}
+.def-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
+.def-card{
+  background:var(--paper);border-radius:var(--r-md);
+  border-left:4px solid var(--mint);padding:18px 16px;
+}
+.def-card h4{font-family:var(--ff-serif);font-size:1rem;font-weight:400;margin-bottom:8px;}
+.def-card p{font-size:.8rem;color:var(--mid);}
+.def-foods{
+  display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;
+}
+.def-food-tag{
+  background:rgba(45,106,79,.1);color:var(--leaf);
+  font-size:.72rem;font-weight:600;
+  padding:3px 10px;border-radius:var(--r-pill);
+}
+
+/* ══════════════════════════════════════════════
+   SUPPLEMENT RATINGS
+══════════════════════════════════════════════ */
+.supp-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
+}
+.supp-card{
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:var(--r-lg);padding:24px;
+  cursor:pointer;
+  transition:box-shadow .2s,transform .18s;
+}
+.supp-card:hover{box-shadow:var(--sh-hover);transform:translateY(-3px);}
+.supp-header{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;}
+.supp-icon{font-size:2.4rem;flex-shrink:0;}
+.supp-header h3{font-family:var(--ff-serif);font-size:1.1rem;font-weight:400;margin-bottom:4px;}
+.supp-header p{font-size:.8rem;color:var(--mid);}
+.rating-rows{display:flex;flex-direction:column;gap:8px;}
+.rating-row{display:flex;align-items:center;gap:10px;}
+.rating-row .rl{font-size:.75rem;color:var(--mid);width:130px;flex-shrink:0;}
+.rating-bar-bg{flex:1;height:6px;background:var(--paper);border-radius:3px;}
+.rating-fill{height:100%;border-radius:3px;background:var(--mint);}
+.rating-row .rv{font-size:.78rem;font-weight:700;color:var(--forest);width:30px;text-align:right;}
+
+/* ══════════════════════════════════════════════
+   BLOOD TESTS
+══════════════════════════════════════════════ */
+.blood-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:16px;
+}
+.blood-card{
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:var(--r-lg);padding:22px;
+  cursor:pointer;
+  transition:box-shadow .2s,transform .18s;
+}
+.blood-card:hover{box-shadow:var(--sh-hover);transform:translateY(-3px);}
+.blood-card h3{font-family:var(--ff-serif);font-size:1.05rem;font-weight:400;margin-bottom:6px;}
+.blood-card .bc-sub{font-size:.8rem;color:var(--mid);margin-bottom:14px;}
+.range-bar{
+  position:relative;height:8px;background:var(--paper);
+  border-radius:4px;margin-bottom:6px;
+}
+.range-normal{
+  position:absolute;height:100%;background:rgba(64,145,108,.3);
+  border-radius:4px;
+}
+.range-marker{
+  position:absolute;top:-3px;width:14px;height:14px;
+  border-radius:50%;background:var(--mint);
+  border:2px solid #fff;
+  box-shadow:0 1px 4px rgba(0,0,0,.15);
+  transform:translateX(-50%);
+}
+.range-labels{display:flex;justify-content:space-between;font-size:.68rem;color:var(--light);}
+
+/* ══════════════════════════════════════════════
+   RESEARCH HUB
+══════════════════════════════════════════════ */
+.research-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
+}
+.research-card{
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:var(--r-lg);padding:24px;
+  display:flex;flex-direction:column;
+  cursor:pointer;
+  transition:box-shadow .2s,transform .18s;
+}
+.research-card:hover{box-shadow:var(--sh-hover);transform:translateY(-3px);}
+.rc-meta{display:flex;gap:8px;align-items:center;margin-bottom:12px;}
+.rc-quality{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:.68rem;font-weight:700;
+  padding:3px 9px;border-radius:var(--r-pill);
+}
+.rq-high{background:rgba(45,106,79,.12);color:var(--leaf);}
+.rq-med{background:rgba(233,196,106,.2);color:#8A6200;}
+.rq-low{background:rgba(231,111,81,.12);color:var(--rust);}
+.research-card h3{font-family:var(--ff-serif);font-size:1.05rem;font-weight:400;line-height:1.35;margin-bottom:10px;}
+.research-card p{font-size:.82rem;color:var(--mid);flex:1;}
+.research-card .rc-foot{
+  margin-top:16px;font-size:.75rem;color:var(--light);
+  display:flex;justify-content:space-between;
+  border-top:1px solid var(--border);padding-top:12px;
+}
+
+/* ══════════════════════════════════════════════
+   KNOWLEDGE NETWORK (cross-link)
+══════════════════════════════════════════════ */
+.kn-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+@media(max-width:680px){.kn-grid{grid-template-columns:1fr;}}
+.kn-card{
+  border-radius:var(--r-lg);padding:32px 28px;
+  border:2px solid transparent;
+  transition:transform .2s,box-shadow .2s;
+}
+.kn-card:hover{transform:translateY(-4px);box-shadow:var(--sh-hover);}
+.kn-nutra{background:linear-gradient(135deg,var(--forest),var(--leaf));color:#fff;}
+.kn-finance{background:linear-gradient(135deg,#16192A,#1D2030);color:#fff;}
+.kn-ai{background:linear-gradient(135deg,#1A1040,#2D1B69);color:#fff;}
+.kn-badge{
+  display:inline-block;
+  font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:3px 10px;border-radius:var(--r-pill);
+  background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);
+  margin-bottom:16px;
+}
+.kn-card h3{font-family:var(--ff-serif);font-size:1.3rem;font-weight:400;color:#fff;margin-bottom:8px;}
+.kn-card p{font-size:.83rem;color:rgba(255,255,255,.55);margin-bottom:20px;}
+.kn-topics{display:flex;flex-wrap:wrap;gap:6px;}
+.kn-topic{
+  background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);
+  font-size:.7rem;padding:3px 10px;border-radius:var(--r-pill);
+}
+.kn-cta{
+  display:inline-block;margin-top:20px;
+  font-size:.83rem;font-weight:600;
+  color:rgba(255,255,255,.9);
+  border-bottom:1px solid rgba(255,255,255,.3);
+  padding-bottom:2px;
+  transition:border-color .15s;
+}
+.kn-cta:hover{border-color:rgba(255,255,255,.8);}
+
+/* ══════════════════════════════════════════════
+   MEAL PLANS
+══════════════════════════════════════════════ */
+.meal-plan-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
+  gap:18px;
+}
+.mp-card{
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:var(--r-lg);overflow:hidden;
+  cursor:pointer;
+  transition:box-shadow .2s,transform .18s;
+}
+.mp-card:hover{box-shadow:var(--sh-hover);transform:translateY(-3px);}
+.mp-header{
+  padding:22px 22px 16px;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.mp-icon{font-size:2.4rem;}
+.mp-header h3{font-family:var(--ff-serif);font-size:1.05rem;font-weight:400;margin-bottom:4px;}
+.mp-header p{font-size:.78rem;color:var(--mid);}
+.mp-stats{
+  padding:14px 22px 20px;
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  border-top:1px solid var(--border);
+}
+.mp-stat{text-align:center;}
+.mp-stat .msv{font-family:var(--ff-serif);font-size:1.1rem;color:var(--forest);}
+.mp-stat .msl{font-size:.68rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;}
+
+/* ══════════════════════════════════════════════
+   NEWSLETTER
+══════════════════════════════════════════════ */
+.nl-box{
+  background:linear-gradient(130deg,var(--forest) 0%,var(--leaf) 100%);
+  border-radius:var(--r-xl);padding:56px 52px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:36px;flex-wrap:wrap;
+}
+.nl-box h2{font-family:var(--ff-serif);font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:400;color:#fff;margin-bottom:8px;}
+.nl-box p{font-size:.93rem;color:rgba(255,255,255,.55);}
+.nl-form{display:flex;gap:10px;flex-wrap:wrap;}
+.nl-form input{
+  padding:13px 20px;border-radius:var(--r-pill);
+  border:none;outline:none;
+  font-family:var(--ff-sans);font-size:.92rem;
+  width:235px;background:rgba(255,255,255,.92);color:var(--ink);
+}
+.nl-form input::placeholder{color:#aaa;}
+.nl-form button{
+  background:var(--gold);color:var(--forest);
+  border:none;padding:13px 26px;border-radius:var(--r-pill);
+  font-weight:700;font-size:.9rem;transition:opacity .15s;
+}
+.nl-form button:hover{opacity:.88;}
+@media(max-width:600px){.nl-box{padding:34px 22px;}.nl-box>div{flex:1 1 100%;}}
+
+/* ══════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════ */
+footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.07);padding:52px 24px 32px;}
+.footer-inner{
+  max-width:var(--max);margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
+}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr 1fr;}}
+@media(max-width:420px){.footer-inner{grid-template-columns:1fr;}}
+.fb-name{
+  font-family:var(--ff-serif);font-size:1.15rem;color:#fff;
+  display:flex;align-items:center;gap:9px;margin-bottom:10px;
+}
+.footer-brand p{font-size:.81rem;color:rgba(255,255,255,.3);max-width:230px;line-height:1.65;}
+.fc h5{
+  font-size:.73rem;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-bottom:14px;
+}
+.fc a{
+  display:block;color:rgba(255,255,255,.45);
+  font-size:.83rem;margin-bottom:8px;
+  transition:color .15s;cursor:pointer;
+}
+.fc a:hover{color:var(--sage);}
+.footer-bottom{
+  max-width:var(--max);margin:32px auto 0;
+  padding-top:20px;border-top:1px solid rgba(255,255,255,.07);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  font-size:.77rem;color:rgba(255,255,255,.25);
+}
+
+/* ══════════════════════════════════════════════
+   TOAST & REVEAL
+══════════════════════════════════════════════ */
+#toast{
+  position:fixed;bottom:26px;left:50%;
+  transform:translateX(-50%) translateY(70px);
+  background:var(--forest);color:#fff;
+  border:1px solid rgba(255,255,255,.1);
+  padding:11px 22px;border-radius:var(--r-pill);
+  font-size:.86rem;font-weight:500;
+  box-shadow:0 8px 32px rgba(0,0,0,.25);
+  opacity:0;transition:transform .28s cubic-bezier(.34,1.56,.64,1),opacity .28s;
+  z-index:8000;white-space:nowrap;
+}
+#toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s;}
+.reveal.vis{opacity:1;transform:translateY(0);}
+
+/* RING ANIMATION */
+@keyframes spin-ring{from{stroke-dashoffset:0;}to{stroke-dashoffset:-10;}}
+.ring-pulse{animation:spin-ring 6s linear infinite;}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  *{animation:none!important;}
+}
+</style>
+</head>
+<body>
+
+<div id="pbar"></div>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="go('home')">
+      <div class="nav-logo-icon">🌿</div>
+      NutraInfo
+    </a>
+    <ul class="nav-links">
+      <li><a id="nl-home" class="active" onclick="go('home')">Home</a></li>
+      <li><a id="nl-food" onclick="go('food')">Food Database</a></li>
+      <li><a id="nl-supp" onclick="go('supplements')">Supplements</a></li>
+      <li><a id="nl-meals" onclick="go('meals')">Meal Plans</a></li>
+      <li><a id="nl-calc" onclick="go('calculators')">Calculators</a></li>
+      <li><a id="nl-blood" onclick="go('blood')">Blood Tests</a></li>
+      <li><a id="nl-deficiency" onclick="go('deficiency')">Deficiency Check</a></li>
+      <li><a id="nl-research" onclick="go('research')">Research</a></li>
+      <li><a onclick="go('calculators')" class="nav-cta">Try Free Tools</a></li>
+    </ul>
+    <button class="ham" onclick="toggleMob()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mob-menu" id="mob">
+    <a onclick="go('home');toggleMob()">🏠 Home</a>
+    <a onclick="go('food');toggleMob()">🥗 Food Database</a>
+    <a onclick="go('supplements');toggleMob()">💊 Supplements</a>
+    <a onclick="go('meals');toggleMob()">🍱 Meal Plans</a>
+    <a onclick="go('calculators');toggleMob()">🧮 Calculators</a>
+    <a onclick="go('blood');toggleMob()">🩸 Blood Tests</a>
+    <a onclick="go('deficiency');toggleMob()">🔍 Deficiency Check</a>
+    <a onclick="go('research');toggleMob()">📚 Research Hub</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════
+     HOME PAGE
+══════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-blob1"></div>
+    <div class="hero-blob2"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-chip">🇮🇳 India's Evidence-Based Nutrition Platform</div>
+        <h1>Know exactly<br>what your food<br><em>does to you.</em></h1>
+        <p class="hero-sub">NutraInfo combines science-backed food data, supplement transparency, meal planning, deficiency detection and nutrition research — all in one place.</p>
+        <div class="hero-btns">
+          <button class="btn-green" onclick="go('food')">Explore Food Database →</button>
+          <button class="btn-outline-w" onclick="go('deficiency')">🔍 Check Deficiencies</button>
+        </div>
+      </div>
+
+      <!-- Signature: Nutrient Ring -->
+      <div>
+        <svg class="ring-svg" viewBox="0 0 380 380" style="overflow:visible;">
+          <!-- Outer decorative rings -->
+          <circle cx="190" cy="190" r="170" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+          <circle cx="190" cy="190" r="145" fill="none" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+          <!-- Main nutrient arcs -->
+          <!-- Protein: 25% -->
+          <circle cx="190" cy="190" r="130" fill="none" stroke="rgba(64,145,108,.15)" stroke-width="22"/>
+          <circle cx="190" cy="190" r="130" fill="none"
+            stroke="#40916C" stroke-width="22"
+            stroke-dasharray="204 814" stroke-dashoffset="0"
+            stroke-linecap="round" transform="rotate(-90 190 190)"/>
+          <!-- Carbs: 45% -->
+          <circle cx="190" cy="190" r="130" fill="none"
+            stroke="#E9C46A" stroke-width="22"
+            stroke-dasharray="367 814" stroke-dashoffset="-214"
+            stroke-linecap="round" transform="rotate(-90 190 190)"/>
+          <!-- Fat: 20% -->
+          <circle cx="190" cy="190" r="130" fill="none"
+            stroke="#F4A261" stroke-width="22"
+            stroke-dasharray="163 814" stroke-dashoffset="-591"
+            stroke-linecap="round" transform="rotate(-90 190 190)"/>
+          <!-- Fiber: 10% -->
+          <circle cx="190" cy="190" r="130" fill="none"
+            stroke="#74C69D" stroke-width="22"
+            stroke-dasharray="81 814" stroke-dashoffset="-764"
+            stroke-linecap="round" transform="rotate(-90 190 190)"/>
+
+          <!-- Inner circle bg -->
+          <circle cx="190" cy="190" r="98" fill="rgba(255,255,255,.04)"/>
+          <circle cx="190" cy="190" r="98" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+          <!-- Labels on ring -->
+          <text x="190" y="56" text-anchor="middle" fill="#40916C" font-size="11" font-weight="700" letter-spacing="1" font-family="DM Sans,sans-serif">PROTEIN 25%</text>
+          <text x="338" y="210" text-anchor="middle" fill="#E9C46A" font-size="11" font-weight="700" letter-spacing="1" font-family="DM Sans,sans-serif">CARBS</text>
+          <text x="338" y="224" text-anchor="middle" fill="#E9C46A" font-size="11" font-weight="700" letter-spacing="1" font-family="DM Sans,sans-serif">45%</text>
+          <text x="55" y="260" text-anchor="middle" fill="#F4A261" font-size="11" font-weight="700" letter-spacing="1" font-family="DM Sans,sans-serif">FAT 20%</text>
+          <text x="140" y="318" text-anchor="middle" fill="#74C69D" font-size="11" font-weight="700" letter-spacing="1" font-family="DM Sans,sans-serif">FIBER 10%</text>
+        </svg>
+
+        <div style="position:relative;margin-top:-295px;margin-left:100px;text-align:center;pointer-events:none;">
+          <div style="font-family:'Instrument Serif',serif;font-size:3rem;color:#fff;line-height:1;">250</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.8px;text-transform:uppercase;margin-top:4px;">kcal / 100g</div>
+        </div>
+        <div style="margin-top:205px;"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="ss-cell"><div class="ss-num">1,200+</div><div class="ss-lbl">Indian foods in database</div></div>
+    <div class="ss-cell"><div class="ss-num">45+</div><div class="ss-lbl">Nutrients tracked per food</div></div>
+    <div class="ss-cell"><div class="ss-num">200+</div><div class="ss-lbl">Supplement reviews</div></div>
+    <div class="ss-cell"><div class="ss-num">500+</div><div class="ss-lbl">Research summaries</div></div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="sec">
+    <div class="wrap">
+      <p class="eyebrow">🌿 What NutraInfo Covers</p>
+      <h2 class="h2">Everything nutrition, under one roof</h2>
+      <p class="sub">Built for Indian bodies, Indian foods, and Indian dietary patterns — with global research behind every claim.</p>
+      <div class="features-grid reveal">
+        <div class="feat-card" onclick="go('food')"><div class="feat-icon">🥗</div><h3>Food Database</h3><p>1,200+ Indian foods with 45+ nutrients, GI, bioavailability notes and local names.</p></div>
+        <div class="feat-card" onclick="go('supplements')"><div class="feat-icon">💊</div><h3>Supplement Ratings</h3><p>Transparent, unsponsored ratings on whey, creatine, vitamin D, fish oil and more.</p></div>
+        <div class="feat-card" onclick="go('meals')"><div class="feat-icon">🍱</div><h3>Meal Plans</h3><p>Indian vegetarian, vegan, high-protein, diabetic-friendly and budget student plans.</p></div>
+        <div class="feat-card" onclick="go('calculators')"><div class="feat-icon">🧮</div><h3>Calculators</h3><p>BMI, BMR, TDEE, protein needs, macro split, water intake and body fat estimation.</p></div>
+        <div class="feat-card" onclick="go('deficiency')"><div class="feat-icon">🔍</div><h3>Deficiency Checker</h3><p>Select your symptoms. Get possible deficiencies, food sources and test recommendations.</p></div>
+        <div class="feat-card" onclick="go('blood')"><div class="feat-icon">🩸</div><h3>Blood Test Guide</h3><p>Plain-English explanations of CBC, B12, vitamin D, ferritin, thyroid and 12 more panels.</p></div>
+        <div class="feat-card" onclick="go('research')"><div class="feat-icon">📚</div><h3>Research Hub</h3><p>500+ nutrition studies summarised in plain English with evidence quality ratings.</p></div>
+        <div class="feat-card" onclick="showToast('Vegetarian Center launching soon!')"><div class="feat-icon">🌱</div><h3>Vegetarian Center</h3><p>Complete proteins, B12, iron, zinc and omega-3 — everything plant-based India needs.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KNOWLEDGE NETWORK -->
+  <section class="sec sec-paper">
+    <div class="wrap">
+      <p class="eyebrow">🔗 Knowledge Network</p>
+      <h2 class="h2">Three platforms. One mission.</h2>
+      <p class="sub">NutraInfo is part of a linked knowledge ecosystem. Explore our sister platforms.</p>
+      <div class="kn-grid reveal">
+        <div class="kn-card kn-nutra">
+          <span class="kn-badge">You are here</span>
+          <h3>NutraInfo</h3>
+          <p>Evidence-based nutrition, supplements, meal planning and research for India.</p>
+          <div class="kn-topics">
+            <span class="kn-topic">Food Database</span>
+            <span class="kn-topic">Blood Tests</span>
+            <span class="kn-topic">Supplements</span>
+            <span class="kn-topic">Deficiency</span>
+          </div>
+        </div>
+        <div class="kn-card kn-finance" onclick="showToast('YoungFinance — broketobuild.in')">
+          <span class="kn-badge" style="background:rgba(255,92,0,.25);color:#FF9055;">Finance</span>
+          <h3>Broke to Build</h3>
+          <p>Finance, investing, wealth building, SIPs, stocks and financial independence for young India.</p>
+          <div class="kn-topics">
+            <span class="kn-topic">SIP & Mutual Funds</span>
+            <span class="kn-topic">Credit Score</span>
+            <span class="kn-topic">ITR & Tax</span>
+            <span class="kn-topic">Side Income</span>
+          </div>
+          <a class="kn-cta">Visit broketobuild.in →</a>
+        </div>
+        <div class="kn-card kn-ai" onclick="showToast('LearnAIpower — coming soon!')">
+          <span class="kn-badge" style="background:rgba(150,100,255,.25);color:#C4A0FF;">AI & Tech</span>
+          <h3>LearnAIpower</h3>
+          <p>AI tools, agents, automation, prompt engineering, coding and future technology skills.</p>
+          <div class="kn-topics">
+            <span class="kn-topic">AI Agents</span>
+            <span class="kn-topic">Automation</span>
+            <span class="kn-topic">Prompt Engineering</span>
+            <span class="kn-topic">Productivity</span>
+          </div>
+          <a class="kn-cta">Visit learnaipower.com →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="nl-box reveal">
+        <div>
+          <h2>Weekly nutrition drops 🌿</h2>
+          <p>One research-backed nutrition insight every Sunday. Plain English, no supplement ads.</p>
+          <p style="font-size:.79rem;color:rgba(255,255,255,.4);margin-top:6px;">Joined by 24,000+ Indians tracking their nutrition</p>
+        </div>
+        <div class="nl-form">
+          <input type="email" placeholder="yourname@gmail.com" id="nl-e"/>
+          <button onclick="subNewsletter()">Subscribe Free</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /home -->
+
+<!-- ══════════════════════════════════
+     FOOD DATABASE PAGE
+══════════════════════════════════ -->
+<div class="page" id="page-food">
+  <header style="background:var(--forest);padding:56px 24px;">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">🥗 Flagship Feature</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">India's Most Complete Food Database</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:480px;margin:0 auto;">45+ nutrients per food item. Indian local names. Glycemic index. Bioavailability notes. Everything you need.</p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap">
+      <div class="food-search-bar">
+        <input type="text" placeholder="Search for dal, paneer, roti, chicken..." id="food-search" oninput="filterFoods()"/>
+        <button onclick="filterFoods()">Search</button>
+      </div>
+      <div class="food-cats" id="food-cats">
+        <button class="food-cat-btn active" onclick="setFoodCat('all',this)">All Foods</button>
+        <button class="food-cat-btn" onclick="setFoodCat('pulses',this)">🫘 Pulses & Legumes</button>
+        <button class="food-cat-btn" onclick="setFoodCat('dairy',this)">🥛 Dairy</button>
+        <button class="food-cat-btn" onclick="setFoodCat('grains',this)">🌾 Grains</button>
+        <button class="food-cat-btn" onclick="setFoodCat('vegetables',this)">🥬 Vegetables</button>
+        <button class="food-cat-btn" onclick="setFoodCat('fruits',this)">🍎 Fruits</button>
+        <button class="food-cat-btn" onclick="setFoodCat('protein',this)">🍗 Protein</button>
+        <button class="food-cat-btn" onclick="setFoodCat('nuts',this)">🥜 Nuts & Seeds</button>
+      </div>
+      <div class="food-grid" id="food-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- Food Detail Modal -->
+<div class="modal-overlay" id="food-modal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-head">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h2 id="md-name">—</h2>
+      <p id="md-local">—</p>
+    </div>
+    <div class="modal-body">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;" id="md-macros"></div>
+      <h4 style="font-family:var(--ff-serif);font-weight:400;margin-bottom:12px;font-size:1.1rem;">Full Nutrition Profile <span style="font-size:.8rem;color:var(--mid);">(per 100g)</span></h4>
+      <table class="nutrient-table" id="md-table"><thead><tr><th>Nutrient</th><th>Amount</th><th>% Daily Value</th><th style="width:120px;">Coverage</th></tr></thead><tbody></tbody></table>
+      <div style="margin-top:18px;padding:14px 16px;background:var(--paper);border-radius:var(--r-md);font-size:.82rem;color:var(--mid);">
+        <strong>Bioavailability Note:</strong> <span id="md-bio">—</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SUPPLEMENTS PAGE
+══════════════════════════════════ -->
+<div class="page" id="page-supplements">
+  <header style="background:var(--forest);padding:56px 24px;">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">💊 Supplement Ratings</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">Transparent. Unsponsored. Science-backed.</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;">We rate every supplement on 8 criteria. Zero affiliate influence on our scores.</p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap">
+      <div class="supp-grid" id="supp-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════
+     MEAL PLANS PAGE
+══════════════════════════════════ -->
+<div class="page" id="page-meals">
+  <header style="background:var(--forest);padding:56px 24px;">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">🍱 Meal Plans</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">Indian Meal Plans That Actually Work</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;">Every plan includes daily macros, micronutrient coverage, shopping list and estimated cost.</p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap">
+      <div class="meal-plan-grid" id="meal-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════
+     CALCULATORS PAGE
+══════════════════════════════════ -->
+<div class="page" id="page-calculators">
+  <header style="background:var(--forest);padding:56px 24px;">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">🧮 Nutrition Calculators</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">Know Your Numbers</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:440px;margin:0 auto;">Free calculators for BMI, BMR, TDEE, protein needs, macro splits and more.</p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap">
+      <div class="calc-tabs">
+        <button class="ctab active" onclick="showCalc('tdee',this)">TDEE & Calories</button>
+        <button class="ctab" onclick="showCalc('protein',this)">Protein Needs</button>
+        <button class="ctab" onclick="showCalc('bmi',this)">BMI Calculator</button>
+        <button class="ctab" onclick="showCalc('water',this)">Water Intake</button>
+        <button class="ctab" onclick="showCalc('macro',this)">Macro Split</button>
+      </div>
+
+      <!-- TDEE -->
+      <div class="calc-panel active" id="calc-tdee">
+        <div class="calc-form">
+          <div class="calc-title">TDEE & Daily Calorie Needs</div>
+          <p class="calc-desc">Total Daily Energy Expenditure — how many calories your body needs each day.</p>
+          <div class="cfield">
+            <label>Age <span id="tdee-age-v">25 years</span></label>
+            <input type="range" id="tdee-age" min="15" max="70" value="25" oninput="calcTDEE()"/>
+          </div>
+          <div class="cfield">
+            <label>Weight <span id="tdee-wt-v">70 kg</span></label>
+            <input type="range" id="tdee-wt" min="40" max="150" value="70" oninput="calcTDEE()"/>
+          </div>
+          <div class="cfield">
+            <label>Height <span id="tdee-ht-v">170 cm</span></label>
+            <input type="range" id="tdee-ht" min="140" max="210" value="170" oninput="calcTDEE()"/>
+          </div>
+          <div class="cfield">
+            <label>Gender</label>
+            <select id="tdee-sex" onchange="calcTDEE()">
+              <option value="m">Male</option>
+              <option value="f">Female</option>
+            </select>
+          </div>
+          <div class="cfield">
+            <label>Activity Level</label>
+            <select id="tdee-act" onchange="calcTDEE()">
+              <option value="1.2">Sedentary (desk job, no exercise)</option>
+              <option value="1.375">Lightly Active (1–3 days/week)</option>
+              <option value="1.55" selected>Moderately Active (3–5 days/week)</option>
+              <option value="1.725">Very Active (6–7 days/week)</option>
+              <option value="1.9">Extremely Active (athlete / physical job)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result">
+          <p class="cr-label">Your Daily Calorie Need (TDEE)</p>
+          <div class="cr-main" id="tdee-result">2,415</div>
+          <p class="cr-unit">kcal / day</p>
+          <div class="cr-rows">
+            <div class="cr-row"><span class="cr-row-lbl">BMR (at rest)</span><span class="cr-row-val" id="bmr-r">1,748 kcal</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Weight Loss (−500 kcal)</span><span class="cr-row-val" id="loss-r">1,915 kcal</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Weight Gain (+300 kcal)</span><span class="cr-row-val" id="gain-r">2,715 kcal</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">BMI</span><span class="cr-row-val" id="bmi-r">24.2</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROTEIN -->
+      <div class="calc-panel" id="calc-protein">
+        <div class="calc-form">
+          <div class="calc-title">Daily Protein Calculator</div>
+          <p class="calc-desc">Based on your goal, activity level and body weight.</p>
+          <div class="cfield">
+            <label>Body Weight <span id="pro-wt-v">70 kg</span></label>
+            <input type="range" id="pro-wt" min="40" max="150" value="70" oninput="calcProtein()"/>
+          </div>
+          <div class="cfield">
+            <label>Goal</label>
+            <select id="pro-goal" onchange="calcProtein()">
+              <option value="0.8">General Health (sedentary)</option>
+              <option value="1.2">Weight Loss (preserve muscle)</option>
+              <option value="1.6" selected>Muscle Gain (active)</option>
+              <option value="2.0">Advanced Muscle Gain / Athlete</option>
+            </select>
+          </div>
+          <div class="cfield">
+            <label>Diet Type</label>
+            <select id="pro-diet" onchange="calcProtein()">
+              <option value="1.0">Non-Vegetarian (high bioavailability)</option>
+              <option value="1.15" selected>Vegetarian (slightly higher needed)</option>
+              <option value="1.25">Vegan (higher to compensate)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result">
+          <p class="cr-label">Daily Protein Target</p>
+          <div class="cr-main" id="pro-result">129</div>
+          <p class="cr-unit">grams / day</p>
+          <div class="cr-rows">
+            <div class="cr-row"><span class="cr-row-lbl">Per meal (4 meals)</span><span class="cr-row-val" id="pro-meal">32g</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">From food (min)</span><span class="cr-row-val" id="pro-food">90g</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Supplement gap</span><span class="cr-row-val" id="pro-supp">~39g</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Paneer equivalent</span><span class="cr-row-val" id="pro-paneer">~460g</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BMI -->
+      <div class="calc-panel" id="calc-bmi">
+        <div class="calc-form">
+          <div class="calc-title">BMI Calculator</div>
+          <p class="calc-desc">Body Mass Index — a basic screening metric. Not a diagnostic tool.</p>
+          <div class="cfield">
+            <label>Weight <span id="bmi-wt-v">70 kg</span></label>
+            <input type="range" id="bmi-wt" min="30" max="180" value="70" oninput="calcBMI()"/>
+          </div>
+          <div class="cfield">
+            <label>Height <span id="bmi-ht-v">170 cm</span></label>
+            <input type="range" id="bmi-ht" min="140" max="210" value="170" oninput="calcBMI()"/>
+          </div>
+        </div>
+        <div class="calc-result">
+          <p class="cr-label">Your BMI</p>
+          <div class="cr-main" id="bmi-result">24.2</div>
+          <p class="cr-unit" id="bmi-cat">Normal weight</p>
+          <div class="cr-rows">
+            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">Under 18.5</span><span class="cr-row-val" style="color:var(--amber);">Underweight</span></div>
+            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">18.5 – 24.9</span><span class="cr-row-val" style="color:var(--sage);">Normal</span></div>
+            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">25 – 29.9</span><span class="cr-row-val" style="color:var(--gold);">Overweight</span></div>
+            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">30+</span><span class="cr-row-val" style="color:var(--rust);">Obese</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WATER -->
+      <div class="calc-panel" id="calc-water">
+        <div class="calc-form">
+          <div class="calc-title">Water Intake Calculator</div>
+          <p class="calc-desc">Daily hydration needs based on weight and activity.</p>
+          <div class="cfield">
+            <label>Body Weight <span id="wat-wt-v">70 kg</span></label>
+            <input type="range" id="wat-wt" min="40" max="150" value="70" oninput="calcWater()"/>
+          </div>
+          <div class="cfield">
+            <label>Activity Level</label>
+            <select id="wat-act" onchange="calcWater()">
+              <option value="1.0">Sedentary (no exercise)</option>
+              <option value="1.2" selected>Moderate (some exercise)</option>
+              <option value="1.4">Active (daily exercise)</option>
+              <option value="1.6">Very Active (intense training)</option>
+            </select>
+          </div>
+          <div class="cfield">
+            <label>Climate</label>
+            <select id="wat-clim" onchange="calcWater()">
+              <option value="1.0">Temperate / AC environment</option>
+              <option value="1.15" selected>Tropical / Hot (most of India)</option>
+              <option value="1.25">Very hot / humid (summer peak)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result">
+          <p class="cr-label">Daily Water Target</p>
+          <div class="cr-main" id="wat-result">2.9</div>
+          <p class="cr-unit">litres / day</p>
+          <div class="cr-rows">
+            <div class="cr-row"><span class="cr-row-lbl">In glasses (250ml)</span><span class="cr-row-val" id="wat-glass">~12 glasses</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Minimum baseline</span><span class="cr-row-val" id="wat-min">2.0 L</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">From food (~20%)</span><span class="cr-row-val" id="wat-food">0.6 L</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">From drinks</span><span class="cr-row-val" id="wat-drinks">2.3 L</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MACRO -->
+      <div class="calc-panel" id="calc-macro">
+        <div class="calc-form">
+          <div class="calc-title">Macro Split Calculator</div>
+          <p class="calc-desc">Find your ideal protein, carb and fat targets based on your calorie goal.</p>
+          <div class="cfield">
+            <label>Daily Calories <span id="mac-cal-v">2,000 kcal</span></label>
+            <input type="range" id="mac-cal" min="1200" max="4000" step="50" value="2000" oninput="calcMacro()"/>
+          </div>
+          <div class="cfield">
+            <label>Diet Approach</label>
+            <select id="mac-type" onchange="calcMacro()">
+              <option value="balanced">Balanced (30P / 40C / 30F)</option>
+              <option value="highpro">High Protein (40P / 30C / 30F)</option>
+              <option value="lowcarb">Low Carb (35P / 20C / 45F)</option>
+              <option value="veg">Vegetarian-optimised (25P / 50C / 25F)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result">
+          <p class="cr-label">Daily Macro Targets</p>
+          <div class="cr-main" id="mac-main" style="font-size:1.8rem;line-height:1.3;">—g / —g / —g</div>
+          <p class="cr-unit">Protein / Carbs / Fat</p>
+          <div class="cr-rows">
+            <div class="cr-row"><span class="cr-row-lbl">Protein</span><span class="cr-row-val" id="mac-pro">—</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Carbohydrates</span><span class="cr-row-val" id="mac-carb">—</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Fat</span><span class="cr-row-val" id="mac-fat">—</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Fibre (target)</span><span class="cr-row-val" id="mac-fibre">—</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════
+     DEFICIENCY CHECKER PAGE
+══════════════════════════════════ -->
+<div class="page" id="page-deficiency">
+  <header style="background:var(--forest);padding:56px 24px;">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">🔍 Deficiency Detection Center</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">What Might You Be Missing?</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:500px;margin:0 auto;">Select the symptoms you experience. We'll suggest possible nutrient deficiencies, food sources and tests — not a diagnosis.</p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap">
+      <p style="font-size:.9rem;color:var(--mid);margin-bottom:22px;font-weight:500;">Select all symptoms that apply to you:</p>
+      <div class="symptom-grid" id="symptom-grid"></div>
+      <button class="btn-green" onclick="checkDeficiency()" style="margin-top:4px;">Analyse My Symptoms →</button>
+      <div class="deficiency-result" id="def-result">
+        <div class="def-disclaimer">⚠️ <strong>Important:</strong> This is an educational tool, not a medical diagnosis. These suggestions are based on common nutritional patterns. Always consult a doctor and get blood tests for a confirmed diagnosis.</div>
+        <div class="def-grid" id="def-grid"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════
+     BLOOD TESTS PAGE
+══════════════════════════════════ -->
+<div class="page" id="page-blood">
+  <header style="background:var(--forest);padding:56px 24px;">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">🩸 Blood Test Knowledge Center</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">Understand Every Result</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;">Plain-English explanations of 15 essential blood panels — what they measure, why they matter, and nutrition implications.</p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap">
+      <div class="blood-grid" id="blood-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════
+     RESEARCH HUB PAGE
+══════════════════════════════════ -->
+<div class="page" id="page-research">
+  <header style="background:var(--forest);padding:56px 24px;">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">📚 Research Hub</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">Science You Can Actually Use</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;">500+ nutrition studies summarised in plain English. Key findings, limitations and practical applications — every time.</p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap">
+      <div class="research-grid" id="research-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════
+     FOOTER (all pages share it via cloning)
+══════════════════════════════════ -->
+<footer id="main-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="fb-name">
+        <div class="nav-logo-icon" style="width:28px;height:28px;font-size:.85rem;">🌿</div>
+        NutraInfo
+      </div>
+      <p>India's evidence-based nutrition platform. Scientific rigour. Beginner-friendly language. Zero conflicts of interest.</p>
+    </div>
+    <div class="fc">
+      <h5>Database</h5>
+      <a onclick="go('food')">Food Search</a>
+      <a onclick="go('food')">Pulses & Dal</a>
+      <a onclick="go('food')">Dairy & Paneer</a>
+      <a onclick="go('food')">Fruits & Vegetables</a>
+    </div>
+    <div class="fc">
+      <h5>Tools</h5>
+      <a onclick="go('calculators')">TDEE Calculator</a>
+      <a onclick="go('calculators')">Protein Calculator</a>
+      <a onclick="go('deficiency')">Deficiency Checker</a>
+      <a onclick="go('blood')">Blood Tests Guide</a>
+    </div>
+    <div class="fc">
+      <h5>Platform</h5>
+      <a onclick="go('supplements')">Supplement Ratings</a>
+      <a onclick="go('meals')">Meal Plans</a>
+      <a onclick="go('research')">Research Hub</a>
+      <a onclick="showToast('Community launching soon!')">Community</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 NutraInfo · nutrainfo.in · Part of the Knowledge Network</span>
+    <span>Not a substitute for medical advice. Always consult a qualified professional.</span>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<!-- ══════════════════════════════════
+     JAVASCRIPT — DATA + LOGIC
+══════════════════════════════════ -->
+<script>
+/* ── Navigation ─────────────────────── */
+const PAGES = ['home','food','supplements','meals','calculators','deficiency','blood','research'];
+function go(id){
+  PAGES.forEach(p=>{
+    document.getElementById('page-'+p).classList.remove('active');
+    const nl=document.getElementById('nl-'+p);
+    if(nl) nl.classList.remove('active');
+  });
+  document.getElementById('page-'+id).classList.add('active');
+  const nl=document.getElementById('nl-'+id);
+  if(nl) nl.classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  initReveal();
+  // Init page-specific stuff
+  if(id==='calculators'){calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();}
+}
+function toggleMob(){document.getElementById('mob').classList.toggle('open');}
+
+/* ── Progress bar ───────────────────── */
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement.scrollTop;
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('pbar').style.width=(h>0?(s/h)*100:0)+'%';
+});
+
+/* ── Toast ──────────────────────────── */
+function showToast(m){
+  const t=document.getElementById('toast');
+  t.textContent=m;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+
+/* ── Newsletter ─────────────────────── */
+function subNewsletter(){
+  const e=document.getElementById('nl-e').value.trim();
+  if(!e||!e.includes('@')){showToast('Please enter a valid email ✉️');return;}
+  document.getElementById('nl-e').value='';
+  showToast('🌿 Subscribed! First drop arrives this Sunday.');
+}
+
+/* ── Scroll reveal ──────────────────── */
+function initReveal(){
+  setTimeout(()=>{
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+    },{threshold:.1});
+    document.querySelectorAll('.page.active .reveal').forEach(el=>obs.observe(el));
+  },60);
+}
+
+/* ════════════════════════════════════
+   FOOD DATABASE DATA
+════════════════════════════════════ */
+const FOODS=[
+  {id:1,name:'Toor Dal (Arhar Dal)',local:'अरहर दाल · Pigeon Pea',cat:'pulses',emoji:'🫘',bg:'#FFF3E0',
+   cal:343,pro:22.3,carb:57.6,fat:1.7,fiber:15,gi:22,
+   nutrients:{Protein:'22.3g',Carbohydrates:'57.6g','Total Fat':'1.7g',Fiber:'15g',Calories:'343 kcal',
+     Iron:'5.1mg','Vitamin B1':'0.45mg','Vitamin B9 (Folate)':'456μg',Calcium:'73mg',Phosphorus:'367mg',
+     Potassium:'981mg','Zinc':'2.8mg','Magnesium':'130mg'},
+   dvs:{Protein:45,Carbohydrates:19,Iron:28,'Vitamin B9 (Folate)':114,Calcium:7,Zinc:25,'Magnesium':31},
+   bio:'Iron absorption significantly enhanced by combining with vitamin C sources like lemon or amla. Phytates reduce mineral absorption — soaking and cooking improve it considerably.'},
+  {id:2,name:'Paneer (Cottage Cheese)',local:'पनीर · Indian Cottage Cheese',cat:'dairy',emoji:'🧀',bg:'#FFFDE7',
+   cal:265,pro:18.3,carb:3.4,fat:20.8,fiber:0,gi:27,
+   nutrients:{Protein:'18.3g',Carbohydrates:'3.4g','Total Fat':'20.8g','Saturated Fat':'13.4g',Fiber:'0g',Calories:'265 kcal',
+     Calcium:'480mg','Vitamin B12':'0.5μg',Phosphorus:'340mg','Vitamin A':'85μg',Zinc:'2.5mg'},
+   dvs:{Protein:37,Calcium:48,'Vitamin B12':21,Zinc:23},
+   bio:'Excellent protein source for vegetarians. Calcium highly bioavailable (~30% absorbed). Full-fat paneer provides fat-soluble vitamins A, D, E, K.'},
+  {id:3,name:'Brown Rice',local:'भूरा चावल · Whole Grain Rice',cat:'grains',emoji:'🍚',bg:'#F9FBE7',
+   cal:362,pro:7.9,carb:76.2,fat:2.7,fiber:3.5,gi:55,
+   nutrients:{Protein:'7.9g',Carbohydrates:'76.2g','Total Fat':'2.7g',Fiber:'3.5g',Calories:'362 kcal',
+     'Vitamin B1':'0.41mg','Vitamin B3':'4.3mg','Magnesium':'143mg',Phosphorus:'333mg',Zinc:'2.0mg',Selenium:'19.1μg'},
+   dvs:{Protein:16,'Vitamin B1':34,'Magnesium':34,Phosphorus:33},
+   bio:'Significantly more nutritious than white rice. Phytic acid in bran can bind minerals — soaking for 8 hours reduces this by ~50%.'},
+  {id:4,name:'Spinach (Palak)',local:'पालक · Spinach',cat:'vegetables',emoji:'🥬',bg:'#E8F5E9',
+   cal:23,pro:2.9,carb:3.6,fat:0.4,fiber:2.2,gi:15,
+   nutrients:{Protein:'2.9g',Carbohydrates:'3.6g','Total Fat':'0.4g',Fiber:'2.2g',Calories:'23 kcal',
+     'Vitamin K':'483μg','Vitamin A':'469μg','Vitamin C':'28mg','Vitamin B9 (Folate)':'194μg',Iron:'2.7mg',
+     Calcium:'99mg',Magnesium:'79mg',Potassium:'558mg'},
+   dvs:{'Vitamin K':403,'Vitamin A':52,'Vitamin C':31,'Vitamin B9 (Folate)':49,Iron:15,Calcium:10},
+   bio:'Iron is non-heme (plant type) — absorption ranges from 2–8%. Oxalates in spinach bind to calcium and iron, reducing absorption. Cooking reduces oxalates; pair with vitamin C.'},
+  {id:5,name:'Banana',local:'केला · Kela',cat:'fruits',emoji:'🍌',bg:'#FFFDE7',
+   cal:89,pro:1.1,carb:22.8,fat:0.3,fiber:2.6,gi:51,
+   nutrients:{Protein:'1.1g',Carbohydrates:'22.8g','Total Fat':'0.3g',Fiber:'2.6g',Calories:'89 kcal',
+     Potassium:'358mg','Vitamin B6':'0.37mg','Vitamin C':'8.7mg','Vitamin B9 (Folate)':'20μg',Magnesium:'27mg'},
+   dvs:{Potassium:8,'Vitamin B6':22,'Vitamin C':10,'Magnesium':6},
+   bio:'Excellent pre-workout carbohydrate source. Resistant starch in unripe bananas acts as prebiotic fiber. Potassium important for muscle function and blood pressure.'},
+  {id:6,name:'Chicken Breast',local:'चिकन ब्रेस्ट · Murgh',cat:'protein',emoji:'🍗',bg:'#FBE9E7',
+   cal:165,pro:31.0,carb:0,fat:3.6,fiber:0,gi:0,
+   nutrients:{Protein:'31.0g',Carbohydrates:'0g','Total Fat':'3.6g','Saturated Fat':'1.0g',Fiber:'0g',Calories:'165 kcal',
+     'Vitamin B3':'13.7mg','Vitamin B6':'0.9mg','Vitamin B12':'0.3μg','Phosphorus':'220mg',Selenium:'27.6μg',Zinc:'1.0mg'},
+   dvs:{Protein:62,'Vitamin B3':86,'Vitamin B6':53,Selenium:50},
+   bio:'Highest protein density among common Indian meats. Protein digestibility corrected amino acid score (PDCAAS) of 0.92 — excellent amino acid profile. Cook without skin for lowest fat.'},
+  {id:7,name:'Almonds (Badam)',local:'बादाम · Prunus dulcis',cat:'nuts',emoji:'🌰',bg:'#FFF8E1',
+   cal:579,pro:21.2,carb:21.6,fat:49.9,fiber:12.5,gi:0,
+   nutrients:{Protein:'21.2g',Carbohydrates:'21.6g','Total Fat':'49.9g','Monounsaturated Fat':'31.6g',Fiber:'12.5g',
+     Calories:'579 kcal','Vitamin E':'25.6mg','Magnesium':'270mg',Calcium:'264mg',Iron:'3.7mg',
+     Zinc:'3.1mg','Vitamin B2':'1.1mg',Phosphorus:'484mg'},
+   dvs:{'Vitamin E':170,'Magnesium':64,Calcium:26,Zinc:28},
+   bio:'Soaking overnight improves mineral absorption by deactivating phytase inhibitors. Skin contains antioxidants — do not always peel. Vitamin E highest among all nuts.'},
+  {id:8,name:'Moong Dal (Split Green Gram)',local:'मूंग दाल · Green Gram',cat:'pulses',emoji:'🫘',bg:'#F1F8E9',
+   cal:347,pro:24.5,carb:59.9,fat:1.2,fiber:16.3,gi:25,
+   nutrients:{Protein:'24.5g',Carbohydrates:'59.9g','Total Fat':'1.2g',Fiber:'16.3g',Calories:'347 kcal',
+     Iron:'6.7mg','Vitamin B9 (Folate)':'625μg','Vitamin B1':'0.62mg',Potassium:'1246mg',Magnesium:'189mg',Zinc:'2.7mg'},
+   dvs:{Protein:49,Iron:37,'Vitamin B9 (Folate)':156,'Magnesium':45,Zinc:25},
+   bio:'One of the most digestible dals. Sprouting increases vitamin C, reduces phytates dramatically. Excellent pre/post workout food for vegetarians.'},
+];
+
+/* ── Build Food Grid ─────────────────────────── */
+let activeFoodCat='all';
+let foodSearch='';
+function renderFoods(){
+  const grid=document.getElementById('food-grid');
+  if(!grid)return;
+  const filtered=FOODS.filter(f=>{
+    const matchCat=activeFoodCat==='all'||f.cat===activeFoodCat;
+    const matchQ=foodSearch===''||f.name.toLowerCase().includes(foodSearch)||f.local.toLowerCase().includes(foodSearch);
+    return matchCat&&matchQ;
+  });
+  grid.innerHTML=filtered.map(f=>`
+    <div class="food-card" onclick="openFood(${f.id})">
+      <div class="food-thumb" style="background:${f.bg}">${f.emoji}</div>
+      <div class="food-body">
+        <h3>${f.name}</h3>
+        <div class="food-local">${f.local}</div>
+        <div class="food-macros">
+          <div class="fm-item"><div class="fm-val">${f.cal}</div><div class="fm-lbl">kcal</div></div>
+          <div class="fm-item"><div class="fm-val">${f.pro}g</div><div class="fm-lbl">Protein</div></div>
+          <div class="fm-item"><div class="fm-val">${f.carb}g</div><div class="fm-lbl">Carbs</div></div>
+          <div class="fm-item"><div class="fm-val">GI ${f.gi||'—'}</div><div class="fm-lbl">Glyc. Index</div></div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  if(!filtered.length) grid.innerHTML='<p style="color:var(--mid);padding:20px;">No foods found. Try a different search term.</p>';
+}
+function setFoodCat(cat,btn){
+  activeFoodCat=cat;
+  document.querySelectorAll('.food-cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderFoods();
+}
+function filterFoods(){
+  foodSearch=document.getElementById('food-search').value.toLowerCase();
+  renderFoods();
+}
+function openFood(id){
+  const f=FOODS.find(x=>x.id===id);if(!f)return;
+  document.getElementById('md-name').textContent=f.name;
+  document.getElementById('md-local').textContent=f.local+' · GI: '+(f.gi||'N/A');
+  document.getElementById('md-bio').textContent=f.bio;
+  document.getElementById('md-macros').innerHTML=
+    `<div class="fm-item" style="background:var(--paper);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.cal}</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">kcal</div>
+     </div>
+     <div class="fm-item" style="background:rgba(45,106,79,.1);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.pro}g</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">Protein</div>
+     </div>
+     <div class="fm-item" style="background:rgba(233,196,106,.15);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.carb}g</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">Carbs</div>
+     </div>
+     <div class="fm-item" style="background:rgba(244,162,97,.12);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.fat}g</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">Fat</div>
+     </div>`;
+  const tbody=document.querySelector('#md-table tbody');
+  tbody.innerHTML=Object.entries(f.nutrients).map(([k,v])=>{
+    const pct=f.dvs[k]||0;
+    return`<tr>
+      <td>${k}</td>
+      <td><strong>${v}</strong></td>
+      <td>${pct?pct+'%':'—'}</td>
+      <td><div class="nt-bar"><div class="nt-fill" style="width:${Math.min(pct,100)}%"></div></div></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('food-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){
+  if(!e||e.target===document.getElementById('food-modal')||e===undefined){
+    document.getElementById('food-modal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+
+/* ════════════════════════════════════
+   SUPPLEMENTS DATA
+════════════════════════════════════ */
+const SUPPS=[
+  {name:'Whey Protein Concentrate',icon:'💪',desc:'Most popular protein supplement. Fast-absorbing complete protein.',
+   ratings:{Quality:88,Transparency:72,Purity:80,Safety:96,Evidence:92,'Value for Money':85,Taste:82,Digestibility:78}},
+  {name:'Creatine Monohydrate',icon:'⚡',desc:'Most researched supplement in sports nutrition. Improves strength and power output.',
+   ratings:{Quality:95,Transparency:90,Purity:88,Safety:99,Evidence:99,'Value for Money':95,Taste:75,Digestibility:90}},
+  {name:'Vitamin D3',icon:'☀️',desc:'Critical for Indians — most are deficient. Supports immunity, bone health, mood.',
+   ratings:{Quality:90,Transparency:82,Purity:86,Safety:94,Evidence:92,'Value for Money':92,Taste:88,Digestibility:95}},
+  {name:'Fish Oil (Omega-3)',icon:'🐟',desc:'EPA + DHA for heart, brain and joint health. Critical for vegetarians who avoid fish.',
+   ratings:{Quality:82,Transparency:70,Purity:75,Safety:90,Evidence:88,'Value for Money':78,Taste:62,Digestibility:76}},
+  {name:'Magnesium Glycinate',icon:'🌙',desc:'Most bioavailable form. Supports sleep, stress, muscle function and 300+ enzymes.',
+   ratings:{Quality:88,Transparency:84,Purity:86,Safety:95,Evidence:86,'Value for Money':80,Taste:72,Digestibility:92}},
+  {name:'Plant Protein (Pea + Rice)',icon:'🌱',desc:'Best vegan protein blend. Pea+rice combination gives complete amino acid profile.',
+   ratings:{Quality:80,Transparency:75,Purity:82,Safety:96,Evidence:78,'Value for Money':72,Taste:68,Digestibility:80}},
+];
+function renderSupplements(){
+  const g=document.getElementById('supp-grid');if(!g)return;
+  g.innerHTML=SUPPS.map(s=>`
+    <div class="supp-card" onclick="showToast('Full review for ${s.name} — coming soon!')">
+      <div class="supp-header">
+        <div class="supp-icon">${s.icon}</div>
+        <div><h3>${s.name}</h3><p>${s.desc}</p></div>
+      </div>
+      <div class="rating-rows">
+        ${Object.entries(s.ratings).map(([k,v])=>`
+          <div class="rating-row">
+            <span class="rl">${k}</span>
+            <div class="rating-bar-bg"><div class="rating-fill" style="width:${v}%"></div></div>
+            <span class="rv">${v}</span>
+          </div>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ════════════════════════════════════
+   MEAL PLANS DATA
+════════════════════════════════════ */
+const MEALS=[
+  {icon:'🥗',name:'Indian Vegetarian High Protein',desc:'Dal, paneer, soya, sprouts — hitting 100g+ protein daily.',cal:'1,800',pro:'105g',carbs:'200g',fat:'55g',cost:'₹250/day'},
+  {icon:'🌱',name:'Indian Vegan Plan',desc:'100% plant-based. B12 and omega-3 supplementation built in.',cal:'1,700',pro:'85g',carbs:'220g',fat:'48g',cost:'₹200/day'},
+  {icon:'🔥',name:'Weight Loss Plan',desc:'Calorie deficit with high satiety foods. No crash dieting.',cal:'1,400',pro:'110g',carbs:'140g',fat:'45g',cost:'₹220/day'},
+  {icon:'💪',name:'Muscle Gain Plan',desc:'Calorie surplus with anabolic meal timing and protein loading.',cal:'2,800',pro:'150g',carbs:'330g',fat:'80g',cost:'₹350/day'},
+  {icon:'🩺',name:'Diabetes-Friendly Indian',desc:'Low GI foods, controlled carbs, balanced meals every 3 hours.',cal:'1,600',pro:'90g',carbs:'160g',fat:'55g',cost:'₹240/day'},
+  {icon:'💰',name:'Student Budget Plan',desc:'Under ₹150/day. Dal, eggs, curd, oats. Maximise nutrition per rupee.',cal:'1,800',pro:'80g',carbs:'220g',fat:'55g',cost:'₹140/day'},
+  {icon:'❤️',name:'Heart Healthy Plan',desc:'Low saturated fat, high fibre, omega-3 rich. DASH diet adapted for India.',cal:'1,900',pro:'88g',carbs:'250g',fat:'58g',cost:'₹280/day'},
+  {icon:'👴',name:'Senior Citizen Plan',desc:'Easy to digest, high calcium, vitamin D, B12. Joint-friendly.',cal:'1,600',pro:'90g',carbs:'190g',fat:'52g',cost:'₹260/day'},
+];
+function renderMeals(){
+  const g=document.getElementById('meal-grid');if(!g)return;
+  g.innerHTML=MEALS.map(m=>`
+    <div class="mp-card" onclick="showToast('Full ${m.name} plan with shopping list — coming soon!')">
+      <div class="mp-header">
+        <div class="mp-icon">${m.icon}</div>
+        <div><h3>${m.name}</h3><p>${m.desc}</p></div>
+      </div>
+      <div class="mp-stats">
+        <div class="mp-stat"><div class="msv">${m.cal}</div><div class="msl">Calories</div></div>
+        <div class="mp-stat"><div class="msv">${m.pro}</div><div class="msl">Protein</div></div>
+        <div class="mp-stat"><div class="msv">${m.carbs}</div><div class="msl">Carbs</div></div>
+        <div class="mp-stat"><div class="msv">${m.cost}</div><div class="msl">Est. Cost</div></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ════════════════════════════════════
+   CALCULATORS LOGIC
+════════════════════════════════════ */
+function fmt(n){return Math.round(n).toLocaleString('en-IN');}
+function calcTDEE(){
+  const age=+document.getElementById('tdee-age').value;
+  const wt=+document.getElementById('tdee-wt').value;
+  const ht=+document.getElementById('tdee-ht').value;
+  const sex=document.getElementById('tdee-sex').value;
+  const act=+document.getElementById('tdee-act').value;
+  document.getElementById('tdee-age-v').textContent=age+' years';
+  document.getElementById('tdee-wt-v').textContent=wt+' kg';
+  document.getElementById('tdee-ht-v').textContent=ht+' cm';
+  let bmr=sex==='m'
+    ?(10*wt)+(6.25*ht)-(5*age)+5
+    :(10*wt)+(6.25*ht)-(5*age)-161;
+  const tdee=bmr*act;
+  const bmi=(wt/((ht/100)**2)).toFixed(1);
+  document.getElementById('tdee-result').textContent=fmt(tdee);
+  document.getElementById('bmr-r').textContent=fmt(bmr)+' kcal';
+  document.getElementById('loss-r').textContent=fmt(tdee-500)+' kcal';
+  document.getElementById('gain-r').textContent=fmt(tdee+300)+' kcal';
+  document.getElementById('bmi-r').textContent=bmi;
+}
+function calcProtein(){
+  const wt=+document.getElementById('pro-wt').value;
+  const goal=+document.getElementById('pro-goal').value;
+  const diet=+document.getElementById('pro-diet').value;
+  document.getElementById('pro-wt-v').textContent=wt+' kg';
+  const pro=Math.round(wt*goal*diet);
+  document.getElementById('pro-result').textContent=pro;
+  document.getElementById('pro-meal').textContent=Math.round(pro/4)+'g';
+  const fromFood=Math.round(pro*0.7);
+  document.getElementById('pro-food').textContent=fromFood+'g';
+  document.getElementById('pro-supp').textContent='~'+(pro-fromFood)+'g';
+  document.getElementById('pro-paneer').textContent='~'+(Math.round((pro/18.3)*100))+'g';
+}
+function calcBMI(){
+  const wt=+document.getElementById('bmi-wt').value;
+  const ht=+document.getElementById('bmi-ht').value;
+  document.getElementById('bmi-wt-v').textContent=wt+' kg';
+  document.getElementById('bmi-ht-v').textContent=ht+' cm';
+  const bmi=(wt/((ht/100)**2)).toFixed(1);
+  document.getElementById('bmi-result').textContent=bmi;
+  const cat=bmi<18.5?'Underweight':bmi<25?'Normal weight':bmi<30?'Overweight':'Obese';
+  document.getElementById('bmi-cat').textContent=cat;
+}
+function calcWater(){
+  const wt=+document.getElementById('wat-wt').value;
+  const act=+document.getElementById('wat-act').value;
+  const clim=+document.getElementById('wat-clim').value;
+  document.getElementById('wat-wt-v').textContent=wt+' kg';
+  const base=wt*0.035;
+  const total=(base*act*clim).toFixed(1);
+  document.getElementById('wat-result').textContent=total;
+  document.getElementById('wat-glass').textContent='~'+Math.round(total/0.25)+' glasses';
+  document.getElementById('wat-min').textContent=(base*0.9).toFixed(1)+' L';
+  const fromFood=(total*0.2).toFixed(1);
+  document.getElementById('wat-food').textContent=fromFood+' L';
+  document.getElementById('wat-drinks').textContent=(total-fromFood).toFixed(1)+' L';
+}
+function calcMacro(){
+  const cal=+document.getElementById('mac-cal').value;
+  const type=document.getElementById('mac-type').value;
+  document.getElementById('mac-cal-v').textContent=cal.toLocaleString('en-IN')+' kcal';
+  const splits={balanced:[.30,.40,.30],highpro:[.40,.30,.30],lowcarb:[.35,.20,.45],veg:[.25,.50,.25]};
+  const [pp,cp,fp]=splits[type];
+  const pro=Math.round((cal*pp)/4);
+  const carb=Math.round((cal*cp)/4);
+  const fat=Math.round((cal*fp)/9);
+  const fibre=Math.round(cal/50);
+  document.getElementById('mac-main').textContent=pro+'g / '+carb+'g / '+fat+'g';
+  document.getElementById('mac-pro').textContent=pro+'g ('+Math.round(pp*100)+'%)';
+  document.getElementById('mac-carb').textContent=carb+'g ('+Math.round(cp*100)+'%)';
+  document.getElementById('mac-fat').textContent=fat+'g ('+Math.round(fp*100)+'%)';
+  document.getElementById('mac-fibre').textContent='~'+fibre+'g';
+}
+function showCalc(id,btn){
+  document.querySelectorAll('.calc-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('calc-'+id).classList.add('active');
+  btn.classList.add('active');
+  // recalc
+  if(id==='tdee') calcTDEE();
+  else if(id==='protein') calcProtein();
+  else if(id==='bmi') calcBMI();
+  else if(id==='water') calcWater();
+  else if(id==='macro') calcMacro();
+}
+
+/* ════════════════════════════════════
+   DEFICIENCY CHECKER
+════════════════════════════════════ */
+const SYMPTOMS=[
+  {id:'fatigue',icon:'😴',label:'Fatigue / Low Energy'},
+  {id:'hairloss',icon:'💇',label:'Hair Loss / Thinning'},
+  {id:'brainfog',icon:'🧠',label:'Brain Fog / Poor Focus'},
+  {id:'immunity',icon:'🤧',label:'Frequent Infections'},
+  {id:'weakness',icon:'🦾',label:'Muscle Weakness'},
+  {id:'cramps',icon:'⚡',label:'Muscle Cramps'},
+  {id:'recovery',icon:'🏥',label:'Poor Recovery'},
+  {id:'mood',icon:'😔',label:'Mood Changes / Low Mood'},
+  {id:'sleep',icon:'🌙',label:'Poor Sleep Quality'},
+  {id:'skin',icon:'🩹',label:'Dry Skin / Rashes'},
+  {id:'bone',icon:'🦴',label:'Bone Pain / Aches'},
+  {id:'nails',icon:'💅',label:'Brittle Nails'},
+];
+const DEFICIENCY_MAP={
+  fatigue:['Iron','Vitamin B12','Vitamin D','Magnesium'],
+  hairloss:['Iron','Zinc','Biotin (B7)','Protein'],
+  brainfog:['Vitamin B12','Iron','Omega-3','Vitamin D'],
+  immunity:['Vitamin C','Zinc','Vitamin D','Selenium'],
+  weakness:['Vitamin D','Magnesium','Iron','Protein'],
+  cramps:['Magnesium','Potassium','Calcium','Sodium'],
+  recovery:['Protein','Vitamin D','Zinc','Omega-3'],
+  mood:['Vitamin D','Vitamin B12','Omega-3','Magnesium'],
+  sleep:['Magnesium','Vitamin D','Tryptophan','Calcium'],
+  skin:['Vitamin E','Zinc','Vitamin A','Biotin (B7)'],
+  bone:['Vitamin D','Calcium','Magnesium','Vitamin K2'],
+  nails:['Iron','Biotin (B7)','Zinc','Protein'],
+};
+const DEF_INFO={
+  'Iron':{foods:['Toor Dal','Moong Dal','Spinach','Ragi','Dates'],test:'Serum Ferritin + CBC + Iron Panel',tip:'Pair iron-rich foods with vitamin C. Avoid tea/coffee with meals.'},
+  'Vitamin B12':{foods:['Curd','Paneer','Eggs','Milk','Fortified foods'],test:'Serum Vitamin B12 (target >300 pg/mL)',tip:'Almost exclusively in animal products. Vegetarians need supplementation or fortified foods.'},
+  'Vitamin D':{foods:['Sunlight (primary)','Fortified milk','Eggs','Fatty fish'],test:'25-OH Vitamin D (target 40–80 ng/mL)',tip:'Most Indians are severely deficient. Get 15–30 min sunlight daily. Supplement 1000–2000 IU/day.'},
+  'Magnesium':{foods:['Almonds','Moong Dal','Spinach','Pumpkin Seeds','Dark Chocolate'],test:'Serum Magnesium (not very sensitive)',tip:'Whole foods diet usually sufficient. Stress, alcohol and excess coffee deplete magnesium.'},
+  'Zinc':{foods:['Pumpkin Seeds','Sesame','Cashews','Dal','Rajma'],test:'Serum Zinc',tip:'Plant zinc is less bioavailable than animal sources. Soaking and sprouting legumes improves absorption.'},
+  'Protein':{foods:['Dal','Paneer','Curd','Eggs','Soya','Chicken'],test:'Serum albumin (indirect marker)',tip:'Most Indians eat under 40g protein/day vs the 60–80g minimum recommended.'},
+  'Calcium':{foods:['Milk','Paneer','Curd','Ragi','Sesame Seeds'],test:'Serum Calcium + PTH + Vitamin D',tip:'Absorption requires vitamin D. Spinach calcium is poorly absorbed due to oxalates.'},
+  'Vitamin C':{foods:['Amla (highest!)','Guava','Lemon','Bell Peppers','Kiwi'],test:'Rarely tested — assess via diet',tip:'Destroyed by heat. Eat some raw fruits/vegetables daily. Enhances iron absorption significantly.'},
+  'Omega-3':{foods:['Flaxseed','Chia Seeds','Walnuts','Fatty Fish'],test:'Omega-3 index (specialized)',tip:'ALA from plants converts poorly to EPA/DHA. Vegetarians may consider algae-based omega-3.'},
+  'Vitamin E':{foods:['Almonds','Sunflower Seeds','Wheat Germ Oil','Spinach'],test:'Serum Vitamin E (alpha-tocopherol)',tip:'Fat-soluble — absorb better with fat in the meal. Deficiency rare in healthy adults.'},
+  'Vitamin A':{foods:['Carrots','Sweet Potato','Mango','Papaya','Spinach'],test:'Serum Retinol',tip:'Beta-carotene from plants converts to vitamin A. Fat improves absorption.'},
+  'Selenium':{foods:['Brazil Nuts (just 1–2!)','Sunflower Seeds','Chicken','Eggs'],test:'Serum Selenium',tip:'Brazil nuts are the richest source — just 1–2 daily meets needs. Indian soils are selenium-poor.'},
+  'Potassium':{foods:['Banana','Coconut Water','Dal','Potato','Spinach'],test:'Serum Electrolytes panel',tip:'Rarely deficient in people eating whole foods. Excess sweat loss can reduce levels.'},
+  'Biotin (B7)':{foods:['Eggs','Almonds','Peanuts','Curd'],test:'Serum Biotin',tip:'Raw egg whites block biotin absorption. Cooking eggs fixes this. True deficiency is rare.'},
+  'Vitamin K2':{foods:['Natto (rare in India)','Hard cheese','Egg yolks','Some fermented foods'],test:'No standard clinical test',tip:'K2 directs calcium to bones. Under-researched in Indian context. May need supplementation if dairy-free.'},
+  'Tryptophan':{foods:['Milk','Eggs','Soya','Dal','Almonds'],test:'Assess via diet history',tip:'Precursor to serotonin and melatonin. Carbohydrates improve tryptophan uptake in the brain.'},
+  'Sodium':{foods:['Table salt','Pickle','Buttermilk','Papad'],test:'Serum Sodium / Electrolytes',tip:'Excess is more common than deficiency in India. Hyponatremia (low sodium) can occur with excessive water intake or excess sweating.'},
+};
+
+function renderSymptoms(){
+  const g=document.getElementById('symptom-grid');if(!g)return;
+  g.innerHTML=SYMPTOMS.map(s=>`
+    <div class="sym-btn" id="sym-${s.id}" onclick="toggleSym('${s.id}')">
+      <span class="si">${s.icon}</span>
+      <span>${s.label}</span>
+    </div>
+  `).join('');
+}
+function toggleSym(id){
+  document.getElementById('sym-'+id).classList.toggle('sel');
+}
+function checkDeficiency(){
+  const selected=SYMPTOMS.filter(s=>document.getElementById('sym-'+s.id).classList.contains('sel')).map(s=>s.id);
+  if(!selected.length){showToast('Please select at least one symptom');return;}
+  const counts={};
+  selected.forEach(sym=>{
+    (DEFICIENCY_MAP[sym]||[]).forEach(def=>{counts[def]=(counts[def]||0)+1;});
+  });
+  const sorted=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const grid=document.getElementById('def-grid');
+  grid.innerHTML=sorted.map(([def,score])=>{
+    const info=DEF_INFO[def]||{foods:[],test:'Consult your doctor',tip:''};
+    return`<div class="def-card">
+      <h4>${def}</h4>
+      <p style="margin-bottom:8px;font-size:.78rem;color:var(--mid);">Matched ${score} of your ${selected.length} symptom(s).</p>
+      <p style="font-size:.8rem;color:var(--mid);margin-bottom:10px;"><strong>Suggested test:</strong> ${info.test}</p>
+      <p style="font-size:.79rem;color:var(--mid);margin-bottom:10px;">💡 ${info.tip}</p>
+      <div class="def-foods">${info.foods.map(f=>`<span class="def-food-tag">${f}</span>`).join('')}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('def-result').classList.add('show');
+  document.getElementById('def-result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ════════════════════════════════════
+   BLOOD TESTS DATA
+════════════════════════════════════ */
+const BLOOD_TESTS=[
+  {name:'Vitamin D (25-OH)',sub:'Bone, immunity, mood, hormones',low:'0',high:'150',normStart:33,normEnd:80,markerPct:40,unit:'ng/mL',why:'Over 70% of Indians are deficient. Impacts bones, immunity, mood, hormones and muscle function.',nutrition:'Supplement 1000–2000 IU/day if below 30. Fatty fish, egg yolks, fortified milk help but rarely sufficient alone.'},
+  {name:'Vitamin B12',sub:'Nerve function, red blood cells, DNA',low:'0',high:'1000',normStart:25,normEnd:80,markerPct:30,unit:'pg/mL',why:'Deficiency extremely common in vegetarians. Causes irreversible nerve damage if untreated long-term.',nutrition:'Animal foods only (dairy, eggs, meat). Vegetarians: supplement methylcobalamin 500–1000 mcg daily.'},
+  {name:'Ferritin (Iron Stores)',sub:'Iron storage, fatigue, hair health',low:'0',high:'300',normStart:15,normEnd:55,markerPct:22,unit:'ng/mL',why:'Low ferritin causes fatigue, brain fog and hair loss even before anaemia develops. Very common in Indian women.',nutrition:'Increase heme iron (meat) or non-heme + vitamin C (dal + lemon). Avoid tea/coffee with meals.'},
+  {name:'HbA1c',sub:'Average blood sugar over 3 months',low:'4',high:'12',normStart:10,normEnd:40,markerPct:18,unit:'%',why:'India has the second-highest number of diabetics globally. Early detection is critical.',nutrition:'Reduce refined carbs, increase protein and fiber, time carbohydrate intake around activity.'},
+  {name:'TSH (Thyroid)',sub:'Thyroid function — metabolism, energy',low:'0',high:'10',normStart:10,normEnd:45,markerPct:25,unit:'mIU/L',why:'Thyroid issues are very common in India, especially hypothyroidism in women. Impacts weight and energy.',nutrition:'Iodine (iodised salt), selenium (Brazil nuts, sunflower seeds). Avoid excess raw goitrogenic foods.'},
+  {name:'Lipid Profile (Total Cholesterol)',sub:'Cardiovascular disease risk',low:'100',high:'350',normStart:20,normEnd:55,markerPct:35,unit:'mg/dL',why:'Cardiovascular disease is India\'s leading killer. Indians have unique lipid patterns with high triglycerides.',nutrition:'Reduce trans fats and refined carbs. Increase omega-3 (flaxseed, fish oil), fiber (oats), and plant sterols.'},
+  {name:'CBC (Haemoglobin)',sub:'Anaemia, oxygen carrying capacity',low:'0',high:'20',normStart:35,normEnd:70,markerPct:45,unit:'g/dL',why:'India has the highest burden of anaemia globally. Affects energy, cognition and immunity.',nutrition:'Iron-rich foods with vitamin C. Folate and B12 also needed for red blood cell formation.'},
+  {name:'Serum Magnesium',sub:'Muscle, nerve, enzyme function',low:'0',high:'4',normStart:25,normEnd:60,markerPct:35,unit:'mg/dL',why:'Most people eating processed foods are mildly deficient. Impacts sleep, stress response, and 300+ enzyme reactions.',nutrition:'Almonds, dark chocolate, spinach, moong dal, pumpkin seeds. Supplement magnesium glycinate if needed.'},
+  {name:'Zinc',sub:'Immunity, wound healing, testosterone',low:'0',high:'150',normStart:25,normEnd:55,markerPct:38,unit:'μg/dL',why:'Commonly deficient in vegetarians. Critical for immunity, wound healing and reproductive health.',nutrition:'Pumpkin seeds, sesame, cashews, rajma. Phytates in plants reduce absorption — sprout/soak legumes.'},
+  {name:'Vitamin B9 (Folate)',sub:'DNA synthesis, neural tube, red blood cells',low:'0',high:'25',normStart:30,normEnd:70,markerPct:20,unit:'ng/mL',why:'Critical for pregnant women. Also important for DNA synthesis and cardiovascular health.',nutrition:'Moong dal (richest Indian source!), leafy greens, legumes. Heat destroys folate — eat some raw greens.'},
+  {name:'Liver Function (ALT)',sub:'Liver health and fat metabolism',low:'0',high:'100',normStart:10,normEnd:35,markerPct:20,unit:'U/L',why:'Non-alcoholic fatty liver disease is epidemic in India. Often silent until advanced.',nutrition:'Reduce refined carbs and sugar. Increase cruciferous vegetables. Limit alcohol. Curcumin shows promise.'},
+  {name:'Kidney Function (Creatinine)',sub:'Kidney filtration efficiency',low:'0',high:'3',normStart:17,normEnd:50,markerPct:28,unit:'mg/dL',why:'Rising creatinine indicates decreasing kidney function. High protein diets are safe for healthy kidneys.',nutrition:'Stay well-hydrated. Reduce sodium. Potassium management important if kidneys are already stressed.'},
+];
+function renderBloodTests(){
+  const g=document.getElementById('blood-grid');if(!g)return;
+  g.innerHTML=BLOOD_TESTS.map(t=>`
+    <div class="blood-card" onclick="showToast('${t.name}: ${t.nutrition}')">
+      <h3>${t.name}</h3>
+      <p class="bc-sub">${t.sub}</p>
+      <div class="range-bar">
+        <div class="range-normal" style="left:${t.normStart}%;width:${t.normEnd-t.normStart}%"></div>
+        <div class="range-marker" style="left:${t.markerPct}%"></div>
+      </div>
+      <div class="range-labels"><span>Low</span><span>Normal range</span><span>High</span></div>
+      <p style="font-size:.78rem;color:var(--mid);margin-top:12px;">${t.why}</p>
+    </div>
+  `).join('');
+}
+
+/* ════════════════════════════════════
+   RESEARCH DATA
+════════════════════════════════════ */
+const RESEARCH=[
+  {tag:'Protein',quality:'high',qLabel:'High Quality',title:'Protein Intake and Muscle Hypertrophy: Dose-Response Meta-Analysis',summary:'1.6g/kg body weight is the threshold for maximising muscle protein synthesis. Going above 2.2g/kg shows diminishing returns.',design:'Meta-analysis of 49 RCTs',n:'1,800+',practical:'Aim for 1.6–2.0g/kg. Distribution across 4+ meals matters as much as total intake.',year:'2018',journal:'British Journal of Sports Medicine'},
+  {tag:'Supplements',quality:'high',qLabel:'High Quality',title:'Creatine Monohydrate Supplementation and Athletic Performance',summary:'Creatine is the most evidence-backed performance supplement. 5g/day improves strength, power and high-intensity performance consistently.',design:'Systematic review of 150+ RCTs',n:'Multiple',practical:'5g/day is sufficient. No loading phase required. Safe for long-term use in healthy individuals.',year:'2021',journal:'Journal of the International Society of Sports Nutrition'},
+  {tag:'Deficiency',quality:'high',qLabel:'High Quality',title:'Vitamin D Deficiency in India: A Systematic Review',summary:'Over 70% of urban Indians have vitamin D levels below 20 ng/mL despite abundant sunlight. Indoor lifestyles, darker skin and clothing are key factors.',design:'Systematic review of Indian population studies',n:'9,000+',practical:'Supplementation of 1000–2000 IU/day recommended for most Indians. Test annually.',year:'2019',journal:'Indian Journal of Endocrinology and Metabolism'},
+  {tag:'Heart Disease',quality:'med',qLabel:'Moderate',title:'Omega-3 Fatty Acids and Cardiovascular Outcomes',summary:'EPA+DHA at 1–4g/day reduces triglycerides significantly. Evidence for heart attack prevention is modest in recent trials.',design:'Multiple RCTs and meta-analyses',n:'70,000+',practical:'1g EPA+DHA daily for general health. Higher doses (2–4g) for elevated triglycerides under medical supervision.',year:'2020',journal:'NEJM'},
+  {tag:'Gut Health',quality:'med',qLabel:'Moderate',title:'Dietary Fiber and Gut Microbiome Diversity',summary:'Higher dietary fiber intake is consistently associated with greater gut microbiome diversity and better metabolic health outcomes.',design:'Observational + RCT evidence',n:'Multiple',practical:'Target 25–35g fiber/day. Variety matters — include legumes, vegetables, fruits and whole grains.',year:'2022',journal:'Cell Host & Microbe'},
+  {tag:'Diabetes',quality:'high',qLabel:'High Quality',title:'Glycemic Index and Type 2 Diabetes Risk in Indian Populations',summary:'South Asians have higher insulin resistance at lower BMI than Europeans. Low-GI dietary patterns show significant risk reduction.',design:'Prospective cohort + RCT',n:'12,000+',practical:'Replace white rice with brown rice, millets (bajra, jowar), and legumes. Space carbohydrates across meals.',year:'2023',journal:'Diabetes Care'},
+];
+function renderResearch(){
+  const g=document.getElementById('research-grid');if(!g)return;
+  g.innerHTML=RESEARCH.map(r=>`
+    <div class="research-card" onclick="showToast('Full summary for: ${r.title.substring(0,40)}... — coming soon!')">
+      <div class="rc-meta">
+        <span class="tag ${r.quality==='high'?'tg-green':r.quality==='med'?'tg-gold':'tg-amber'}">${r.tag}</span>
+        <span class="rc-quality ${r.quality==='high'?'rq-high':r.quality==='med'?'rq-med':'rq-low'}">
+          ${r.quality==='high'?'★★★':r.quality==='med'?'★★☆':'★☆☆'} ${r.qLabel}
+        </span>
+      </div>
+      <h3>${r.title}</h3>
+      <p>${r.summary}</p>
+      <div style="margin-top:12px;padding:12px;background:var(--paper);border-radius:var(--r-sm);font-size:.78rem;color:var(--mid);">
+        <strong>Practical takeaway:</strong> ${r.practical}
+      </div>
+      <div class="rc-foot">
+        <span>n = ${r.n} · ${r.design}</span>
+        <span>${r.journal} · ${r.year}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ════════════════════════════════════
+   INIT
+════════════════════════════════════ */
+window.addEventListener('load',()=>{
+  renderFoods();
+  renderSupplements();
+  renderMeals();
+  renderSymptoms();
+  renderBloodTests();
+  renderResearch();
+  calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();
+  initReveal();
+});
+</script>
+</body>
+</html>
