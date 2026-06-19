@@ -1652,7 +1652,7 @@ function calcMacro(){
   const type=document.getElementById('mac-type').value;
   document.getElementById('mac-cal-v').textContent=cal.toLocaleString('en-IN')+' kcal';
   const splits={balanced:[.30,.40,.30],highpro:[.40,.30,.30],lowcarb:[.35,.20,.45],veg:[.25,.50,.25]};
-  const [pp,cp,fp]=splits[type];
+  const [pp,cp,fp]=splits[type] || splits['balanced'];
   const pro=Math.round((cal*pp)/4);
   const carb=Math.round((cal*cp)/4);
   const fat=Math.round((cal*fp)/9);
@@ -1843,17 +1843,17 @@ async function loadFoods() {
     ALL_FOODS = data.foods || [];
     ORBITAL_FOODS = data.foods || [];
     
-    // Show first food in hero
+    // Update hero display
     if (ORBITAL_FOODS.length > 0) {
       orbitalDisplay(ORBITAL_FOODS[0]);
     }
     
-    // Render food database grid
+    // Update food database grid if on that page
     renderFoods();
     
-    console.log('Loaded', ORBITAL_FOODS.length, 'foods');
   } catch (error) {
     console.error('Error loading foods:', error);
+    // Keep empty arrays, site still works
     ALL_FOODS = [];
     ORBITAL_FOODS = [];
   }
@@ -2005,10 +2005,16 @@ function filterFoods(){
 }
 
 function openFood(id){
-  const f=ALL_FOODS.find(x=>x.id===id);if(!f)return;
+  const f=ALL_FOODS.find(x=>x.id===id);
+  if(!f){
+    console.error('Food not found:', id);
+    return;
+  }
+  
   document.getElementById('md-name').textContent=f.name;
   document.getElementById('md-local').textContent=f.local+' · GI: '+(f.gi||'N/A');
   document.getElementById('md-bio').textContent=f.bio || 'Bioavailability information coming soon.';
+  
   document.getElementById('md-macros').innerHTML=
     `<div class="fm-item" style="background:var(--paper);border-radius:12px;padding:14px;text-align:center;">
        <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.cal}</div>
@@ -2027,7 +2033,7 @@ function openFood(id){
        <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">Fat</div>
      </div>`;
   
-  // Build nutrient table
+  // Build simple nutrient table
   const nutrients = {
     'Protein': f.pro + 'g',
     'Carbohydrates': f.carb + 'g',
@@ -2037,19 +2043,20 @@ function openFood(id){
   };
   
   const tbody=document.querySelector('#md-table tbody');
-  tbody.innerHTML=Object.entries(nutrients).map(([k,v])=>{
-    return`<tr>
-      <td>${k}</td>
-      <td><strong>${v}</strong></td>
-      <td>—</td>
-      <td><div class="nt-bar"><div class="nt-fill" style="width:0%"></div></div></td>
-    </tr>`;
-  }).join('');
+  if(tbody){
+    tbody.innerHTML=Object.entries(nutrients).map(([k,v])=>{
+      return`<tr>
+        <td>${k}</td>
+        <td><strong>${v}</strong></td>
+        <td>—</td>
+        <td><div class="nt-bar"><div class="nt-fill" style="width:0%"></div></div></td>
+      </tr>`;
+    }).join('');
+  }
   
   document.getElementById('food-modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
-
 function closeModal(e){
   if(!e||e.target===document.getElementById('food-modal')||e===undefined){
     document.getElementById('food-modal').classList.remove('open');
@@ -2059,17 +2066,21 @@ function closeModal(e){
 /* ════════════════════════════════════
    INIT
 ════════════════════════════════════ */
-window.addEventListener('load', async () => {
-  // Load foods FIRST (wait for it)
-  await loadFoods();
+window.addEventListener('load',()=>{
+  // Load foods first (async, but don't block)
+  loadFoods();
   
-  // Then load everything else
+  // These run immediately - don't wait for foods
   renderSupplements();
   renderMeals();
   renderSymptoms();
   renderBloodTests();
   renderResearch();
-  calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();
+  calcTDEE();
+  calcProtein();
+  calcBMI();
+  calcWater();
+  calcMacro();
   initReveal();
 });
 </script>
