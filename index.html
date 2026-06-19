@@ -1838,29 +1838,26 @@ let ORBITAL_FOODS = [];
 async function loadFoods() {
   try {
     const response = await fetch('./foods.json');
-    if (!response.ok) {
-      throw new Error('foods.json not found');
-    }
+    if (!response.ok) throw new Error('Not found');
     const data = await response.json();
     ALL_FOODS = data.foods || [];
     ORBITAL_FOODS = data.foods || [];
     
+    // Show first food in hero
     if (ORBITAL_FOODS.length > 0) {
       orbitalDisplay(ORBITAL_FOODS[0]);
     }
+    
+    // Render food database grid
     renderFoods();
+    
+    console.log('Loaded', ORBITAL_FOODS.length, 'foods');
   } catch (error) {
     console.error('Error loading foods:', error);
     ALL_FOODS = [];
     ORBITAL_FOODS = [];
-    // Show empty state
-    const grid = document.getElementById('food-grid');
-    if (grid) {
-      grid.innerHTML = '<p style="color:var(--mid);padding:20px;">Food database loading...</p>';
-    }
   }
 }
-
 /* ════════════════════════════════════
    ORBITAL FOOD EXPLORER
 ════════════════════════════════════ */
@@ -2062,26 +2059,18 @@ function closeModal(e){
 /* ════════════════════════════════════
    INIT
 ════════════════════════════════════ */
-window.addEventListener('load',()=>{
-  // Load foods first, then everything else
-  loadFoods().then(() => {
-    renderSupplements();
-    renderMeals();
-    renderSymptoms();
-    renderBloodTests();
-    renderResearch();
-    calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();
-    initReveal();
-  }).catch(() => {
-    // Even if foods fail, load everything else
-    renderSupplements();
-    renderMeals();
-    renderSymptoms();
-    renderBloodTests();
-    renderResearch();
-    calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();
-    initReveal();
-  });
+window.addEventListener('load', async () => {
+  // Load foods FIRST (wait for it)
+  await loadFoods();
+  
+  // Then load everything else
+  renderSupplements();
+  renderMeals();
+  renderSymptoms();
+  renderBloodTests();
+  renderResearch();
+  calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();
+  initReveal();
 });
 </script>
 </body>
