@@ -891,12 +891,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
             <div class="oqs-item"><div class="oqs-bar"><div class="oqs-fill" id="fatBar" style="width:31%"></div></div><span>Fat</span></div>
           </div>
         </div>
-        <div class="food-orbit" id="foodOrbit">
-          <div class="orbit-item" style="--delay:0s;--angle:0deg;"><span>🫘</span></div>
-          <div class="orbit-item" style="--delay:1.5s;--angle:90deg;"><span>🍚</span></div>
-          <div class="orbit-item" style="--delay:3s;--angle:180deg;"><span>🥬</span></div>
-         <div class="orbit-item" style="--delay:4.5s;--angle:270deg;"><span>🥜</span></div>
-        </div>
+       
       </div>
   </header>
 
@@ -1009,21 +1004,17 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
         <input type="text" placeholder="Search for dal, paneer, roti, chicken..." id="food-search" oninput="filterFoods()"/>
         <button onclick="filterFoods()">Search</button>
       </div>
-      <div class="food-cats" id="food-cats">
-        <button class="food-cat-btn active" onclick="setFoodCat('all',this)">All Foods</button>
-        <button class="food-cat-btn" onclick="setFoodCat('pulses',this)">🫘 Pulses & Legumes</button>
-        <button class="food-cat-btn" onclick="setFoodCat('dairy',this)">🥛 Dairy</button>
-        <button class="food-cat-btn" onclick="setFoodCat('grains',this)">🌾 Grains</button>
-        <button class="food-cat-btn" onclick="setFoodCat('vegetables',this)">🥬 Vegetables</button>
-        <button class="food-cat-btn" onclick="setFoodCat('fruits',this)">🍎 Fruits</button>
-        <button class="food-cat-btn" onclick="setFoodCat('protein',this)">🍗 Protein</button>
-        <button class="food-cat-btn" onclick="setFoodCat('nuts',this)">🥜 Nuts & Seeds</button>
-      </div>
-      <div class="food-grid" id="food-grid"></div>
-    </div>
-  </section>
+<div class="food-cats" id="food-cats">
+  <button class="food-cat-btn active" onclick="setFoodCat('all',this)">All Foods</button>
+  <button class="food-cat-btn" onclick="setFoodCat('dairy',this)">🥛 Dairy</button>
+  <button class="food-cat-btn" onclick="setFoodCat('soy',this)">🫘 Soy</button>
+  <button class="food-cat-btn" onclick="setFoodCat('pulses',this)">🫘 Pulses</button>
+  <button class="food-cat-btn" onclick="setFoodCat('nuts',this)">🥜 Nuts</button>
+  <button class="food-cat-btn" onclick="setFoodCat('seeds',this)">🌱 Seeds</button>
+  <button class="food-cat-btn" onclick="setFoodCat('grains',this)">🌾 Grains</button>
+  <button class="food-cat-btn" onclick="setFoodCat('spices',this)">🌿 Spices</button>
+  <button class="food-cat-btn" onclick="setFoodCat('powders',this)">💪 Powders</button>
 </div>
-
 <!-- Food Detail Modal -->
 <div class="modal-overlay" id="food-modal" onclick="closeModal(event)">
   <div class="modal-box">
@@ -1446,62 +1437,6 @@ function initReveal(){
   },60);
 }
 
-/* ════════════════════════════════════
-   FOOD DATABASE DATA
-════════════════════════════════════ */
-const FOODS=[
-  {id:1,name:'Toor Dal (Arhar Dal)',local:'अरहर दाल · Pigeon Pea',cat:'pulses',emoji:'🫘',bg:'#FFF3E0',
-   cal:343,pro:22.3,carb:57.6,fat:1.7,fiber:15,gi:22,
-   nutrients:{Protein:'22.3g',Carbohydrates:'57.6g','Total Fat':'1.7g',Fiber:'15g',Calories:'343 kcal',
-     Iron:'5.1mg','Vitamin B1':'0.45mg','Vitamin B9 (Folate)':'456μg',Calcium:'73mg',Phosphorus:'367mg',
-     Potassium:'981mg','Zinc':'2.8mg','Magnesium':'130mg'},
-   dvs:{Protein:45,Carbohydrates:19,Iron:28,'Vitamin B9 (Folate)':114,Calcium:7,Zinc:25,'Magnesium':31},
-   bio:'Iron absorption significantly enhanced by combining with vitamin C sources like lemon or amla. Phytates reduce mineral absorption — soaking and cooking improve it considerably.'},
-  {id:2,name:'Paneer (Cottage Cheese)',local:'पनीर · Indian Cottage Cheese',cat:'dairy',emoji:'🧀',bg:'#FFFDE7',
-   cal:265,pro:18.3,carb:3.4,fat:20.8,fiber:0,gi:27,
-   nutrients:{Protein:'18.3g',Carbohydrates:'3.4g','Total Fat':'20.8g','Saturated Fat':'13.4g',Fiber:'0g',Calories:'265 kcal',
-     Calcium:'480mg','Vitamin B12':'0.5μg',Phosphorus:'340mg','Vitamin A':'85μg',Zinc:'2.5mg'},
-   dvs:{Protein:37,Calcium:48,'Vitamin B12':21,Zinc:23},
-   bio:'Excellent protein source for vegetarians. Calcium highly bioavailable (~30% absorbed). Full-fat paneer provides fat-soluble vitamins A, D, E, K.'},
-  {id:3,name:'Brown Rice',local:'भूरा चावल · Whole Grain Rice',cat:'grains',emoji:'🍚',bg:'#F9FBE7',
-   cal:362,pro:7.9,carb:76.2,fat:2.7,fiber:3.5,gi:55,
-   nutrients:{Protein:'7.9g',Carbohydrates:'76.2g','Total Fat':'2.7g',Fiber:'3.5g',Calories:'362 kcal',
-     'Vitamin B1':'0.41mg','Vitamin B3':'4.3mg','Magnesium':'143mg',Phosphorus:'333mg',Zinc:'2.0mg',Selenium:'19.1μg'},
-   dvs:{Protein:16,'Vitamin B1':34,'Magnesium':34,Phosphorus:33},
-   bio:'Significantly more nutritious than white rice. Phytic acid in bran can bind minerals — soaking for 8 hours reduces this by ~50%.'},
-  {id:4,name:'Spinach (Palak)',local:'पालक · Spinach',cat:'vegetables',emoji:'🥬',bg:'#E8F5E9',
-   cal:23,pro:2.9,carb:3.6,fat:0.4,fiber:2.2,gi:15,
-   nutrients:{Protein:'2.9g',Carbohydrates:'3.6g','Total Fat':'0.4g',Fiber:'2.2g',Calories:'23 kcal',
-     'Vitamin K':'483μg','Vitamin A':'469μg','Vitamin C':'28mg','Vitamin B9 (Folate)':'194μg',Iron:'2.7mg',
-     Calcium:'99mg',Magnesium:'79mg',Potassium:'558mg'},
-   dvs:{'Vitamin K':403,'Vitamin A':52,'Vitamin C':31,'Vitamin B9 (Folate)':49,Iron:15,Calcium:10},
-   bio:'Iron is non-heme (plant type) — absorption ranges from 2–8%. Oxalates in spinach bind to calcium and iron, reducing absorption. Cooking reduces oxalates; pair with vitamin C.'},
-  {id:5,name:'Banana',local:'केला · Kela',cat:'fruits',emoji:'🍌',bg:'#FFFDE7',
-   cal:89,pro:1.1,carb:22.8,fat:0.3,fiber:2.6,gi:51,
-   nutrients:{Protein:'1.1g',Carbohydrates:'22.8g','Total Fat':'0.3g',Fiber:'2.6g',Calories:'89 kcal',
-     Potassium:'358mg','Vitamin B6':'0.37mg','Vitamin C':'8.7mg','Vitamin B9 (Folate)':'20μg',Magnesium:'27mg'},
-   dvs:{Potassium:8,'Vitamin B6':22,'Vitamin C':10,'Magnesium':6},
-   bio:'Excellent pre-workout carbohydrate source. Resistant starch in unripe bananas acts as prebiotic fiber. Potassium important for muscle function and blood pressure.'},
-  {id:6,name:'Chicken Breast',local:'चिकन ब्रेस्ट · Murgh',cat:'protein',emoji:'🍗',bg:'#FBE9E7',
-   cal:165,pro:31.0,carb:0,fat:3.6,fiber:0,gi:0,
-   nutrients:{Protein:'31.0g',Carbohydrates:'0g','Total Fat':'3.6g','Saturated Fat':'1.0g',Fiber:'0g',Calories:'165 kcal',
-     'Vitamin B3':'13.7mg','Vitamin B6':'0.9mg','Vitamin B12':'0.3μg','Phosphorus':'220mg',Selenium:'27.6μg',Zinc:'1.0mg'},
-   dvs:{Protein:62,'Vitamin B3':86,'Vitamin B6':53,Selenium:50},
-   bio:'Highest protein density among common Indian meats. Protein digestibility corrected amino acid score (PDCAAS) of 0.92 — excellent amino acid profile. Cook without skin for lowest fat.'},
-  {id:7,name:'Almonds (Badam)',local:'बादाम · Prunus dulcis',cat:'nuts',emoji:'🌰',bg:'#FFF8E1',
-   cal:579,pro:21.2,carb:21.6,fat:49.9,fiber:12.5,gi:0,
-   nutrients:{Protein:'21.2g',Carbohydrates:'21.6g','Total Fat':'49.9g','Monounsaturated Fat':'31.6g',Fiber:'12.5g',
-     Calories:'579 kcal','Vitamin E':'25.6mg','Magnesium':'270mg',Calcium:'264mg',Iron:'3.7mg',
-     Zinc:'3.1mg','Vitamin B2':'1.1mg',Phosphorus:'484mg'},
-   dvs:{'Vitamin E':170,'Magnesium':64,Calcium:26,Zinc:28},
-   bio:'Soaking overnight improves mineral absorption by deactivating phytase inhibitors. Skin contains antioxidants — do not always peel. Vitamin E highest among all nuts.'},
-  {id:8,name:'Moong Dal (Split Green Gram)',local:'मूंग दाल · Green Gram',cat:'pulses',emoji:'🫘',bg:'#F1F8E9',
-   cal:347,pro:24.5,carb:59.9,fat:1.2,fiber:16.3,gi:25,
-   nutrients:{Protein:'24.5g',Carbohydrates:'59.9g','Total Fat':'1.2g',Fiber:'16.3g',Calories:'347 kcal',
-     Iron:'6.7mg','Vitamin B9 (Folate)':'625μg','Vitamin B1':'0.62mg',Potassium:'1246mg',Magnesium:'189mg',Zinc:'2.7mg'},
-   dvs:{Protein:49,Iron:37,'Vitamin B9 (Folate)':156,'Magnesium':45,Zinc:25},
-   bio:'One of the most digestible dals. Sprouting increases vitamin C, reduces phytates dramatically. Excellent pre/post workout food for vegetarians.'},
-];
 
 /* ── Build Food Grid ─────────────────────────── */
 let activeFoodCat='all';
@@ -1894,32 +1829,35 @@ function renderResearch(){
   `).join('');
 }
 /* ════════════════════════════════════
-   ORBITAL FOOD EXPLORER — 21 FOODS
+   FOOD DATA FROM JSON
 ════════════════════════════════════ */
-const ORBITAL_FOODS = [
-  { name: "Paneer", local: "पनीर", cat: "Dairy", emoji: "🧀", protein: 18.3, carbs: 1.2, fat: 20.8, fiber: 0, calories: 265, gi: "—", bio: "High" },
-  { name: "Soy Chunks", local: "सोया चंक्स", cat: "Soy", emoji: "🫘", protein: 52.0, carbs: 33.0, fat: 0.5, fiber: 13.0, calories: 345, gi: "Low", bio: "High" },
-  { name: "Soybeans", local: "सोयाबीन", cat: "Soy", emoji: "🫘", protein: 36.5, carbs: 30.2, fat: 19.9, fiber: 9.3, calories: 446, gi: "Low", bio: "Moderate" },
-  { name: "Tempeh", local: "टेम्पेह", cat: "Soy", emoji: "🧈", protein: 20.3, carbs: 9.4, fat: 10.8, fiber: 1.4, calories: 193, gi: "Low", bio: "High" },
-  { name: "Tofu", local: "टोफू", cat: "Soy", emoji: "🧊", protein: 15.7, carbs: 3.9, fat: 8.7, fiber: 2.3, calories: 144, gi: "Low", bio: "High" },
-  { name: "Moong Dal", local: "मूंग दाल", cat: "Pulses", emoji: "🫘", protein: 24.0, carbs: 63.0, fat: 1.2, fiber: 16.0, calories: 347, gi: "Low", bio: "Moderate" },
-  { name: "Urad Dal", local: "उड़द दाल", cat: "Pulses", emoji: "🫘", protein: 25.0, carbs: 59.0, fat: 1.6, fiber: 18.0, calories: 341, gi: "Low", bio: "Moderate" },
-  { name: "Masoor Dal", local: "मसूर दाल", cat: "Pulses", emoji: "🫘", protein: 25.0, carbs: 60.0, fat: 1.1, fiber: 11.0, calories: 353, gi: "Low", bio: "Moderate" },
-  { name: "Toor Dal", local: "अरहर दाल", cat: "Pulses", emoji: "🫘", protein: 22.0, carbs: 63.0, fat: 1.7, fiber: 15.0, calories: 343, gi: "Low", bio: "Moderate" },
-  { name: "Chana Dal", local: "चना दाल", cat: "Pulses", emoji: "🫘", protein: 22.0, carbs: 61.0, fat: 6.0, fiber: 11.0, calories: 364, gi: "Low", bio: "Moderate" },
-  { name: "Chickpeas", local: "छोले", cat: "Pulses", emoji: "🍛", protein: 20.5, carbs: 63.0, fat: 6.0, fiber: 12.0, calories: 378, gi: "Low", bio: "Moderate" },
-  { name: "Rajma", local: "राजमा", cat: "Pulses", emoji: "🫘", protein: 24.0, carbs: 60.0, fat: 0.8, fiber: 25.0, calories: 333, gi: "Low", bio: "Moderate" },
-  { name: "Black Beans", local: "काले बीन्स", cat: "Pulses", emoji: "🫘", protein: 21.6, carbs: 63.0, fat: 0.9, fiber: 16.0, calories: 341, gi: "Low", bio: "Moderate" },
-  { name: "Peanuts", local: "मूंगफली", cat: "Nuts", emoji: "🥜", protein: 25.8, carbs: 16.1, fat: 49.2, fiber: 8.5, calories: 567, gi: "Low", bio: "Moderate" },
-  { name: "Almonds", local: "बादाम", cat: "Nuts", emoji: "🌰", protein: 21.2, carbs: 21.6, fat: 49.9, fiber: 12.5, calories: 579, gi: "Very Low", bio: "Moderate" },
-  { name: "Pistachios", local: "पिस्ता", cat: "Nuts", emoji: "🌰", protein: 20.2, carbs: 28.0, fat: 45.3, fiber: 10.6, calories: 562, gi: "Low", bio: "Moderate" },
-  { name: "Pumpkin Seeds", local: "कद्दू के बीज", cat: "Seeds", emoji: "🎃", protein: 30.2, carbs: 10.7, fat: 49.0, fiber: 6.0, calories: 559, gi: "Low", bio: "High" },
-  { name: "Hemp Seeds", local: "भांग के बीज", cat: "Seeds", emoji: "🌿", protein: 31.6, carbs: 8.7, fat: 48.8, fiber: 4.0, calories: 553, gi: "Low", bio: "High" },
-  { name: "Sunflower Seeds", local: "सूरजमुखी के बीज", cat: "Seeds", emoji: "🌻", protein: 20.8, carbs: 20.0, fat: 51.5, fiber: 8.6, calories: 584, gi: "Low", bio: "Moderate" },
-  { name: "Oats", local: "जई", cat: "Grains", emoji: "🌾", protein: 16.9, carbs: 66.3, fat: 6.9, fiber: 10.6, calories: 389, gi: "Low", bio: "Moderate" },
-  { name: "Quinoa", local: "किनोआ", cat: "Grains", emoji: "🌾", protein: 14.1, carbs: 64.2, fat: 6.1, fiber: 7.0, calories: 368, gi: "Low", bio: "Moderate" }
-];
+let ALL_FOODS = [];
+let ORBITAL_FOODS = [];
 
+// Load foods from JSON
+async function loadFoods() {
+  try {
+    const response = await fetch('foods.json');
+    const data = await response.json();
+    ALL_FOODS = data.foods;
+    ORBITAL_FOODS = data.foods;
+    
+    // Initialize displays
+    if (ORBITAL_FOODS.length > 0) {
+      orbitalDisplay(ORBITAL_FOODS[0]);
+    }
+    renderFoods();
+  } catch (error) {
+    console.error('Error loading foods:', error);
+    // Fallback to empty
+    ALL_FOODS = [];
+    ORBITAL_FOODS = [];
+  }
+}
+
+/* ════════════════════════════════════
+   ORBITAL FOOD EXPLORER
+════════════════════════════════════ */
 function setArc(id, value, max) {
   const arc = document.getElementById(id);
   if (!arc) return;
@@ -1933,23 +1871,23 @@ function orbitalDisplay(food) {
   document.getElementById('ofdEmoji').textContent = food.emoji;
   document.getElementById('ofdName').textContent = food.name;
   document.getElementById('ofdLocal').textContent = food.local;
-  document.getElementById('ofdCal').textContent = food.calories;
-  document.getElementById('proteinVal').textContent = food.protein;
-  document.getElementById('carbsVal').textContent = food.carbs;
+  document.getElementById('ofdCal').textContent = food.cal;
+  document.getElementById('proteinVal').textContent = food.pro;
+  document.getElementById('carbsVal').textContent = food.carb;
   document.getElementById('fatVal').textContent = food.fat;
-  document.getElementById('fiberVal').textContent = food.fiber;
+  document.getElementById('fiberVal').textContent = food.fiber || 0;
   document.getElementById('ofdGi').textContent = food.gi;
   document.getElementById('ofdBio').textContent = food.bio;
   document.getElementById('ofdCat').textContent = food.cat;
 
-  setArc('proteinArc', food.protein, 60);
-  setArc('carbsArc', food.carbs, 80);
+  setArc('proteinArc', food.pro, 60);
+  setArc('carbsArc', food.carb, 80);
   setArc('fatArc', food.fat, 60);
-  setArc('fiberArc', food.fiber, 30);
+  setArc('fiberArc', food.fiber || 0, 30);
 
-  const total = food.protein + food.carbs + food.fat + 0.1;
-  document.getElementById('proteinBar').style.width = Math.min((food.protein / total) * 100, 100) + '%';
-  document.getElementById('carbsBar').style.width = Math.min((food.carbs / total) * 100, 100) + '%';
+  const total = food.pro + food.carb + food.fat + 0.1;
+  document.getElementById('proteinBar').style.width = Math.min((food.pro / total) * 100, 100) + '%';
+  document.getElementById('carbsBar').style.width = Math.min((food.carb / total) * 100, 100) + '%';
   document.getElementById('fatBar').style.width = Math.min((food.fat / total) * 100, 100) + '%';
 }
 
@@ -2019,14 +1957,107 @@ document.getElementById('orbitalSearch').addEventListener('keydown', function(e)
   }
 });
 
-window.addEventListener('load', () => {
-  orbitalDisplay(ORBITAL_FOODS[0]);
-});
+/* ════════════════════════════════════
+   FOOD DATABASE PAGE
+════════════════════════════════════ */
+let activeFoodCat='all';
+let foodSearch='';
+
+function renderFoods(){
+  const grid=document.getElementById('food-grid');
+  if(!grid)return;
+  const filtered=ALL_FOODS.filter(f=>{
+    const matchCat=activeFoodCat==='all'||f.cat.toLowerCase()===activeFoodCat;
+    const matchQ=foodSearch===''||f.name.toLowerCase().includes(foodSearch)||f.local.toLowerCase().includes(foodSearch);
+    return matchCat&&matchQ;
+  });
+  grid.innerHTML=filtered.map(f=>`
+    <div class="food-card" onclick="openFood(${f.id})">
+      <div class="food-thumb" style="background:${f.bg}">${f.emoji}</div>
+      <div class="food-body">
+        <h3>${f.name}</h3>
+        <div class="food-local">${f.local}</div>
+        <div class="food-macros">
+          <div class="fm-item"><div class="fm-val">${f.cal}</div><div class="fm-lbl">kcal</div></div>
+          <div class="fm-item"><div class="fm-val">${f.pro}g</div><div class="fm-lbl">Protein</div></div>
+          <div class="fm-item"><div class="fm-val">${f.carb}g</div><div class="fm-lbl">Carbs</div></div>
+          <div class="fm-item"><div class="fm-val">GI ${f.gi||'—'}</div><div class="fm-lbl">Glyc. Index</div></div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  if(!filtered.length) grid.innerHTML='<p style="color:var(--mid);padding:20px;">No foods found. Try a different search term.</p>';
+}
+
+function setFoodCat(cat,btn){
+  activeFoodCat=cat;
+  document.querySelectorAll('.food-cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderFoods();
+}
+
+function filterFoods(){
+  foodSearch=document.getElementById('food-search').value.toLowerCase();
+  renderFoods();
+}
+
+function openFood(id){
+  const f=ALL_FOODS.find(x=>x.id===id);if(!f)return;
+  document.getElementById('md-name').textContent=f.name;
+  document.getElementById('md-local').textContent=f.local+' · GI: '+(f.gi||'N/A');
+  document.getElementById('md-bio').textContent=f.bio || 'Bioavailability information coming soon.';
+  document.getElementById('md-macros').innerHTML=
+    `<div class="fm-item" style="background:var(--paper);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.cal}</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">kcal</div>
+     </div>
+     <div class="fm-item" style="background:rgba(45,106,79,.1);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.pro}g</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">Protein</div>
+     </div>
+     <div class="fm-item" style="background:rgba(233,196,106,.15);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.carb}g</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">Carbs</div>
+     </div>
+     <div class="fm-item" style="background:rgba(244,162,97,.12);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.fat}g</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">Fat</div>
+     </div>`;
+  
+  // Build nutrient table
+  const nutrients = {
+    'Protein': f.pro + 'g',
+    'Carbohydrates': f.carb + 'g',
+    'Total Fat': f.fat + 'g',
+    'Fiber': (f.fiber || 0) + 'g',
+    'Calories': f.cal + ' kcal'
+  };
+  
+  const tbody=document.querySelector('#md-table tbody');
+  tbody.innerHTML=Object.entries(nutrients).map(([k,v])=>{
+    return`<tr>
+      <td>${k}</td>
+      <td><strong>${v}</strong></td>
+      <td>—</td>
+      <td><div class="nt-bar"><div class="nt-fill" style="width:0%"></div></div></td>
+    </tr>`;
+  }).join('');
+  
+  document.getElementById('food-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(e){
+  if(!e||e.target===document.getElementById('food-modal')||e===undefined){
+    document.getElementById('food-modal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
 /* ════════════════════════════════════
    INIT
 ════════════════════════════════════ */
 window.addEventListener('load',()=>{
-  renderFoods();
+  loadFoods(); // This loads all 121 foods from JSON
   renderSupplements();
   renderMeals();
   renderSymptoms();
@@ -2034,8 +2065,7 @@ window.addEventListener('load',()=>{
   renderResearch();
   calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();
   initReveal();
-  orbitalDisplay(ORBITAL_FOODS[0]);
-  orbitalDisplay(ORBITAL_FOODS[0]);});
+});
 </script>
 </body>
 </html>
