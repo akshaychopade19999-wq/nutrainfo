@@ -1393,6 +1393,173 @@ window.addEventListener('load',()=>{
   calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();
   initReveal();
 });
-</script>
-</body>
+/* ════════════════════════════════════
+   CHATBOT
+════════════════════════════════════ */
+function toggleChatbot(){
+  const w=document.getElementById('chatbot-window');
+  w.style.display=w.style.display==='none'?'block':'none';
+}
+
+function addBotMessage(text){
+  const box=document.getElementById('chatbot-messages');
+  const div=document.createElement('div');
+  div.style.cssText='background:rgba(255,255,255,.08);padding:10px 14px;border-radius:var(--r-md);font-size:.82rem;color:rgba(255,255,255,.85);max-width:85%;line-height:1.6;';
+  div.innerHTML=text;
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+}
+
+function addUserMessage(text){
+  const box=document.getElementById('chatbot-messages');
+  const div=document.createElement('div');
+  div.style.cssText='background:var(--mint);padding:10px 14px;border-radius:var(--r-md);font-size:.82rem;color:#fff;max-width:85%;margin-left:auto;line-height:1.6;';
+  div.textContent=text;
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+}
+
+function sendChatbotMessage(){
+  const input=document.getElementById('chatbot-input');
+  const text=input.value.trim();
+  if(!text)return;
+  addUserMessage(text);
+  input.value='';
+  
+  setTimeout(()=>{
+    const reply=processChatbotQuery(text.toLowerCase());
+    addBotMessage(reply);
+  },400);
+}
+
+function processChatbotQuery(q){
+  if(ALL_FOODS.length===0){
+    return 'Food database is still loading... please try again in a few seconds.';
+  }
+  
+  // "Protein in [food]"
+  const proteinMatch=q.match(/(?:protein|protein in)\s+(.+)|(.+)\s+(?:protein|protein)/);
+  if(proteinMatch){
+    const foodName=(proteinMatch[1]||proteinMatch[2]||'').trim();
+    const food=findFood(foodName);
+    if(food){
+      return `<strong>${food.name}</strong> (${food.local})<br>Protein: <strong>${food.pro}g</strong> per 100g<br>Calories: ${food.cal} kcal<br>Category: ${food.cat}`;
+    }
+    return `I couldn't find "${foodName}" in our database. Try: paneer, moong dal, soy chunks, almonds...`;
+  }
+  
+  // "Calories in [food]"
+  const calMatch=q.match(/(?:calories|calories in|kcal in)\s+(.+)/);
+  if(calMatch){
+    const food=findFood(calMatch[1].trim());
+    if(food){
+      return `<strong>${food.name}</strong><br>Calories: <strong>${food.cal} kcal</strong>/100g<br>Protein: ${food.pro}g | Carbs: ${food.carb}g | Fat: ${food.fat}g`;
+    }
+  }
+  
+  // "High protein foods"
+  if(q.includes('high protein')||q.includes('protein rich')){
+    const highPro=ALL_FOODS.filter(f=>f.pro>=20).sort((a,b)=>b.pro-a.pro).slice(0,5);
+    return `<strong>Top 5 High Protein Foods:</strong><br>`+highPro.map(f=>`• ${f.emoji} ${f.name}: <strong>${f.pro}g</strong> protein`).join('<br>');
+  }
+  
+  // "Foods in [category]"
+  const catMatch=q.match(/(?:foods? in|category)\s+(\w+)/);
+  if(catMatch){
+    const cat=catMatch[1].toLowerCase();
+    const foods=ALL_FOODS.filter(f=>f.cat.toLowerCase()===cat).slice(0,8);
+    if(foods.length){
+      return `<strong>${foods[0].cat} Foods:</strong><br>`+foods.map(f=>`• ${f.emoji} ${f.name} (${f.pro}g protein)`).join('<br>');
+    }
+  }
+  
+  // "Compare [food1] and [food2]"
+  const compareMatch=q.match(/compare\s+(.+?)\s+(?:and|vs|versus)\s+(.+)/);
+  if(compareMatch){
+    const f1=findFood(compareMatch[1].trim());
+    const f2=findFood(compareMatch[2].trim());
+    if(f1&&f2){
+      return `<strong>Comparison:</strong><br><br>
+      <strong>${f1.name}</strong> vs <strong>${f2.name}</strong><br><br>
+      Protein: ${f1.pro}g vs ${f2.pro}g<br>
+      Carbs: ${f1.carb}g vs ${f2.carb}g<br>
+      Fat: ${f1.fat}g vs ${f2.fat}g<br>
+      Calories: ${f1.cal} vs ${f2.cal}<br><br>
+      ${f1.pro>f2.pro?f1.name+' wins on protein!':f2.pro>f1.pro?f2.name+' wins on protein!':'Equal protein!'}`;
+    }
+  }
+  
+  // "Best for muscle gain"
+  if(q.includes('muscle')||q.includes('gain')||q.includes('bodybuilding')){
+    const muscle=ALL_FOODS.filter(f=>f.pro>=15).sort((a,b)=>b.pro-a.pro).slice(0,5);
+    return `<strong>Best for Muscle Gain:</strong><br>`+muscle.map(f=>`• ${f.emoji} ${f.name}: ${f.pro}g protein, ${f.cal} kcal`).join('<br>');
+  }
+  
+  // "Best for weight loss"
+  if(q.includes('weight loss')||q.includes('diet')||q.includes('cutting')){
+    const lowCal=ALL_FOODS.filter(f=>f.cal<=200&&f.pro>=10).sort((a,b)=>a.cal-b.cal).slice(0,5);
+    return `<strong>Best for Weight Loss:</strong><br>`+lowCal.map(f=>`• ${f.emoji} ${f.name}: ${f.cal} kcal, ${f.pro}g protein`).join('<br>');
+  }
+  
+  // Direct food name search
+  const food=findFood(q);
+  if(food){
+    return `<strong>${food.name}</strong> ${food.emoji}<br>(${food.local})<br><br>
+    Protein: ${food.pro}g<br>
+    Carbs: ${food.carb}g<br>
+    Fat: ${food.fat}g<br>
+    Calories: ${food.cal}<br>
+    GI: ${food.gi}<br>
+    Bioavailability: ${food.bio}<br>
+    Category: ${food.cat}`;
+  }
+  
+  // Default
+  return `I can help you with:<br>
+  • "Protein in paneer"<br>
+  • "High protein foods"<br>
+  • "Compare moong dal and chana dal"<br>
+  • "Best for muscle gain"<br>
+  • "Foods in pulses"<br><br>
+  Try asking about any of our 121 foods!`;
+}
+
+function findFood(query){
+  query=query.toLowerCase().trim();
+  let f=ALL_FOODS.find(x=>x.name.toLowerCase()===query);
+  if(f)return f;
+  f=ALL_FOODS.find(x=>x.name.toLowerCase().includes(query));
+  if(f)return f;
+  f=ALL_FOODS.find(x=>x.local.toLowerCase().includes(query));
+  return f;
+}</script>
+<!-- NutraInfo Chatbot -->
+<div id="chatbot-widget" style="position:fixed;bottom:20px;right:20px;z-index:9000;font-family:var(--ff-sans);">
+  <div id="chatbot-toggle" onclick="toggleChatbot()" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--leaf));display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(30,138,94,.4);font-size:1.5rem;transition:transform .2s;">
+    🌿
+  </div>
+  <div id="chatbot-window" style="display:none;width:340px;height:450px;background:var(--forest);border-radius:var(--r-xl);border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);position:absolute;bottom:70px;right:0;">
+    <div style="background:linear-gradient(135deg,var(--mint),var(--leaf));padding:16px 20px;display:flex;align-items:center;gap:10px;">
+      <span style="font-size:1.3rem;">🌿</span>
+      <div>
+        <div style="font-weight:600;color:#fff;font-size:.9rem;">NutraInfo Assistant</div>
+        <div style="font-size:.7rem;color:rgba(255,255,255,.7);">Ask me about any food</div>
+      </div>
+      <button onclick="toggleChatbot()" style="margin-left:auto;background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;">✕</button>
+    </div>
+    <div id="chatbot-messages" style="height:320px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;">
+      <div style="background:rgba(255,255,255,.08);padding:10px 14px;border-radius:var(--r-md);font-size:.82rem;color:rgba(255,255,255,.85);max-width:85%;">
+        Hi! I'm your nutrition assistant. Ask me things like:<br><br>
+        • "Protein in paneer"<br>
+        • "High protein foods"<br>
+        • "Compare moong dal and chana dal"<br>
+        • "Best foods for muscle gain"
+      </div>
+    </div>
+    <div style="padding:12px 16px;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:8px;">
+      <input type="text" id="chatbot-input" placeholder="Ask about any food..." style="flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-sm);padding:8px 12px;color:#fff;font-size:.82rem;outline:none;" onkeydown="if(event.key==='Enter')sendChatbotMessage()">
+      <button onclick="sendChatbotMessage()" style="background:var(--mint);color:#fff;border:none;border-radius:var(--r-sm);padding:8px 14px;font-size:.8rem;font-weight:600;cursor:pointer;">Send</button>
+    </div>
+  </div>
+</div></body>
 </html>
