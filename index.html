@@ -323,6 +323,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 .mp-stat .msv{font-family:var(--ff-serif);font-size:1.05rem;color:var(--forest);}
 .mp-stat .msl{font-size:.64rem;color:var(--light);text-transform:uppercase;letter-spacing:.6px;}
 </style>
+<base target="_blank">
 </head>
 <body><div id="pbar"></div>
 
@@ -412,7 +413,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
   </header>
 
   <div class="stats-strip">
-    <div class="ss-cell"><div class="ss-num">121</div><div class="ss-lbl">Verified foods with exact macros</div></div>
+    <div class="ss-cell"><div class="ss-num">1,086</div><div class="ss-lbl">Verified foods with exact macros</div></div>
     <div class="ss-cell"><div class="ss-num">1,200+</div><div class="ss-lbl">Foods in database (expanding)</div></div>
     <div class="ss-cell"><div class="ss-num">200+</div><div class="ss-lbl">Supplement reviews</div></div>
     <div class="ss-cell"><div class="ss-num">500+</div><div class="ss-lbl">Research summaries</div></div>
@@ -424,7 +425,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
       <h2 class="h2">Everything nutrition, under one roof</h2>
       <p class="sub">Built for Indian bodies, Indian foods, and Indian dietary patterns — with global research behind every claim.</p>
       <div class="features-grid reveal">
-        <div class="feat-card" onclick="go('food')"><div class="feat-icon">🥗</div><h3>Food Database</h3><p>121 verified foods with exact macros, GI, bioavailability notes and Hindi names.</p></div>
+        <div class="feat-card" onclick="go('food')"><div class="feat-icon">🥗</div><h3>Food Database</h3><p>1,086 verified foods with exact macros, GI, bioavailability notes and Hindi names.</p></div>
         <div class="feat-card" onclick="go('supplements')"><div class="feat-icon">💊</div><h3>Supplement Ratings</h3><p>Transparent, unsponsored ratings on whey, creatine, vitamin D and more.</p></div>
         <div class="feat-card" onclick="go('meals')"><div class="feat-icon">🍱</div><h3>Meal Plans</h3><p>Indian vegetarian, vegan, high-protein, diabetic-friendly and budget student plans.</p></div>
         <div class="feat-card" onclick="go('calculators')"><div class="feat-icon">🧮</div><h3>Calculators</h3><p>BMI, BMR, TDEE, protein needs, macro split, water intake and body fat estimation.</p></div>
@@ -503,7 +504,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
     <div class="wrap" style="text-align:center;">
       <p class="eyebrow">🥗 Flagship Feature</p>
       <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">India's Most Complete Food Database</h1>
-      <p style="color:rgba(255,255,255,.45);max-width:480px;margin:0 auto;">121 verified foods with exact macros. Indian local names. Glycemic index. Bioavailability notes.</p>
+      <p style="color:rgba(255,255,255,.45);max-width:480px;margin:0 auto;">1,086 verified foods with exact macros. Indian local names. Glycemic index. Bioavailability notes.</p>
     </div>
   </header>
   <section class="sec">
@@ -514,14 +515,14 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
       </div>
       <div class="food-cats" id="food-cats">
         <button class="food-cat-btn active" onclick="setFoodCat('all',this)">All Foods</button>
-        <button class="food-cat-btn" onclick="setFoodCat('dairy',this)">🥛 Dairy</button>
-        <button class="food-cat-btn" onclick="setFoodCat('soy',this)">🫘 Soy</button>
-        <button class="food-cat-btn" onclick="setFoodCat('pulses',this)">🫘 Pulses</button>
-        <button class="food-cat-btn" onclick="setFoodCat('nuts',this)">🥜 Nuts</button>
-        <button class="food-cat-btn" onclick="setFoodCat('seeds',this)">🌱 Seeds</button>
-        <button class="food-cat-btn" onclick="setFoodCat('grains',this)">🌾 Grains</button>
-        <button class="food-cat-btn" onclick="setFoodCat('spices',this)">🌿 Spices</button>
-        <button class="food-cat-btn" onclick="setFoodCat('powders',this)">💪 Powders</button>
+        <button class="food-cat-btn" onclick="setFoodCat('dairy',this)">Dairy</button>
+        <button class="food-cat-btn" onclick="setFoodCat('soy',this)">Soy</button>
+        <button class="food-cat-btn" onclick="setFoodCat('pulses',this)">Pulses</button>
+        <button class="food-cat-btn" onclick="setFoodCat('nuts',this)">Nuts</button>
+        <button class="food-cat-btn" onclick="setFoodCat('seeds',this)">Seeds</button>
+        <button class="food-cat-btn" onclick="setFoodCat('grains',this)">Grains</button>
+        <button class="food-cat-btn" onclick="setFoodCat('spices',this)">Spices</button>
+        <button class="food-cat-btn" onclick="setFoodCat('powders',this)">Powders</button>
       </div>
       <div class="food-grid" id="food-grid"></div>
     </div>
@@ -1021,7 +1022,7 @@ function renderFoods(){
   });
   grid.innerHTML=filtered.map(f=>`
     <div class="food-card" onclick="openFood(${f.id})">
-      <div class="food-thumb" style="background:${f.bg}">${f.emoji}</div>
+      <div class="food-thumb" style="background:${f.bg};display:flex;align-items:center;justify-content:center;font-family:var(--ff-serif);font-size:0.9rem;color:var(--forest);font-weight:500;text-align:center;padding:8px;overflow:hidden;">${f.name}</div>
       <div class="food-body">
         <h3>${f.name}</h3>
         <div class="food-local">${f.local}</div>
