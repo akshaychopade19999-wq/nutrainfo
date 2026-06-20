@@ -73,8 +73,8 @@ button{cursor:pointer;font-family:var(--ff-sans);}
 .btn-green:hover{background:var(--leaf);transform:translateY(-1px);box-shadow:0 6px 20px rgba(30,138,94,.35);}
 .btn-outline-w{background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.7);font-weight:500;font-size:.88rem;padding:12px 26px;border-radius:var(--r-md);transition:border-color .12s,color .12s;}
 .btn-outline-w:hover{border-color:rgba(255,255,255,.45);color:#fff;}
-.orbital-showcase{position:relative;width:420px;height:480px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:20px;}
-.orbital-hub{position:relative;width:200px;height:200px;display:flex;align-items:center;justify-content:center;z-index:10;}
+.orbital-showcase{position:relative;width:100%;max-width:420px;height:480px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:20px;}
+.orbital-hub{position:relative;width:180px;height:180px;display:flex;align-items:center;justify-content:center;z-index:10;}
 .hub-glow{position:absolute;inset:-20px;border-radius:50%;background:radial-gradient(circle,rgba(30,138,94,.25) 0%,transparent 70%);animation:hubPulse 3s ease-in-out infinite;}
 @keyframes hubPulse{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.15);opacity:.9;}}
 .hub-ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(82,183,136,.3);animation:hubSpin 12s linear infinite;}
@@ -218,8 +218,8 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 .food-body{padding:16px 18px 18px;}
 .food-body h3{font-family:var(--ff-serif);font-size:1rem;font-weight:400;margin-bottom:3px;color:var(--forest);}
 .food-body .food-local{font-size:.7rem;color:var(--light);margin-bottom:12px;letter-spacing:.01em;}
-.food-macros{display:flex;gap:8px;}
-.fm-item{flex:1;background:var(--paper);border-radius:var(--r-sm);padding:7px 8px;text-align:center;}
+.food-macros{display:flex;gap:8px;flex-wrap:wrap;}
+.fm-item{flex:1;min-width:60px;background:var(--paper);border-radius:var(--r-sm);padding:7px 8px;text-align:center;}
 .fm-val{font-family:var(--ff-serif);font-size:.95rem;color:var(--forest);line-height:1;}
 .fm-lbl{font-size:.6rem;color:var(--light);margin-top:3px;text-transform:uppercase;letter-spacing:.6px;}
 .modal-overlay{position:fixed;inset:0;background:rgba(10,15,13,.55);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;backdrop-filter:blur(4px);}
