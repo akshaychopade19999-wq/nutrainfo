@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang=&quot;en&quot;>
+<html lang="en">
 <head>
-<meta charset=&quot;UTF-8&quot;/>
-<meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;/>
-<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;/>
-<title>NutraInfo &#8211; Evidence-Based Nutrition for India</title>
-<link href=&quot;https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap&quot; rel=&quot;stylesheet&quot;/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NutraInfo â€“ Evidence-Based Nutrition for India</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root {
   --forest: #0D2B20;
@@ -324,456 +323,455 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 .mp-stat .msv{font-family:var(--ff-serif);font-size:1.05rem;color:var(--forest);}
 .mp-stat .msl{font-size:.64rem;color:var(--light);text-transform:uppercase;letter-spacing:.6px;}
 </style>
-<base target=&quot;_blank&quot;>
 <base target="_blank">
 </head>
-<body><div id=&quot;pbar&quot;></div>
+<body><div id="pbar"></div>
 
-<nav class=&quot;nav&quot;>
-  <div class=&quot;nav-inner&quot;>
-    <a class=&quot;nav-logo&quot; onclick=&quot;go('home')&quot;>
-      <div class=&quot;nav-logo-icon&quot;>&#127807;</div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="go('home')">
+      <div class="nav-logo-icon">ðŸŒ¿</div>
       NutraInfo
     </a>
-    <ul class=&quot;nav-links&quot;>
-      <li><a id=&quot;nl-home&quot; class=&quot;active&quot; onclick=&quot;go('home')&quot;>Home</a></li>
-      <li><a id=&quot;nl-food&quot; onclick=&quot;go('food')&quot;>Food Database</a></li>
-      <li><a id=&quot;nl-supp&quot; onclick=&quot;go('supplements')&quot;>Supplements</a></li>
-      <li><a id=&quot;nl-meals&quot; onclick=&quot;go('meals')&quot;>Meal Plans</a></li>
-      <li><a id=&quot;nl-calc&quot; onclick=&quot;go('calculators')&quot;>Calculators</a></li>
-      <li><a id=&quot;nl-blood&quot; onclick=&quot;go('blood')&quot;>Blood Tests</a></li>
-      <li><a id=&quot;nl-deficiency&quot; onclick=&quot;go('deficiency')&quot;>Deficiency Check</a></li>
-      <li><a id=&quot;nl-research&quot; onclick=&quot;go('research')&quot;>Research</a></li>
-      <li><a onclick=&quot;go('calculators')&quot; class=&quot;nav-cta&quot;>Try Free Tools</a></li>
+    <ul class="nav-links">
+      <li><a id="nl-home" class="active" onclick="go('home')">Home</a></li>
+      <li><a id="nl-food" onclick="go('food')">Food Database</a></li>
+      <li><a id="nl-supp" onclick="go('supplements')">Supplements</a></li>
+      <li><a id="nl-meals" onclick="go('meals')">Meal Plans</a></li>
+      <li><a id="nl-calc" onclick="go('calculators')">Calculators</a></li>
+      <li><a id="nl-blood" onclick="go('blood')">Blood Tests</a></li>
+      <li><a id="nl-deficiency" onclick="go('deficiency')">Deficiency Check</a></li>
+      <li><a id="nl-research" onclick="go('research')">Research</a></li>
+      <li><a onclick="go('calculators')" class="nav-cta">Try Free Tools</a></li>
     </ul>
-    <button class=&quot;ham&quot; onclick=&quot;toggleMob()&quot; aria-label=&quot;Menu&quot;><span></span><span></span><span></span></button>
+    <button class="ham" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-  <div class=&quot;mob-menu&quot; id=&quot;mob&quot;>
-    <a onclick=&quot;go('home');toggleMob()&quot;>&#127968; Home</a>
-    <a onclick=&quot;go('food');toggleMob()&quot;>&#129367; Food Database</a>
-    <a onclick=&quot;go('supplements');toggleMob()&quot;>&#128138; Supplements</a>
-    <a onclick=&quot;go('meals');toggleMob()&quot;>&#127857; Meal Plans</a>
-    <a onclick=&quot;go('calculators');toggleMob()&quot;>&#129518; Calculators</a>
-    <a onclick=&quot;go('blood');toggleMob()&quot;>&#129656; Blood Tests</a>
-    <a onclick=&quot;go('deficiency');toggleMob()&quot;>&#128269; Deficiency Check</a>
-    <a onclick=&quot;go('research');toggleMob()&quot;>&#128218; Research Hub</a>
+  <div class="mob-menu" id="mob">
+    <a onclick="go('home');toggleMob()">ðŸ  Home</a>
+    <a onclick="go('food');toggleMob()">ðŸ¥— Food Database</a>
+    <a onclick="go('supplements');toggleMob()">ðŸ’Š Supplements</a>
+    <a onclick="go('meals');toggleMob()">ðŸ± Meal Plans</a>
+    <a onclick="go('calculators');toggleMob()">ðŸ§® Calculators</a>
+    <a onclick="go('blood');toggleMob()">ðŸ©¸ Blood Tests</a>
+    <a onclick="go('deficiency');toggleMob()">ðŸ” Deficiency Check</a>
+    <a onclick="go('research');toggleMob()">ðŸ“š Research Hub</a>
   </div>
 </nav>
 
-<div class=&quot;page active&quot; id=&quot;page-home&quot;>
-  <header class=&quot;hero&quot;>
-    <div class=&quot;hero-blob1&quot;></div>
-    <div class=&quot;hero-blob2&quot;></div>
-    <div class=&quot;hero-inner&quot;>
+<div class="page active" id="page-home">
+  <header class="hero">
+    <div class="hero-blob1"></div>
+    <div class="hero-blob2"></div>
+    <div class="hero-inner">
       <div>
-        <div class=&quot;hero-chip&quot;>&#127470;&#127475; India's Evidence-Based Nutrition Platform</div>
+        <div class="hero-chip">ðŸ‡®ðŸ‡³ India's Evidence-Based Nutrition Platform</div>
         <h1>Know exactly<br>what your food<br><em>does to you.</em></h1>
-        <p class=&quot;hero-sub&quot;>NutraInfo combines science-backed food data, supplement transparency, meal planning, deficiency detection and nutrition research &#8212; all in one place.</p>
-        <div class=&quot;hero-btns&quot;>
-          <button class=&quot;btn-green&quot; onclick=&quot;go('food')&quot;>Explore Food Database &#8594;</button>
-          <button class=&quot;btn-outline-w&quot; onclick=&quot;go('deficiency')&quot;>&#128269; Check Deficiencies</button>
+        <p class="hero-sub">NutraInfo combines science-backed food data, supplement transparency, meal planning, deficiency detection and nutrition research â€” all in one place.</p>
+        <div class="hero-btns">
+          <button class="btn-green" onclick="go('food')">Explore Food Database â†’</button>
+          <button class="btn-outline-w" onclick="go('deficiency')">ðŸ” Check Deficiencies</button>
         </div>
       </div>
-      <div class=&quot;orbital-showcase&quot;>
-        <div class=&quot;orbital-hub&quot;>
-          <div class=&quot;hub-glow&quot;></div>
-          <div class=&quot;hub-ring&quot;></div>
-          <div class=&quot;hub-core&quot;>
-            <input type=&quot;text&quot; id=&quot;orbitalSearch&quot; placeholder=&quot;Search food...&quot; autocomplete=&quot;off&quot; oninput=&quot;orbitalSearch()&quot;>
-            <div class=&quot;hub-icon&quot;>&#128269;</div>
+      <div class="orbital-showcase">
+        <div class="orbital-hub">
+          <div class="hub-glow"></div>
+          <div class="hub-ring"></div>
+          <div class="hub-core">
+            <input type="text" id="orbitalSearch" placeholder="Search food..." autocomplete="off" oninput="orbitalSearch()">
+            <div class="hub-icon">ðŸ”</div>
           </div>
         </div>
-        <div class=&quot;orbital-suggestions&quot; id=&quot;orbitalSuggestions&quot;></div>
-        <div class=&quot;orbital-food-display&quot; id=&quot;orbitalFoodDisplay&quot;>
-          <div class=&quot;ofd-header&quot;>
-            <div class=&quot;ofd-emoji&quot; id=&quot;ofdEmoji&quot;>&#129472;</div>
-            <div class=&quot;ofd-names&quot;>
-              <h3 id=&quot;ofdName&quot;>Paneer</h3>
-              <span id=&quot;ofdLocal&quot;>पनीर</span>
+        <div class="orbital-suggestions" id="orbitalSuggestions"></div>
+        <div class="orbital-food-display" id="orbitalFoodDisplay">
+          <div class="ofd-header">
+            <div class="ofd-emoji" id="ofdEmoji">ðŸ§€</div>
+            <div class="ofd-names">
+              <h3 id="ofdName">Paneer</h3>
+              <span id="ofdLocal">à¤ªà¤¨à¥€à¤°</span>
             </div>
-            <div class=&quot;ofd-cal-badge&quot;><span id=&quot;ofdCal&quot;>265</span><small>kcal/100g</small></div>
+            <div class="ofd-cal-badge"><span id="ofdCal">265</span><small>kcal/100g</small></div>
           </div>
-          <div class=&quot;ofd-macro-rings&quot;>
-            <div class=&quot;omr-ring protein-ring&quot;><svg viewBox=&quot;0 0 100 100&quot;><circle class=&quot;track&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;42&quot;/><circle class=&quot;fill&quot; id=&quot;proteinArc&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;42&quot; stroke-dasharray=&quot;264&quot; stroke-dashoffset=&quot;180&quot;/></svg><div class=&quot;omr-label&quot;><span class=&quot;omr-val&quot; id=&quot;proteinVal&quot;>18.3</span><span class=&quot;omr-name&quot;>Protein</span></div></div>
-            <div class=&quot;omr-ring carbs-ring&quot;><svg viewBox=&quot;0 0 100 100&quot;><circle class=&quot;track&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;42&quot;/><circle class=&quot;fill&quot; id=&quot;carbsArc&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;42&quot; stroke-dasharray=&quot;264&quot; stroke-dashoffset=&quot;250&quot;/></svg><div class=&quot;omr-label&quot;><span class=&quot;omr-val&quot; id=&quot;carbsVal&quot;>1.2</span><span class=&quot;omr-name&quot;>Carbs</span></div></div>
-            <div class=&quot;omr-ring fat-ring&quot;><svg viewBox=&quot;0 0 100 100&quot;><circle class=&quot;track&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;42&quot;/><circle class=&quot;fill&quot; id=&quot;fatArc&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;42&quot; stroke-dasharray=&quot;264&quot; stroke-dashoffset=&quot;200&quot;/></svg><div class=&quot;omr-label&quot;><span class=&quot;omr-val&quot; id=&quot;fatVal&quot;>20.8</span><span class=&quot;omr-name&quot;>Fat</span></div></div>
-            <div class=&quot;omr-ring fiber-ring&quot;><svg viewBox=&quot;0 0 100 100&quot;><circle class=&quot;track&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;42&quot;/><circle class=&quot;fill&quot; id=&quot;fiberArc&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;42&quot; stroke-dasharray=&quot;264&quot; stroke-dashoffset=&quot;264&quot;/></svg><div class=&quot;omr-label&quot;><span class=&quot;omr-val&quot; id=&quot;fiberVal&quot;>0</span><span class=&quot;omr-name&quot;>Fiber</span></div></div>
+          <div class="ofd-macro-rings">
+            <div class="omr-ring protein-ring"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42"/><circle class="fill" id="proteinArc" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="180"/></svg><div class="omr-label"><span class="omr-val" id="proteinVal">18.3</span><span class="omr-name">Protein</span></div></div>
+            <div class="omr-ring carbs-ring"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42"/><circle class="fill" id="carbsArc" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="250"/></svg><div class="omr-label"><span class="omr-val" id="carbsVal">1.2</span><span class="omr-name">Carbs</span></div></div>
+            <div class="omr-ring fat-ring"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42"/><circle class="fill" id="fatArc" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="200"/></svg><div class="omr-label"><span class="omr-val" id="fatVal">20.8</span><span class="omr-name">Fat</span></div></div>
+            <div class="omr-ring fiber-ring"><svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="42"/><circle class="fill" id="fiberArc" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264"/></svg><div class="omr-label"><span class="omr-val" id="fiberVal">0</span><span class="omr-name">Fiber</span></div></div>
           </div>
-          <div class=&quot;ofd-tags&quot;>
-            <span class=&quot;ofd-tag gi-tag&quot;><span class=&quot;tag-dot&quot;></span>GI: <b id=&quot;ofdGi&quot;>&#8212;</b></span>
-            <span class=&quot;ofd-tag bio-tag&quot;><span class=&quot;tag-dot&quot;></span>Bio: <b id=&quot;ofdBio&quot;>High</b></span>
-            <span class=&quot;ofd-tag cat-tag&quot; id=&quot;ofdCat&quot;>Dairy</span>
+          <div class="ofd-tags">
+            <span class="ofd-tag gi-tag"><span class="tag-dot"></span>GI: <b id="ofdGi">â€”</b></span>
+            <span class="ofd-tag bio-tag"><span class="tag-dot"></span>Bio: <b id="ofdBio">High</b></span>
+            <span class="ofd-tag cat-tag" id="ofdCat">Dairy</span>
           </div>
-          <div class=&quot;ofd-quick-stats&quot;>
-            <div class=&quot;oqs-item&quot;><div class=&quot;oqs-bar&quot;><div class=&quot;oqs-fill&quot; id=&quot;proteinBar&quot; style=&quot;width:27%&quot;></div></div><span>Protein</span></div>
-            <div class=&quot;oqs-item&quot;><div class=&quot;oqs-bar&quot;><div class=&quot;oqs-fill&quot; id=&quot;carbsBar&quot; style=&quot;width:2%&quot;></div></div><span>Carbs</span></div>
-            <div class=&quot;oqs-item&quot;><div class=&quot;oqs-bar&quot;><div class=&quot;oqs-fill&quot; id=&quot;fatBar&quot; style=&quot;width:31%&quot;></div></div><span>Fat</span></div>
+          <div class="ofd-quick-stats">
+            <div class="oqs-item"><div class="oqs-bar"><div class="oqs-fill" id="proteinBar" style="width:27%"></div></div><span>Protein</span></div>
+            <div class="oqs-item"><div class="oqs-bar"><div class="oqs-fill" id="carbsBar" style="width:2%"></div></div><span>Carbs</span></div>
+            <div class="oqs-item"><div class="oqs-bar"><div class="oqs-fill" id="fatBar" style="width:31%"></div></div><span>Fat</span></div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <div class=&quot;stats-strip&quot;>
-    <div class=&quot;ss-cell&quot;><div class=&quot;ss-num&quot;>1,086</div><div class=&quot;ss-lbl&quot;>Verified foods with exact macros</div></div>
-    <div class=&quot;ss-cell&quot;><div class=&quot;ss-num&quot;>200+</div><div class=&quot;ss-lbl&quot;>Supplement reviews</div></div>
-    <div class=&quot;ss-cell&quot;><div class=&quot;ss-num&quot;>500+</div><div class=&quot;ss-lbl&quot;>Research summaries</div></div>
+  <div class="stats-strip">
+    <div class="ss-cell"><div class="ss-num">1,086</div><div class="ss-lbl">Verified foods with exact macros</div></div>
+    <div class="ss-cell"><div class="ss-num">200+</div><div class="ss-lbl">Supplement reviews</div></div>
+    <div class="ss-cell"><div class="ss-num">500+</div><div class="ss-lbl">Research summaries</div></div>
   </div>
 
-  <section class=&quot;sec&quot;>
-    <div class=&quot;wrap&quot;>
-      <p class=&quot;eyebrow&quot;>&#127807; What NutraInfo Covers</p>
-      <h2 class=&quot;h2&quot;>Everything nutrition, under one roof</h2>
-      <p class=&quot;sub&quot;>Built for Indian bodies, Indian foods, and Indian dietary patterns &#8212; with global research behind every claim.</p>
-      <div class=&quot;features-grid reveal&quot;>
-        <div class=&quot;feat-card&quot; onclick=&quot;go('food')&quot;><div class=&quot;feat-icon&quot;>&#129367;</div><h3>Food Database</h3><p>1,086 verified foods with exact macros, GI, bioavailability notes and Hindi names.</p></div>
-        <div class=&quot;feat-card&quot; onclick=&quot;go('supplements')&quot;><div class=&quot;feat-icon&quot;>&#128138;</div><h3>Supplement Ratings</h3><p>Transparent, unsponsored ratings on whey, creatine, vitamin D and more.</p></div>
-        <div class=&quot;feat-card&quot; onclick=&quot;go('meals')&quot;><div class=&quot;feat-icon&quot;>&#127857;</div><h3>Meal Plans</h3><p>Indian vegetarian, vegan, high-protein, diabetic-friendly and budget student plans.</p></div>
-        <div class=&quot;feat-card&quot; onclick=&quot;go('calculators')&quot;><div class=&quot;feat-icon&quot;>&#129518;</div><h3>Calculators</h3><p>BMI, BMR, TDEE, protein needs, macro split, water intake and body fat estimation.</p></div>
-        <div class=&quot;feat-card&quot; onclick=&quot;go('deficiency')&quot;><div class=&quot;feat-icon&quot;>&#128269;</div><h3>Deficiency Checker</h3><p>Select your symptoms. Get possible deficiencies, food sources and test recommendations.</p></div>
-        <div class=&quot;feat-card&quot; onclick=&quot;go('blood')&quot;><div class=&quot;feat-icon&quot;>&#129656;</div><h3>Blood Test Guide</h3><p>Plain-English explanations of CBC, B12, vitamin D, ferritin, thyroid and 12 more panels.</p></div>
-        <div class=&quot;feat-card&quot; onclick=&quot;go('research')&quot;><div class=&quot;feat-icon&quot;>&#128218;</div><h3>Research Hub</h3><p>500+ nutrition studies summarised in plain English with evidence quality ratings.</p></div>
-        <div class=&quot;feat-card&quot; onclick=&quot;showToast('Vegetarian Center launching soon!')&quot;><div class=&quot;feat-icon&quot;>&#127793;</div><h3>Vegetarian Center</h3><p>Complete proteins, B12, iron, zinc and omega-3 &#8212; everything plant-based India needs.</p></div>
+  <section class="sec">
+    <div class="wrap">
+      <p class="eyebrow">ðŸŒ¿ What NutraInfo Covers</p>
+      <h2 class="h2">Everything nutrition, under one roof</h2>
+      <p class="sub">Built for Indian bodies, Indian foods, and Indian dietary patterns â€” with global research behind every claim.</p>
+      <div class="features-grid reveal">
+        <div class="feat-card" onclick="go('food')"><div class="feat-icon">ðŸ¥—</div><h3>Food Database</h3><p>1,086 verified foods with exact macros, GI, bioavailability notes and Hindi names.</p></div>
+        <div class="feat-card" onclick="go('supplements')"><div class="feat-icon">ðŸ’Š</div><h3>Supplement Ratings</h3><p>Transparent, unsponsored ratings on whey, creatine, vitamin D and more.</p></div>
+        <div class="feat-card" onclick="go('meals')"><div class="feat-icon">ðŸ±</div><h3>Meal Plans</h3><p>Indian vegetarian, vegan, high-protein, diabetic-friendly and budget student plans.</p></div>
+        <div class="feat-card" onclick="go('calculators')"><div class="feat-icon">ðŸ§®</div><h3>Calculators</h3><p>BMI, BMR, TDEE, protein needs, macro split, water intake and body fat estimation.</p></div>
+        <div class="feat-card" onclick="go('deficiency')"><div class="feat-icon">ðŸ”</div><h3>Deficiency Checker</h3><p>Select your symptoms. Get possible deficiencies, food sources and test recommendations.</p></div>
+        <div class="feat-card" onclick="go('blood')"><div class="feat-icon">ðŸ©¸</div><h3>Blood Test Guide</h3><p>Plain-English explanations of CBC, B12, vitamin D, ferritin, thyroid and 12 more panels.</p></div>
+        <div class="feat-card" onclick="go('research')"><div class="feat-icon">ðŸ“š</div><h3>Research Hub</h3><p>500+ nutrition studies summarised in plain English with evidence quality ratings.</p></div>
+        <div class="feat-card" onclick="showToast('Vegetarian Center launching soon!')"><div class="feat-icon">ðŸŒ±</div><h3>Vegetarian Center</h3><p>Complete proteins, B12, iron, zinc and omega-3 â€” everything plant-based India needs.</p></div>
       </div>
     </div>
   </section>
 
-  <section class=&quot;sec sec-paper&quot;>
-    <div class=&quot;wrap&quot;>
-      <p class=&quot;eyebrow&quot;>🔗 Knowledge Network</p>
-      <h2 class=&quot;h2&quot;>Three platforms. One mission.</h2>
-      <p class=&quot;sub&quot;>NutraInfo is part of a linked knowledge ecosystem. Explore our sister platforms.</p>
-      <div class=&quot;kn-grid reveal&quot;>
-        <div class=&quot;kn-card kn-nutra&quot;>
-          <span class=&quot;kn-badge&quot;>You are here</span>
+  <section class="sec sec-paper">
+    <div class="wrap">
+      <p class="eyebrow">ðŸ”— Knowledge Network</p>
+      <h2 class="h2">Three platforms. One mission.</h2>
+      <p class="sub">NutraInfo is part of a linked knowledge ecosystem. Explore our sister platforms.</p>
+      <div class="kn-grid reveal">
+        <div class="kn-card kn-nutra">
+          <span class="kn-badge">You are here</span>
           <h3>NutraInfo</h3>
           <p>Evidence-based nutrition, supplements, meal planning and research for India.</p>
-          <div class=&quot;kn-topics&quot;>
-            <span class=&quot;kn-topic&quot;>Food Database</span>
-            <span class=&quot;kn-topic&quot;>Blood Tests</span>
-            <span class=&quot;kn-topic&quot;>Supplements</span>
-            <span class=&quot;kn-topic&quot;>Deficiency</span>
+          <div class="kn-topics">
+            <span class="kn-topic">Food Database</span>
+            <span class="kn-topic">Blood Tests</span>
+            <span class="kn-topic">Supplements</span>
+            <span class="kn-topic">Deficiency</span>
           </div>
         </div>
-        <div class=&quot;kn-card kn-finance&quot; onclick=&quot;showToast('YoungFinance &#8212; broketobuild.in')&quot;>
-          <span class=&quot;kn-badge&quot; style=&quot;background:rgba(255,92,0,.25);color:#FF9055;&quot;>Finance</span>
+        <div class="kn-card kn-finance" onclick="showToast('YoungFinance â€” broketobuild.in')">
+          <span class="kn-badge" style="background:rgba(255,92,0,.25);color:#FF9055;">Finance</span>
           <h3>Broke to Build</h3>
           <p>Finance, investing, wealth building, SIPs, stocks and financial independence for young India.</p>
-          <div class=&quot;kn-topics&quot;>
-            <span class=&quot;kn-topic&quot;>SIP & Mutual Funds</span>
-            <span class=&quot;kn-topic&quot;>Credit Score</span>
-            <span class=&quot;kn-topic&quot;>ITR & Tax</span>
-            <span class=&quot;kn-topic&quot;>Side Income</span>
+          <div class="kn-topics">
+            <span class="kn-topic">SIP & Mutual Funds</span>
+            <span class="kn-topic">Credit Score</span>
+            <span class="kn-topic">ITR & Tax</span>
+            <span class="kn-topic">Side Income</span>
           </div>
-          <a class=&quot;kn-cta&quot;>Visit broketobuild.in &#8594;</a>
+          <a class="kn-cta">Visit broketobuild.in â†’</a>
         </div>
-        <div class=&quot;kn-card kn-ai&quot; onclick=&quot;showToast('LearnAIpower &#8212; coming soon!')&quot;>
-          <span class=&quot;kn-badge&quot; style=&quot;background:rgba(150,100,255,.25);color:#C4A0FF;&quot;>AI & Tech</span>
+        <div class="kn-card kn-ai" onclick="showToast('LearnAIpower â€” coming soon!')">
+          <span class="kn-badge" style="background:rgba(150,100,255,.25);color:#C4A0FF;">AI & Tech</span>
           <h3>LearnAIpower</h3>
           <p>AI tools, agents, automation, prompt engineering, coding and future technology skills.</p>
-          <div class=&quot;kn-topics&quot;>
-            <span class=&quot;kn-topic&quot;>AI Agents</span>
-            <span class=&quot;kn-topic&quot;>Automation</span>
-            <span class=&quot;kn-topic&quot;>Prompt Engineering</span>
-            <span class=&quot;kn-topic&quot;>Productivity</span>
+          <div class="kn-topics">
+            <span class="kn-topic">AI Agents</span>
+            <span class="kn-topic">Automation</span>
+            <span class="kn-topic">Prompt Engineering</span>
+            <span class="kn-topic">Productivity</span>
           </div>
-          <a class=&quot;kn-cta&quot;>Visit learnaipower.com &#8594;</a>
+          <a class="kn-cta">Visit learnaipower.com â†’</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class=&quot;sec&quot;>
-    <div class=&quot;wrap&quot;>
-      <div class=&quot;nl-box reveal&quot;>
+  <section class="sec">
+    <div class="wrap">
+      <div class="nl-box reveal">
         <div>
-          <h2>Weekly nutrition drops &#127807;</h2>
+          <h2>Weekly nutrition drops ðŸŒ¿</h2>
           <p>One research-backed nutrition insight every Sunday. Plain English, no supplement ads.</p>
-          <p style=&quot;font-size:.79rem;color:rgba(255,255,255,.4);margin-top:6px;&quot;>Joined by 24,000+ Indians tracking their nutrition</p>
+          <p style="font-size:.79rem;color:rgba(255,255,255,.4);margin-top:6px;">Joined by 24,000+ Indians tracking their nutrition</p>
         </div>
-        <div class=&quot;nl-form&quot;>
-          <input type=&quot;email&quot; placeholder=&quot;yourname@gmail.com&quot; id=&quot;nl-e&quot;/>
-          <button onclick=&quot;subNewsletter()&quot;>Subscribe Free</button>
+        <div class="nl-form">
+          <input type="email" placeholder="yourname@gmail.com" id="nl-e"/>
+          <button onclick="subNewsletter()">Subscribe Free</button>
         </div>
       </div>
     </div>
   </section>
 </div>
 
-<div class=&quot;page&quot; id=&quot;page-food&quot;>
-  <header style=&quot;background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);&quot;>
-    <div class=&quot;wrap&quot; style=&quot;text-align:center;&quot;>
-      <p class=&quot;eyebrow&quot;>&#129367; Flagship Feature</p>
-      <h1 style=&quot;font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;&quot;>India's Most Complete Food Database</h1>
-      <p style=&quot;color:rgba(255,255,255,.45);max-width:480px;margin:0 auto;&quot;>1,086 verified foods with exact macros. Indian local names. Glycemic index. Bioavailability notes.</p>
+<div class="page" id="page-food">
+  <header style="background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">ðŸ¥— Flagship Feature</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">India's Most Complete Food Database</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:480px;margin:0 auto;">1,086 verified foods with exact macros. Indian local names. Glycemic index. Bioavailability notes.</p>
     </div>
   </header>
-  <section class=&quot;sec&quot;>
-    <div class=&quot;wrap&quot;>
-      <div class=&quot;food-search-bar&quot;>
-        <input type=&quot;text&quot; placeholder=&quot;Search for dal, paneer, roti, soy...&quot; id=&quot;food-search&quot; oninput=&quot;filterFoods()&quot;/>
-        <button onclick=&quot;filterFoods()&quot;>Search</button>
+  <section class="sec">
+    <div class="wrap">
+      <div class="food-search-bar">
+        <input type="text" placeholder="Search for dal, paneer, roti, soy..." id="food-search" oninput="filterFoods()"/>
+        <button onclick="filterFoods()">Search</button>
       </div>
-      <div class=&quot;food-cats&quot; id=&quot;food-cats&quot;>
-        <button class=&quot;food-cat-btn active&quot; onclick=&quot;setFoodCat('all',this)&quot;>All Foods</button>
-        <button class=&quot;food-cat-btn&quot; onclick=&quot;setFoodCat('dairy',this)&quot;>Dairy</button>
-        <button class=&quot;food-cat-btn&quot; onclick=&quot;setFoodCat('soy',this)&quot;>Soy</button>
-        <button class=&quot;food-cat-btn&quot; onclick=&quot;setFoodCat('pulses',this)&quot;>Pulses</button>
-        <button class=&quot;food-cat-btn&quot; onclick=&quot;setFoodCat('nuts',this)&quot;>Nuts</button>
-        <button class=&quot;food-cat-btn&quot; onclick=&quot;setFoodCat('seeds',this)&quot;>Seeds</button>
-        <button class=&quot;food-cat-btn&quot; onclick=&quot;setFoodCat('grains',this)&quot;>Grains</button>
-        <button class=&quot;food-cat-btn&quot; onclick=&quot;setFoodCat('spices',this)&quot;>Spices</button>
-        <button class=&quot;food-cat-btn&quot; onclick=&quot;setFoodCat('powders',this)&quot;>Powders</button>
+      <div class="food-cats" id="food-cats">
+        <button class="food-cat-btn active" onclick="setFoodCat('all',this)">All Foods</button>
+        <button class="food-cat-btn" onclick="setFoodCat('dairy',this)">Dairy</button>
+        <button class="food-cat-btn" onclick="setFoodCat('soy',this)">Soy</button>
+        <button class="food-cat-btn" onclick="setFoodCat('pulses',this)">Pulses</button>
+        <button class="food-cat-btn" onclick="setFoodCat('nuts',this)">Nuts</button>
+        <button class="food-cat-btn" onclick="setFoodCat('seeds',this)">Seeds</button>
+        <button class="food-cat-btn" onclick="setFoodCat('grains',this)">Grains</button>
+        <button class="food-cat-btn" onclick="setFoodCat('spices',this)">Spices</button>
+        <button class="food-cat-btn" onclick="setFoodCat('powders',this)">Powders</button>
       </div>
-      <div class=&quot;food-grid&quot; id=&quot;food-grid&quot;></div>
+      <div class="food-grid" id="food-grid"></div>
     </div>
   </section>
 </div>
 
-<div class=&quot;modal-overlay&quot; id=&quot;food-modal&quot; onclick=&quot;closeModal(event)&quot;>
-  <div class=&quot;modal-box&quot;>
-    <div class=&quot;modal-head&quot;>
-      <button class=&quot;modal-close&quot; onclick=&quot;closeModal()&quot;>&#10005;</button>
-      <h2 id=&quot;md-name&quot;>&#8212;</h2>
-      <p id=&quot;md-local&quot;>&#8212;</p>
+<div class="modal-overlay" id="food-modal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-head">
+      <button class="modal-close" onclick="closeModal()">âœ•</button>
+      <h2 id="md-name">â€”</h2>
+      <p id="md-local">â€”</p>
     </div>
-      <div class=&quot;modal-body&quot;>
-        <div style=&quot;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;&quot; id=&quot;md-macros&quot;></div>
-        <div style=&quot;margin-bottom:16px;padding:10px 14px;background:#FFF8E1;border-radius:var(--r-sm);border-left:3px solid var(--gold);font-size:.82rem;color:var(--mid);&quot;>
+      <div class="modal-body">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;" id="md-macros"></div>
+        <div style="margin-bottom:16px;padding:10px 14px;background:#FFF8E1;border-radius:var(--r-sm);border-left:3px solid var(--gold);font-size:.82rem;color:var(--mid);">
           <strong>Note:</strong> Fiber content varies by source, processing, and batch. Values shown are approximate. For exact fiber, check product labels.
         </div>
-        <h4 style=&quot;font-family:var(--ff-serif);font-weight:400;margin-bottom:12px;font-size:1.1rem;&quot;>Full Nutrition Profile <span style=&quot;font-size:.8rem;color:var(--mid);&quot;>(per 100g dry/raw)</span></h4>
-      <table class=&quot;nutrient-table&quot; id=&quot;md-table&quot;><thead><tr><th>Nutrient</th><th>Amount</th><th>% Daily Value</th><th style=&quot;width:120px;&quot;>Coverage</th></tr></thead><tbody></tbody></table>
-      <div style=&quot;margin-top:18px;padding:14px 16px;background:var(--paper);border-radius:var(--r-md);font-size:.82rem;color:var(--mid);&quot;>
-        <strong>Bioavailability Note:</strong> <span id=&quot;md-bio&quot;>&#8212;</span>
+        <h4 style="font-family:var(--ff-serif);font-weight:400;margin-bottom:12px;font-size:1.1rem;">Full Nutrition Profile <span style="font-size:.8rem;color:var(--mid);">(per 100g dry/raw)</span></h4>
+      <table class="nutrient-table" id="md-table"><thead><tr><th>Nutrient</th><th>Amount</th><th>% Daily Value</th><th style="width:120px;">Coverage</th></tr></thead><tbody></tbody></table>
+      <div style="margin-top:18px;padding:14px 16px;background:var(--paper);border-radius:var(--r-md);font-size:.82rem;color:var(--mid);">
+        <strong>Bioavailability Note:</strong> <span id="md-bio">â€”</span>
       </div>
     </div>
   </div>
 </div>
 
-<div class=&quot;page&quot; id=&quot;page-supplements&quot;>
-  <header style=&quot;background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);&quot;>
-    <div class=&quot;wrap&quot; style=&quot;text-align:center;&quot;>
-      <p class=&quot;eyebrow&quot;>&#128138; Supplement Ratings</p>
-      <h1 style=&quot;font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;&quot;>Transparent. Unsponsored. Science-backed.</h1>
-      <p style=&quot;color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;&quot;>We rate every supplement on 8 criteria. Zero affiliate influence on our scores.</p>
+<div class="page" id="page-supplements">
+  <header style="background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">ðŸ’Š Supplement Ratings</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">Transparent. Unsponsored. Science-backed.</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;">We rate every supplement on 8 criteria. Zero affiliate influence on our scores.</p>
     </div>
   </header>
-  <section class=&quot;sec&quot;>
-    <div class=&quot;wrap&quot;>
-      <div class=&quot;supp-grid&quot; id=&quot;supp-grid&quot;></div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="supp-grid" id="supp-grid"></div>
     </div>
   </section>
 </div>
 
-<div class=&quot;page&quot; id=&quot;page-meals&quot;>
-  <header style=&quot;background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);&quot;>
-    <div class=&quot;wrap&quot; style=&quot;text-align:center;&quot;>
-      <p class=&quot;eyebrow&quot;>&#127857; Meal Plans</p>
-      <h1 style=&quot;font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;&quot;>Indian Meal Plans That Actually Work</h1>
-      <p style=&quot;color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;&quot;>Every plan includes daily macros, micronutrient coverage, shopping list and estimated cost.</p>
+<div class="page" id="page-meals">
+  <header style="background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">ðŸ± Meal Plans</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">Indian Meal Plans That Actually Work</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;">Every plan includes daily macros, micronutrient coverage, shopping list and estimated cost.</p>
     </div>
   </header>
-  <section class=&quot;sec&quot;>
-    <div class=&quot;wrap&quot;>
-      <div class=&quot;meal-plan-grid&quot; id=&quot;meal-grid&quot;></div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="meal-plan-grid" id="meal-grid"></div>
     </div>
   </section>
 </div>
 
-<div class=&quot;page&quot; id=&quot;page-calculators&quot;>
-  <header style=&quot;background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);&quot;>
-    <div class=&quot;wrap&quot; style=&quot;text-align:center;&quot;>
-      <p class=&quot;eyebrow&quot;>&#129518; Nutrition Calculators</p>
-      <h1 style=&quot;font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;&quot;>Know Your Numbers</h1>
-      <p style=&quot;color:rgba(255,255,255,.45);max-width:440px;margin:0 auto;&quot;>Free calculators for BMI, BMR, TDEE, protein needs, macro splits and more.</p>
+<div class="page" id="page-calculators">
+  <header style="background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">ðŸ§® Nutrition Calculators</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">Know Your Numbers</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:440px;margin:0 auto;">Free calculators for BMI, BMR, TDEE, protein needs, macro splits and more.</p>
     </div>
   </header>
-  <section class=&quot;sec&quot;>
-    <div class=&quot;wrap&quot;>
-      <div class=&quot;calc-tabs&quot;>
-        <button class=&quot;ctab active&quot; onclick=&quot;showCalc('tdee',this)&quot;>TDEE & Calories</button>
-        <button class=&quot;ctab&quot; onclick=&quot;showCalc('protein',this)&quot;>Protein Needs</button>
-        <button class=&quot;ctab&quot; onclick=&quot;showCalc('bmi',this)&quot;>BMI Calculator</button>
-        <button class=&quot;ctab&quot; onclick=&quot;showCalc('water',this)&quot;>Water Intake</button>
-        <button class=&quot;ctab&quot; onclick=&quot;showCalc('macro',this)&quot;>Macro Split</button>
+  <section class="sec">
+    <div class="wrap">
+      <div class="calc-tabs">
+        <button class="ctab active" onclick="showCalc('tdee',this)">TDEE & Calories</button>
+        <button class="ctab" onclick="showCalc('protein',this)">Protein Needs</button>
+        <button class="ctab" onclick="showCalc('bmi',this)">BMI Calculator</button>
+        <button class="ctab" onclick="showCalc('water',this)">Water Intake</button>
+        <button class="ctab" onclick="showCalc('macro',this)">Macro Split</button>
       </div>
 
-      <div class=&quot;calc-panel active&quot; id=&quot;calc-tdee&quot;>
-        <div class=&quot;calc-form&quot;>
-          <div class=&quot;calc-title&quot;>TDEE & Daily Calorie Needs</div>
-          <p class=&quot;calc-desc&quot;>Total Daily Energy Expenditure &#8212; how many calories your body needs each day.</p>
-          <div class=&quot;cfield&quot;>
-            <label>Age <span id=&quot;tdee-age-v&quot;>25 years</span></label>
-            <input type=&quot;range&quot; id=&quot;tdee-age&quot; min=&quot;15&quot; max=&quot;70&quot; value=&quot;25&quot; oninput=&quot;calcTDEE()&quot;/>
+      <div class="calc-panel active" id="calc-tdee">
+        <div class="calc-form">
+          <div class="calc-title">TDEE & Daily Calorie Needs</div>
+          <p class="calc-desc">Total Daily Energy Expenditure â€” how many calories your body needs each day.</p>
+          <div class="cfield">
+            <label>Age <span id="tdee-age-v">25 years</span></label>
+            <input type="range" id="tdee-age" min="15" max="70" value="25" oninput="calcTDEE()"/>
           </div>
-          <div class=&quot;cfield&quot;>
-            <label>Weight <span id=&quot;tdee-wt-v&quot;>70 kg</span></label>
-            <input type=&quot;range&quot; id=&quot;tdee-wt&quot; min=&quot;40&quot; max=&quot;150&quot; value=&quot;70&quot; oninput=&quot;calcTDEE()&quot;/>
+          <div class="cfield">
+            <label>Weight <span id="tdee-wt-v">70 kg</span></label>
+            <input type="range" id="tdee-wt" min="40" max="150" value="70" oninput="calcTDEE()"/>
           </div>
-          <div class=&quot;cfield&quot;>
-            <label>Height <span id=&quot;tdee-ht-v&quot;>170 cm</span></label>
-            <input type=&quot;range&quot; id=&quot;tdee-ht&quot; min=&quot;140&quot; max=&quot;210&quot; value=&quot;170&quot; oninput=&quot;calcTDEE()&quot;/>
+          <div class="cfield">
+            <label>Height <span id="tdee-ht-v">170 cm</span></label>
+            <input type="range" id="tdee-ht" min="140" max="210" value="170" oninput="calcTDEE()"/>
           </div>
-          <div class=&quot;cfield&quot;>
+          <div class="cfield">
             <label>Gender</label>
-            <select id=&quot;tdee-sex&quot; onchange=&quot;calcTDEE()&quot;><option value=&quot;m&quot;>Male</option><option value=&quot;f&quot;>Female</option></select>
+            <select id="tdee-sex" onchange="calcTDEE()"><option value="m">Male</option><option value="f">Female</option></select>
           </div>
-          <div class=&quot;cfield&quot;>
+          <div class="cfield">
             <label>Activity Level</label>
-            <select id=&quot;tdee-act&quot; onchange=&quot;calcTDEE()&quot;>
-              <option value=&quot;1.2&quot;>Sedentary (desk job, no exercise)</option>
-              <option value=&quot;1.375&quot;>Lightly Active (1&#8211;3 days/week)</option>
-              <option value=&quot;1.55&quot; selected>Moderately Active (3&#8211;5 days/week)</option>
-              <option value=&quot;1.725&quot;>Very Active (6&#8211;7 days/week)</option>
-              <option value=&quot;1.9&quot;>Extremely Active (athlete / physical job)</option>
+            <select id="tdee-act" onchange="calcTDEE()">
+              <option value="1.2">Sedentary (desk job, no exercise)</option>
+              <option value="1.375">Lightly Active (1â€“3 days/week)</option>
+              <option value="1.55" selected>Moderately Active (3â€“5 days/week)</option>
+              <option value="1.725">Very Active (6â€“7 days/week)</option>
+              <option value="1.9">Extremely Active (athlete / physical job)</option>
             </select>
           </div>
         </div>
-        <div class=&quot;calc-result&quot;>
-          <p class=&quot;cr-label&quot;>Your Daily Calorie Need (TDEE)</p>
-          <div class=&quot;cr-main&quot; id=&quot;tdee-result&quot;>2,415</div>
-          <p class=&quot;cr-unit&quot;>kcal / day</p>
-          <div class=&quot;cr-rows&quot;>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>BMR (at rest)</span><span class=&quot;cr-row-val&quot; id=&quot;bmr-r&quot;>1,748 kcal</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>Weight Loss (−500 kcal)</span><span class=&quot;cr-row-val&quot; id=&quot;loss-r&quot;>1,915 kcal</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>Weight Gain (+300 kcal)</span><span class=&quot;cr-row-val&quot; id=&quot;gain-r&quot;>2,715 kcal</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>BMI</span><span class=&quot;cr-row-val&quot; id=&quot;bmi-r&quot;>24.2</span></div>
+        <div class="calc-result">
+          <p class="cr-label">Your Daily Calorie Need (TDEE)</p>
+          <div class="cr-main" id="tdee-result">2,415</div>
+          <p class="cr-unit">kcal / day</p>
+          <div class="cr-rows">
+            <div class="cr-row"><span class="cr-row-lbl">BMR (at rest)</span><span class="cr-row-val" id="bmr-r">1,748 kcal</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Weight Loss (âˆ’500 kcal)</span><span class="cr-row-val" id="loss-r">1,915 kcal</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Weight Gain (+300 kcal)</span><span class="cr-row-val" id="gain-r">2,715 kcal</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">BMI</span><span class="cr-row-val" id="bmi-r">24.2</span></div>
           </div>
         </div>
       </div>
 
-      <div class=&quot;calc-panel&quot; id=&quot;calc-protein&quot;>
-        <div class=&quot;calc-form&quot;>
-          <div class=&quot;calc-title&quot;>Daily Protein Calculator</div>
-          <p class=&quot;calc-desc&quot;>Based on your goal, activity level and body weight.</p>
-          <div class=&quot;cfield&quot;>
-            <label>Body Weight <span id=&quot;pro-wt-v&quot;>70 kg</span></label>
-            <input type=&quot;range&quot; id=&quot;pro-wt&quot; min=&quot;40&quot; max=&quot;150&quot; value=&quot;70&quot; oninput=&quot;calcProtein()&quot;/>
+      <div class="calc-panel" id="calc-protein">
+        <div class="calc-form">
+          <div class="calc-title">Daily Protein Calculator</div>
+          <p class="calc-desc">Based on your goal, activity level and body weight.</p>
+          <div class="cfield">
+            <label>Body Weight <span id="pro-wt-v">70 kg</span></label>
+            <input type="range" id="pro-wt" min="40" max="150" value="70" oninput="calcProtein()"/>
           </div>
-          <div class=&quot;cfield&quot;>
+          <div class="cfield">
             <label>Goal</label>
-            <select id=&quot;pro-goal&quot; onchange=&quot;calcProtein()&quot;>
-              <option value=&quot;0.8&quot;>General Health (sedentary)</option>
-              <option value=&quot;1.2&quot;>Weight Loss (preserve muscle)</option>
-              <option value=&quot;1.6&quot; selected>Muscle Gain (active)</option>
-              <option value=&quot;2.0&quot;>Advanced Muscle Gain / Athlete</option>
+            <select id="pro-goal" onchange="calcProtein()">
+              <option value="0.8">General Health (sedentary)</option>
+              <option value="1.2">Weight Loss (preserve muscle)</option>
+              <option value="1.6" selected>Muscle Gain (active)</option>
+              <option value="2.0">Advanced Muscle Gain / Athlete</option>
             </select>
           </div>
-          <div class=&quot;cfield&quot;>
+          <div class="cfield">
             <label>Diet Type</label>
-            <select id=&quot;pro-diet&quot; onchange=&quot;calcProtein()&quot;>
-              <option value=&quot;1.0&quot;>Non-Vegetarian (high bioavailability)</option>
-              <option value=&quot;1.15&quot; selected>Vegetarian (slightly higher needed)</option>
-              <option value=&quot;1.25&quot;>Vegan (higher to compensate)</option>
+            <select id="pro-diet" onchange="calcProtein()">
+              <option value="1.0">Non-Vegetarian (high bioavailability)</option>
+              <option value="1.15" selected>Vegetarian (slightly higher needed)</option>
+              <option value="1.25">Vegan (higher to compensate)</option>
             </select>
           </div>
         </div>
-        <div class=&quot;calc-result&quot;>
-          <p class=&quot;cr-label&quot;>Daily Protein Target</p>
-          <div class=&quot;cr-main&quot; id=&quot;pro-result&quot;>129</div>
-          <p class=&quot;cr-unit&quot;>grams / day</p>
-          <div class=&quot;cr-rows&quot;>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>Per meal (4 meals)</span><span class=&quot;cr-row-val&quot; id=&quot;pro-meal&quot;>32g</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>From food (min)</span><span class=&quot;cr-row-val&quot; id=&quot;pro-food&quot;>90g</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>Supplement gap</span><span class=&quot;cr-row-val&quot; id=&quot;pro-supp&quot;>~39g</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>Paneer equivalent</span><span class=&quot;cr-row-val&quot; id=&quot;pro-paneer&quot;>~460g</span></div>
+        <div class="calc-result">
+          <p class="cr-label">Daily Protein Target</p>
+          <div class="cr-main" id="pro-result">129</div>
+          <p class="cr-unit">grams / day</p>
+          <div class="cr-rows">
+            <div class="cr-row"><span class="cr-row-lbl">Per meal (4 meals)</span><span class="cr-row-val" id="pro-meal">32g</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">From food (min)</span><span class="cr-row-val" id="pro-food">90g</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Supplement gap</span><span class="cr-row-val" id="pro-supp">~39g</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Paneer equivalent</span><span class="cr-row-val" id="pro-paneer">~460g</span></div>
           </div>
         </div>
       </div>
 
-      <div class=&quot;calc-panel&quot; id=&quot;calc-bmi&quot;>
-        <div class=&quot;calc-form&quot;>
-          <div class=&quot;calc-title&quot;>BMI Calculator</div>
-          <p class=&quot;calc-desc&quot;>Body Mass Index &#8212; a basic screening metric. Not a diagnostic tool.</p>
-          <div class=&quot;cfield&quot;>
-            <label>Weight <span id=&quot;bmi-wt-v&quot;>70 kg</span></label>
-            <input type=&quot;range&quot; id=&quot;bmi-wt&quot; min=&quot;30&quot; max=&quot;180&quot; value=&quot;70&quot; oninput=&quot;calcBMI()&quot;/>
+      <div class="calc-panel" id="calc-bmi">
+        <div class="calc-form">
+          <div class="calc-title">BMI Calculator</div>
+          <p class="calc-desc">Body Mass Index â€” a basic screening metric. Not a diagnostic tool.</p>
+          <div class="cfield">
+            <label>Weight <span id="bmi-wt-v">70 kg</span></label>
+            <input type="range" id="bmi-wt" min="30" max="180" value="70" oninput="calcBMI()"/>
           </div>
-          <div class=&quot;cfield&quot;>
-            <label>Height <span id=&quot;bmi-ht-v&quot;>170 cm</span></label>
-            <input type=&quot;range&quot; id=&quot;bmi-ht&quot; min=&quot;140&quot; max=&quot;210&quot; value=&quot;170&quot; oninput=&quot;calcBMI()&quot;/>
+          <div class="cfield">
+            <label>Height <span id="bmi-ht-v">170 cm</span></label>
+            <input type="range" id="bmi-ht" min="140" max="210" value="170" oninput="calcBMI()"/>
           </div>
         </div>
-        <div class=&quot;calc-result&quot;>
-          <p class=&quot;cr-label&quot;>Your BMI</p>
-          <div class=&quot;cr-main&quot; id=&quot;bmi-result&quot;>24.2</div>
-          <p class=&quot;cr-unit&quot; id=&quot;bmi-cat&quot;>Normal weight</p>
-          <div class=&quot;cr-rows&quot;>
-            <div class=&quot;cr-row&quot; style=&quot;cursor:default;&quot;><span class=&quot;cr-row-lbl&quot;>Under 18.5</span><span class=&quot;cr-row-val&quot; style=&quot;color:var(--amber);&quot;>Underweight</span></div>
-            <div class=&quot;cr-row&quot; style=&quot;cursor:default;&quot;><span class=&quot;cr-row-lbl&quot;>18.5 &#8211; 24.9</span><span class=&quot;cr-row-val&quot; style=&quot;color:var(--sage);&quot;>Normal</span></div>
-            <div class=&quot;cr-row&quot; style=&quot;cursor:default;&quot;><span class=&quot;cr-row-lbl&quot;>25 &#8211; 29.9</span><span class=&quot;cr-row-val&quot; style=&quot;color:var(--gold);&quot;>Overweight</span></div>
-            <div class=&quot;cr-row&quot; style=&quot;cursor:default;&quot;><span class=&quot;cr-row-lbl&quot;>30+</span><span class=&quot;cr-row-val&quot; style=&quot;color:var(--rust);&quot;>Obese</span></div>
+        <div class="calc-result">
+          <p class="cr-label">Your BMI</p>
+          <div class="cr-main" id="bmi-result">24.2</div>
+          <p class="cr-unit" id="bmi-cat">Normal weight</p>
+          <div class="cr-rows">
+            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">Under 18.5</span><span class="cr-row-val" style="color:var(--amber);">Underweight</span></div>
+            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">18.5 â€“ 24.9</span><span class="cr-row-val" style="color:var(--sage);">Normal</span></div>
+            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">25 â€“ 29.9</span><span class="cr-row-val" style="color:var(--gold);">Overweight</span></div>
+            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">30+</span><span class="cr-row-val" style="color:var(--rust);">Obese</span></div>
           </div>
         </div>
       </div>
 
-      <div class=&quot;calc-panel&quot; id=&quot;calc-water&quot;>
-        <div class=&quot;calc-form&quot;>
-          <div class=&quot;calc-title&quot;>Water Intake Calculator</div>
-          <p class=&quot;calc-desc&quot;>Daily hydration needs based on weight and activity.</p>
-          <div class=&quot;cfield&quot;>
-            <label>Body Weight <span id=&quot;wat-wt-v&quot;>70 kg</span></label>
-            <input type=&quot;range&quot; id=&quot;wat-wt&quot; min=&quot;40&quot; max=&quot;150&quot; value=&quot;70&quot; oninput=&quot;calcWater()&quot;/>
+      <div class="calc-panel" id="calc-water">
+        <div class="calc-form">
+          <div class="calc-title">Water Intake Calculator</div>
+          <p class="calc-desc">Daily hydration needs based on weight and activity.</p>
+          <div class="cfield">
+            <label>Body Weight <span id="wat-wt-v">70 kg</span></label>
+            <input type="range" id="wat-wt" min="40" max="150" value="70" oninput="calcWater()"/>
           </div>
-          <div class=&quot;cfield&quot;>
+          <div class="cfield">
             <label>Activity Level</label>
-            <select id=&quot;wat-act&quot; onchange=&quot;calcWater()&quot;>
-              <option value=&quot;1.0&quot;>Sedentary (no exercise)</option>
-              <option value=&quot;1.2&quot; selected>Moderate (some exercise)</option>
-              <option value=&quot;1.4&quot;>Active (daily exercise)</option>
-              <option value=&quot;1.6&quot;>Very Active (intense training)</option>
+            <select id="wat-act" onchange="calcWater()">
+              <option value="1.0">Sedentary (no exercise)</option>
+              <option value="1.2" selected>Moderate (some exercise)</option>
+              <option value="1.4">Active (daily exercise)</option>
+              <option value="1.6">Very Active (intense training)</option>
             </select>
           </div>
-          <div class=&quot;cfield&quot;>
+          <div class="cfield">
             <label>Climate</label>
-            <select id=&quot;wat-clim&quot; onchange=&quot;calcWater()&quot;>
-              <option value=&quot;1.0&quot;>Temperate / AC environment</option>
-              <option value=&quot;1.15&quot; selected>Tropical / Hot (most of India)</option>
-              <option value=&quot;1.25&quot;>Very hot / humid (summer peak)</option>
+            <select id="wat-clim" onchange="calcWater()">
+              <option value="1.0">Temperate / AC environment</option>
+              <option value="1.15" selected>Tropical / Hot (most of India)</option>
+              <option value="1.25">Very hot / humid (summer peak)</option>
             </select>
           </div>
         </div>
-        <div class=&quot;calc-result&quot;>
-          <p class=&quot;cr-label&quot;>Daily Water Target</p>
-          <div class=&quot;cr-main&quot; id=&quot;wat-result&quot;>2.9</div>
-          <p class=&quot;cr-unit&quot;>litres / day</p>
-          <div class=&quot;cr-rows&quot;>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>In glasses (250ml)</span><span class=&quot;cr-row-val&quot; id=&quot;wat-glass&quot;>~12 glasses</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>Minimum baseline</span><span class=&quot;cr-row-val&quot; id=&quot;wat-min&quot;>2.0 L</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>From food (~20%)</span><span class=&quot;cr-row-val&quot; id=&quot;wat-food&quot;>0.6 L</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>From drinks</span><span class=&quot;cr-row-val&quot; id=&quot;wat-drinks&quot;>2.3 L</span></div>
+        <div class="calc-result">
+          <p class="cr-label">Daily Water Target</p>
+          <div class="cr-main" id="wat-result">2.9</div>
+          <p class="cr-unit">litres / day</p>
+          <div class="cr-rows">
+            <div class="cr-row"><span class="cr-row-lbl">In glasses (250ml)</span><span class="cr-row-val" id="wat-glass">~12 glasses</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Minimum baseline</span><span class="cr-row-val" id="wat-min">2.0 L</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">From food (~20%)</span><span class="cr-row-val" id="wat-food">0.6 L</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">From drinks</span><span class="cr-row-val" id="wat-drinks">2.3 L</span></div>
           </div>
         </div>
       </div>
 
-      <div class=&quot;calc-panel&quot; id=&quot;calc-macro&quot;>
-        <div class=&quot;calc-form&quot;>
-          <div class=&quot;calc-title&quot;>Macro Split Calculator</div>
-          <p class=&quot;calc-desc&quot;>Find your ideal protein, carb and fat targets based on your calorie goal.</p>
-          <div class=&quot;cfield&quot;>
-            <label>Daily Calories <span id=&quot;mac-cal-v&quot;>2,000 kcal</span></label>
-            <input type=&quot;range&quot; id=&quot;mac-cal&quot; min=&quot;1200&quot; max=&quot;4000&quot; step=&quot;50&quot; value=&quot;2000&quot; oninput=&quot;calcMacro()&quot;/>
+      <div class="calc-panel" id="calc-macro">
+        <div class="calc-form">
+          <div class="calc-title">Macro Split Calculator</div>
+          <p class="calc-desc">Find your ideal protein, carb and fat targets based on your calorie goal.</p>
+          <div class="cfield">
+            <label>Daily Calories <span id="mac-cal-v">2,000 kcal</span></label>
+            <input type="range" id="mac-cal" min="1200" max="4000" step="50" value="2000" oninput="calcMacro()"/>
           </div>
-          <div class=&quot;cfield&quot;>
+          <div class="cfield">
             <label>Diet Approach</label>
-            <select id=&quot;mac-type&quot; onchange=&quot;calcMacro()&quot;>
-              <option value=&quot;balanced&quot;>Balanced (30P / 40C / 30F)</option>
-              <option value=&quot;highpro&quot;>High Protein (40P / 30C / 30F)</option>
-              <option value=&quot;lowcarb&quot;>Low Carb (35P / 20C / 45F)</option>
-              <option value=&quot;veg&quot;>Vegetarian-optimised (25P / 50C / 25F)</option>
+            <select id="mac-type" onchange="calcMacro()">
+              <option value="balanced">Balanced (30P / 40C / 30F)</option>
+              <option value="highpro">High Protein (40P / 30C / 30F)</option>
+              <option value="lowcarb">Low Carb (35P / 20C / 45F)</option>
+              <option value="veg">Vegetarian-optimised (25P / 50C / 25F)</option>
             </select>
           </div>
         </div>
-        <div class=&quot;calc-result&quot;>
-          <p class=&quot;cr-label&quot;>Daily Macro Targets</p>
-          <div class=&quot;cr-main&quot; id=&quot;mac-main&quot; style=&quot;font-size:1.8rem;line-height:1.3;&quot;>150g / 200g / 67g</div>
-          <p class=&quot;cr-unit&quot;>Protein / Carbs / Fat</p>
-          <div class=&quot;cr-rows&quot;>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>Protein</span><span class=&quot;cr-row-val&quot; id=&quot;mac-pro&quot;>150g (30%)</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>Carbohydrates</span><span class=&quot;cr-row-val&quot; id=&quot;mac-carb&quot;>200g (40%)</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>Fat</span><span class=&quot;cr-row-val&quot; id=&quot;mac-fat&quot;>67g (30%)</span></div>
-            <div class=&quot;cr-row&quot;><span class=&quot;cr-row-lbl&quot;>Fibre (target)</span><span class=&quot;cr-row-val&quot; id=&quot;mac-fibre&quot;>~40g</span></div>
+        <div class="calc-result">
+          <p class="cr-label">Daily Macro Targets</p>
+          <div class="cr-main" id="mac-main" style="font-size:1.8rem;line-height:1.3;">150g / 200g / 67g</div>
+          <p class="cr-unit">Protein / Carbs / Fat</p>
+          <div class="cr-rows">
+            <div class="cr-row"><span class="cr-row-lbl">Protein</span><span class="cr-row-val" id="mac-pro">150g (30%)</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Carbohydrates</span><span class="cr-row-val" id="mac-carb">200g (40%)</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Fat</span><span class="cr-row-val" id="mac-fat">67g (30%)</span></div>
+            <div class="cr-row"><span class="cr-row-lbl">Fibre (target)</span><span class="cr-row-val" id="mac-fibre">~40g</span></div>
           </div>
         </div>
       </div>
@@ -781,95 +779,95 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
   </section>
 </div>
 
-<div class=&quot;page&quot; id=&quot;page-deficiency&quot;>
-  <header style=&quot;background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);&quot;>
-    <div class=&quot;wrap&quot; style=&quot;text-align:center;&quot;>
-      <p class=&quot;eyebrow&quot;>&#128269; Deficiency Detection Center</p>
-      <h1 style=&quot;font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;&quot;>What Might You Be Missing?</h1>
-      <p style=&quot;color:rgba(255,255,255,.45);max-width:500px;margin:0 auto;&quot;>Select the symptoms you experience. We'll suggest possible nutrient deficiencies, food sources and tests &#8212; not a diagnosis.</p>
+<div class="page" id="page-deficiency">
+  <header style="background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">ðŸ” Deficiency Detection Center</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">What Might You Be Missing?</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:500px;margin:0 auto;">Select the symptoms you experience. We'll suggest possible nutrient deficiencies, food sources and tests â€” not a diagnosis.</p>
     </div>
   </header>
-  <section class=&quot;sec&quot;>
-    <div class=&quot;wrap&quot;>
-      <p style=&quot;font-size:.9rem;color:var(--mid);margin-bottom:22px;font-weight:500;&quot;>Select all symptoms that apply to you:</p>
-      <div class=&quot;symptom-grid&quot; id=&quot;symptom-grid&quot;></div>
-      <button class=&quot;btn-green&quot; onclick=&quot;checkDeficiency()&quot; style=&quot;margin-top:4px;&quot;>Analyse My Symptoms &#8594;</button>
-      <div class=&quot;deficiency-result&quot; id=&quot;def-result&quot;>
-        <div class=&quot;def-disclaimer&quot;>⚠️ <strong>Important:</strong> This is an educational tool, not a medical diagnosis. These suggestions are based on common nutritional patterns. Always consult a doctor and get blood tests for a confirmed diagnosis.</div>
-        <div class=&quot;def-grid&quot; id=&quot;def-grid&quot;></div>
+  <section class="sec">
+    <div class="wrap">
+      <p style="font-size:.9rem;color:var(--mid);margin-bottom:22px;font-weight:500;">Select all symptoms that apply to you:</p>
+      <div class="symptom-grid" id="symptom-grid"></div>
+      <button class="btn-green" onclick="checkDeficiency()" style="margin-top:4px;">Analyse My Symptoms â†’</button>
+      <div class="deficiency-result" id="def-result">
+        <div class="def-disclaimer">âš ï¸ <strong>Important:</strong> This is an educational tool, not a medical diagnosis. These suggestions are based on common nutritional patterns. Always consult a doctor and get blood tests for a confirmed diagnosis.</div>
+        <div class="def-grid" id="def-grid"></div>
       </div>
     </div>
   </section>
 </div>
 
-<div class=&quot;page&quot; id=&quot;page-blood&quot;>
-  <header style=&quot;background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);&quot;>
-    <div class=&quot;wrap&quot; style=&quot;text-align:center;&quot;>
-      <p class=&quot;eyebrow&quot;>&#129656; Blood Test Knowledge Center</p>
-      <h1 style=&quot;font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;&quot;>Understand Every Result</h1>
-      <p style=&quot;color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;&quot;>Plain-English explanations of 15 essential blood panels &#8212; what they measure, why they matter, and nutrition implications.</p>
+<div class="page" id="page-blood">
+  <header style="background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">ðŸ©¸ Blood Test Knowledge Center</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">Understand Every Result</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;">Plain-English explanations of 15 essential blood panels â€” what they measure, why they matter, and nutrition implications.</p>
     </div>
   </header>
-  <section class=&quot;sec&quot;>
-    <div class=&quot;wrap&quot;>
-      <div class=&quot;blood-grid&quot; id=&quot;blood-grid&quot;></div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="blood-grid" id="blood-grid"></div>
     </div>
   </section>
 </div>
 
-<div class=&quot;page&quot; id=&quot;page-research&quot;>
-  <header style=&quot;background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);&quot;>
-    <div class=&quot;wrap&quot; style=&quot;text-align:center;&quot;>
-      <p class=&quot;eyebrow&quot;>&#128218; Research Hub</p>
-      <h1 style=&quot;font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;&quot;>Science You Can Actually Use</h1>
-      <p style=&quot;color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;&quot;>500+ nutrition studies summarised in plain English. Key findings, limitations and practical applications &#8212; every time.</p>
+<div class="page" id="page-research">
+  <header style="background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);">
+    <div class="wrap" style="text-align:center;">
+      <p class="eyebrow">ðŸ“š Research Hub</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">Science You Can Actually Use</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:460px;margin:0 auto;">500+ nutrition studies summarised in plain English. Key findings, limitations and practical applications â€” every time.</p>
     </div>
   </header>
-  <section class=&quot;sec&quot;>
-    <div class=&quot;wrap&quot;>
-      <div class=&quot;research-grid&quot; id=&quot;research-grid&quot;></div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="research-grid" id="research-grid"></div>
     </div>
   </section>
 </div>
 
-<footer id=&quot;main-footer&quot;>
-  <div class=&quot;footer-inner&quot;>
-    <div class=&quot;footer-brand&quot;>
-      <div class=&quot;fb-name&quot;>
-        <div class=&quot;nav-logo-icon&quot; style=&quot;width:28px;height:28px;font-size:.8rem;border-radius:5px;&quot;>&#127807;</div>
+<footer id="main-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="fb-name">
+        <div class="nav-logo-icon" style="width:28px;height:28px;font-size:.8rem;border-radius:5px;">ðŸŒ¿</div>
         NutraInfo
       </div>
       <p>India's evidence-based nutrition platform. Scientific rigour. Beginner-friendly language. Zero conflicts of interest.</p>
     </div>
-    <div class=&quot;fc&quot;>
+    <div class="fc">
       <h5>Database</h5>
-      <a onclick=&quot;go('food')&quot;>Food Search</a>
-      <a onclick=&quot;go('food')&quot;>Pulses & Dal</a>
-      <a onclick=&quot;go('food')&quot;>Dairy & Paneer</a>
-      <a onclick=&quot;go('food')&quot;>Fruits & Vegetables</a>
+      <a onclick="go('food')">Food Search</a>
+      <a onclick="go('food')">Pulses & Dal</a>
+      <a onclick="go('food')">Dairy & Paneer</a>
+      <a onclick="go('food')">Fruits & Vegetables</a>
     </div>
-    <div class=&quot;fc&quot;>
+    <div class="fc">
       <h5>Tools</h5>
-      <a onclick=&quot;go('calculators')&quot;>TDEE Calculator</a>
-      <a onclick=&quot;go('calculators')&quot;>Protein Calculator</a>
-      <a onclick=&quot;go('deficiency')&quot;>Deficiency Checker</a>
-      <a onclick=&quot;go('blood')&quot;>Blood Tests Guide</a>
+      <a onclick="go('calculators')">TDEE Calculator</a>
+      <a onclick="go('calculators')">Protein Calculator</a>
+      <a onclick="go('deficiency')">Deficiency Checker</a>
+      <a onclick="go('blood')">Blood Tests Guide</a>
     </div>
-    <div class=&quot;fc&quot;>
+    <div class="fc">
       <h5>Platform</h5>
-      <a onclick=&quot;go('supplements')&quot;>Supplement Ratings</a>
-      <a onclick=&quot;go('meals')&quot;>Meal Plans</a>
-      <a onclick=&quot;go('research')&quot;>Research Hub</a>
-      <a onclick=&quot;showToast('Community launching soon!')&quot;>Community</a>
+      <a onclick="go('supplements')">Supplement Ratings</a>
+      <a onclick="go('meals')">Meal Plans</a>
+      <a onclick="go('research')">Research Hub</a>
+      <a onclick="showToast('Community launching soon!')">Community</a>
     </div>
   </div>
-  <div class=&quot;footer-bottom&quot;>
-    <span>© 2025 NutraInfo · nutrainfo.in · Part of the Knowledge Network</span>
+  <div class="footer-bottom">
+    <span>Â© 2025 NutraInfo Â· nutrainfo.in Â· Part of the Knowledge Network</span>
     <span>Not a substitute for medical advice. Always consult a qualified professional.</span>
   </div>
 </footer>
 
-<div id=&quot;toast&quot;></div>
+<div id="toast"></div>
 
 <script>
 const PAGES=['home','food','supplements','meals','calculators','deficiency','blood','research'];
@@ -900,9 +898,9 @@ function showToast(m){
 }
 function subNewsletter(){
   const e=document.getElementById('nl-e').value.trim();
-  if(!e||!e.includes('@')){showToast('Please enter a valid email &#9993;&#65039;');return;}
+  if(!e||!e.includes('@')){showToast('Please enter a valid email âœ‰ï¸');return;}
   document.getElementById('nl-e').value='';
-  showToast('&#127807; Subscribed! First drop arrives this Sunday.');
+  showToast('ðŸŒ¿ Subscribed! First drop arrives this Sunday.');
 }
 function initReveal(){
   setTimeout(()=>{
@@ -975,18 +973,18 @@ function orbitalSearch(){
     f.cat.toLowerCase().includes(query)
   ).slice(0,5);
   if(matches.length===0){
-    suggestions.innerHTML='<div class=&quot;os-item&quot; style=&quot;padding:16px;text-align:center;color:var(--mid);&quot;><span>No foods found</span></div>';
+    suggestions.innerHTML='<div class="os-item" style="padding:16px;text-align:center;color:var(--mid);"><span>No foods found</span></div>';
     suggestions.classList.add('active');
     return;
   }
   suggestions.innerHTML=matches.map(f=>`
-    <div class=&quot;os-item&quot; data-name=&quot;${f.name}&quot;>
-      <span class=&quot;os-emoji&quot;>${f.emoji}</span>
-      <div class=&quot;os-info&quot;>
-        <div class=&quot;os-name&quot;>${f.name}</div>
-        <div class=&quot;os-local&quot;>${f.local}</div>
+    <div class="os-item" data-name="${f.name}">
+      <span class="os-emoji">${f.emoji}</span>
+      <div class="os-info">
+        <div class="os-name">${f.name}</div>
+        <div class="os-local">${f.local}</div>
       </div>
-      <span class=&quot;os-cat&quot;>${f.cat}</span>
+      <span class="os-cat">${f.cat}</span>
     </div>
   `).join('');
   suggestions.classList.add('active');
@@ -1025,21 +1023,21 @@ function renderFoods(){
     return matchCat&&matchQ;
   });
   grid.innerHTML=filtered.map(f=>`
-    <div class=&quot;food-card&quot; onclick=&quot;openFood(${f.id})&quot;>
-      <div class=&quot;food-thumb&quot; style=&quot;background:${f.bg};display:flex;align-items:center;justify-content:center;font-family:var(--ff-serif);font-size:0.9rem;color:var(--forest);font-weight:500;text-align:center;padding:8px;overflow:hidden;&quot;>${f.name}</div>
-      <div class=&quot;food-body&quot;>
+    <div class="food-card" onclick="openFood(${f.id})">
+      <div class="food-thumb" style="background:${f.bg};display:flex;align-items:center;justify-content:center;font-family:var(--ff-serif);font-size:0.9rem;color:var(--forest);font-weight:500;text-align:center;padding:8px;overflow:hidden;">${f.name}</div>
+      <div class="food-body">
         <h3>${f.name}</h3>
-        <div class=&quot;food-local&quot;>${f.local}</div>
-        <div class=&quot;food-macros&quot;>
-          <div class=&quot;fm-item&quot;><div class=&quot;fm-val&quot;>${f.cal}</div><div class=&quot;fm-lbl&quot;>kcal</div></div>
-          <div class=&quot;fm-item&quot;><div class=&quot;fm-val&quot;>${f.pro}g</div><div class=&quot;fm-lbl&quot;>Protein</div></div>
-          <div class=&quot;fm-item&quot;><div class=&quot;fm-val&quot;>${f.carb}g</div><div class=&quot;fm-lbl&quot;>Carbs</div></div>
-          <div class=&quot;fm-item&quot;><div class=&quot;fm-val&quot;>${f.fiber > 0 ? f.fiber + 'g' : '~'}</div><div class=&quot;fm-lbl&quot;>Fiber</div></div>
+        <div class="food-local">${f.local}</div>
+        <div class="food-macros">
+          <div class="fm-item"><div class="fm-val">${f.cal}</div><div class="fm-lbl">kcal</div></div>
+          <div class="fm-item"><div class="fm-val">${f.pro}g</div><div class="fm-lbl">Protein</div></div>
+          <div class="fm-item"><div class="fm-val">${f.carb}g</div><div class="fm-lbl">Carbs</div></div>
+          <div class="fm-item"><div class="fm-val">${f.fiber > 0 ? f.fiber + 'g' : '~'}</div><div class="fm-lbl">Fiber</div></div>
         </div>
       </div>
     </div>
   `).join('');
-  if(!filtered.length) grid.innerHTML='<p style=&quot;color:var(--mid);padding:20px;&quot;>No foods found. Try a different search term.</p>';
+  if(!filtered.length) grid.innerHTML='<p style="color:var(--mid);padding:20px;">No foods found. Try a different search term.</p>';
 }
 
 function setFoodCat(cat,btn){
@@ -1061,24 +1059,24 @@ function openFood(id){
     return;
   }
   document.getElementById('md-name').textContent=f.name;
-  document.getElementById('md-local').textContent=f.local+' · GI: '+(f.gi||'N/A');
+  document.getElementById('md-local').textContent=f.local+' Â· GI: '+(f.gi||'N/A');
   document.getElementById('md-bio').textContent=f.bio||'Bioavailability information coming soon.';
   document.getElementById('md-macros').innerHTML=
-    `<div class=&quot;fm-item&quot; style=&quot;background:var(--paper);border-radius:12px;padding:14px;text-align:center;&quot;>
-       <div style=&quot;font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);&quot;>${f.cal}</div>
-       <div style=&quot;font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;&quot;>kcal</div>
+    `<div class="fm-item" style="background:var(--paper);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.cal}</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">kcal</div>
      </div>
-     <div class=&quot;fm-item&quot; style=&quot;background:rgba(45,106,79,.1);border-radius:12px;padding:14px;text-align:center;&quot;>
-       <div style=&quot;font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);&quot;>${f.pro}g</div>
-       <div style=&quot;font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;&quot;>Protein</div>
+     <div class="fm-item" style="background:rgba(45,106,79,.1);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.pro}g</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">Protein</div>
      </div>
-     <div class=&quot;fm-item&quot; style=&quot;background:rgba(233,196,106,.15);border-radius:12px;padding:14px;text-align:center;&quot;>
-       <div style=&quot;font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);&quot;>${f.carb}g</div>
-       <div style=&quot;font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;&quot;>Carbs</div>
+     <div class="fm-item" style="background:rgba(233,196,106,.15);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.carb}g</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">Carbs</div>
      </div>
-     <div class=&quot;fm-item&quot; style=&quot;background:rgba(244,162,97,.12);border-radius:12px;padding:14px;text-align:center;&quot;>
-       <div style=&quot;font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);&quot;>${f.fat}g</div>
-       <div style=&quot;font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;&quot;>Fat</div>
+     <div class="fm-item" style="background:rgba(244,162,97,.12);border-radius:12px;padding:14px;text-align:center;">
+       <div style="font-family:var(--ff-serif);font-size:1.4rem;color:var(--forest);">${f.fat}g</div>
+       <div style="font-size:.7rem;color:var(--light);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;">Fat</div>
      </div>`;
   const nutrients={
     'Protein':f.pro+'g',
@@ -1090,7 +1088,7 @@ function openFood(id){
   const tbody=document.querySelector('#md-table tbody');
   if(tbody){
     tbody.innerHTML=Object.entries(nutrients).map(([k,v])=>{
-      return`<tr><td>${k}</td><td><strong>${v}</strong></td><td>&#8212;</td><td><div class=&quot;nt-bar&quot;><div class=&quot;nt-fill&quot; style=&quot;width:0%&quot;></div></div></td></tr>`;
+      return`<tr><td>${k}</td><td><strong>${v}</strong></td><td>â€”</td><td><div class="nt-bar"><div class="nt-fill" style="width:0%"></div></div></td></tr>`;
     }).join('');
   }
   document.getElementById('food-modal').classList.add('open');
@@ -1105,27 +1103,27 @@ function closeModal(e){
 }
 
 const SUPPS=[
-  {name:'Whey Protein Concentrate',icon:'&#128170;',desc:'Most popular protein supplement. Fast-absorbing complete protein.',ratings:{Quality:88,Transparency:72,Purity:80,Safety:96,Evidence:92,'Value for Money':85,Taste:82,Digestibility:78}},
-  {name:'Creatine Monohydrate',icon:'&#9889;',desc:'Most researched supplement in sports nutrition. Improves strength and power output.',ratings:{Quality:95,Transparency:90,Purity:88,Safety:99,Evidence:99,'Value for Money':95,Taste:75,Digestibility:90}},
-  {name:'Vitamin D3',icon:'&#9728;&#65039;',desc:'Critical for Indians &#8212; most are deficient. Supports immunity, bone health, mood.',ratings:{Quality:90,Transparency:82,Purity:86,Safety:94,Evidence:92,'Value for Money':92,Taste:88,Digestibility:95}},
-  {name:'Fish Oil (Omega-3)',icon:'&#128031;',desc:'EPA + DHA for heart, brain and joint health. Critical for vegetarians who avoid fish.',ratings:{Quality:82,Transparency:70,Purity:75,Safety:90,Evidence:88,'Value for Money':78,Taste:62,Digestibility:76}},
-  {name:'Magnesium Glycinate',icon:'&#127769;',desc:'Most bioavailable form. Supports sleep, stress, muscle function and 300+ enzymes.',ratings:{Quality:88,Transparency:84,Purity:86,Safety:95,Evidence:86,'Value for Money':80,Taste:72,Digestibility:92}},
-  {name:'Plant Protein (Pea + Rice)',icon:'&#127793;',desc:'Best vegan protein blend. Pea+rice combination gives complete amino acid profile.',ratings:{Quality:80,Transparency:75,Purity:82,Safety:96,Evidence:78,'Value for Money':72,Taste:68,Digestibility:80}},
+  {name:'Whey Protein Concentrate',icon:'ðŸ’ª',desc:'Most popular protein supplement. Fast-absorbing complete protein.',ratings:{Quality:88,Transparency:72,Purity:80,Safety:96,Evidence:92,'Value for Money':85,Taste:82,Digestibility:78}},
+  {name:'Creatine Monohydrate',icon:'âš¡',desc:'Most researched supplement in sports nutrition. Improves strength and power output.',ratings:{Quality:95,Transparency:90,Purity:88,Safety:99,Evidence:99,'Value for Money':95,Taste:75,Digestibility:90}},
+  {name:'Vitamin D3',icon:'â˜€ï¸',desc:'Critical for Indians â€” most are deficient. Supports immunity, bone health, mood.',ratings:{Quality:90,Transparency:82,Purity:86,Safety:94,Evidence:92,'Value for Money':92,Taste:88,Digestibility:95}},
+  {name:'Fish Oil (Omega-3)',icon:'ðŸŸ',desc:'EPA + DHA for heart, brain and joint health. Critical for vegetarians who avoid fish.',ratings:{Quality:82,Transparency:70,Purity:75,Safety:90,Evidence:88,'Value for Money':78,Taste:62,Digestibility:76}},
+  {name:'Magnesium Glycinate',icon:'ðŸŒ™',desc:'Most bioavailable form. Supports sleep, stress, muscle function and 300+ enzymes.',ratings:{Quality:88,Transparency:84,Purity:86,Safety:95,Evidence:86,'Value for Money':80,Taste:72,Digestibility:92}},
+  {name:'Plant Protein (Pea + Rice)',icon:'ðŸŒ±',desc:'Best vegan protein blend. Pea+rice combination gives complete amino acid profile.',ratings:{Quality:80,Transparency:75,Purity:82,Safety:96,Evidence:78,'Value for Money':72,Taste:68,Digestibility:80}},
 ];
 function renderSupplements(){
   const g=document.getElementById('supp-grid');if(!g)return;
   g.innerHTML=SUPPS.map(s=>`
-    <div class=&quot;supp-card&quot; onclick=&quot;showToast('Full review for ${s.name} &#8212; coming soon!')&quot;>
-      <div class=&quot;supp-header&quot;>
-        <div class=&quot;supp-icon&quot;>${s.icon}</div>
+    <div class="supp-card" onclick="showToast('Full review for ${s.name} â€” coming soon!')">
+      <div class="supp-header">
+        <div class="supp-icon">${s.icon}</div>
         <div><h3>${s.name}</h3><p>${s.desc}</p></div>
       </div>
-      <div class=&quot;rating-rows&quot;>
+      <div class="rating-rows">
         ${Object.entries(s.ratings).map(([k,v])=>`
-          <div class=&quot;rating-row&quot;>
-            <span class=&quot;rl&quot;>${k}</span>
-            <div class=&quot;rating-bar-bg&quot;><div class=&quot;rating-fill&quot; style=&quot;width:${v}%&quot;></div></div>
-            <span class=&quot;rv&quot;>${v}</span>
+          <div class="rating-row">
+            <span class="rl">${k}</span>
+            <div class="rating-bar-bg"><div class="rating-fill" style="width:${v}%"></div></div>
+            <span class="rv">${v}</span>
           </div>`).join('')}
       </div>
     </div>
@@ -1133,28 +1131,28 @@ function renderSupplements(){
 }
 
 const MEALS=[
-  {icon:'&#129367;',name:'Indian Vegetarian High Protein',desc:'Dal, paneer, soya, sprouts &#8212; hitting 100g+ protein daily.',cal:'1,800',pro:'105g',carbs:'200g',fat:'55g',cost:'₹250/day'},
-  {icon:'&#127793;',name:'Indian Vegan Plan',desc:'100% plant-based. B12 and omega-3 supplementation built in.',cal:'1,700',pro:'85g',carbs:'220g',fat:'48g',cost:'₹200/day'},
-  {icon:'&#128293;',name:'Weight Loss Plan',desc:'Calorie deficit with high satiety foods. No crash dieting.',cal:'1,400',pro:'110g',carbs:'140g',fat:'45g',cost:'₹220/day'},
-  {icon:'&#128170;',name:'Muscle Gain Plan',desc:'Calorie surplus with anabolic meal timing and protein loading.',cal:'2,800',pro:'150g',carbs:'330g',fat:'80g',cost:'₹350/day'},
-  {icon:'🩺',name:'Diabetes-Friendly Indian',desc:'Low GI foods, controlled carbs, balanced meals every 3 hours.',cal:'1,600',pro:'90g',carbs:'160g',fat:'55g',cost:'₹240/day'},
-  {icon:'&#128176;',name:'Student Budget Plan',desc:'Under ₹150/day. Dal, eggs, curd, oats. Maximise nutrition per rupee.',cal:'1,800',pro:'80g',carbs:'220g',fat:'55g',cost:'₹140/day'},
-  {icon:'&#10084;&#65039;',name:'Heart Healthy Plan',desc:'Low saturated fat, high fibre, omega-3 rich. DASH diet adapted for India.',cal:'1,900',pro:'88g',carbs:'250g',fat:'58g',cost:'₹280/day'},
-  {icon:'&#128116;',name:'Senior Citizen Plan',desc:'Easy to digest, high calcium, vitamin D, B12. Joint-friendly.',cal:'1,600',pro:'90g',carbs:'190g',fat:'52g',cost:'₹260/day'},
+  {icon:'ðŸ¥—',name:'Indian Vegetarian High Protein',desc:'Dal, paneer, soya, sprouts â€” hitting 100g+ protein daily.',cal:'1,800',pro:'105g',carbs:'200g',fat:'55g',cost:'â‚¹250/day'},
+  {icon:'ðŸŒ±',name:'Indian Vegan Plan',desc:'100% plant-based. B12 and omega-3 supplementation built in.',cal:'1,700',pro:'85g',carbs:'220g',fat:'48g',cost:'â‚¹200/day'},
+  {icon:'ðŸ”¥',name:'Weight Loss Plan',desc:'Calorie deficit with high satiety foods. No crash dieting.',cal:'1,400',pro:'110g',carbs:'140g',fat:'45g',cost:'â‚¹220/day'},
+  {icon:'ðŸ’ª',name:'Muscle Gain Plan',desc:'Calorie surplus with anabolic meal timing and protein loading.',cal:'2,800',pro:'150g',carbs:'330g',fat:'80g',cost:'â‚¹350/day'},
+  {icon:'ðŸ©º',name:'Diabetes-Friendly Indian',desc:'Low GI foods, controlled carbs, balanced meals every 3 hours.',cal:'1,600',pro:'90g',carbs:'160g',fat:'55g',cost:'â‚¹240/day'},
+  {icon:'ðŸ’°',name:'Student Budget Plan',desc:'Under â‚¹150/day. Dal, eggs, curd, oats. Maximise nutrition per rupee.',cal:'1,800',pro:'80g',carbs:'220g',fat:'55g',cost:'â‚¹140/day'},
+  {icon:'â¤ï¸',name:'Heart Healthy Plan',desc:'Low saturated fat, high fibre, omega-3 rich. DASH diet adapted for India.',cal:'1,900',pro:'88g',carbs:'250g',fat:'58g',cost:'â‚¹280/day'},
+  {icon:'ðŸ‘´',name:'Senior Citizen Plan',desc:'Easy to digest, high calcium, vitamin D, B12. Joint-friendly.',cal:'1,600',pro:'90g',carbs:'190g',fat:'52g',cost:'â‚¹260/day'},
 ];
 function renderMeals(){
   const g=document.getElementById('meal-grid');if(!g)return;
   g.innerHTML=MEALS.map(m=>`
-    <div class=&quot;mp-card&quot; onclick=&quot;showToast('Full ${m.name} plan with shopping list &#8212; coming soon!')&quot;>
-      <div class=&quot;mp-header&quot;>
-        <div class=&quot;mp-icon&quot;>${m.icon}</div>
+    <div class="mp-card" onclick="showToast('Full ${m.name} plan with shopping list â€” coming soon!')">
+      <div class="mp-header">
+        <div class="mp-icon">${m.icon}</div>
         <div><h3>${m.name}</h3><p>${m.desc}</p></div>
       </div>
-      <div class=&quot;mp-stats&quot;>
-        <div class=&quot;mp-stat&quot;><div class=&quot;msv&quot;>${m.cal}</div><div class=&quot;msl&quot;>Calories</div></div>
-        <div class=&quot;mp-stat&quot;><div class=&quot;msv&quot;>${m.pro}</div><div class=&quot;msl&quot;>Protein</div></div>
-        <div class=&quot;mp-stat&quot;><div class=&quot;msv&quot;>${m.carbs}</div><div class=&quot;msl&quot;>Carbs</div></div>
-        <div class=&quot;mp-stat&quot;><div class=&quot;msv&quot;>${m.cost}</div><div class=&quot;msl&quot;>Est. Cost</div></div>
+      <div class="mp-stats">
+        <div class="mp-stat"><div class="msv">${m.cal}</div><div class="msl">Calories</div></div>
+        <div class="mp-stat"><div class="msv">${m.pro}</div><div class="msl">Protein</div></div>
+        <div class="mp-stat"><div class="msv">${m.carbs}</div><div class="msl">Carbs</div></div>
+        <div class="mp-stat"><div class="msv">${m.cost}</div><div class="msl">Est. Cost</div></div>
       </div>
     </div>
   `).join('');
@@ -1245,18 +1243,18 @@ function showCalc(id,btn){
 }
 
 const SYMPTOMS=[
-  {id:'fatigue',icon:'&#128564;',label:'Fatigue / Low Energy'},
-  {id:'hairloss',icon:'&#128135;',label:'Hair Loss / Thinning'},
-  {id:'brainfog',icon:'&#129504;',label:'Brain Fog / Poor Focus'},
-  {id:'immunity',icon:'&#129319;',label:'Frequent Infections'},
-  {id:'weakness',icon:'&#129470;',label:'Muscle Weakness'},
-  {id:'cramps',icon:'&#9889;',label:'Muscle Cramps'},
-  {id:'recovery',icon:'&#127973;',label:'Poor Recovery'},
-  {id:'mood',icon:'&#128532;',label:'Mood Changes / Low Mood'},
-  {id:'sleep',icon:'&#127769;',label:'Poor Sleep Quality'},
-  {id:'skin',icon:'&#129657;',label:'Dry Skin / Rashes'},
-  {id:'bone',icon:'&#129460;',label:'Bone Pain / Aches'},
-  {id:'nails',icon:'&#128133;',label:'Brittle Nails'},
+  {id:'fatigue',icon:'ðŸ˜´',label:'Fatigue / Low Energy'},
+  {id:'hairloss',icon:'ðŸ’‡',label:'Hair Loss / Thinning'},
+  {id:'brainfog',icon:'ðŸ§ ',label:'Brain Fog / Poor Focus'},
+  {id:'immunity',icon:'ðŸ¤§',label:'Frequent Infections'},
+  {id:'weakness',icon:'ðŸ¦¾',label:'Muscle Weakness'},
+  {id:'cramps',icon:'âš¡',label:'Muscle Cramps'},
+  {id:'recovery',icon:'ðŸ¥',label:'Poor Recovery'},
+  {id:'mood',icon:'ðŸ˜”',label:'Mood Changes / Low Mood'},
+  {id:'sleep',icon:'ðŸŒ™',label:'Poor Sleep Quality'},
+  {id:'skin',icon:'ðŸ©¹',label:'Dry Skin / Rashes'},
+  {id:'bone',icon:'ðŸ¦´',label:'Bone Pain / Aches'},
+  {id:'nails',icon:'ðŸ’…',label:'Brittle Nails'},
 ];
 const DEFICIENCY_MAP={
   fatigue:['Iron','Vitamin B12','Vitamin D','Magnesium'],
@@ -1275,16 +1273,16 @@ const DEFICIENCY_MAP={
 const DEF_INFO={
   'Iron':{foods:['Toor Dal','Moong Dal','Spinach','Ragi','Dates'],test:'Serum Ferritin + CBC + Iron Panel',tip:'Pair iron-rich foods with vitamin C. Avoid tea/coffee with meals.'},
   'Vitamin B12':{foods:['Curd','Paneer','Eggs','Milk','Fortified foods'],test:'Serum Vitamin B12 (target >300 pg/mL)',tip:'Almost exclusively in animal products. Vegetarians need supplementation or fortified foods.'},
-  'Vitamin D':{foods:['Sunlight (primary)','Fortified milk','Eggs','Fatty fish'],test:'25-OH Vitamin D (target 40&#8211;80 ng/mL)',tip:'Most Indians are severely deficient. Get 15&#8211;30 min sunlight daily. Supplement 1000&#8211;2000 IU/day.'},
+  'Vitamin D':{foods:['Sunlight (primary)','Fortified milk','Eggs','Fatty fish'],test:'25-OH Vitamin D (target 40â€“80 ng/mL)',tip:'Most Indians are severely deficient. Get 15â€“30 min sunlight daily. Supplement 1000â€“2000 IU/day.'},
   'Magnesium':{foods:['Almonds','Moong Dal','Spinach','Pumpkin Seeds','Dark Chocolate'],test:'Serum Magnesium (not very sensitive)',tip:'Whole foods diet usually sufficient. Stress, alcohol and excess coffee deplete magnesium.'},
   'Zinc':{foods:['Pumpkin Seeds','Sesame','Cashews','Dal','Rajma'],test:'Serum Zinc',tip:'Plant zinc is less bioavailable than animal sources. Soaking and sprouting legumes improves absorption.'},
-  'Protein':{foods:['Dal','Paneer','Curd','Eggs','Soya','Chicken'],test:'Serum albumin (indirect marker)',tip:'Most Indians eat under 40g protein/day vs the 60&#8211;80g minimum recommended.'},
+  'Protein':{foods:['Dal','Paneer','Curd','Eggs','Soya','Chicken'],test:'Serum albumin (indirect marker)',tip:'Most Indians eat under 40g protein/day vs the 60â€“80g minimum recommended.'},
   'Calcium':{foods:['Milk','Paneer','Curd','Ragi','Sesame Seeds'],test:'Serum Calcium + PTH + Vitamin D',tip:'Absorption requires vitamin D. Spinach calcium is poorly absorbed due to oxalates.'},
-  'Vitamin C':{foods:['Amla (highest!)','Guava','Lemon','Bell Peppers','Kiwi'],test:'Rarely tested &#8212; assess via diet',tip:'Destroyed by heat. Eat some raw fruits/vegetables daily. Enhances iron absorption significantly.'},
+  'Vitamin C':{foods:['Amla (highest!)','Guava','Lemon','Bell Peppers','Kiwi'],test:'Rarely tested â€” assess via diet',tip:'Destroyed by heat. Eat some raw fruits/vegetables daily. Enhances iron absorption significantly.'},
   'Omega-3':{foods:['Flaxseed','Chia Seeds','Walnuts','Fatty Fish'],test:'Omega-3 index (specialized)',tip:'ALA from plants converts poorly to EPA/DHA. Vegetarians may consider algae-based omega-3.'},
-  'Vitamin E':{foods:['Almonds','Sunflower Seeds','Wheat Germ Oil','Spinach'],test:'Serum Vitamin E (alpha-tocopherol)',tip:'Fat-soluble &#8212; absorb better with fat in the meal. Deficiency rare in healthy adults.'},
+  'Vitamin E':{foods:['Almonds','Sunflower Seeds','Wheat Germ Oil','Spinach'],test:'Serum Vitamin E (alpha-tocopherol)',tip:'Fat-soluble â€” absorb better with fat in the meal. Deficiency rare in healthy adults.'},
   'Vitamin A':{foods:['Carrots','Sweet Potato','Mango','Papaya','Spinach'],test:'Serum Retinol',tip:'Beta-carotene from plants converts to vitamin A. Fat improves absorption.'},
-  'Selenium':{foods:['Brazil Nuts (just 1&#8211;2!)','Sunflower Seeds','Chicken','Eggs'],test:'Serum Selenium',tip:'Brazil nuts are the richest source &#8212; just 1&#8211;2 daily meets needs. Indian soils are selenium-poor.'},
+  'Selenium':{foods:['Brazil Nuts (just 1â€“2!)','Sunflower Seeds','Chicken','Eggs'],test:'Serum Selenium',tip:'Brazil nuts are the richest source â€” just 1â€“2 daily meets needs. Indian soils are selenium-poor.'},
   'Potassium':{foods:['Banana','Coconut Water','Dal','Potato','Spinach'],test:'Serum Electrolytes panel',tip:'Rarely deficient in people eating whole foods. Excess sweat loss can reduce levels.'},
   'Biotin (B7)':{foods:['Eggs','Almonds','Peanuts','Curd'],test:'Serum Biotin',tip:'Raw egg whites block biotin absorption. Cooking eggs fixes this. True deficiency is rare.'},
   'Vitamin K2':{foods:['Natto (rare in India)','Hard cheese','Egg yolks','Some fermented foods'],test:'No standard clinical test',tip:'K2 directs calcium to bones. Under-researched in Indian context. May need supplementation if dairy-free.'},
@@ -1295,8 +1293,8 @@ const DEF_INFO={
 function renderSymptoms(){
   const g=document.getElementById('symptom-grid');if(!g)return;
   g.innerHTML=SYMPTOMS.map(s=>`
-    <div class=&quot;sym-btn&quot; id=&quot;sym-${s.id}&quot; onclick=&quot;toggleSym('${s.id}')&quot;>
-      <span class=&quot;si&quot;>${s.icon}</span>
+    <div class="sym-btn" id="sym-${s.id}" onclick="toggleSym('${s.id}')">
+      <span class="si">${s.icon}</span>
       <span>${s.label}</span>
     </div>
   `).join('');
@@ -1315,12 +1313,12 @@ function checkDeficiency(){
   const grid=document.getElementById('def-grid');
   grid.innerHTML=sorted.map(([def,score])=>{
     const info=DEF_INFO[def]||{foods:[],test:'Consult your doctor',tip:''};
-    return`<div class=&quot;def-card&quot;>
+    return`<div class="def-card">
       <h4>${def}</h4>
-      <p style=&quot;margin-bottom:8px;font-size:.78rem;color:var(--mid);&quot;>Matched ${score} of your ${selected.length} symptom(s).</p>
-      <p style=&quot;font-size:.8rem;color:var(--mid);margin-bottom:10px;&quot;><strong>Suggested test:</strong> ${info.test}</p>
-      <p style=&quot;font-size:.79rem;color:var(--mid);margin-bottom:10px;&quot;>💡 ${info.tip}</p>
-      <div class=&quot;def-foods&quot;>${info.foods.map(f=>`<span class=&quot;def-food-tag&quot;>${f}</span>`).join('')}</div>
+      <p style="margin-bottom:8px;font-size:.78rem;color:var(--mid);">Matched ${score} of your ${selected.length} symptom(s).</p>
+      <p style="font-size:.8rem;color:var(--mid);margin-bottom:10px;"><strong>Suggested test:</strong> ${info.test}</p>
+      <p style="font-size:.79rem;color:var(--mid);margin-bottom:10px;">ðŸ’¡ ${info.tip}</p>
+      <div class="def-foods">${info.foods.map(f=>`<span class="def-food-tag">${f}</span>`).join('')}</div>
     </div>`;
   }).join('');
   document.getElementById('def-result').classList.add('show');
@@ -1328,61 +1326,61 @@ function checkDeficiency(){
 }
 
 const BLOOD_TESTS=[
-  {name:'Vitamin D (25-OH)',sub:'Bone, immunity, mood, hormones',low:'0',high:'150',normStart:33,normEnd:80,markerPct:40,unit:'ng/mL',why:'Over 70% of Indians are deficient. Impacts bones, immunity, mood, hormones and muscle function.',nutrition:'Supplement 1000&#8211;2000 IU/day if below 30. Fatty fish, egg yolks, fortified milk help but rarely sufficient alone.'},
-  {name:'Vitamin B12',sub:'Nerve function, red blood cells, DNA',low:'0',high:'1000',normStart:25,normEnd:80,markerPct:30,unit:'pg/mL',why:'Deficiency extremely common in vegetarians. Causes irreversible nerve damage if untreated long-term.',nutrition:'Animal foods only (dairy, eggs, meat). Vegetarians: supplement methylcobalamin 500&#8211;1000 mcg daily.'},
+  {name:'Vitamin D (25-OH)',sub:'Bone, immunity, mood, hormones',low:'0',high:'150',normStart:33,normEnd:80,markerPct:40,unit:'ng/mL',why:'Over 70% of Indians are deficient. Impacts bones, immunity, mood, hormones and muscle function.',nutrition:'Supplement 1000â€“2000 IU/day if below 30. Fatty fish, egg yolks, fortified milk help but rarely sufficient alone.'},
+  {name:'Vitamin B12',sub:'Nerve function, red blood cells, DNA',low:'0',high:'1000',normStart:25,normEnd:80,markerPct:30,unit:'pg/mL',why:'Deficiency extremely common in vegetarians. Causes irreversible nerve damage if untreated long-term.',nutrition:'Animal foods only (dairy, eggs, meat). Vegetarians: supplement methylcobalamin 500â€“1000 mcg daily.'},
   {name:'Ferritin (Iron Stores)',sub:'Iron storage, fatigue, hair health',low:'0',high:'300',normStart:15,normEnd:55,markerPct:22,unit:'ng/mL',why:'Low ferritin causes fatigue, brain fog and hair loss even before anaemia develops. Very common in Indian women.',nutrition:'Increase heme iron (meat) or non-heme + vitamin C (dal + lemon). Avoid tea/coffee with meals.'},
   {name:'HbA1c',sub:'Average blood sugar over 3 months',low:'4',high:'12',normStart:10,normEnd:40,markerPct:18,unit:'%',why:'India has the second-highest number of diabetics globally. Early detection is critical.',nutrition:'Reduce refined carbs, increase protein and fiber, time carbohydrate intake around activity.'},
-  {name:'TSH (Thyroid)',sub:'Thyroid function &#8212; metabolism, energy',low:'0',high:'10',normStart:10,normEnd:45,markerPct:25,unit:'mIU/L',why:'Thyroid issues are very common in India, especially hypothyroidism in women. Impacts weight and energy.',nutrition:'Iodine (iodised salt), selenium (Brazil nuts, sunflower seeds). Avoid excess raw goitrogenic foods.'},
+  {name:'TSH (Thyroid)',sub:'Thyroid function â€” metabolism, energy',low:'0',high:'10',normStart:10,normEnd:45,markerPct:25,unit:'mIU/L',why:'Thyroid issues are very common in India, especially hypothyroidism in women. Impacts weight and energy.',nutrition:'Iodine (iodised salt), selenium (Brazil nuts, sunflower seeds). Avoid excess raw goitrogenic foods.'},
   {name:'Lipid Profile (Total Cholesterol)',sub:'Cardiovascular disease risk',low:'100',high:'350',normStart:20,normEnd:55,markerPct:35,unit:'mg/dL',why:'Cardiovascular disease is India\'s leading killer. Indians have unique lipid patterns with high triglycerides.',nutrition:'Reduce trans fats and refined carbs. Increase omega-3 (flaxseed, fish oil), fiber (oats), and plant sterols.'},
   {name:'CBC (Haemoglobin)',sub:'Anaemia, oxygen carrying capacity',low:'0',high:'20',normStart:35,normEnd:70,markerPct:45,unit:'g/dL',why:'India has the highest burden of anaemia globally. Affects energy, cognition and immunity.',nutrition:'Iron-rich foods with vitamin C. Folate and B12 also needed for red blood cell formation.'},
   {name:'Serum Magnesium',sub:'Muscle, nerve, enzyme function',low:'0',high:'4',normStart:25,normEnd:60,markerPct:35,unit:'mg/dL',why:'Most people eating processed foods are mildly deficient. Impacts sleep, stress response, and 300+ enzyme reactions.',nutrition:'Almonds, dark chocolate, spinach, moong dal, pumpkin seeds. Supplement magnesium glycinate if needed.'},
-  {name:'Zinc',sub:'Immunity, wound healing, testosterone',low:'0',high:'150',normStart:25,normEnd:55,markerPct:38,unit:'μg/dL',why:'Commonly deficient in vegetarians. Critical for immunity, wound healing and reproductive health.',nutrition:'Pumpkin seeds, sesame, cashews, rajma. Phytates in plants reduce absorption &#8212; sprout/soak legumes.'},
-  {name:'Vitamin B9 (Folate)',sub:'DNA synthesis, neural tube, red blood cells',low:'0',high:'25',normStart:30,normEnd:70,markerPct:20,unit:'ng/mL',why:'Critical for pregnant women. Also important for DNA synthesis and cardiovascular health.',nutrition:'Moong dal (richest Indian source!), leafy greens, legumes. Heat destroys folate &#8212; eat some raw greens.'},
+  {name:'Zinc',sub:'Immunity, wound healing, testosterone',low:'0',high:'150',normStart:25,normEnd:55,markerPct:38,unit:'Î¼g/dL',why:'Commonly deficient in vegetarians. Critical for immunity, wound healing and reproductive health.',nutrition:'Pumpkin seeds, sesame, cashews, rajma. Phytates in plants reduce absorption â€” sprout/soak legumes.'},
+  {name:'Vitamin B9 (Folate)',sub:'DNA synthesis, neural tube, red blood cells',low:'0',high:'25',normStart:30,normEnd:70,markerPct:20,unit:'ng/mL',why:'Critical for pregnant women. Also important for DNA synthesis and cardiovascular health.',nutrition:'Moong dal (richest Indian source!), leafy greens, legumes. Heat destroys folate â€” eat some raw greens.'},
   {name:'Liver Function (ALT)',sub:'Liver health and fat metabolism',low:'0',high:'100',normStart:10,normEnd:35,markerPct:20,unit:'U/L',why:'Non-alcoholic fatty liver disease is epidemic in India. Often silent until advanced.',nutrition:'Reduce refined carbs and sugar. Increase cruciferous vegetables. Limit alcohol. Curcumin shows promise.'},
   {name:'Kidney Function (Creatinine)',sub:'Kidney filtration efficiency',low:'0',high:'3',normStart:17,normEnd:50,markerPct:28,unit:'mg/dL',why:'Rising creatinine indicates decreasing kidney function. High protein diets are safe for healthy kidneys.',nutrition:'Stay well-hydrated. Reduce sodium. Potassium management important if kidneys are already stressed.'},
 ];
 function renderBloodTests(){
   const g=document.getElementById('blood-grid');if(!g)return;
   g.innerHTML=BLOOD_TESTS.map(t=>`
-    <div class=&quot;blood-card&quot; onclick=&quot;showToast('${t.name}: ${t.nutrition}')&quot;>
+    <div class="blood-card" onclick="showToast('${t.name}: ${t.nutrition}')">
       <h3>${t.name}</h3>
-      <p class=&quot;bc-sub&quot;>${t.sub}</p>
-      <div class=&quot;range-bar&quot;>
-        <div class=&quot;range-normal&quot; style=&quot;left:${t.normStart}%;width:${t.normEnd-t.normStart}%&quot;></div>
-        <div class=&quot;range-marker&quot; style=&quot;left:${t.markerPct}%&quot;></div>
+      <p class="bc-sub">${t.sub}</p>
+      <div class="range-bar">
+        <div class="range-normal" style="left:${t.normStart}%;width:${t.normEnd-t.normStart}%"></div>
+        <div class="range-marker" style="left:${t.markerPct}%"></div>
       </div>
-      <div class=&quot;range-labels&quot;><span>Low</span><span>Normal range</span><span>High</span></div>
-      <p style=&quot;font-size:.78rem;color:var(--mid);margin-top:12px;&quot;>${t.why}</p>
+      <div class="range-labels"><span>Low</span><span>Normal range</span><span>High</span></div>
+      <p style="font-size:.78rem;color:var(--mid);margin-top:12px;">${t.why}</p>
     </div>
   `).join('');
 }
 
 const RESEARCH=[
-  {tag:'Protein',quality:'high',qLabel:'High Quality',title:'Protein Intake and Muscle Hypertrophy: Dose-Response Meta-Analysis',summary:'1.6g/kg body weight is the threshold for maximising muscle protein synthesis. Going above 2.2g/kg shows diminishing returns.',design:'Meta-analysis of 49 RCTs',n:'1,800+',practical:'Aim for 1.6&#8211;2.0g/kg. Distribution across 4+ meals matters as much as total intake.',year:'2018',journal:'British Journal of Sports Medicine'},
+  {tag:'Protein',quality:'high',qLabel:'High Quality',title:'Protein Intake and Muscle Hypertrophy: Dose-Response Meta-Analysis',summary:'1.6g/kg body weight is the threshold for maximising muscle protein synthesis. Going above 2.2g/kg shows diminishing returns.',design:'Meta-analysis of 49 RCTs',n:'1,800+',practical:'Aim for 1.6â€“2.0g/kg. Distribution across 4+ meals matters as much as total intake.',year:'2018',journal:'British Journal of Sports Medicine'},
   {tag:'Supplements',quality:'high',qLabel:'High Quality',title:'Creatine Monohydrate Supplementation and Athletic Performance',summary:'Creatine is the most evidence-backed performance supplement. 5g/day improves strength, power and high-intensity performance consistently.',design:'Systematic review of 150+ RCTs',n:'Multiple',practical:'5g/day is sufficient. No loading phase required. Safe for long-term use in healthy individuals.',year:'2021',journal:'Journal of the International Society of Sports Nutrition'},
-  {tag:'Deficiency',quality:'high',qLabel:'High Quality',title:'Vitamin D Deficiency in India: A Systematic Review',summary:'Over 70% of urban Indians have vitamin D levels below 20 ng/mL despite abundant sunlight. Indoor lifestyles, darker skin and clothing are key factors.',design:'Systematic review of Indian population studies',n:'9,000+',practical:'Supplementation of 1000&#8211;2000 IU/day recommended for most Indians. Test annually.',year:'2019',journal:'Indian Journal of Endocrinology and Metabolism'},
-  {tag:'Heart Disease',quality:'med',qLabel:'Moderate',title:'Omega-3 Fatty Acids and Cardiovascular Outcomes',summary:'EPA+DHA at 1&#8211;4g/day reduces triglycerides significantly. Evidence for heart attack prevention is modest in recent trials.',design:'Multiple RCTs and meta-analyses',n:'70,000+',practical:'1g EPA+DHA daily for general health. Higher doses (2&#8211;4g) for elevated triglycerides under medical supervision.',year:'2020',journal:'NEJM'},
-  {tag:'Gut Health',quality:'med',qLabel:'Moderate',title:'Dietary Fiber and Gut Microbiome Diversity',summary:'Higher dietary fiber intake is consistently associated with greater gut microbiome diversity and better metabolic health outcomes.',design:'Observational + RCT evidence',n:'Multiple',practical:'Target 25&#8211;35g fiber/day. Variety matters &#8212; include legumes, vegetables, fruits and whole grains.',year:'2022',journal:'Cell Host & Microbe'},
+  {tag:'Deficiency',quality:'high',qLabel:'High Quality',title:'Vitamin D Deficiency in India: A Systematic Review',summary:'Over 70% of urban Indians have vitamin D levels below 20 ng/mL despite abundant sunlight. Indoor lifestyles, darker skin and clothing are key factors.',design:'Systematic review of Indian population studies',n:'9,000+',practical:'Supplementation of 1000â€“2000 IU/day recommended for most Indians. Test annually.',year:'2019',journal:'Indian Journal of Endocrinology and Metabolism'},
+  {tag:'Heart Disease',quality:'med',qLabel:'Moderate',title:'Omega-3 Fatty Acids and Cardiovascular Outcomes',summary:'EPA+DHA at 1â€“4g/day reduces triglycerides significantly. Evidence for heart attack prevention is modest in recent trials.',design:'Multiple RCTs and meta-analyses',n:'70,000+',practical:'1g EPA+DHA daily for general health. Higher doses (2â€“4g) for elevated triglycerides under medical supervision.',year:'2020',journal:'NEJM'},
+  {tag:'Gut Health',quality:'med',qLabel:'Moderate',title:'Dietary Fiber and Gut Microbiome Diversity',summary:'Higher dietary fiber intake is consistently associated with greater gut microbiome diversity and better metabolic health outcomes.',design:'Observational + RCT evidence',n:'Multiple',practical:'Target 25â€“35g fiber/day. Variety matters â€” include legumes, vegetables, fruits and whole grains.',year:'2022',journal:'Cell Host & Microbe'},
   {tag:'Diabetes',quality:'high',qLabel:'High Quality',title:'Glycemic Index and Type 2 Diabetes Risk in Indian Populations',summary:'South Asians have higher insulin resistance at lower BMI than Europeans. Low-GI dietary patterns show significant risk reduction.',design:'Prospective cohort + RCT',n:'12,000+',practical:'Replace white rice with brown rice, millets (bajra, jowar), and legumes. Space carbohydrates across meals.',year:'2023',journal:'Diabetes Care'},
 ];
 function renderResearch(){
   const g=document.getElementById('research-grid');if(!g)return;
   g.innerHTML=RESEARCH.map(r=>`
-    <div class=&quot;research-card&quot; onclick=&quot;showToast('Full summary for: ${r.title.substring(0,40)}... &#8212; coming soon!')&quot;>
-      <div class=&quot;rc-meta&quot;>
-        <span class=&quot;tag ${r.quality==='high'?'tg-green':r.quality==='med'?'tg-gold':'tg-amber'}&quot;>${r.tag}</span>
-        <span class=&quot;rc-quality ${r.quality==='high'?'rq-high':r.quality==='med'?'rq-med':'rq-low'}&quot;>
-          ${r.quality==='high'?'★★★':r.quality==='med'?'★★☆':'★☆☆'} ${r.qLabel}
+    <div class="research-card" onclick="showToast('Full summary for: ${r.title.substring(0,40)}... â€” coming soon!')">
+      <div class="rc-meta">
+        <span class="tag ${r.quality==='high'?'tg-green':r.quality==='med'?'tg-gold':'tg-amber'}">${r.tag}</span>
+        <span class="rc-quality ${r.quality==='high'?'rq-high':r.quality==='med'?'rq-med':'rq-low'}">
+          ${r.quality==='high'?'â˜…â˜…â˜…':r.quality==='med'?'â˜…â˜…â˜†':'â˜…â˜†â˜†'} ${r.qLabel}
         </span>
       </div>
       <h3>${r.title}</h3>
       <p>${r.summary}</p>
-      <div style=&quot;margin-top:12px;padding:12px;background:var(--paper);border-radius:var(--r-sm);font-size:.78rem;color:var(--mid);&quot;>
+      <div style="margin-top:12px;padding:12px;background:var(--paper);border-radius:var(--r-sm);font-size:.78rem;color:var(--mid);">
         <strong>Practical takeaway:</strong> ${r.practical}
       </div>
-      <div class=&quot;rc-foot&quot;>
-        <span>n = ${r.n} · ${r.design}</span>
-        <span>${r.journal} · ${r.year}</span>
+      <div class="rc-foot">
+        <span>n = ${r.n} Â· ${r.design}</span>
+        <span>${r.journal} Â· ${r.year}</span>
       </div>
     </div>
   `).join('');
@@ -1398,9 +1396,9 @@ window.addEventListener('load',()=>{
   calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();
   initReveal();
 });
-/* ════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    CHATBOT
-════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 function toggleChatbot(){
   const w=document.getElementById('chatbot-window');
   w.style.display=w.style.display==='none'?'block':'none';
@@ -1442,7 +1440,7 @@ function processChatbotQuery(q){
     return 'Food database is still loading... please try again in a few seconds.';
   }
   
-  // &quot;Protein in [food]&quot;
+  // "Protein in [food]"
   const proteinMatch=q.match(/(?:protein|protein in)\s+(.+)|(.+)\s+(?:protein|protein)/);
   if(proteinMatch){
     const foodName=(proteinMatch[1]||proteinMatch[2]||'').trim();
@@ -1450,10 +1448,10 @@ function processChatbotQuery(q){
     if(food){
       return `<strong>${food.name}</strong> (${food.local})<br>Protein: <strong>${food.pro}g</strong> per 100g<br>Calories: ${food.cal} kcal<br>Category: ${food.cat}`;
     }
-    return `I couldn't find &quot;${foodName}&quot; in our database. Try: paneer, moong dal, soy chunks, almonds...`;
+    return `I couldn't find "${foodName}" in our database. Try: paneer, moong dal, soy chunks, almonds...`;
   }
   
-  // &quot;Calories in [food]&quot;
+  // "Calories in [food]"
   const calMatch=q.match(/(?:calories|calories in|kcal in)\s+(.+)/);
   if(calMatch){
     const food=findFood(calMatch[1].trim());
@@ -1462,23 +1460,23 @@ function processChatbotQuery(q){
     }
   }
   
-  // &quot;High protein foods&quot;
+  // "High protein foods"
   if(q.includes('high protein')||q.includes('protein rich')){
     const highPro=ALL_FOODS.filter(f=>f.pro>=20).sort((a,b)=>b.pro-a.pro).slice(0,5);
-    return `<strong>Top 5 High Protein Foods:</strong><br>`+highPro.map(f=>`• ${f.emoji} ${f.name}: <strong>${f.pro}g</strong> protein`).join('<br>');
+    return `<strong>Top 5 High Protein Foods:</strong><br>`+highPro.map(f=>`â€¢ ${f.emoji} ${f.name}: <strong>${f.pro}g</strong> protein`).join('<br>');
   }
   
-  // &quot;Foods in [category]&quot;
+  // "Foods in [category]"
   const catMatch=q.match(/(?:foods? in|category)\s+(\w+)/);
   if(catMatch){
     const cat=catMatch[1].toLowerCase();
     const foods=ALL_FOODS.filter(f=>f.cat.toLowerCase()===cat).slice(0,8);
     if(foods.length){
-      return `<strong>${foods[0].cat} Foods:</strong><br>`+foods.map(f=>`• ${f.emoji} ${f.name} (${f.pro}g protein)`).join('<br>');
+      return `<strong>${foods[0].cat} Foods:</strong><br>`+foods.map(f=>`â€¢ ${f.emoji} ${f.name} (${f.pro}g protein)`).join('<br>');
     }
   }
   
-  // &quot;Compare [food1] and [food2]&quot;
+  // "Compare [food1] and [food2]"
   const compareMatch=q.match(/compare\s+(.+?)\s+(?:and|vs|versus)\s+(.+)/);
   if(compareMatch){
     const f1=findFood(compareMatch[1].trim());
@@ -1494,16 +1492,16 @@ function processChatbotQuery(q){
     }
   }
   
-  // &quot;Best for muscle gain&quot;
+  // "Best for muscle gain"
   if(q.includes('muscle')||q.includes('gain')||q.includes('bodybuilding')){
     const muscle=ALL_FOODS.filter(f=>f.pro>=15).sort((a,b)=>b.pro-a.pro).slice(0,5);
-    return `<strong>Best for Muscle Gain:</strong><br>`+muscle.map(f=>`• ${f.emoji} ${f.name}: ${f.pro}g protein, ${f.cal} kcal`).join('<br>');
+    return `<strong>Best for Muscle Gain:</strong><br>`+muscle.map(f=>`â€¢ ${f.emoji} ${f.name}: ${f.pro}g protein, ${f.cal} kcal`).join('<br>');
   }
   
-  // &quot;Best for weight loss&quot;
+  // "Best for weight loss"
   if(q.includes('weight loss')||q.includes('diet')||q.includes('cutting')){
     const lowCal=ALL_FOODS.filter(f=>f.cal<=200&&f.pro>=10).sort((a,b)=>a.cal-b.cal).slice(0,5);
-    return `<strong>Best for Weight Loss:</strong><br>`+lowCal.map(f=>`• ${f.emoji} ${f.name}: ${f.cal} kcal, ${f.pro}g protein`).join('<br>');
+    return `<strong>Best for Weight Loss:</strong><br>`+lowCal.map(f=>`â€¢ ${f.emoji} ${f.name}: ${f.cal} kcal, ${f.pro}g protein`).join('<br>');
   }
   
   // Direct food name search
@@ -1521,11 +1519,11 @@ function processChatbotQuery(q){
   
   // Default
   return `I can help you with:<br>
-  • &quot;Protein in paneer&quot;<br>
-  • &quot;High protein foods&quot;<br>
-  • &quot;Compare moong dal and chana dal&quot;<br>
-  • &quot;Best for muscle gain&quot;<br>
-  • &quot;Foods in pulses&quot;<br><br>
+  â€¢ "Protein in paneer"<br>
+  â€¢ "High protein foods"<br>
+  â€¢ "Compare moong dal and chana dal"<br>
+  â€¢ "Best for muscle gain"<br>
+  â€¢ "Foods in pulses"<br><br>
   Try asking about any of our 121 foods!`;
 }
 
@@ -1539,33 +1537,32 @@ function findFood(query){
   return f;
 }</script>
 <!-- NutraInfo Chatbot -->
-<div id=&quot;chatbot-widget&quot; style=&quot;position:fixed;bottom:20px;right:20px;z-index:9000;font-family:var(--ff-sans);&quot;>
-  <div id=&quot;chatbot-toggle&quot; onclick=&quot;toggleChatbot()&quot; style=&quot;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--leaf));display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(30,138,94,.4);font-size:1.5rem;transition:transform .2s;&quot;>
-    &#127807;
+<div id="chatbot-widget" style="position:fixed;bottom:20px;right:20px;z-index:9000;font-family:var(--ff-sans);">
+  <div id="chatbot-toggle" onclick="toggleChatbot()" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--leaf));display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(30,138,94,.4);font-size:1.5rem;transition:transform .2s;">
+    ðŸŒ¿
   </div>
-  <div id=&quot;chatbot-window&quot; style=&quot;display:none;width:340px;height:450px;background:var(--forest);border-radius:var(--r-xl);border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);position:absolute;bottom:70px;right:0;&quot;>
-    <div style=&quot;background:linear-gradient(135deg,var(--mint),var(--leaf));padding:16px 20px;display:flex;align-items:center;gap:10px;&quot;>
-      <span style=&quot;font-size:1.3rem;&quot;>&#127807;</span>
+  <div id="chatbot-window" style="display:none;width:340px;height:450px;background:var(--forest);border-radius:var(--r-xl);border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);position:absolute;bottom:70px;right:0;">
+    <div style="background:linear-gradient(135deg,var(--mint),var(--leaf));padding:16px 20px;display:flex;align-items:center;gap:10px;">
+      <span style="font-size:1.3rem;">ðŸŒ¿</span>
       <div>
-        <div style=&quot;font-weight:600;color:#fff;font-size:.9rem;&quot;>NutraInfo Assistant</div>
-        <div style=&quot;font-size:.7rem;color:rgba(255,255,255,.7);&quot;>Ask me about any food</div>
+        <div style="font-weight:600;color:#fff;font-size:.9rem;">NutraInfo Assistant</div>
+        <div style="font-size:.7rem;color:rgba(255,255,255,.7);">Ask me about any food</div>
       </div>
-      <button onclick=&quot;toggleChatbot()&quot; style=&quot;margin-left:auto;background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;&quot;>&#10005;</button>
+      <button onclick="toggleChatbot()" style="margin-left:auto;background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;">âœ•</button>
     </div>
-    <div id=&quot;chatbot-messages&quot; style=&quot;height:320px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;&quot;>
-      <div style=&quot;background:rgba(255,255,255,.08);padding:10px 14px;border-radius:var(--r-md);font-size:.82rem;color:rgba(255,255,255,.85);max-width:85%;&quot;>
+    <div id="chatbot-messages" style="height:320px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;">
+      <div style="background:rgba(255,255,255,.08);padding:10px 14px;border-radius:var(--r-md);font-size:.82rem;color:rgba(255,255,255,.85);max-width:85%;">
         Hi! I'm your nutrition assistant. Ask me things like:<br><br>
-        • &quot;Protein in paneer&quot;<br>
-        • &quot;High protein foods&quot;<br>
-        • &quot;Compare moong dal and chana dal&quot;<br>
-        • &quot;Best foods for muscle gain&quot;
+        â€¢ "Protein in paneer"<br>
+        â€¢ "High protein foods"<br>
+        â€¢ "Compare moong dal and chana dal"<br>
+        â€¢ "Best foods for muscle gain"
       </div>
     </div>
-    <div style=&quot;padding:12px 16px;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:8px;&quot;>
-      <input type=&quot;text&quot; id=&quot;chatbot-input&quot; placeholder=&quot;Ask about any food...&quot; style=&quot;flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-sm);padding:8px 12px;color:#fff;font-size:.82rem;outline:none;&quot; onkeydown=&quot;if(event.key==='Enter')sendChatbotMessage()&quot;>
-      <button onclick=&quot;sendChatbotMessage()&quot; style=&quot;background:var(--mint);color:#fff;border:none;border-radius:var(--r-sm);padding:8px 14px;font-size:.8rem;font-weight:600;cursor:pointer;&quot;>Send</button>
+    <div style="padding:12px 16px;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:8px;">
+      <input type="text" id="chatbot-input" placeholder="Ask about any food..." style="flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-sm);padding:8px 12px;color:#fff;font-size:.82rem;outline:none;" onkeydown="if(event.key==='Enter')sendChatbotMessage()">
+      <button onclick="sendChatbotMessage()" style="background:var(--mint);color:#fff;border:none;border-radius:var(--r-sm);padding:8px 14px;font-size:.8rem;font-weight:600;cursor:pointer;">Send</button>
     </div>
   </div>
 </div></body>
 </html>
-  
