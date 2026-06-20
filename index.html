@@ -536,9 +536,12 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
       <h2 id="md-name">—</h2>
       <p id="md-local">—</p>
     </div>
-    <div class="modal-body">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;" id="md-macros"></div>
-      <h4 style="font-family:var(--ff-serif);font-weight:400;margin-bottom:12px;font-size:1.1rem;">Full Nutrition Profile <span style="font-size:.8rem;color:var(--mid);">(per 100g dry/raw)</span></h4>
+      <div class="modal-body">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;" id="md-macros"></div>
+        <div style="margin-bottom:16px;padding:10px 14px;background:#FFF8E1;border-radius:var(--r-sm);border-left:3px solid var(--gold);font-size:.82rem;color:var(--mid);">
+          <strong>Note:</strong> Fiber content varies by source, processing, and batch. Values shown are approximate. For exact fiber, check product labels.
+        </div>
+        <h4 style="font-family:var(--ff-serif);font-weight:400;margin-bottom:12px;font-size:1.1rem;">Full Nutrition Profile <span style="font-size:.8rem;color:var(--mid);">(per 100g dry/raw)</span></h4>
       <table class="nutrient-table" id="md-table"><thead><tr><th>Nutrient</th><th>Amount</th><th>% Daily Value</th><th style="width:120px;">Coverage</th></tr></thead><tbody></tbody></table>
       <div style="margin-top:18px;padding:14px 16px;background:var(--paper);border-radius:var(--r-md);font-size:.82rem;color:var(--mid);">
         <strong>Bioavailability Note:</strong> <span id="md-bio">—</span>
@@ -946,7 +949,7 @@ function orbitalDisplay(food){
   document.getElementById('proteinVal').textContent=food.pro;
   document.getElementById('carbsVal').textContent=food.carb;
   document.getElementById('fatVal').textContent=food.fat;
-  document.getElementById('fiberVal').textContent=food.fiber||0;
+  document.getElementById('fiberVal').textContent=food.fiber > 0 ? food.fiber + 'g' : '~';
   document.getElementById('ofdGi').textContent=food.gi;
   document.getElementById('ofdBio').textContent=food.bio;
   document.getElementById('ofdCat').textContent=food.cat;
@@ -1030,7 +1033,7 @@ function renderFoods(){
           <div class="fm-item"><div class="fm-val">${f.cal}</div><div class="fm-lbl">kcal</div></div>
           <div class="fm-item"><div class="fm-val">${f.pro}g</div><div class="fm-lbl">Protein</div></div>
           <div class="fm-item"><div class="fm-val">${f.carb}g</div><div class="fm-lbl">Carbs</div></div>
-          <div class="fm-item"><div class="fm-val">GI ${f.gi||'—'}</div><div class="fm-lbl">Glyc. Index</div></div>
+          <div class="fm-item"><div class="fm-val">${f.fiber > 0 ? f.fiber + 'g' : '~'}</div><div class="fm-lbl">Fiber</div></div>
         </div>
       </div>
     </div>
@@ -1080,7 +1083,7 @@ function openFood(id){
     'Protein':f.pro+'g',
     'Carbohydrates':f.carb+'g',
     'Total Fat':f.fat+'g',
-    'Fiber':(f.fiber||0)+'g',
+    'Fiber':(f.fiber > 0 ? f.fiber + 'g' : '~'),
     'Calories':f.cal+' kcal'
   };
   const tbody=document.querySelector('#md-table tbody');
