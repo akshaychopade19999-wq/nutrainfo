@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPH69FNRB6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SPH69FNRB6');
-</script>
+<head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>NutraInfo – Evidence-Based Nutrition for India</title>
@@ -211,25 +203,78 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s;}
 .reveal.vis{opacity:1;transform:translateY(0);}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}*{animation:none!important;}}
-.food-search-bar{display:flex;gap:10px;margin-bottom:32px;flex-wrap:wrap;}
-.food-search-bar input{flex:1;min-width:220px;padding:12px 18px;border-radius:var(--r-md);border:1px solid var(--border);font-family:var(--ff-sans);font-size:.9rem;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s;}
+.food-search-bar{display:flex;gap:10px;margin-bottom:0;flex-wrap:wrap;}
+.food-search-bar input{flex:1;min-width:220px;padding:14px 20px;border-radius:var(--r-md);border:1px solid var(--border);font-family:var(--ff-sans);font-size:.92rem;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s;}
 .food-search-bar input:focus{border-color:var(--mint);box-shadow:0 0 0 3px rgba(30,138,94,.08);}
-.food-search-bar button{background:var(--mint);color:#fff;border:none;padding:12px 24px;border-radius:var(--r-md);font-weight:600;font-size:.88rem;transition:background .15s;}
+.food-search-bar button{background:var(--mint);color:#fff;border:none;padding:14px 28px;border-radius:var(--r-md);font-weight:600;font-size:.88rem;transition:background .15s;}
 .food-search-bar button:hover{background:var(--leaf);}
-.food-cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px;}
+
+/* ---- Premium Food DB: Section Switcher ---- */
+.fdb-shell{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--sh-card);overflow:hidden;margin-bottom:28px;}
+.fdb-search-row{padding:24px 24px 0;}
+.fdb-sections{display:grid;grid-template-columns:repeat(5,1fr);gap:0;padding:22px 24px 0;border-bottom:1px solid var(--border);margin-top:20px;}
+@media(max-width:900px){.fdb-sections{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:560px){.fdb-sections{grid-template-columns:repeat(2,1fr);gap:8px;border-bottom:none;padding:18px 16px 0;}}
+.fdb-sec-btn{background:none;border:none;padding:14px 10px 18px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;position:relative;color:var(--mid);transition:color .15s;border-bottom:2px solid transparent;}
+.fdb-sec-btn:hover{color:var(--forest);}
+.fdb-sec-btn.active{color:var(--forest);border-bottom-color:var(--mint);}
+.fdb-sec-icon{font-size:1.5rem;line-height:1;}
+.fdb-sec-label{font-family:var(--ff-serif);font-size:.92rem;font-weight:500;letter-spacing:-.01em;}
+.fdb-sec-count{font-size:.66rem;color:var(--light);font-weight:500;letter-spacing:.3px;}
+.fdb-sec-btn.active .fdb-sec-count{color:var(--mint);}
+@media(max-width:560px){.fdb-sec-btn{border-bottom:1px solid var(--border);border-radius:var(--r-md);padding:12px 6px;}.fdb-sec-btn.active{background:var(--mist);border-bottom-color:var(--mist);}.fdb-sec-label{font-size:.78rem;}}
+
+.fdb-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;flex-wrap:wrap;}
+.fdb-toolbar-info{font-size:.8rem;color:var(--mid);}
+.fdb-toolbar-info strong{color:var(--forest);font-weight:600;}
+.food-cats{display:flex;gap:6px;flex-wrap:wrap;padding:0 24px 22px;}
 .food-cat-btn{background:#fff;border:1px solid var(--border);border-radius:var(--r-sm);padding:6px 14px;font-size:.78rem;font-weight:500;color:var(--mid);transition:all .12s;}
 .food-cat-btn.active,.food-cat-btn:hover{background:var(--forest);color:#fff;border-color:var(--forest);}
-.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
-.food-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .18s;}
-.food-card:hover{box-shadow:var(--sh-hover);transform:translateY(-2px);}
-.food-thumb{height:120px;display:flex;align-items:center;justify-content:center;font-size:4rem;}
+
+.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;}
+.food-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .18s,border-color .2s;position:relative;}
+.food-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--mint),var(--gold));opacity:0;transition:opacity .2s;}
+.food-card:hover{box-shadow:var(--sh-hover);transform:translateY(-3px);border-color:rgba(30,138,94,.18);}
+.food-card:hover::before{opacity:1;}
+.food-thumb{height:112px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;}
+.food-thumb .ft-badge{position:absolute;top:9px;right:9px;font-size:.6rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;border-radius:var(--r-pill);background:rgba(255,255,255,.85);color:var(--forest);backdrop-filter:blur(4px);}
 .food-body{padding:16px 18px 18px;}
-.food-body h3{font-family:var(--ff-serif);font-size:1rem;font-weight:400;margin-bottom:3px;color:var(--forest);}
-.food-body .food-local{font-size:.7rem;color:var(--light);margin-bottom:12px;letter-spacing:.01em;}
+.food-body h3{font-family:var(--ff-serif);font-size:1rem;font-weight:400;margin-bottom:3px;color:var(--forest);line-height:1.25;}
+.food-body .food-local{font-size:.7rem;color:var(--light);margin-bottom:12px;letter-spacing:.01em;min-height:14px;}
 .food-macros{display:flex;gap:8px;flex-wrap:wrap;}
-.fm-item{flex:1;min-width:60px;background:var(--paper);border-radius:var(--r-sm);padding:7px 8px;text-align:center;}
-.fm-val{font-family:var(--ff-serif);font-size:.95rem;color:var(--forest);line-height:1;}
-.fm-lbl{font-size:.6rem;color:var(--light);margin-top:3px;text-transform:uppercase;letter-spacing:.6px;}
+.fm-item{flex:1;min-width:56px;background:var(--paper);border-radius:var(--r-sm);padding:7px 6px;text-align:center;}
+.fm-val{font-family:var(--ff-serif);font-size:.92rem;color:var(--forest);line-height:1;}
+.fm-lbl{font-size:.58rem;color:var(--light);margin-top:3px;text-transform:uppercase;letter-spacing:.6px;}
+
+.fdb-empty{padding:60px 20px;text-align:center;color:var(--mid);}
+.fdb-empty-icon{font-size:2.5rem;margin-bottom:12px;opacity:.5;}
+
+.fdb-loadmore{display:flex;justify-content:center;padding:32px 0 8px;}
+.fdb-loadmore button{background:#fff;border:1px solid var(--border);color:var(--forest);font-weight:600;font-size:.85rem;padding:12px 30px;border-radius:var(--r-md);transition:all .15s;}
+.fdb-loadmore button:hover{background:var(--forest);color:#fff;border-color:var(--forest);}
+
+.fdb-stats-strip{display:flex;gap:0;border-top:1px solid var(--border);background:var(--paper);}
+.fdb-stat{flex:1;padding:16px 12px;text-align:center;border-right:1px solid var(--border);}
+.fdb-stat:last-child{border-right:none;}
+.fdb-stat-val{font-family:var(--ff-serif);font-size:1.3rem;color:var(--forest);line-height:1;}
+.fdb-stat-lbl{font-size:.62rem;color:var(--light);text-transform:uppercase;letter-spacing:.6px;margin-top:4px;}
+@media(max-width:700px){.fdb-stats-strip{flex-wrap:wrap;}.fdb-stat{flex:1 1 50%;border-bottom:1px solid var(--border);}}
+
+/* ---- Cross-link card (Raw DB -> Cooked DB) ---- */
+.fdb-cross-link{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 24px;margin-top:20px;cursor:pointer;transition:box-shadow .2s,border-color .2s;}
+.fdb-cross-link:hover{box-shadow:var(--sh-hover);border-color:rgba(30,138,94,.2);}
+.fdb-cross-icon{font-size:2rem;flex-shrink:0;}
+.fdb-cross-link strong{font-family:var(--ff-serif);font-size:1.02rem;color:var(--forest);font-weight:500;display:block;margin-bottom:4px;}
+.fdb-cross-link p{font-size:.82rem;color:var(--mid);line-height:1.5;margin:0;}
+.fdb-cross-arrow{font-size:1.3rem;color:var(--mint);flex-shrink:0;}
+@media(max-width:600px){.fdb-cross-link{flex-wrap:wrap;}.fdb-cross-arrow{display:none;}}
+
+/* ---- Cooked DB disclaimer banner ---- */
+.fdb-disclaimer{display:flex;gap:16px;align-items:flex-start;background:#FFF8E1;border:1px solid #F0D88A;border-radius:var(--r-lg);padding:20px 24px;margin-bottom:24px;}
+.fdb-disclaimer-icon{font-size:1.5rem;flex-shrink:0;line-height:1.3;}
+.fdb-disclaimer strong{font-family:var(--ff-serif);font-size:1rem;color:#7A5C00;font-weight:600;display:block;margin-bottom:5px;}
+.fdb-disclaimer p{font-size:.84rem;color:#6B5800;line-height:1.55;margin:0;}
+.fdb-disclaimer a{color:var(--forest);font-weight:600;text-decoration:underline;cursor:pointer;}
 .modal-overlay{position:fixed;inset:0;background:rgba(10,15,13,.55);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;backdrop-filter:blur(4px);}
 .modal-overlay.open{opacity:1;pointer-events:all;}
 .modal-box{background:#fff;border-radius:var(--r-xl);max-width:700px;width:100%;max-height:88vh;overflow-y:auto;transform:translateY(12px);transition:transform .22s cubic-bezier(.22,1,.36,1);box-shadow:0 24px 64px rgba(10,15,13,.2);}
@@ -344,6 +389,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
     <ul class="nav-links">
       <li><a id="nl-home" class="active" onclick="go('home')">Home</a></li>
       <li><a id="nl-food" onclick="go('food')">Food Database</a></li>
+      <li><a id="nl-cookedfood" onclick="go('cookedfood')">Cooked Food Database</a></li>
       <li><a id="nl-supp" onclick="go('supplements')">Supplements</a></li>
       <li><a id="nl-meals" onclick="go('meals')">Meal Plans</a></li>
       <li><a id="nl-calc" onclick="go('calculators')">Calculators</a></li>
@@ -357,6 +403,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
   <div class="mob-menu" id="mob">
     <a onclick="go('home');toggleMob()">🏠 Home</a>
     <a onclick="go('food');toggleMob()">🥗 Food Database</a>
+    <a onclick="go('cookedfood');toggleMob()">🍛 Cooked Food Database</a>
     <a onclick="go('supplements');toggleMob()">💊 Supplements</a>
     <a onclick="go('meals');toggleMob()">🍱 Meal Plans</a>
     <a onclick="go('calculators');toggleMob()">🧮 Calculators</a>
@@ -421,7 +468,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
   </header>
 
   <div class="stats-strip">
-    <div class="ss-cell"><div class="ss-num">1,086</div><div class="ss-lbl">Verified foods with exact macros</div></div>
+    <div class="ss-cell"><div class="ss-num">1,386</div><div class="ss-lbl">Verified raw foods</div></div>
     <div class="ss-cell"><div class="ss-num">200+</div><div class="ss-lbl">Supplement reviews</div></div>
     <div class="ss-cell"><div class="ss-num">500+</div><div class="ss-lbl">Research summaries</div></div>
   </div>
@@ -432,7 +479,8 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
       <h2 class="h2">Everything nutrition, under one roof</h2>
       <p class="sub">Built for Indian bodies, Indian foods, and Indian dietary patterns — with global research behind every claim.</p>
       <div class="features-grid reveal">
-        <div class="feat-card" onclick="go('food')"><div class="feat-icon">🥗</div><h3>Food Database</h3><p>1,086 verified foods with exact macros, GI, bioavailability notes and Hindi names.</p></div>
+        <div class="feat-card" onclick="go('food')"><div class="feat-icon">🥗</div><h3>Raw Food Database</h3><p>1,386 verified raw foods across veg, dairy &amp; non-veg — exact macros, GI and bioavailability notes.</p></div>
+        <div class="feat-card" onclick="go('cookedfood')"><div class="feat-icon">🍛</div><h3>Cooked Food Database</h3><p>1,000+ Indian &amp; global cooked dishes — biryanis, curries, marinades and more.</p></div>
         <div class="feat-card" onclick="go('supplements')"><div class="feat-icon">💊</div><h3>Supplement Ratings</h3><p>Transparent, unsponsored ratings on whey, creatine, vitamin D and more.</p></div>
         <div class="feat-card" onclick="go('meals')"><div class="feat-icon">🍱</div><h3>Meal Plans</h3><p>Indian vegetarian, vegan, high-protein, diabetic-friendly and budget student plans.</p></div>
         <div class="feat-card" onclick="go('calculators')"><div class="feat-icon">🧮</div><h3>Calculators</h3><p>BMI, BMR, TDEE, protein needs, macro split, water intake and body fat estimation.</p></div>
@@ -507,31 +555,122 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 </div>
 
 <div class="page" id="page-food">
-  <header style="background:var(--forest);padding:52px 28px 56px;border-bottom:1px solid rgba(255,255,255,.06);">
-    <div class="wrap" style="text-align:center;">
+  <header style="background:var(--forest);padding:56px 28px 64px;border-bottom:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;">
+    <div class="hero-blob1" style="width:400px;height:400px;top:-180px;right:-100px;"></div>
+    <div class="wrap" style="text-align:center;position:relative;z-index:1;">
       <p class="eyebrow">🥗 Flagship Feature</p>
-      <h1 style="font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:400;color:#fff;margin-bottom:12px;">India's Most Complete Food Database</h1>
-      <p style="color:rgba(255,255,255,.45);max-width:480px;margin:0 auto;">1,086 verified foods with exact macros. Indian local names. Glycemic index. Bioavailability notes.</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2.1rem,5vw,3.6rem);font-weight:400;color:#fff;margin-bottom:14px;">India's Most Complete Raw Food Database</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:560px;margin:0 auto;">1,386 verified raw foods — vegetarian, dairy, and non-vegetarian — measured uncooked. Exact macros. Indian local names. Glycemic index.</p>
     </div>
   </header>
   <section class="sec">
     <div class="wrap">
-      <div class="food-search-bar">
-        <input type="text" placeholder="Search for dal, paneer, roti, soy..." id="food-search" oninput="filterFoods()"/>
-        <button onclick="filterFoods()">Search</button>
+      <div class="fdb-shell">
+        <div class="fdb-search-row">
+          <div class="food-search-bar">
+            <input type="text" placeholder="Search any raw food — dal, paneer, chicken breast, salmon..." id="food-search" oninput="filterFoods()"/>
+            <button onclick="filterFoods()">Search</button>
+          </div>
+        </div>
+        <div class="fdb-sections" id="fdb-sections">
+          <button class="fdb-sec-btn active" onclick="setFoodSection('vegRaw',this)">
+            <span class="fdb-sec-icon">🌱</span>
+            <span class="fdb-sec-label">Veg Raw</span>
+            <span class="fdb-sec-count" id="cnt-vegRaw">—</span>
+          </button>
+          <button class="fdb-sec-btn" onclick="setFoodSection('dairy',this)">
+            <span class="fdb-sec-icon">🥛</span>
+            <span class="fdb-sec-label">Dairy</span>
+            <span class="fdb-sec-count" id="cnt-dairy">—</span>
+          </button>
+          <button class="fdb-sec-btn" onclick="setFoodSection('nonVegRaw',this)">
+            <span class="fdb-sec-icon">🍗</span>
+            <span class="fdb-sec-label">Non-Veg Raw</span>
+            <span class="fdb-sec-count" id="cnt-nonVegRaw">—</span>
+          </button>
+        </div>
+        <div class="fdb-toolbar">
+          <div class="fdb-toolbar-info" id="fdb-toolbar-info">Showing all foods</div>
+        </div>
+        <div class="food-cats" id="food-cats"></div>
+        <div style="padding:0 24px 28px;">
+          <div class="food-grid" id="food-grid"></div>
+          <div class="fdb-loadmore" id="fdb-loadmore" style="display:none;">
+            <button onclick="loadMoreFoods()">Show More Foods</button>
+          </div>
+        </div>
+        <div class="fdb-stats-strip">
+          <div class="fdb-stat"><div class="fdb-stat-val">1,054</div><div class="fdb-stat-lbl">Veg Raw</div></div>
+          <div class="fdb-stat"><div class="fdb-stat-val">32</div><div class="fdb-stat-lbl">Dairy</div></div>
+          <div class="fdb-stat"><div class="fdb-stat-val">300</div><div class="fdb-stat-lbl">Non-Veg Raw</div></div>
+          <div class="fdb-stat"><div class="fdb-stat-val">1,386</div><div class="fdb-stat-lbl">Total Verified Raw</div></div>
+        </div>
       </div>
-      <div class="food-cats" id="food-cats">
-        <button class="food-cat-btn active" onclick="setFoodCat('all',this)">All Foods</button>
-        <button class="food-cat-btn" onclick="setFoodCat('dairy',this)">Dairy</button>
-        <button class="food-cat-btn" onclick="setFoodCat('soy',this)">Soy</button>
-        <button class="food-cat-btn" onclick="setFoodCat('pulses',this)">Pulses</button>
-        <button class="food-cat-btn" onclick="setFoodCat('nuts',this)">Nuts</button>
-        <button class="food-cat-btn" onclick="setFoodCat('seeds',this)">Seeds</button>
-        <button class="food-cat-btn" onclick="setFoodCat('grains',this)">Grains</button>
-        <button class="food-cat-btn" onclick="setFoodCat('spices',this)">Spices</button>
-        <button class="food-cat-btn" onclick="setFoodCat('powders',this)">Powders</button>
+      <div class="fdb-cross-link" onclick="go('cookedfood')">
+        <span class="fdb-cross-icon">🍛</span>
+        <div>
+          <strong>Looking for cooked dishes instead?</strong>
+          <p>Visit the Cooked Food Database — 1,000+ Indian and global non-veg dishes, kept separate because cooked values vary by recipe.</p>
+        </div>
+        <span class="fdb-cross-arrow">→</span>
       </div>
-      <div class="food-grid" id="food-grid"></div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-cookedfood">
+  <header style="background:var(--forest);padding:56px 28px 64px;border-bottom:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;">
+    <div class="hero-blob1" style="width:400px;height:400px;top:-180px;right:-100px;"></div>
+    <div class="wrap" style="text-align:center;position:relative;z-index:1;">
+      <p class="eyebrow">🍛 Cooked Dishes</p>
+      <h1 style="font-family:var(--ff-serif);font-size:clamp(2.1rem,5vw,3.6rem);font-weight:400;color:#fff;margin-bottom:14px;">Cooked Food Database</h1>
+      <p style="color:rgba(255,255,255,.45);max-width:560px;margin:0 auto;">Indian and global cooked dishes — curries, marinades, biryanis and more, estimated per 100g of the finished dish.</p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap">
+      <div class="fdb-disclaimer">
+        <span class="fdb-disclaimer-icon">⚠️</span>
+        <div>
+          <strong>Not recommended for precise tracking.</strong>
+          <p>Cooked dish values change with the recipe, oil quantity, cooking method and portion size — unlike raw foods, they can't be pinned to one exact number. Use these as <em>rough estimates</em> only. For accurate macro tracking, calculate from raw ingredients using the <a onclick="go('food')">Raw Food Database</a> instead.</p>
+        </div>
+      </div>
+      <div class="fdb-shell">
+        <div class="fdb-search-row">
+          <div class="food-search-bar">
+            <input type="text" placeholder="Search cooked dishes — biryani, curry, korma..." id="cooked-food-search" oninput="filterCookedFoods()"/>
+            <button onclick="filterCookedFoods()">Search</button>
+          </div>
+        </div>
+        <div class="fdb-sections" id="fdb-cooked-sections" style="grid-template-columns:repeat(2,1fr);">
+          <button class="fdb-sec-btn active" onclick="setCookedFoodSection('vegCooked',this)">
+            <span class="fdb-sec-icon">🍲</span>
+            <span class="fdb-sec-label">Veg Cooked</span>
+            <span class="fdb-sec-count" id="cnt-cooked-vegCooked">Coming soon</span>
+          </button>
+          <button class="fdb-sec-btn" onclick="setCookedFoodSection('nonVegCooked',this)">
+            <span class="fdb-sec-icon">🍛</span>
+            <span class="fdb-sec-label">Non-Veg Cooked</span>
+            <span class="fdb-sec-count" id="cnt-cooked-nonVegCooked">—</span>
+          </button>
+        </div>
+        <div class="fdb-toolbar">
+          <div class="fdb-toolbar-info" id="fdb-cooked-toolbar-info">Showing all foods</div>
+        </div>
+        <div class="food-cats" id="cooked-food-cats"></div>
+        <div style="padding:0 24px 28px;">
+          <div class="food-grid" id="cooked-food-grid"></div>
+          <div class="fdb-loadmore" id="fdb-cooked-loadmore" style="display:none;">
+            <button onclick="loadMoreCookedFoods()">Show More Foods</button>
+          </div>
+        </div>
+        <div class="fdb-stats-strip">
+          <div class="fdb-stat"><div class="fdb-stat-val">—</div><div class="fdb-stat-lbl">Veg Cooked</div></div>
+          <div class="fdb-stat"><div class="fdb-stat-val">1,000</div><div class="fdb-stat-lbl">Non-Veg Cooked</div></div>
+          <div class="fdb-stat"><div class="fdb-stat-val">1,000</div><div class="fdb-stat-lbl">Total Cooked Dishes</div></div>
+        </div>
+      </div>
     </div>
   </section>
 </div>
@@ -849,10 +988,10 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
     </div>
     <div class="fc">
       <h5>Database</h5>
-      <a onclick="go('food')">Food Search</a>
-      <a onclick="go('food')">Pulses & Dal</a>
-      <a onclick="go('food')">Dairy & Paneer</a>
-      <a onclick="go('food')">Fruits & Vegetables</a>
+      <a onclick="go('food');setFoodSection('vegRaw',document.querySelectorAll('#fdb-sections .fdb-sec-btn')[0])">Veg Raw Foods</a>
+      <a onclick="go('food');setFoodSection('dairy',document.querySelectorAll('#fdb-sections .fdb-sec-btn')[1])">Dairy & Paneer</a>
+      <a onclick="go('food');setFoodSection('nonVegRaw',document.querySelectorAll('#fdb-sections .fdb-sec-btn')[2])">Non-Veg Raw</a>
+      <a onclick="go('cookedfood')">Cooked Food Database</a>
     </div>
     <div class="fc">
       <h5>Tools</h5>
@@ -870,7 +1009,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 NutraInfo · nutrainfo.in · Part of the Knowledge Network</span>
+    <span>© 2026 NutraInfo · nutrainfo.in · Part of the Knowledge Network</span>
     <span>Not a substitute for medical advice. Always consult a qualified professional.</span>
   </div>
 </footer>
@@ -878,7 +1017,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 <div id="toast"></div>
 
 <script>
-const PAGES=['home','food','supplements','meals','calculators','deficiency','blood','research'];
+const PAGES=['home','food','cookedfood','supplements','meals','calculators','deficiency','blood','research'];
 function go(id){
   PAGES.forEach(p=>{
     document.getElementById('page-'+p).classList.remove('active');
@@ -892,6 +1031,7 @@ function go(id){
   initReveal();
   if(id==='calculators'){calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();}
   if(id==='food') renderFoods();
+  if(id==='cookedfood') renderCookedFoods();
 }
 function toggleMob(){document.getElementById('mob').classList.toggle('open');}
 window.addEventListener('scroll',()=>{
@@ -922,18 +1062,30 @@ function initReveal(){
 let ALL_FOODS=[];
 let ORBITAL_FOODS=[];
 
+let RAW_FOODS=[];
+let COOKED_FOODS=[];
+
 function loadFoods(){
   fetch('./foods.json')
     .then(r=>r.json())
     .then(data=>{
       ALL_FOODS=data.foods||[];
-      ORBITAL_FOODS=data.foods||[];
+      // Raw database (and hero orbital search) only ever shows raw sections — cooked dishes are intentionally excluded
+      RAW_FOODS=ALL_FOODS.filter(f=>f.section==='vegRaw'||f.section==='dairy'||f.section==='nonVegRaw');
+      COOKED_FOODS=ALL_FOODS.filter(f=>f.section==='vegCooked'||f.section==='nonVegCooked');
+      ORBITAL_FOODS=RAW_FOODS;
       if(ORBITAL_FOODS.length>0) orbitalDisplay(ORBITAL_FOODS[0]);
+      updateSectionCounts();
+      renderFoodCats();
       renderFoods();
+      updateCookedSectionCounts();
+      renderCookedFoodCats();
     })
     .catch(err=>{
       console.error('Error loading foods:',err);
       ALL_FOODS=[];
+      RAW_FOODS=[];
+      COOKED_FOODS=[];
       ORBITAL_FOODS=[];
     });
 }
@@ -1019,23 +1171,93 @@ document.getElementById('orbitalSearch').addEventListener('keydown',function(e){
   }
 });
 
+const SECTION_LABELS={
+  vegRaw:{icon:'🌱',name:'Veg Raw',desc:'Whole, unprocessed vegetarian foods — grains, pulses, nuts, seeds, spices and soy, measured raw.'},
+  dairy:{icon:'🥛',name:'Dairy',desc:'Milk, paneer, curd, cheese and dairy-based foods.'},
+  nonVegRaw:{icon:'🍗',name:'Non-Veg Raw',desc:'Raw cuts of poultry, mutton, pork, fish, shellfish and eggs — measured uncooked per 100g.'},
+  vegCooked:{icon:'🍲',name:'Veg Cooked',desc:'Prepared vegetarian dishes — coming soon.'},
+  nonVegCooked:{icon:'🍛',name:'Non-Veg Cooked',desc:'Prepared Indian and global non-veg dishes — curries, marinades, biryanis and more. Values are estimates per 100g of the finished dish.'}
+};
+let activeFoodSection='vegRaw';
 let activeFoodCat='all';
 let foodSearch='';
+const FOOD_PAGE_SIZE=48;
+let foodRenderLimit=FOOD_PAGE_SIZE;
 
-function renderFoods(){
-  const grid=document.getElementById('food-grid');
-  if(!grid)return;
-  const filtered=ALL_FOODS.filter(f=>{
-    const matchCat=activeFoodCat==='all'||f.cat.toLowerCase()===activeFoodCat;
-    const matchQ=foodSearch===''||f.name.toLowerCase().includes(foodSearch)||f.local.toLowerCase().includes(foodSearch);
-    return matchCat&&matchQ;
+function updateSectionCounts(){
+  const counts={};
+  RAW_FOODS.forEach(f=>{counts[f.section]=(counts[f.section]||0)+1;});
+  ['vegRaw','dairy','nonVegRaw'].forEach(s=>{
+    const el=document.getElementById('cnt-'+s);
+    if(el) el.textContent=(counts[s]||0).toLocaleString()+' foods';
   });
-  grid.innerHTML=filtered.map(f=>`
+}
+
+function setFoodSection(section,btn){
+  activeFoodSection=section;
+  activeFoodCat='all';
+  foodRenderLimit=FOOD_PAGE_SIZE;
+  document.querySelectorAll('#fdb-sections .fdb-sec-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  document.getElementById('food-search').value='';
+  foodSearch='';
+  renderFoodCats();
+  renderFoods();
+}
+
+function renderFoodCats(){
+  const wrap=document.getElementById('food-cats');
+  if(!wrap)return;
+  if(foodSearch){
+    wrap.innerHTML='';
+    return;
+  }
+  const inSection=RAW_FOODS.filter(f=>f.section===activeFoodSection);
+  const cats=[...new Set(inSection.map(f=>f.cat))].sort();
+  let html=`<button class="food-cat-btn ${activeFoodCat==='all'?'active':''}" onclick="setFoodCat('all',this)">All ${SECTION_LABELS[activeFoodSection].name}</button>`;
+  html+=cats.map(c=>`<button class="food-cat-btn ${activeFoodCat===c?'active':''}" onclick="setFoodCat('${c.replace(/'/g,"\\'")}',this)">${c}</button>`).join('');
+  wrap.innerHTML=html;
+}
+
+function setFoodCat(cat,btn){
+  activeFoodCat=cat;
+  foodRenderLimit=FOOD_PAGE_SIZE;
+  document.querySelectorAll('#food-cats .food-cat-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  renderFoods();
+}
+
+function filterFoods(){
+  foodSearch=document.getElementById('food-search').value.toLowerCase().trim();
+  foodRenderLimit=FOOD_PAGE_SIZE;
+  renderFoodCats();
+  renderFoods();
+}
+
+function getFilteredFoods(){
+  if(foodSearch){
+    // search spans only the 3 raw sections — cooked dishes never appear here
+    return RAW_FOODS.filter(f=>
+      f.name.toLowerCase().includes(foodSearch)||
+      (f.local&&f.local.toLowerCase().includes(foodSearch))||
+      f.cat.toLowerCase().includes(foodSearch)
+    );
+  }
+  return RAW_FOODS.filter(f=>{
+    const matchSection=f.section===activeFoodSection;
+    const matchCat=activeFoodCat==='all'||f.cat===activeFoodCat;
+    return matchSection&&matchCat;
+  });
+}
+
+function foodCardHTML(f){
+  const sectionTag=foodSearch?`<span class="ft-badge">${SECTION_LABELS[f.section]?SECTION_LABELS[f.section].icon:''} ${SECTION_LABELS[f.section]?SECTION_LABELS[f.section].name:''}</span>`:'';
+  return `
     <div class="food-card" onclick="openFood(${f.id})">
-      <div class="food-thumb" style="background:${f.bg};display:flex;align-items:center;justify-content:center;font-family:var(--ff-serif);font-size:0.9rem;color:var(--forest);font-weight:500;text-align:center;padding:8px;overflow:hidden;">${f.name}</div>
+      <div class="food-thumb" style="background:${f.bg};display:flex;align-items:center;justify-content:center;font-family:var(--ff-serif);font-size:0.85rem;color:var(--forest);font-weight:500;text-align:center;padding:8px;overflow:hidden;">${sectionTag}${f.name}</div>
       <div class="food-body">
         <h3>${f.name}</h3>
-        <div class="food-local">${f.local}</div>
+        <div class="food-local">${f.local||''}</div>
         <div class="food-macros">
           <div class="fm-item"><div class="fm-val">${f.cal}</div><div class="fm-lbl">kcal</div></div>
           <div class="fm-item"><div class="fm-val">${f.pro}g</div><div class="fm-lbl">Protein</div></div>
@@ -1044,20 +1266,175 @@ function renderFoods(){
         </div>
       </div>
     </div>
-  `).join('');
-  if(!filtered.length) grid.innerHTML='<p style="color:var(--mid);padding:20px;">No foods found. Try a different search term.</p>';
+  `;
 }
 
-function setFoodCat(cat,btn){
-  activeFoodCat=cat;
-  document.querySelectorAll('.food-cat-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
+function renderFoods(){
+  const grid=document.getElementById('food-grid');
+  const loadMoreWrap=document.getElementById('fdb-loadmore');
+  const info=document.getElementById('fdb-toolbar-info');
+  if(!grid)return;
+  const filtered=getFilteredFoods();
+
+  if(info){
+    if(foodSearch){
+      info.innerHTML=`<strong>${filtered.length.toLocaleString()}</strong> raw food results for "${foodSearch}"`;
+    }else{
+      const label=SECTION_LABELS[activeFoodSection];
+      info.innerHTML=`<strong>${filtered.length.toLocaleString()}</strong> foods in ${activeFoodCat==='all'?label.name:activeFoodCat} — ${label.desc}`;
+    }
+  }
+
+  if(!filtered.length){
+    grid.innerHTML=`<div class="fdb-empty" style="grid-column:1/-1;"><div class="fdb-empty-icon">🔍</div>No foods found. Try a different search term.</div>`;
+    if(loadMoreWrap) loadMoreWrap.style.display='none';
+    return;
+  }
+
+  const visible=filtered.slice(0,foodRenderLimit);
+  grid.innerHTML=visible.map(foodCardHTML).join('');
+
+  if(loadMoreWrap){
+    loadMoreWrap.style.display=filtered.length>foodRenderLimit?'flex':'none';
+  }
+}
+
+function loadMoreFoods(){
+  foodRenderLimit+=FOOD_PAGE_SIZE;
   renderFoods();
 }
 
-function filterFoods(){
-  foodSearch=document.getElementById('food-search').value.toLowerCase();
-  renderFoods();
+/* ════════════════════════════════════
+   COOKED FOOD DATABASE — separate state, separate dataset (COOKED_FOODS only)
+   ════════════════════════════════════ */
+let activeCookedSection='vegCooked';
+let activeCookedCat='all';
+let cookedFoodSearch='';
+const COOKED_PAGE_SIZE=48;
+let cookedRenderLimit=COOKED_PAGE_SIZE;
+
+function updateCookedSectionCounts(){
+  const counts={};
+  COOKED_FOODS.forEach(f=>{counts[f.section]=(counts[f.section]||0)+1;});
+  const vegEl=document.getElementById('cnt-cooked-vegCooked');
+  if(vegEl) vegEl.textContent=counts.vegCooked?counts.vegCooked.toLocaleString()+' foods':'Coming soon';
+  const nvEl=document.getElementById('cnt-cooked-nonVegCooked');
+  if(nvEl) nvEl.textContent=(counts.nonVegCooked||0).toLocaleString()+' foods';
+}
+
+function setCookedFoodSection(section,btn){
+  if(section==='vegCooked'&&!COOKED_FOODS.some(f=>f.section==='vegCooked')){
+    showToast('🍲 Veg Cooked dishes are coming soon!');
+    return;
+  }
+  activeCookedSection=section;
+  activeCookedCat='all';
+  cookedRenderLimit=COOKED_PAGE_SIZE;
+  document.querySelectorAll('#fdb-cooked-sections .fdb-sec-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  document.getElementById('cooked-food-search').value='';
+  cookedFoodSearch='';
+  renderCookedFoodCats();
+  renderCookedFoods();
+}
+
+function renderCookedFoodCats(){
+  const wrap=document.getElementById('cooked-food-cats');
+  if(!wrap)return;
+  if(cookedFoodSearch){
+    wrap.innerHTML='';
+    return;
+  }
+  const inSection=COOKED_FOODS.filter(f=>f.section===activeCookedSection);
+  const cats=[...new Set(inSection.map(f=>f.cat))].sort();
+  let html=`<button class="food-cat-btn ${activeCookedCat==='all'?'active':''}" onclick="setCookedFoodCat('all',this)">All ${SECTION_LABELS[activeCookedSection].name}</button>`;
+  html+=cats.map(c=>`<button class="food-cat-btn ${activeCookedCat===c?'active':''}" onclick="setCookedFoodCat('${c.replace(/'/g,"\\'")}',this)">${c}</button>`).join('');
+  wrap.innerHTML=html;
+}
+
+function setCookedFoodCat(cat,btn){
+  activeCookedCat=cat;
+  cookedRenderLimit=COOKED_PAGE_SIZE;
+  document.querySelectorAll('#cooked-food-cats .food-cat-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  renderCookedFoods();
+}
+
+function filterCookedFoods(){
+  cookedFoodSearch=document.getElementById('cooked-food-search').value.toLowerCase().trim();
+  cookedRenderLimit=COOKED_PAGE_SIZE;
+  renderCookedFoodCats();
+  renderCookedFoods();
+}
+
+function getFilteredCookedFoods(){
+  if(cookedFoodSearch){
+    // search spans only the cooked sections — raw foods never appear here
+    return COOKED_FOODS.filter(f=>
+      f.name.toLowerCase().includes(cookedFoodSearch)||
+      (f.local&&f.local.toLowerCase().includes(cookedFoodSearch))||
+      f.cat.toLowerCase().includes(cookedFoodSearch)
+    );
+  }
+  return COOKED_FOODS.filter(f=>{
+    const matchSection=f.section===activeCookedSection;
+    const matchCat=activeCookedCat==='all'||f.cat===activeCookedCat;
+    return matchSection&&matchCat;
+  });
+}
+
+function cookedFoodCardHTML(f){
+  const sectionTag=cookedFoodSearch?`<span class="ft-badge">${SECTION_LABELS[f.section]?SECTION_LABELS[f.section].icon:''} ${SECTION_LABELS[f.section]?SECTION_LABELS[f.section].name:''}</span>`:'';
+  return `
+    <div class="food-card" onclick="openFood(${f.id})">
+      <div class="food-thumb" style="background:${f.bg};display:flex;align-items:center;justify-content:center;font-family:var(--ff-serif);font-size:0.85rem;color:var(--forest);font-weight:500;text-align:center;padding:8px;overflow:hidden;">${sectionTag}${f.name}</div>
+      <div class="food-body">
+        <h3>${f.name}</h3>
+        <div class="food-local">${f.local||''}</div>
+        <div class="food-macros">
+          <div class="fm-item"><div class="fm-val">${f.cal}</div><div class="fm-lbl">kcal</div></div>
+          <div class="fm-item"><div class="fm-val">${f.pro}g</div><div class="fm-lbl">Protein</div></div>
+          <div class="fm-item"><div class="fm-val">${f.carb}g</div><div class="fm-lbl">Carbs</div></div>
+          <div class="fm-item"><div class="fm-val">${f.fiber > 0 ? f.fiber + 'g' : '~'}</div><div class="fm-lbl">Fiber</div></div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderCookedFoods(){
+  const grid=document.getElementById('cooked-food-grid');
+  const loadMoreWrap=document.getElementById('fdb-cooked-loadmore');
+  const info=document.getElementById('fdb-cooked-toolbar-info');
+  if(!grid)return;
+  const filtered=getFilteredCookedFoods();
+
+  if(info){
+    if(cookedFoodSearch){
+      info.innerHTML=`<strong>${filtered.length.toLocaleString()}</strong> cooked dish results for "${cookedFoodSearch}"`;
+    }else{
+      const label=SECTION_LABELS[activeCookedSection];
+      info.innerHTML=`<strong>${filtered.length.toLocaleString()}</strong> dishes in ${activeCookedCat==='all'?label.name:activeCookedCat} — ${label.desc}`;
+    }
+  }
+
+  if(!filtered.length){
+    grid.innerHTML=`<div class="fdb-empty" style="grid-column:1/-1;"><div class="fdb-empty-icon">🍲</div>${activeCookedSection==='vegCooked'?'Veg Cooked dishes are coming soon!':'No dishes found. Try a different search term.'}</div>`;
+    if(loadMoreWrap) loadMoreWrap.style.display='none';
+    return;
+  }
+
+  const visible=filtered.slice(0,cookedRenderLimit);
+  grid.innerHTML=visible.map(cookedFoodCardHTML).join('');
+
+  if(loadMoreWrap){
+    loadMoreWrap.style.display=filtered.length>cookedRenderLimit?'flex':'none';
+  }
+}
+
+function loadMoreCookedFoods(){
+  cookedRenderLimit+=COOKED_PAGE_SIZE;
+  renderCookedFoods();
 }
 
 function openFood(id){
@@ -1470,7 +1847,7 @@ function processChatbotQuery(q){
   
   // "High protein foods"
   if(q.includes('high protein')||q.includes('protein rich')){
-    const highPro=ALL_FOODS.filter(f=>f.pro>=20).sort((a,b)=>b.pro-a.pro).slice(0,5);
+    const highPro=RAW_FOODS.filter(f=>f.pro>=20).sort((a,b)=>b.pro-a.pro).slice(0,5);
     return `<strong>Top 5 High Protein Foods:</strong><br>`+highPro.map(f=>`• ${f.emoji} ${f.name}: <strong>${f.pro}g</strong> protein`).join('<br>');
   }
   
@@ -1478,7 +1855,7 @@ function processChatbotQuery(q){
   const catMatch=q.match(/(?:foods? in|category)\s+(\w+)/);
   if(catMatch){
     const cat=catMatch[1].toLowerCase();
-    const foods=ALL_FOODS.filter(f=>f.cat.toLowerCase()===cat).slice(0,8);
+    const foods=RAW_FOODS.filter(f=>f.cat.toLowerCase()===cat).slice(0,8);
     if(foods.length){
       return `<strong>${foods[0].cat} Foods:</strong><br>`+foods.map(f=>`• ${f.emoji} ${f.name} (${f.pro}g protein)`).join('<br>');
     }
@@ -1502,13 +1879,13 @@ function processChatbotQuery(q){
   
   // "Best for muscle gain"
   if(q.includes('muscle')||q.includes('gain')||q.includes('bodybuilding')){
-    const muscle=ALL_FOODS.filter(f=>f.pro>=15).sort((a,b)=>b.pro-a.pro).slice(0,5);
+    const muscle=RAW_FOODS.filter(f=>f.pro>=15).sort((a,b)=>b.pro-a.pro).slice(0,5);
     return `<strong>Best for Muscle Gain:</strong><br>`+muscle.map(f=>`• ${f.emoji} ${f.name}: ${f.pro}g protein, ${f.cal} kcal`).join('<br>');
   }
   
   // "Best for weight loss"
   if(q.includes('weight loss')||q.includes('diet')||q.includes('cutting')){
-    const lowCal=ALL_FOODS.filter(f=>f.cal<=200&&f.pro>=10).sort((a,b)=>a.cal-b.cal).slice(0,5);
+    const lowCal=RAW_FOODS.filter(f=>f.cal<=200&&f.pro>=10).sort((a,b)=>a.cal-b.cal).slice(0,5);
     return `<strong>Best for Weight Loss:</strong><br>`+lowCal.map(f=>`• ${f.emoji} ${f.name}: ${f.cal} kcal, ${f.pro}g protein`).join('<br>');
   }
   
@@ -1532,16 +1909,16 @@ function processChatbotQuery(q){
   • "Compare moong dal and chana dal"<br>
   • "Best for muscle gain"<br>
   • "Foods in pulses"<br><br>
-  Try asking about any of our 121 foods!`;
+  Try asking about any of our 1,386 verified raw foods across veg, dairy &amp; non-veg! For cooked dishes, visit the Cooked Food Database.`;
 }
 
 function findFood(query){
   query=query.toLowerCase().trim();
-  let f=ALL_FOODS.find(x=>x.name.toLowerCase()===query);
+  let f=RAW_FOODS.find(x=>x.name.toLowerCase()===query);
   if(f)return f;
-  f=ALL_FOODS.find(x=>x.name.toLowerCase().includes(query));
+  f=RAW_FOODS.find(x=>x.name.toLowerCase().includes(query));
   if(f)return f;
-  f=ALL_FOODS.find(x=>x.local.toLowerCase().includes(query));
+  f=RAW_FOODS.find(x=>x.local.toLowerCase().includes(query));
   return f;
 }</script>
 <!-- NutraInfo Chatbot -->
