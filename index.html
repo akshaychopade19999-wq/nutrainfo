@@ -44,6 +44,7 @@ button{cursor:pointer;font-family:var(--ff-sans);}
 .nav-inner{max-width:var(--max);margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px;}
 .nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--ff-serif);font-size:1.15rem;color:#fff;letter-spacing:.01em;}
 .nav-logo-icon{width:30px;height:30px;border-radius:6px;background:linear-gradient(135deg,var(--mint),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-style:normal;}
+.nav-logo-icon i.ti{font-size:18px;color:#fff;}
 .nav-links{display:flex;gap:1px;list-style:none;align-items:center;}
 .nav-links a{color:rgba(255,255,255,.5);font-size:0.78rem;font-weight:500;letter-spacing:.01em;padding:5px 11px;border-radius:var(--r-sm);transition:color .12s,background .12s;}
 .nav-links a:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.07);}
@@ -54,6 +55,7 @@ button{cursor:pointer;font-family:var(--ff-sans);}
 .ham span{display:block;width:18px;height:1.5px;background:rgba(255,255,255,.6);border-radius:2px;}
 .mob-menu{display:none;background:rgba(13,43,32,.98);padding:10px 20px 18px;flex-direction:column;gap:2px;border-top:1px solid rgba(255,255,255,.06);}
 .mob-menu a{color:rgba(255,255,255,.6);font-size:.88rem;padding:8px 12px;border-radius:var(--r-sm);display:flex;align-items:center;gap:10px;}
+.mob-menu a i.ti{font-size:18px;width:18px;text-align:center;}
 .mob-menu a:hover{background:rgba(255,255,255,.06);color:#fff;}
 .mob-menu.open{display:flex;}
 @media(max-width:760px){.nav-links{display:none;}.ham{display:flex;}}
@@ -88,6 +90,7 @@ button{cursor:pointer;font-family:var(--ff-sans);}
 .hub-core:hover .hub-icon,.hub-core input:focus~.hub-icon,.hub-core input:not(:placeholder-shown)~.hub-icon{opacity:0;transform:scale(.5);}
 .hub-icon{transition:all .3s ease;pointer-events:none;color:var(--mint);display:flex;align-items:center;justify-content:center;}
 .hub-icon svg{width:38px;height:38px;}
+.hub-icon i.ti{font-size:38px;}
 .orbital-suggestions{position:absolute;top:210px;left:50%;transform:translateX(-50%);width:280px;background:rgba(255,255,255,.97);border-radius:var(--r-lg);box-shadow:0 20px 60px rgba(0,0,0,.25);z-index:100;display:none;overflow:hidden;backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.5);}
 .orbital-suggestions.active{display:block;animation:suggestPop .3s cubic-bezier(.34,1.56,.64,1);}
 @keyframes suggestPop{from{opacity:0;transform:translateX(-50%) translateY(-10px) scale(.95);}to{opacity:1;transform:translateX(-50%) translateY(0) scale(1);}}
@@ -102,6 +105,7 @@ button{cursor:pointer;font-family:var(--ff-sans);}
 .ofd-header{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
 .ofd-emoji{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--leaf));display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(30,138,94,.3);animation:emojiBounce 2s ease-in-out infinite;}
 .ofd-emoji svg{width:26px;height:26px;stroke:#fff;}
+.ofd-emoji i.ti{font-size:26px;color:#fff;}
 @keyframes emojiBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
 .ofd-names h3{font-family:var(--ff-serif);font-size:1.4rem;color:#fff;font-weight:400;line-height:1;}
 .ofd-names span{font-size:.85rem;color:var(--sage);font-weight:500;}
@@ -147,6 +151,8 @@ button{cursor:pointer;font-family:var(--ff-sans);}
 .rab-inner{max-width:var(--max);margin:0 auto;padding:46px 28px;position:relative;z-index:1;}
 .rab-top{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
 .rab-badge{flex-shrink:0;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#A87826);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(200,151,58,.35);}
+.rab-badge i.ti{font-size:28px;color:#fff;}
+.rab-badge[style*="44px"] i.ti{font-size:22px;}
 .rab-headline{font-family:var(--ff-serif);font-size:clamp(1.3rem,2.6vw,1.85rem);font-weight:500;color:#fff;line-height:1.25;letter-spacing:-.01em;}
 .rab-headline em{font-style:normal;color:var(--gold);}
 .rab-sub{color:rgba(255,255,255,.55);font-size:.92rem;max-width:680px;line-height:1.6;margin-bottom:26px;}
@@ -188,6 +194,7 @@ button{cursor:pointer;font-family:var(--ff-sans);}
 .feat-card:hover::before{opacity:1;}
 .feat-icon{margin-bottom:16px;line-height:1;color:var(--mint);}
 .feat-icon svg{width:32px;height:32px;}
+.feat-icon i.ti{font-size:32px;line-height:1;}
 .feat-card h3{font-family:var(--ff-serif);font-size:1.05rem;font-weight:400;margin-bottom:7px;color:var(--forest);}
 .feat-card p{font-size:.8rem;color:var(--mid);line-height:1.6;}
 .kn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
@@ -293,6 +300,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 .fdb-cross-link:hover{box-shadow:var(--sh-hover);border-color:rgba(30,138,94,.2);}
 .fdb-cross-icon{flex-shrink:0;color:var(--mint);}
 .fdb-cross-icon svg{width:32px;height:32px;}
+.fdb-cross-icon i.ti{font-size:32px;}
 .fdb-cross-link strong{font-family:var(--ff-serif);font-size:1.02rem;color:var(--forest);font-weight:500;display:block;margin-bottom:4px;}
 .fdb-cross-link p{font-size:.82rem;color:var(--mid);line-height:1.5;margin:0;}
 .fdb-cross-arrow{font-size:1.3rem;color:var(--mint);flex-shrink:0;}
@@ -351,6 +359,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 .sym-btn.sel{border-color:var(--mint);background:rgba(30,138,94,.05);box-shadow:0 0 0 2px rgba(30,138,94,.15);}
 .sym-btn .si{margin-bottom:8px;display:block;color:var(--mint);}
 .sym-btn .si svg{width:26px;height:26px;}
+.sym-btn .si i.ti{font-size:26px;}
 .sym-btn span{font-size:.78rem;font-weight:500;display:block;color:var(--ink);}
 .deficiency-result{display:none;background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;margin-top:28px;box-shadow:var(--sh-card);}
 .deficiency-result.show{display:block;}
@@ -387,6 +396,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 .supp-header{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;}
 .supp-icon{flex-shrink:0;line-height:1;color:var(--mint);}
 .supp-icon svg{width:30px;height:30px;}
+.supp-icon i.ti{font-size:30px;}
 .supp-header h3{font-family:var(--ff-serif);font-size:1.05rem;font-weight:400;margin-bottom:4px;color:var(--forest);}
 .supp-header p{font-size:.78rem;color:var(--mid);}
 .rating-rows{display:flex;flex-direction:column;gap:7px;}
@@ -401,6 +411,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 .mp-header{padding:22px 22px 16px;display:flex;gap:12px;align-items:flex-start;}
 .mp-icon{line-height:1;color:var(--mint);}
 .mp-icon svg{width:30px;height:30px;}
+.mp-icon i.ti{font-size:30px;}
 .mp-header h3{font-family:var(--ff-serif);font-size:1rem;font-weight:400;margin-bottom:4px;color:var(--forest);}
 .mp-header p{font-size:.76rem;color:var(--mid);}
 .mp-stats{padding:14px 22px 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px;border-top:1px solid var(--border);}
@@ -422,7 +433,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 <nav class="nav">
   <div class="nav-inner">
     <a class="nav-logo" onclick="go('home')">
-      <div class="nav-logo-icon"><svg class="icon" viewBox="0 0 24 24" style="stroke:#fff;width:60%;height:60%"><path d="M11 20A7 7 0 0 1 4 13H2a10 10 0 0 0 10 10c.34 0 .67-.02 1-.06"/><path d="M11 20v-7a4 4 0 0 1 4-4h5"/><circle cx="18" cy="5" r="3"/></svg></div>
+      <div class="nav-logo-icon"><i class="ti ti-leaf"></i></div>
       NutraInfo
     </a>
     <ul class="nav-links">
@@ -440,15 +451,15 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
     <button class="ham" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mob-menu" id="mob">
-    <a onclick="go('home');toggleMob()"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg> Home</a>
-    <a onclick="go('food');toggleMob()"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9z"/><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"/></svg> Food Database</a>
-    <a onclick="go('cookedfood');toggleMob()"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M5 10a7 7 0 0 1 14 0v1a9 9 0 0 1-9 9 9 9 0 0 1-9-9z"/><path d="M3.5 10h17"/></svg> Cooked Food Database</a>
-    <a onclick="go('supplements');toggleMob()"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="11" width="8" height="8" rx="4" transform="rotate(-45 7 15)"/><path d="m10.5 7.5 7 7"/><rect x="13" y="3" width="8" height="8" rx="4" transform="rotate(-45 17 7)"/></svg> Supplements</a>
-    <a onclick="go('meals');toggleMob()"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg> Meal Plans</a>
-    <a onclick="go('calculators');toggleMob()"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01"/></svg> Calculators</a>
-    <a onclick="go('blood');toggleMob()"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2s7 7.58 7 12a7 7 0 1 1-14 0c0-4.42 7-12 7-12z"/></svg> Blood Tests</a>
-    <a onclick="go('deficiency');toggleMob()"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> Deficiency Check</a>
-    <a onclick="go('research');toggleMob()"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M2 4h7a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-7a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h8z"/></svg> Research Hub</a>
+    <a onclick="go('home');toggleMob()"><i class="ti ti-home"></i> Home</a>
+    <a onclick="go('food');toggleMob()"><i class="ti ti-leaf"></i> Food Database</a>
+    <a onclick="go('cookedfood');toggleMob()"><i class="ti ti-soup"></i> Cooked Food Database</a>
+    <a onclick="go('supplements');toggleMob()"><i class="ti ti-pill"></i> Supplements</a>
+    <a onclick="go('meals');toggleMob()"><i class="ti ti-calendar"></i> Meal Plans</a>
+    <a onclick="go('calculators');toggleMob()"><i class="ti ti-calculator"></i> Calculators</a>
+    <a onclick="go('blood');toggleMob()"><i class="ti ti-droplet"></i> Blood Tests</a>
+    <a onclick="go('deficiency');toggleMob()"><i class="ti ti-search"></i> Deficiency Check</a>
+    <a onclick="go('research');toggleMob()"><i class="ti ti-book"></i> Research Hub</a>
   </div>
 </nav>
 
@@ -463,7 +474,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
         <p class="hero-sub">NutraInfo combines science-backed food data, supplement transparency, meal planning, deficiency detection and nutrition research — all in one place.</p>
         <div class="hero-btns">
           <button class="btn-green" onclick="go('food')">Explore Food Database →</button>
-          <button class="btn-outline-w" onclick="go('deficiency')" style="display:inline-flex;align-items:center;gap:8px;"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>Check Deficiencies</button>
+          <button class="btn-outline-w" onclick="go('deficiency')" style="display:inline-flex;align-items:center;gap:8px;"><i class="ti ti-search" style="font-size:16px;"></i>Check Deficiencies</button>
         </div>
       </div>
       <div class="orbital-showcase">
@@ -472,13 +483,13 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
           <div class="hub-ring"></div>
           <div class="hub-core">
             <input type="text" id="orbitalSearch" placeholder="Search food..." autocomplete="off" oninput="orbitalSearch()">
-            <div class="hub-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+            <div class="hub-icon"><i class="ti ti-search"></i></div>
           </div>
         </div>
         <div class="orbital-suggestions" id="orbitalSuggestions"></div>
         <div class="orbital-food-display" id="orbitalFoodDisplay">
           <div class="ofd-header">
-            <div class="ofd-emoji" id="ofdEmoji"><svg class="icon" viewBox="0 0 24 24"><path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9z"/><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"/></svg></div>
+            <div class="ofd-emoji" id="ofdEmoji"><i class="ti ti-leaf"></i></div>
             <div class="ofd-names">
               <h3 id="ofdName">Paneer</h3>
               <span id="ofdLocal">पनीर</span>
@@ -515,7 +526,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
   <div class="rab-wrap">
     <div class="rab-inner">
       <div class="rab-top">
-        <div class="rab-badge"><svg class="icon" viewBox="0 0 24 24" style="stroke:#fff;width:60%;height:60%"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div class="rab-badge"><i class="ti ti-shield-check"></i></div>
         <h2 class="rab-headline">India's Most Verified Raw Food Data — Built for <em>Precision</em></h2>
       </div>
       <p class="rab-sub">Cooked dishes vary by recipe, oil, and method. Raw data doesn't lie — it's the only way to calculate macros you can actually trust. Every number in our Raw Food Database is measured before anything changes it.</p>
@@ -538,15 +549,15 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
       <h2 class="h2">Everything nutrition, under one roof</h2>
       <p class="sub">Built for Indian bodies, Indian foods, and Indian dietary patterns — with global research behind every claim.</p>
       <div class="features-grid reveal">
-        <div class="feat-card" onclick="go('food')"><div class="feat-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9z"/><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"/></svg></div><h3>Raw Food Database</h3><p>1,385 verified raw foods across veg, dairy &amp; non-veg — exact macros, GI and bioavailability notes.</p></div>
-        <div class="feat-card" onclick="go('cookedfood')"><div class="feat-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M5 10a7 7 0 0 1 14 0v1a9 9 0 0 1-9 9 9 9 0 0 1-9-9z"/><path d="M3.5 10h17"/></svg></div><h3>Cooked Food Database</h3><p>1,000+ Indian &amp; global cooked dishes — biryanis, curries, marinades and more.</p></div>
-        <div class="feat-card" onclick="go('supplements')"><div class="feat-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><rect x="3" y="11" width="8" height="8" rx="4" transform="rotate(-45 7 15)"/><path d="m10.5 7.5 7 7"/><rect x="13" y="3" width="8" height="8" rx="4" transform="rotate(-45 17 7)"/></svg></div><h3>Supplement Ratings</h3><p>Transparent, unsponsored ratings on whey, creatine, vitamin D and more.</p></div>
-        <div class="feat-card" onclick="go('meals')"><div class="feat-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></div><h3>Meal Plans</h3><p>Indian vegetarian, vegan, high-protein, diabetic-friendly and budget student plans.</p></div>
-        <div class="feat-card" onclick="go('calculators')"><div class="feat-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01"/></svg></div><h3>Calculators</h3><p>BMI, BMR, TDEE, protein needs, macro split, water intake and body fat estimation.</p></div>
-        <div class="feat-card" onclick="go('deficiency')"><div class="feat-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><h3>Deficiency Checker</h3><p>Select your symptoms. Get possible deficiencies, food sources and test recommendations.</p></div>
-        <div class="feat-card" onclick="go('blood')"><div class="feat-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M12 2s7 7.58 7 12a7 7 0 1 1-14 0c0-4.42 7-12 7-12z"/></svg></div><h3>Blood Test Guide</h3><p>Plain-English explanations of CBC, B12, vitamin D, ferritin, thyroid and 12 more panels.</p></div>
-        <div class="feat-card" onclick="go('research')"><div class="feat-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M2 4h7a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-7a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h8z"/></svg></div><h3>Research Hub</h3><p>500+ nutrition studies summarised in plain English with evidence quality ratings.</p></div>
-        <div class="feat-card" onclick="showToast('Vegetarian Center launching soon!')"><div class="feat-icon"><svg class="icon icon-xl" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13H2a10 10 0 0 0 10 10c.34 0 .67-.02 1-.06"/><path d="M11 20v-7a4 4 0 0 1 4-4h5"/><circle cx="18" cy="5" r="3"/></svg></div><h3>Vegetarian Center</h3><p>Complete proteins, B12, iron, zinc and omega-3 — everything plant-based India needs.</p></div>
+        <div class="feat-card" onclick="go('food')"><div class="feat-icon"><i class="ti ti-leaf"></i></div><h3>Raw Food Database</h3><p>1,385 verified raw foods across veg, dairy &amp; non-veg — exact macros, GI and bioavailability notes.</p></div>
+        <div class="feat-card" onclick="go('cookedfood')"><div class="feat-icon"><i class="ti ti-soup"></i></div><h3>Cooked Food Database</h3><p>1,000+ Indian &amp; global cooked dishes — biryanis, curries, marinades and more.</p></div>
+        <div class="feat-card" onclick="go('supplements')"><div class="feat-icon"><i class="ti ti-pill"></i></div><h3>Supplement Ratings</h3><p>Transparent, unsponsored ratings on whey, creatine, vitamin D and more.</p></div>
+        <div class="feat-card" onclick="go('meals')"><div class="feat-icon"><i class="ti ti-calendar"></i></div><h3>Meal Plans</h3><p>Indian vegetarian, vegan, high-protein, diabetic-friendly and budget student plans.</p></div>
+        <div class="feat-card" onclick="go('calculators')"><div class="feat-icon"><i class="ti ti-calculator"></i></div><h3>Calculators</h3><p>BMI, BMR, TDEE, protein needs, macro split, water intake and body fat estimation.</p></div>
+        <div class="feat-card" onclick="go('deficiency')"><div class="feat-icon"><i class="ti ti-search"></i></div><h3>Deficiency Checker</h3><p>Select your symptoms. Get possible deficiencies, food sources and test recommendations.</p></div>
+        <div class="feat-card" onclick="go('blood')"><div class="feat-icon"><i class="ti ti-droplet"></i></div><h3>Blood Test Guide</h3><p>Plain-English explanations of CBC, B12, vitamin D, ferritin, thyroid and 12 more panels.</p></div>
+        <div class="feat-card" onclick="go('research')"><div class="feat-icon"><i class="ti ti-book"></i></div><h3>Research Hub</h3><p>500+ nutrition studies summarised in plain English with evidence quality ratings.</p></div>
+        <div class="feat-card" onclick="showToast('Vegetarian Center launching soon!')"><div class="feat-icon"><i class="ti ti-plant-2"></i></div><h3>Vegetarian Center</h3><p>Complete proteins, B12, iron, zinc and omega-3 — everything plant-based India needs.</p></div>
       </div>
     </div>
   </section>
@@ -581,7 +592,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
   <div class="rab-wrap">
     <div class="rab-inner" style="padding:34px 28px;">
       <div class="rab-top" style="margin-bottom:14px;">
-        <div class="rab-badge" style="width:44px;height:44px;"><svg class="icon" viewBox="0 0 24 24" style="stroke:#fff;width:60%;height:60%"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div class="rab-badge" style="width:44px;height:44px;"><i class="ti ti-shield-check"></i></div>
         <h2 class="rab-headline" style="font-size:clamp(1.15rem,2.2vw,1.5rem);">Why raw data is the only accurate way to calculate macros</h2>
       </div>
       <div class="rab-bullets">
@@ -637,7 +648,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
         </div>
       </div>
       <div class="fdb-cross-link" onclick="go('cookedfood')">
-        <span class="fdb-cross-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12a4 4 0 0 0 8 0"/><path d="M12 7v1M9 8l.5.8M15 8l-.5.8"/></svg></span>
+        <span class="fdb-cross-icon"><i class="ti ti-soup"></i></span>
         <div>
           <strong>Looking for cooked dishes instead?</strong>
           <p>Visit the Cooked Food Database — 1,000+ Indian and global non-veg dishes, kept separate because cooked values vary by recipe.</p>
@@ -1070,7 +1081,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="fb-name">
-        <div class="nav-logo-icon" style="width:28px;height:28px;border-radius:5px;"><svg class="icon" viewBox="0 0 24 24" style="stroke:#fff;width:60%;height:60%"><path d="M11 20A7 7 0 0 1 4 13H2a10 10 0 0 0 10 10c.34 0 .67-.02 1-.06"/><path d="M11 20v-7a4 4 0 0 1 4-4h5"/><circle cx="18" cy="5" r="3"/></svg></div>
+        <div class="nav-logo-icon" style="width:28px;height:28px;border-radius:5px;"><i class="ti ti-leaf"></i></div>
         NutraInfo
       </div>
       <p>India's evidence-based nutrition platform. Scientific rigour. Beginner-friendly language. Zero conflicts of interest.</p>
@@ -1579,12 +1590,12 @@ function closeModal(e){
 }
 
 const SUPPS=[
-  {name:'Whey Protein Concentrate',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M6.5 6.5h11v3a5.5 5.5 0 0 1-11 0z"/><path d="M6.5 9.5H4a2 2 0 0 1 0-4h2.5M17.5 9.5H20a2 2 0 0 0 0-4h-2.5M9 21h6M12 17.5V21"/></svg>',desc:'Most popular protein supplement. Fast-absorbing complete protein.',ratings:{Quality:88,Transparency:72,Purity:80,Safety:96,Evidence:92,'Value for Money':85,Taste:82,Digestibility:78}},
-  {name:'Creatine Monohydrate',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M13 2 4.5 14H11l-1 8L19.5 10H13z"/></svg>',desc:'Most researched supplement in sports nutrition. Improves strength and power output.',ratings:{Quality:95,Transparency:90,Purity:88,Safety:99,Evidence:99,'Value for Money':95,Taste:75,Digestibility:90}},
-  {name:'Vitamin D3',icon:'<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>',desc:'Critical for Indians — most are deficient. Supports immunity, bone health, mood.',ratings:{Quality:90,Transparency:82,Purity:86,Safety:94,Evidence:92,'Value for Money':92,Taste:88,Digestibility:95}},
-  {name:'Fish Oil (Omega-3)',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M6.5 12c0-3 2-7 8-8.5C13 7 13.5 10 17.5 11c-1 3-4 3.5-6 3-1 2-3 3.5-6 3.5-1.5 0-3-1-3-2.5 1 0 2.5-.5 4-3z"/><circle cx="14" cy="9" r=".5"/></svg>',desc:'EPA + DHA for heart, brain and joint health. Critical for vegetarians who avoid fish.',ratings:{Quality:82,Transparency:70,Purity:75,Safety:90,Evidence:88,'Value for Money':78,Taste:62,Digestibility:76}},
-  {name:'Magnesium Glycinate',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 9c1 2 2 3 2 5a4 4 0 0 0 8 0c0-2 1-3 2-5a6 6 0 0 0-6-9z"/></svg>',desc:'Most bioavailable form. Supports sleep, stress, muscle function and 300+ enzymes.',ratings:{Quality:88,Transparency:84,Purity:86,Safety:95,Evidence:86,'Value for Money':80,Taste:72,Digestibility:92}},
-  {name:'Plant Protein (Pea + Rice)',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13H2a10 10 0 0 0 10 10c.34 0 .67-.02 1-.06"/><path d="M11 20v-7a4 4 0 0 1 4-4h5"/><circle cx="18" cy="5" r="3"/></svg>',desc:'Best vegan protein blend. Pea+rice combination gives complete amino acid profile.',ratings:{Quality:80,Transparency:75,Purity:82,Safety:96,Evidence:78,'Value for Money':72,Taste:68,Digestibility:80}},
+  {name:'Whey Protein Concentrate',icon:'<i class="ti ti-barbell"></i>',desc:'Most popular protein supplement. Fast-absorbing complete protein.',ratings:{Quality:88,Transparency:72,Purity:80,Safety:96,Evidence:92,'Value for Money':85,Taste:82,Digestibility:78}},
+  {name:'Creatine Monohydrate',icon:'<i class="ti ti-bolt"></i>',desc:'Most researched supplement in sports nutrition. Improves strength and power output.',ratings:{Quality:95,Transparency:90,Purity:88,Safety:99,Evidence:99,'Value for Money':95,Taste:75,Digestibility:90}},
+  {name:'Vitamin D3',icon:'<i class="ti ti-sun"></i>',desc:'Critical for Indians — most are deficient. Supports immunity, bone health, mood.',ratings:{Quality:90,Transparency:82,Purity:86,Safety:94,Evidence:92,'Value for Money':92,Taste:88,Digestibility:95}},
+  {name:'Fish Oil (Omega-3)',icon:'<i class="ti ti-fish"></i>',desc:'EPA + DHA for heart, brain and joint health. Critical for vegetarians who avoid fish.',ratings:{Quality:82,Transparency:70,Purity:75,Safety:90,Evidence:88,'Value for Money':78,Taste:62,Digestibility:76}},
+  {name:'Magnesium Glycinate',icon:'<i class="ti ti-moon"></i>',desc:'Most bioavailable form. Supports sleep, stress, muscle function and 300+ enzymes.',ratings:{Quality:88,Transparency:84,Purity:86,Safety:95,Evidence:86,'Value for Money':80,Taste:72,Digestibility:92}},
+  {name:'Plant Protein (Pea + Rice)',icon:'<i class="ti ti-plant-2"></i>',desc:'Best vegan protein blend. Pea+rice combination gives complete amino acid profile.',ratings:{Quality:80,Transparency:75,Purity:82,Safety:96,Evidence:78,'Value for Money':72,Taste:68,Digestibility:80}},
 ];
 function renderSupplements(){
   const g=document.getElementById('supp-grid');if(!g)return;
@@ -1607,14 +1618,14 @@ function renderSupplements(){
 }
 
 const MEALS=[
-  {icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9z"/><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"/></svg>',name:'Indian Vegetarian High Protein',desc:'Dal, paneer, soya, sprouts — hitting 100g+ protein daily.',cal:'1,800',pro:'105g',carbs:'200g',fat:'55g',cost:'₹250/day'},
-  {icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13H2a10 10 0 0 0 10 10c.34 0 .67-.02 1-.06"/><path d="M11 20v-7a4 4 0 0 1 4-4h5"/><circle cx="18" cy="5" r="3"/></svg>',name:'Indian Vegan Plan',desc:'100% plant-based. B12 and omega-3 supplementation built in.',cal:'1,700',pro:'85g',carbs:'220g',fat:'48g',cost:'₹200/day'},
-  {icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',name:'Weight Loss Plan',desc:'Calorie deficit with high satiety foods. No crash dieting.',cal:'1,400',pro:'110g',carbs:'140g',fat:'45g',cost:'₹220/day'},
-  {icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M6.5 6.5h11v3a5.5 5.5 0 0 1-11 0z"/><path d="M6.5 9.5H4a2 2 0 0 1 0-4h2.5M17.5 9.5H20a2 2 0 0 0 0-4h-2.5M9 21h6M12 17.5V21"/></svg>',name:'Muscle Gain Plan',desc:'Calorie surplus with anabolic meal timing and protein loading.',cal:'2,800',pro:'150g',carbs:'330g',fat:'80g',cost:'₹350/day'},
-  {icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 2-3 2-5.5a4.5 4.5 0 0 0-9 0V14"/><path d="M3 14c-1.5-1.5-2-3-2-5.5a4.5 4.5 0 0 1 9 0V14"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg>',name:'Diabetes-Friendly Indian',desc:'Low GI foods, controlled carbs, balanced meals every 3 hours.',cal:'1,600',pro:'90g',carbs:'160g',fat:'55g',cost:'₹240/day'},
-  {icon:'<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',name:'Student Budget Plan',desc:'Under ₹150/day. Dal, eggs, curd, oats. Maximise nutrition per rupee.',cal:'1,800',pro:'80g',carbs:'220g',fat:'55g',cost:'₹140/day'},
-  {icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',name:'Heart Healthy Plan',desc:'Low saturated fat, high fibre, omega-3 rich. DASH diet adapted for India.',cal:'1,900',pro:'88g',carbs:'250g',fat:'58g',cost:'₹280/day'},
-  {icon:'<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>',name:'Senior Citizen Plan',desc:'Easy to digest, high calcium, vitamin D, B12. Joint-friendly.',cal:'1,600',pro:'90g',carbs:'190g',fat:'52g',cost:'₹260/day'},
+  {icon:'<i class="ti ti-leaf"></i>',name:'Indian Vegetarian High Protein',desc:'Dal, paneer, soya, sprouts — hitting 100g+ protein daily.',cal:'1,800',pro:'105g',carbs:'200g',fat:'55g',cost:'₹250/day'},
+  {icon:'<i class="ti ti-plant-2"></i>',name:'Indian Vegan Plan',desc:'100% plant-based. B12 and omega-3 supplementation built in.',cal:'1,700',pro:'85g',carbs:'220g',fat:'48g',cost:'₹200/day'},
+  {icon:'<i class="ti ti-flame"></i>',name:'Weight Loss Plan',desc:'Calorie deficit with high satiety foods. No crash dieting.',cal:'1,400',pro:'110g',carbs:'140g',fat:'45g',cost:'₹220/day'},
+  {icon:'<i class="ti ti-barbell"></i>',name:'Muscle Gain Plan',desc:'Calorie surplus with anabolic meal timing and protein loading.',cal:'2,800',pro:'150g',carbs:'330g',fat:'80g',cost:'₹350/day'},
+  {icon:'<i class="ti ti-stethoscope"></i>',name:'Diabetes-Friendly Indian',desc:'Low GI foods, controlled carbs, balanced meals every 3 hours.',cal:'1,600',pro:'90g',carbs:'160g',fat:'55g',cost:'₹240/day'},
+  {icon:'<i class="ti ti-coin-rupee"></i>',name:'Student Budget Plan',desc:'Under ₹150/day. Dal, eggs, curd, oats. Maximise nutrition per rupee.',cal:'1,800',pro:'80g',carbs:'220g',fat:'55g',cost:'₹140/day'},
+  {icon:'<i class="ti ti-heart"></i>',name:'Heart Healthy Plan',desc:'Low saturated fat, high fibre, omega-3 rich. DASH diet adapted for India.',cal:'1,900',pro:'88g',carbs:'250g',fat:'58g',cost:'₹280/day'},
+  {icon:'<i class="ti ti-user"></i>',name:'Senior Citizen Plan',desc:'Easy to digest, high calcium, vitamin D, B12. Joint-friendly.',cal:'1,600',pro:'90g',carbs:'190g',fat:'52g',cost:'₹260/day'},
 ];
 function renderMeals(){
   const g=document.getElementById('meal-grid');if(!g)return;
@@ -1719,18 +1730,18 @@ function showCalc(id,btn){
 }
 
 const SYMPTOMS=[
-  {id:'fatigue',icon:'<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><path d="M3 3l2 2M21 3l-2 2"/></svg>',label:'Fatigue / Low Energy'},
-  {id:'hairloss',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M12 2c-3 0-5 2.5-5 6 0 2-1 3-1 5a6 6 0 0 0 12 0c0-2-1-3-1-5 0-3.5-2-6-5-6z"/><path d="M9 18v3M15 18v3M12 19v3"/></svg>',label:'Hair Loss / Thinning'},
-  {id:'brainfog',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M9.5 2A4.5 4.5 0 0 0 5 6.5v.5A3 3 0 0 0 4 13a3.5 3.5 0 0 0 3 3.5V18a3 3 0 0 0 6 0V6.5A4.5 4.5 0 0 0 9.5 2z"/><path d="M14.5 2A4.5 4.5 0 0 1 19 6.5v.5a3 3 0 0 1 1 5.5 3.5 3.5 0 0 1-3 3.5V18a3 3 0 0 1-6 0"/></svg>',label:'Brain Fog / Poor Focus'},
-  {id:'immunity',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9.5 10.5h5M12 8v5"/></svg>',label:'Frequent Infections'},
-  {id:'weakness',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M6.5 6.5h11v3a5.5 5.5 0 0 1-11 0z"/><path d="M6.5 9.5H4a2 2 0 0 1 0-4h2.5M17.5 9.5H20a2 2 0 0 0 0-4h-2.5M9 21h6M12 17.5V21"/></svg>',label:'Muscle Weakness'},
-  {id:'cramps',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M13 2 4.5 14H11l-1 8L19.5 10H13z"/></svg>',label:'Muscle Cramps'},
-  {id:'recovery',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',label:'Poor Recovery'},
-  {id:'mood',icon:'<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 15s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>',label:'Mood Changes / Low Mood'},
-  {id:'sleep',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 9c1 2 2 3 2 5a4 4 0 0 0 8 0c0-2 1-3 2-5a6 6 0 0 0-6-9z"/></svg>',label:'Poor Sleep Quality'},
-  {id:'skin',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M4.93 4.93a10 10 0 1 0 14.14 0M12 2v4M12 18v4"/></svg>',label:'Dry Skin / Rashes'},
-  {id:'bone',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M17 10c.7-.7 1-1.6 1-2.5a3.5 3.5 0 0 0-7 0c0 .3 0 .6.1.9A3.5 3.5 0 0 0 7 11.5c-1 0-1.8.3-2.5 1a3.5 3.5 0 0 0 5 5c.7-.7 1-1.6 1-2.5a3.5 3.5 0 0 0 7 0c0-.3 0-.6-.1-.9a3.5 3.5 0 0 0 4.1-3.6c0-1-.3-1.8-1-2.5a3.5 3.5 0 0 0-3.5-3.5"/></svg>',label:'Bone Pain / Aches'},
-  {id:'nails',icon:'<svg class="icon" viewBox="0 0 24 24"><path d="M9 11.24V7.5a2.5 2.5 0 0 1 5 0v3.74"/><path d="M19 13.5a7 7 0 1 1-14 0c0-3 1.5-5 3-6.5"/></svg>',label:'Brittle Nails'},
+  {id:'fatigue',icon:'<i class="ti ti-battery-1"></i>',label:'Fatigue / Low Energy'},
+  {id:'hairloss',icon:'<i class="ti ti-scissors"></i>',label:'Hair Loss / Thinning'},
+  {id:'brainfog',icon:'<i class="ti ti-brain"></i>',label:'Brain Fog / Poor Focus'},
+  {id:'immunity',icon:'<i class="ti ti-virus"></i>',label:'Frequent Infections'},
+  {id:'weakness',icon:'<i class="ti ti-barbell"></i>',label:'Muscle Weakness'},
+  {id:'cramps',icon:'<i class="ti ti-bolt"></i>',label:'Muscle Cramps'},
+  {id:'recovery',icon:'<i class="ti ti-heart-rate-monitor"></i>',label:'Poor Recovery'},
+  {id:'mood',icon:'<i class="ti ti-mood-sad"></i>',label:'Mood Changes / Low Mood'},
+  {id:'sleep',icon:'<i class="ti ti-moon"></i>',label:'Poor Sleep Quality'},
+  {id:'skin',icon:'<i class="ti ti-droplet-off"></i>',label:'Dry Skin / Rashes'},
+  {id:'bone',icon:'<i class="ti ti-bone"></i>',label:'Bone Pain / Aches'},
+  {id:'nails',icon:'<i class="ti ti-hand-finger"></i>',label:'Brittle Nails'},
 ];
 const DEFICIENCY_MAP={
   fatigue:['Iron','Vitamin B12','Vitamin D','Magnesium'],
@@ -2278,11 +2289,11 @@ function searchFAQ(q){
 <!-- NutraInfo Chatbot -->
 <div id="chatbot-widget" style="position:fixed;bottom:20px;right:20px;z-index:9000;font-family:var(--ff-sans);">
   <div id="chatbot-toggle" onclick="toggleChatbot()" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--leaf));display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(30,138,94,.4);transition:transform .2s;">
-    <svg class="icon" viewBox="0 0 24 24" style="stroke:#fff;width:26px;height:26px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <i class="ti ti-message-circle" style="color:#fff;font-size:26px;"></i>
   </div>
   <div id="chatbot-window" style="display:none;width:340px;height:450px;background:var(--forest);border-radius:var(--r-xl);border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);position:absolute;bottom:70px;right:0;">
     <div style="background:linear-gradient(135deg,var(--mint),var(--leaf));padding:16px 20px;display:flex;align-items:center;gap:10px;">
-      <svg class="icon" viewBox="0 0 24 24" style="stroke:#fff;width:22px;height:22px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <i class="ti ti-message-circle" style="color:#fff;font-size:22px;"></i>
       <div>
         <div style="font-weight:600;color:#fff;font-size:.9rem;">NutraInfo Assistant</div>
         <div style="font-size:.7rem;color:rgba(255,255,255,.7);">Foods, comparisons & nutrition Q&A</div>
