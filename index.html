@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>NutraInfo – Evidence-Based Nutrition for India</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css"/>
 <style>
 :root {
   --forest: #0D2B20;
@@ -412,6 +413,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 .icon-md{width:20px;height:20px;}
 .icon-lg{width:28px;height:28px;}
 .icon-xl{width:36px;height:36px;}
+.ti-tab{font-size:24px;line-height:1;color:inherit;display:inline-flex;}
 </style>
 <base target="_blank">
 </head>
@@ -602,17 +604,17 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
         </div>
         <div class="fdb-sections" id="fdb-sections">
           <button class="fdb-sec-btn active" onclick="setFoodSection('vegRaw',this)">
-            <span class="fdb-sec-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13H2a10 10 0 0 0 10 10c.34 0 .67-.02 1-.06"/><path d="M11 20v-7a4 4 0 0 1 4-4h5"/><circle cx="18" cy="5" r="3"/></svg></span>
+            <span class="fdb-sec-icon"><i class="ti ti-leaf ti-tab"></i></span>
             <span class="fdb-sec-label">Veg Raw</span>
             <span class="fdb-sec-count" id="cnt-vegRaw">—</span>
           </button>
           <button class="fdb-sec-btn" onclick="setFoodSection('dairy',this)">
-            <span class="fdb-sec-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M8 2h8"/><path d="M9 2v4.5L6 11v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-9l-3-4.5V2"/><path d="M6 14h12"/></svg></span>
+            <span class="fdb-sec-icon"><i class="ti ti-bottle ti-tab"></i></span>
             <span class="fdb-sec-label">Dairy</span>
             <span class="fdb-sec-count" id="cnt-dairy">—</span>
           </button>
           <button class="fdb-sec-btn" onclick="setFoodSection('nonVegRaw',this)">
-            <span class="fdb-sec-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M15.5 8.5c2 2 2.5 5 1 7.5-1.7 2.8-5.5 4-8 1.5s-1.3-6.3 1.5-8c2.5-1.5 5.5-1 7.5 1z"/><path d="M16.5 7.5 21 3"/><path d="M9 15l-6 6"/></svg></span>
+            <span class="fdb-sec-icon"><i class="ti ti-meat ti-tab"></i></span>
             <span class="fdb-sec-label">Non-Veg Raw</span>
             <span class="fdb-sec-count" id="cnt-nonVegRaw">—</span>
           </button>
@@ -673,12 +675,12 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
         </div>
         <div class="fdb-sections" id="fdb-cooked-sections" style="grid-template-columns:repeat(2,1fr);">
           <button class="fdb-sec-btn active" onclick="setCookedFoodSection('vegCooked',this)">
-            <span class="fdb-sec-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M5 10a7 7 0 0 1 14 0v1a9 9 0 0 1-9 9 9 9 0 0 1-9-9z"/><path d="M3.5 10h17"/></svg></span>
+            <span class="fdb-sec-icon"><i class="ti ti-soup ti-tab"></i></span>
             <span class="fdb-sec-label">Veg Cooked</span>
             <span class="fdb-sec-count" id="cnt-cooked-vegCooked">Coming soon</span>
           </button>
           <button class="fdb-sec-btn" onclick="setCookedFoodSection('nonVegCooked',this)">
-            <span class="fdb-sec-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12a4 4 0 0 0 8 0"/><path d="M12 7v1M9 8l.5.8M15 8l-.5.8"/></svg></span>
+            <span class="fdb-sec-icon"><i class="ti ti-chef-hat ti-tab"></i></span>
             <span class="fdb-sec-label">Non-Veg Cooked</span>
             <span class="fdb-sec-count" id="cnt-cooked-nonVegCooked">—</span>
           </button>
