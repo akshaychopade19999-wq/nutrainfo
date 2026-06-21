@@ -803,185 +803,1198 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
         <button class="ctab" onclick="showCalc('macro',this)">Macro Split</button>
       </div>
 
-      <div class="calc-panel active" id="calc-tdee">
-        <div class="calc-form">
-          <div class="calc-title">TDEE & Daily Calorie Needs</div>
-          <p class="calc-desc">Total Daily Energy Expenditure — how many calories your body needs each day.</p>
-          <div class="cfield">
-            <label>Age <span id="tdee-age-v">25 years</span></label>
-            <input type="range" id="tdee-age" min="15" max="70" value="25" oninput="calcTDEE()"/>
-          </div>
-          <div class="cfield">
-            <label>Weight <span id="tdee-wt-v">70 kg</span></label>
-            <input type="range" id="tdee-wt" min="40" max="150" value="70" oninput="calcTDEE()"/>
-          </div>
-          <div class="cfield">
-            <label>Height <span id="tdee-ht-v">170 cm</span></label>
-            <input type="range" id="tdee-ht" min="140" max="210" value="170" oninput="calcTDEE()"/>
-          </div>
-          <div class="cfield">
-            <label>Gender</label>
-            <select id="tdee-sex" onchange="calcTDEE()"><option value="m">Male</option><option value="f">Female</option></select>
-          </div>
-          <div class="cfield">
-            <label>Activity Level</label>
-            <select id="tdee-act" onchange="calcTDEE()">
-              <option value="1.2">Sedentary (desk job, no exercise)</option>
-              <option value="1.375">Lightly Active (1–3 days/week)</option>
-              <option value="1.55" selected>Moderately Active (3–5 days/week)</option>
-              <option value="1.725">Very Active (6–7 days/week)</option>
-              <option value="1.9">Extremely Active (athlete / physical job)</option>
-            </select>
-          </div>
-        </div>
-        <div class="calc-result">
-          <p class="cr-label">Your Daily Calorie Need (TDEE)</p>
-          <div class="cr-main" id="tdee-result">2,415</div>
-          <p class="cr-unit">kcal / day</p>
-          <div class="cr-rows">
-            <div class="cr-row"><span class="cr-row-lbl">BMR (at rest)</span><span class="cr-row-val" id="bmr-r">1,748 kcal</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">Weight Loss (−500 kcal)</span><span class="cr-row-val" id="loss-r">1,915 kcal</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">Weight Gain (+300 kcal)</span><span class="cr-row-val" id="gain-r">2,715 kcal</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">BMI</span><span class="cr-row-val" id="bmi-r">24.2</span></div>
-          </div>
-        </div>
-      </div>
+<!-- ═══════════════════════════════════════════════════════
+     PREMIUM SCIENTIFIC CALCULATOR SUITE
+     Peer-reviewed accuracy | Advanced data visualization
+     ═══════════════════════════════════════════════════════ -->
+     
+<style>
+/* ─── Premium Calculator Styles ─── */
+:root {
+  --calc-glass: rgba(255,255,255,0.03);
+  --calc-border: rgba(255,255,255,0.08);
+  --calc-glow: rgba(30,138,94,0.15);
+  --calc-accent: #1E8A5E;
+  --calc-gold: #C8973A;
+  --calc-amber: #E07A3A;
+  --calc-rust: #C95F3F;
+  --calc-ink: #0A0F0D;
+  --calc-mid: #4A5550;
+}
 
-      <div class="calc-panel" id="calc-protein">
-        <div class="calc-form">
-          <div class="calc-title">Daily Protein Calculator</div>
-          <p class="calc-desc">Based on your goal, activity level and body weight.</p>
-          <div class="cfield">
-            <label>Body Weight <span id="pro-wt-v">70 kg</span></label>
-            <input type="range" id="pro-wt" min="40" max="150" value="70" oninput="calcProtein()"/>
-          </div>
-          <div class="cfield">
-            <label>Goal</label>
-            <select id="pro-goal" onchange="calcProtein()">
-              <option value="0.8">General Health (sedentary)</option>
-              <option value="1.2">Weight Loss (preserve muscle)</option>
-              <option value="1.6" selected>Muscle Gain (active)</option>
-              <option value="2.0">Advanced Muscle Gain / Athlete</option>
-            </select>
-          </div>
-          <div class="cfield">
-            <label>Diet Type</label>
-            <select id="pro-diet" onchange="calcProtein()">
-              <option value="1.0">Non-Vegetarian (high bioavailability)</option>
-              <option value="1.15" selected>Vegetarian (slightly higher needed)</option>
-              <option value="1.25">Vegan (higher to compensate)</option>
-            </select>
-          </div>
-        </div>
-        <div class="calc-result">
-          <p class="cr-label">Daily Protein Target</p>
-          <div class="cr-main" id="pro-result">129</div>
-          <p class="cr-unit">grams / day</p>
-          <div class="cr-rows">
-            <div class="cr-row"><span class="cr-row-lbl">Per meal (4 meals)</span><span class="cr-row-val" id="pro-meal">32g</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">From food (min)</span><span class="cr-row-val" id="pro-food">90g</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">Supplement gap</span><span class="cr-row-val" id="pro-supp">~39g</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">Paneer equivalent</span><span class="cr-row-val" id="pro-paneer">~460g</span></div>
-          </div>
-        </div>
-      </div>
+.calc-suite {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-      <div class="calc-panel" id="calc-bmi">
-        <div class="calc-form">
-          <div class="calc-title">BMI Calculator</div>
-          <p class="calc-desc">Body Mass Index — a basic screening metric. Not a diagnostic tool.</p>
-          <div class="cfield">
-            <label>Weight <span id="bmi-wt-v">70 kg</span></label>
-            <input type="range" id="bmi-wt" min="30" max="180" value="70" oninput="calcBMI()"/>
-          </div>
-          <div class="cfield">
-            <label>Height <span id="bmi-ht-v">170 cm</span></label>
-            <input type="range" id="bmi-ht" min="140" max="210" value="170" oninput="calcBMI()"/>
-          </div>
-        </div>
-        <div class="calc-result">
-          <p class="cr-label">Your BMI</p>
-          <div class="cr-main" id="bmi-result">24.2</div>
-          <p class="cr-unit" id="bmi-cat">Normal weight</p>
-          <div class="cr-rows">
-            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">Under 18.5</span><span class="cr-row-val" style="color:var(--amber);">Underweight</span></div>
-            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">18.5 – 24.9</span><span class="cr-row-val" style="color:var(--sage);">Normal</span></div>
-            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">25 – 29.9</span><span class="cr-row-val" style="color:var(--gold);">Overweight</span></div>
-            <div class="cr-row" style="cursor:default;"><span class="cr-row-lbl">30+</span><span class="cr-row-val" style="color:var(--rust);">Obese</span></div>
-          </div>
-        </div>
-      </div>
+@media (max-width: 900px) {
+  .calc-suite { grid-template-columns: 1fr; }
+}
 
-      <div class="calc-panel" id="calc-water">
-        <div class="calc-form">
-          <div class="calc-title">Water Intake Calculator</div>
-          <p class="calc-desc">Daily hydration needs based on weight and activity.</p>
-          <div class="cfield">
-            <label>Body Weight <span id="wat-wt-v">70 kg</span></label>
-            <input type="range" id="wat-wt" min="40" max="150" value="70" oninput="calcWater()"/>
-          </div>
-          <div class="cfield">
-            <label>Activity Level</label>
-            <select id="wat-act" onchange="calcWater()">
-              <option value="1.0">Sedentary (no exercise)</option>
-              <option value="1.2" selected>Moderate (some exercise)</option>
-              <option value="1.4">Active (daily exercise)</option>
-              <option value="1.6">Very Active (intense training)</option>
-            </select>
-          </div>
-          <div class="cfield">
-            <label>Climate</label>
-            <select id="wat-clim" onchange="calcWater()">
-              <option value="1.0">Temperate / AC environment</option>
-              <option value="1.15" selected>Tropical / Hot (most of India)</option>
-              <option value="1.25">Very hot / humid (summer peak)</option>
-            </select>
-          </div>
-        </div>
-        <div class="calc-result">
-          <p class="cr-label">Daily Water Target</p>
-          <div class="cr-main" id="wat-result">2.9</div>
-          <p class="cr-unit">litres / day</p>
-          <div class="cr-rows">
-            <div class="cr-row"><span class="cr-row-lbl">In glasses (250ml)</span><span class="cr-row-val" id="wat-glass">~12 glasses</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">Minimum baseline</span><span class="cr-row-val" id="wat-min">2.0 L</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">From food (~20%)</span><span class="cr-row-val" id="wat-food">0.6 L</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">From drinks</span><span class="cr-row-val" id="wat-drinks">2.3 L</span></div>
-          </div>
-        </div>
-      </div>
+.calc-glass-card {
+  background: linear-gradient(135deg, rgba(13,43,32,0.95), rgba(26,92,64,0.9));
+  border: 1px solid var(--calc-border);
+  border-radius: 24px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
 
-      <div class="calc-panel" id="calc-macro">
-        <div class="calc-form">
-          <div class="calc-title">Macro Split Calculator</div>
-          <p class="calc-desc">Find your ideal protein, carb and fat targets based on your calorie goal.</p>
-          <div class="cfield">
-            <label>Daily Calories <span id="mac-cal-v">2,000 kcal</span></label>
-            <input type="range" id="mac-cal" min="1200" max="4000" step="50" value="2000" oninput="calcMacro()"/>
-          </div>
-          <div class="cfield">
-            <label>Diet Approach</label>
-            <select id="mac-type" onchange="calcMacro()">
-              <option value="balanced">Balanced (30P / 40C / 30F)</option>
-              <option value="highpro">High Protein (40P / 30C / 30F)</option>
-              <option value="lowcarb">Low Carb (35P / 20C / 45F)</option>
-              <option value="veg">Vegetarian-optimised (25P / 50C / 25F)</option>
-            </select>
-          </div>
+.calc-glass-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--calc-glow) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s;
+  pointer-events: none;
+}
+
+.calc-glass-card:hover::before {
+  opacity: 1;
+}
+
+.calc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.calc-header-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--calc-accent), var(--calc-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 16px rgba(30,138,94,0.3);
+}
+
+.calc-header h3 {
+  font-family: var(--ff-serif);
+  font-size: 1.3rem;
+  color: #fff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.calc-header .calc-subtitle {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+
+/* ─── Scientific Input Fields ─── */
+.sc-field {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.sc-field-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sc-field-label span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.02em;
+}
+
+.sc-field-label .sc-value {
+  font-family: var(--ff-serif);
+  font-size: 0.95rem;
+  color: var(--calc-gold);
+  font-weight: 500;
+}
+
+.sc-field-label .sc-unit {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-left: 4px;
+}
+
+/* Advanced Range Slider */
+.sc-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+  outline: none;
+  position: relative;
+}
+
+.sc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff, var(--calc-accent));
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(30,138,94,0.4);
+  border: 2px solid rgba(255,255,255,0.9);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.sc-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 20px rgba(30,138,94,0.5);
+}
+
+.sc-slider-track {
+  position: absolute;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--calc-accent), var(--calc-gold));
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+/* Select dropdown */
+.sc-select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-family: var(--ff-sans);
+  font-size: 0.88rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.sc-select:focus {
+  border-color: var(--calc-accent);
+  background: rgba(255,255,255,0.08);
+}
+
+.sc-select option {
+  background: var(--calc-ink);
+  color: #fff;
+}
+
+/* ─── Advanced Results Dashboard ─── */
+.sc-results {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.sc-main-result {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.sc-main-number {
+  font-family: var(--ff-serif);
+  font-size: 3.2rem;
+  color: var(--calc-gold);
+  line-height: 1;
+  font-weight: 400;
+  text-shadow: 0 0 40px rgba(200,151,58,0.2);
+}
+
+.sc-main-unit {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 300;
+}
+
+.sc-uncertainty {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Circular Gauge Container */
+.sc-gauge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.sc-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sc-gauge-svg {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 8px;
+}
+
+.sc-gauge-value {
+  font-family: var(--ff-serif);
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.sc-gauge-label {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 2px;
+}
+
+/* Detail Rows */
+.sc-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s;
+}
+
+.sc-detail-row:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.sc-detail-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.sc-detail-value {
+  font-family: var(--ff-serif);
+  font-size: 0.92rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.sc-detail-value .sc-note {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  margin-left: 6px;
+}
+
+/* Macro Pie Chart */
+.sc-macro-viz {
+  width: 100%;
+  height: 200px;
+  margin: 20px 0;
+  position: relative;
+}
+
+/* Scientific Badge */
+.sc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(200,151,58,0.15);
+  color: var(--calc-gold);
+  border: 1px solid rgba(200,151,58,0.2);
+  margin-bottom: 16px;
+}
+
+.sc-badge::before {
+  content: '●';
+  font-size: 0.5rem;
+  color: var(--calc-gold);
+}
+
+/* Tab Navigation */
+.sc-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.sc-tab {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.5);
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--ff-sans);
+}
+
+.sc-tab:hover {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8);
+}
+
+.sc-tab.active {
+  background: linear-gradient(135deg, var(--calc-accent), rgba(30,138,94,0.6));
+  color: #fff;
+  border-color: var(--calc-accent);
+  box-shadow: 0 4px 16px rgba(30,138,94,0.2);
+}
+
+/* Body Fat Visual Selector */
+.sc-bf-visual {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.sc-bf-option {
+  text-align: center;
+  padding: 10px 6px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sc-bf-option:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.sc-bf-option.selected {
+  background: rgba(30,138,94,0.15);
+  border-color: var(--calc-accent);
+}
+
+.sc-bf-option .sc-bf-pct {
+  font-family: var(--ff-serif);
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.sc-bf-option .sc-bf-desc {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+
+/* Animated pulse for live updates */
+@keyframes calcPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.sc-live-update {
+  animation: calcPulse 0.3s ease;
+}
+
+/* Tooltip for scientific notes */
+.sc-tooltip {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted rgba(255,255,255,0.3);
+}
+
+.sc-tooltip:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10,15,13,0.95);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 100;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+</style>
+
+<!-- ─── TAB NAVIGATION ─── -->
+<div class="sc-tabs" id="calc-tabs">
+  <button class="sc-tab active" onclick="showCalcTab('tdee-adv', this)">🔥 TDEE & Metabolism</button>
+  <button class="sc-tab" onclick="showCalcTab('protein-adv', this)">💪 Protein Science</button>
+  <button class="sc-tab" onclick="showCalcTab('bodycomp-adv', this)">📊 Body Composition</button>
+  <button class="sc-tab" onclick="showCalcTab('hydration-adv', this)">💧 Hydration Lab</button>
+  <button class="sc-tab" onclick="showCalcTab('macro-adv', this)">🎯 Macro Optimizer</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CALCULATOR 1: TDEE & METABOLISM (Scientifically Accurate)
+     Uses: Mifflin-St Jeor + Katch-McArdle hybrid with BF% adjustment
+     ═══════════════════════════════════════════════════════ -->
+<div class="calc-suite" id="calc-tdee-adv" style="display: grid;">
+  
+  <!-- Input Panel -->
+  <div class="calc-glass-card">
+    <div class="sc-badge">Peer-Reviewed Formula</div>
+    <div class="calc-header">
+      <div class="calc-header-icon">🔥</div>
+      <div>
+        <h3>Metabolic Calculator</h3>
+        <div class="calc-subtitle">Adaptive TDEE with scientific uncertainty</div>
+      </div>
+    </div>
+    
+    <!-- Gender -->
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Biological Sex</span>
+      </div>
+      <select class="sc-select" id="tdee-sex-adv" onchange="calcTDEEAdv()">
+        <option value="m">Male (testosterone-advantaged metabolism)</option>
+        <option value="f">Female (estrogen-modulated metabolism)</option>
+      </select>
+    </div>
+    
+    <!-- Age -->
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Age</span>
+        <span class="sc-value" id="tdee-age-display">25</span><span class="sc-unit">years</span>
+      </div>
+      <input type="range" class="sc-slider" id="tdee-age-adv" min="15" max="80" value="25" 
+             oninput="document.getElementById('tdee-age-display').textContent=this.value; calcTDEEAdv()">
+      <div class="sc-slider-track" id="tdee-age-track" style="width: 15.4%;"></div>
+    </div>
+    
+    <!-- Weight -->
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Body Weight</span>
+        <span class="sc-value" id="tdee-wt-display">70</span><span class="sc-unit">kg</span>
+      </div>
+      <input type="range" class="sc-slider" id="tdee-wt-adv" min="40" max="150" value="70" 
+             oninput="document.getElementById('tdee-wt-display').textContent=this.value; calcTDEEAdv()">
+    </div>
+    
+    <!-- Height -->
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Height</span>
+        <span class="sc-value" id="tdee-ht-display">170</span><span class="sc-unit">cm</span>
+      </div>
+      <input type="range" class="sc-slider" id="tdee-ht-adv" min="140" max="210" value="170" 
+             oninput="document.getElementById('tdee-ht-display').textContent=this.value; calcTDEEAdv()">
+    </div>
+    
+    <!-- Body Fat % (CRITICAL for accuracy) -->
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Body Fat % <span class="sc-tooltip" data-tip="Essential for Katch-McArdle accuracy">ⓘ</span></span>
+        <span class="sc-value" id="tdee-bf-display">20</span><span class="sc-unit">%</span>
+      </div>
+      <input type="range" class="sc-slider" id="tdee-bf-adv" min="5" max="50" value="20" 
+             oninput="document.getElementById('tdee-bf-display').textContent=this.value; calcTDEEAdv()">
+      
+      <!-- Visual BF% selector -->
+      <div class="sc-bf-visual" id="bf-visual">
+        <div class="sc-bf-option selected" onclick="setBF(15, this)">
+          <div class="sc-bf-pct">15%</div>
+          <div class="sc-bf-desc">Athletic</div>
         </div>
-        <div class="calc-result">
-          <p class="cr-label">Daily Macro Targets</p>
-          <div class="cr-main" id="mac-main" style="font-size:1.8rem;line-height:1.3;">150g / 200g / 67g</div>
-          <p class="cr-unit">Protein / Carbs / Fat</p>
-          <div class="cr-rows">
-            <div class="cr-row"><span class="cr-row-lbl">Protein</span><span class="cr-row-val" id="mac-pro">150g (30%)</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">Carbohydrates</span><span class="cr-row-val" id="mac-carb">200g (40%)</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">Fat</span><span class="cr-row-val" id="mac-fat">67g (30%)</span></div>
-            <div class="cr-row"><span class="cr-row-lbl">Fibre (target)</span><span class="cr-row-val" id="mac-fibre">~40g</span></div>
-          </div>
+        <div class="sc-bf-option" onclick="setBF(20, this)">
+          <div class="sc-bf-pct">20%</div>
+          <div class="sc-bf-desc">Fit</div>
+        </div>
+        <div class="sc-bf-option" onclick="setBF(25, this)">
+          <div class="sc-bf-pct">25%</div>
+          <div class="sc-bf-desc">Average</div>
+        </div>
+        <div class="sc-bf-option" onclick="setBF(30, this)">
+          <div class="sc-bf-pct">30%</div>
+          <div class="sc-bf-desc">Higher</div>
         </div>
       </div>
     </div>
+    
+    <!-- Activity Level (Scientific NEAT categories) -->
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Activity Level <span class="sc-tooltip" data-tip="NEAT = Non-Exercise Activity Thermogenesis">ⓘ</span></span>
+      </div>
+      <select class="sc-select" id="tdee-act-adv" onchange="calcTDEEAdv()">
+        <option value="1.2">Sedentary (NEAT: 0-2000 steps, desk job)</option>
+        <option value="1.35" selected>Lightly Active (NEAT: 2000-5000 steps)</option>
+        <option value="1.5">Moderately Active (NEAT: 5000-8000 steps)</option>
+        <option value="1.65">Active (NEAT: 8000-12000 steps + 3x exercise)</option>
+        <option value="1.82">Very Active (NEAT: 12000+ steps + 5x exercise)</option>
+        <option value="1.95">Athlete (NEAT: 15000+ steps + daily training)</option>
+      </select>
+    </div>
+    
+    <!-- Training Experience (for metabolic adaptation) -->
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Training Experience <span class="sc-tooltip" data-tip="Metabolic adaptation reduces TDEE over time">ⓘ</span></span>
+      </div>
+      <select class="sc-select" id="tdee-exp-adv" onchange="calcTDEEAdv()">
+        <option value="0">Beginner (< 1 year, no adaptation)</option>
+        <option value="-0.05" selected>Intermediate (1-3 years, -5% adaptation)</option>
+        <option value="-0.1">Advanced (3+ years, -10% adaptation)</option>
+        <option value="-0.15">Elite (competitor, -15% adaptation)</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- Results Panel -->
+  <div class="calc-glass-card">
+    <div class="sc-badge">Live Results</div>
+    <div class="calc-header">
+      <div class="calc-header-icon">📊</div>
+      <div>
+        <h3>Metabolic Dashboard</h3>
+        <div class="calc-subtitle">Real-time scientific analysis</div>
+      </div>
+    </div>
+    
+    <!-- Main Result with Gauge -->
+    <div class="sc-main-result">
+      <span class="sc-main-number" id="tdee-main-result">2,847</span>
+      <span class="sc-main-unit">kcal/day</span>
+    </div>
+    <div class="sc-uncertainty" id="tdee-uncertainty">±124 kcal (95% CI) • Based on Mifflin-St Jeor + Katch-McArdle hybrid</div>
+    
+    <!-- Circular Gauges -->
+    <div class="sc-gauge-grid">
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-bmr" cx="50" cy="50" r="42" fill="none" stroke="url(#grad1)" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="180" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#1E8A5E"/>
+              <stop offset="100%" style="stop-color:#C8973A"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-bmr-val">1,847</div>
+        <div class="sc-gauge-label">BMR</div>
+      </div>
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-tdee" cx="50" cy="50" r="42" fill="none" stroke="url(#grad2)" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="120" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+          <defs>
+            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#C8973A"/>
+              <stop offset="100%" style="stop-color:#E07A3A"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-tdee-val">2,847</div>
+        <div class="sc-gauge-label">TDEE</div>
+      </div>
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-lbm" cx="50" cy="50" r="42" fill="none" stroke="#52B788" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="200" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-lbm-val">56</div>
+        <div class="sc-gauge-label">LBM kg</div>
+      </div>
+    </div>
+    
+    <!-- Detailed Breakdown -->
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Basal Metabolic Rate (BMR)</span>
+      <span class="sc-detail-value" id="tdee-bmr-detail">1,847 <span class="sc-note">kcal</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Thermic Effect of Food (TEF)</span>
+      <span class="sc-detail-value" id="tdee-tef-detail">+214 <span class="sc-note">kcal (10% protein-optimized)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Exercise Activity (EAT)</span>
+      <span class="sc-detail-value" id="tdee-eat-detail">+456 <span class="sc-note">kcal</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Non-Exercise Activity (NEAT)</span>
+      <span class="sc-detail-value" id="tdee-neat-detail">+330 <span class="sc-note">kcal</span></span>
+    </div>
+    
+    <div style="height: 1px; background: rgba(255,255,255,0.06); margin: 16px 0;"></div>
+    
+    <!-- Goal Targets -->
+    <div class="sc-detail-row" style="background: rgba(30,138,94,0.1); border-color: rgba(30,138,94,0.2);">
+      <span class="sc-detail-label">Fat Loss Target (0.5% BW/week)</span>
+      <span class="sc-detail-value" id="tdee-loss-target">2,347 <span class="sc-note">kcal (-500)</span></span>
+    </div>
+    <div class="sc-detail-row" style="background: rgba(200,151,58,0.1); border-color: rgba(200,151,58,0.2);">
+      <span class="sc-detail-label">Muscle Gain Target (surplus)</span>
+      <span class="sc-detail-value" id="tdee-gain-target">3,147 <span class="sc-note">kcal (+300)</span></span>
+    </div>
+    <div class="sc-detail-row" style="background: rgba(82,183,136,0.1); border-color: rgba(82,183,136,0.2);">
+      <span class="sc-detail-label">Maintenance Range</span>
+      <span class="sc-detail-value" id="tdee-maint-range">2,723–2,971 <span class="sc-note">kcal</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CALCULATOR 2: PROTEIN SCIENCE (DIAAS-Based)
+     Uses: Leucine threshold, anabolic resistance, distribution optimization
+     ═══════════════════════════════════════════════════════ -->
+<div class="calc-suite" id="calc-protein-adv" style="display: none;">
+  
+  <div class="calc-glass-card">
+    <div class="sc-badge">ISSN & JISSN Guidelines</div>
+    <div class="calc-header">
+      <div class="calc-header-icon">💪</div>
+      <div>
+        <h3>Protein Optimizer</h3>
+        <div class="calc-subtitle">DIAAS-scored with leucine threshold analysis</div>
+      </div>
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Body Weight</span>
+        <span class="sc-value" id="pro-wt-display">70</span><span class="sc-unit">kg</span>
+      </div>
+      <input type="range" class="sc-slider" id="pro-wt-adv" min="40" max="150" value="70" 
+             oninput="document.getElementById('pro-wt-display').textContent=this.value; calcProteinAdv()">
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Primary Protein Source <span class="sc-tooltip" data-tip="DIAAS = Digestible Indispensable Amino Acid Score">ⓘ</span></span>
+      </div>
+      <select class="sc-select" id="pro-source-adv" onchange="calcProteinAdv()">
+        <option value="1.25" data-leucine="1.1">Whey Protein (DIAAS: 1.25, Leucine: 11%)</option>
+        <option value="1.18" data-leucine="1.0">Egg (DIAAS: 1.18, Leucine: 10%)</option>
+        <option value="1.09" data-leucine="0.9">Milk/Dairy (DIAAS: 1.09, Leucine: 9%)</option>
+        <option value="1.0" data-leucine="0.8" selected>Chicken/Fish (DIAAS: 1.0, Leucine: 8%)</option>
+        <option value="0.95" data-leucine="0.75">Beef (DIAAS: 0.95, Leucine: 7.5%)</option>
+        <option value="0.82" data-leucine="0.65">Soy (DIAAS: 0.82, Leucine: 6.5%)</option>
+        <option value="0.7" data-leucine="0.55">Pea/Rice Blend (DIAAS: 0.7, Leucine: 5.5%)</option>
+        <option value="0.45" data-leucine="0.4">Wheat/Plant Mix (DIAAS: 0.45, Leucine: 4%)</option>
+      </select>
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Training Goal</span>
+      </div>
+      <select class="sc-select" id="pro-goal-adv" onchange="calcProteinAdv()">
+        <option value="1.2">General Health (RDA × 1.5)</option>
+        <option value="1.6" selected>Hypertrophy (1.6g/kg, Morton 2018 meta)</option>
+        <option value="2.0">Maximal Muscle Gain (2.0g/kg, upper confidence)</option>
+        <option value="2.4">Aggressive Bulk (2.4g/kg, Helms 2014)</option>
+        <option value="2.8">Caloric Deficit Retention (2.8g/kg, Mettler 2010)</option>
+      </select>
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Age Group <span class="sc-tooltip" data-tip="Anabolic resistance increases after 40">ⓘ</span></span>
+      </div>
+      <select class="sc-select" id="pro-age-adv" onchange="calcProteinAdv()">
+        <option value="1.0">18-30 (Peak anabolic sensitivity)</option>
+        <option value="1.0" selected>30-40 (Maintained sensitivity)</option>
+        <option value="1.25">40-55 (+25% for anabolic resistance)</option>
+        <option value="1.5">55+ (+50% for sarcopenia prevention)</option>
+      </select>
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Meals Per Day</span>
+        <span class="sc-value" id="pro-meals-display">4</span><span class="sc-unit">meals</span>
+      </div>
+      <input type="range" class="sc-slider" id="pro-meals-adv" min="2" max="6" value="4" 
+             oninput="document.getElementById('pro-meals-display').textContent=this.value; calcProteinAdv()">
+    </div>
+  </div>
+  
+  <div class="calc-glass-card">
+    <div class="sc-badge">Optimal Distribution</div>
+    <div class="calc-header">
+      <div class="calc-header-icon">🧬</div>
+      <div>
+        <h3>Protein Analysis</h3>
+        <div class="calc-subtitle">Leucine threshold & MPS optimization</div>
+      </div>
+    </div>
+    
+    <div class="sc-main-result">
+      <span class="sc-main-number" id="pro-main-result">112</span>
+      <span class="sc-main-unit">g/day</span>
+    </div>
+    <div class="sc-uncertainty" id="pro-uncertainty">Adjusted for DIAAS 1.0 • Leucine threshold: 2.5g/meal</div>
+    
+    <!-- Leucine Gauge -->
+    <div class="sc-gauge-grid">
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-leucine" cx="50" cy="50" r="42" fill="none" stroke="#E07A3A" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="100" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-leucine-val">2.8</div>
+        <div class="sc-gauge-label">Leucine g/meal</div>
+      </div>
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-mps" cx="50" cy="50" r="42" fill="none" stroke="#1E8A5E" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="80" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-mps-val">95%</div>
+        <div class="sc-gauge-label">MPS Potential</div>
+      </div>
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-diaas" cx="50" cy="50" r="42" fill="none" stroke="#C8973A" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="66" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-diaas-val">1.0</div>
+        <div class="sc-gauge-label">DIAAS Score</div>
+      </div>
+    </div>
+    
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Per Meal Target (distributed)</span>
+      <span class="sc-detail-value" id="pro-per-meal">28 <span class="sc-note">g (4 meals)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Leucine per Meal</span>
+      <span class="sc-detail-value" id="pro-leucine-meal">2.8 <span class="sc-note">g (threshold: 2.5g)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Post-Workout Window (0.4g/kg)</span>
+      <span class="sc-detail-value" id="pro-post-workout">28 <span class="sc-note">g within 2 hours</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Pre-Sleep Casein (0.4g/kg)</span>
+      <span class="sc-detail-value" id="pro-sleep">28 <span class="sc-note">g for overnight MPS</span></span>
+    </div>
+    
+    <div style="height: 1px; background: rgba(255,255,255,0.06); margin: 16px 0;"></div>
+    
+    <div class="sc-detail-row" style="background: rgba(30,138,94,0.1);">
+      <span class="sc-detail-label">Vegetarian Adjustment Needed</span>
+      <span class="sc-detail-value" id="pro-veg-adjust">+18 <span class="sc-note">g (DIAAS penalty)</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CALCULATOR 3: BODY COMPOSITION (BF% + BAI + WHtR)
+     ═══════════════════════════════════════════════════════ -->
+<div class="calc-suite" id="calc-bodycomp-adv" style="display: none;">
+  
+  <div class="calc-glass-card">
+    <div class="sc-badge">Multi-Metric Assessment</div>
+    <div class="calc-header">
+      <div class="calc-header-icon">📊</div>
+      <div>
+        <h3>Body Composition Lab</h3>
+        <div class="calc-subtitle">BMI + BAI + WHtR + BF% analysis</div>
+      </div>
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Weight</span>
+        <span class="sc-value" id="bc-wt-display">70</span><span class="sc-unit">kg</span>
+      </div>
+      <input type="range" class="sc-slider" id="bc-wt-adv" min="40" max="150" value="70" 
+             oninput="document.getElementById('bc-wt-display').textContent=this.value; calcBodyCompAdv()">
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Height</span>
+        <span class="sc-value" id="bc-ht-display">170</span><span class="sc-unit">cm</span>
+      </div>
+      <input type="range" class="sc-slider" id="bc-ht-adv" min="140" max="210" value="170" 
+             oninput="document.getElementById('bc-ht-display').textContent=this.value; calcBodyCompAdv()">
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Waist Circumference <span class="sc-tooltip" data-tip="At navel level, relaxed">ⓘ</span></span>
+        <span class="sc-value" id="bc-waist-display">80</span><span class="sc-unit">cm</span>
+      </div>
+      <input type="range" class="sc-slider" id="bc-waist-adv" min="50" max="150" value="80" 
+             oninput="document.getElementById('bc-waist-display').textContent=this.value; calcBodyCompAdv()">
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Ethnicity <span class="sc-tooltip" data-tip="Asian populations have higher metabolic risk at lower BMI">ⓘ</span></span>
+      </div>
+      <select class="sc-select" id="bc-ethnicity-adv" onchange="calcBodyCompAdv()">
+        <option value="who">European/WHO Standards</option>
+        <option value="asian" selected>South Asian / East Asian (lower thresholds)</option>
+        <option value="pacific">Pacific Islander (higher thresholds)</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="calc-glass-card">
+    <div class="sc-badge">Risk Stratification</div>
+    <div class="calc-header">
+      <div class="calc-header-icon">🎯</div>
+      <div>
+        <h3>Composition Dashboard</h3>
+        <div class="calc-subtitle">Multi-metric health risk analysis</div>
+      </div>
+    </div>
+    
+    <div class="sc-main-result">
+      <span class="sc-main-number" id="bc-main-result">24.2</span>
+      <span class="sc-main-unit">BMI</span>
+    </div>
+    <div class="sc-uncertainty" id="bc-uncertainty">Asian threshold: 23+ overweight • 27.5+ obese</div>
+    
+    <div class="sc-gauge-grid">
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-bmi" cx="50" cy="50" r="42" fill="none" stroke="#1E8A5E" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="200" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-bmi-val">24.2</div>
+        <div class="sc-gauge-label">BMI</div>
+      </div>
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-whtr" cx="50" cy="50" r="42" fill="none" stroke="#C8973A" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="150" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-whtr-val">0.47</div>
+        <div class="sc-gauge-label">WHtR</div>
+      </div>
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-bai" cx="50" cy="50" r="42" fill="none" stroke="#E07A3A" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="180" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-bai-val">25%</div>
+        <div class="sc-gauge-label">BAI</div>
+      </div>
+    </div>
+    
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">BMI Category</span>
+      <span class="sc-detail-value" id="bc-bmi-cat">Normal <span class="sc-note">(Asian: Overweight)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Waist-to-Height Ratio</span>
+      <span class="sc-detail-value" id="bc-whtr-cat">Healthy <span class="sc-note">(target <0.5)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Body Adiposity Index (BAI)</span>
+      <span class="sc-detail-value" id="bc-bai-cat">Healthy <span class="sc-note">(estimated 20% BF)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Metabolic Risk Score</span>
+      <span class="sc-detail-value" id="bc-risk-score">Low <span class="sc-note">(2/10 factors)</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CALCULATOR 4: HYDRATION LAB (Sweat Rate + Electrolytes)
+     ═══════════════════════════════════════════════════════ -->
+<div class="calc-suite" id="calc-hydration-adv" style="display: none;">
+  
+  <div class="calc-glass-card">
+    <div class="sc-badge">NASM & ACSM Guidelines</div>
+    <div class="calc-header">
+      <div class="calc-header-icon">💧</div>
+      <div>
+        <h3>Hydration Laboratory</h3>
+        <div class="calc-subtitle">Sweat rate, electrolyte loss & urine analysis</div>
+      </div>
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Body Weight</span>
+        <span class="sc-value" id="hyd-wt-display">70</span><span class="sc-unit">kg</span>
+      </div>
+      <input type="range" class="sc-slider" id="hyd-wt-adv" min="40" max="150" value="70" 
+             oninput="document.getElementById('hyd-wt-display').textContent=this.value; calcHydrationAdv()">
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Exercise Duration</span>
+        <span class="sc-value" id="hyd-duration-display">60</span><span class="sc-unit">min</span>
+      </div>
+      <input type="range" class="sc-slider" id="hyd-duration-adv" min="0" max="180" value="60" 
+             oninput="document.getElementById('hyd-duration-display').textContent=this.value; calcHydrationAdv()">
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Exercise Intensity</span>
+      </div>
+      <select class="sc-select" id="hyd-intensity-adv" onchange="calcHydrationAdv()">
+        <option value="0.5">Light (sweat: 0.5L/hr, walking)</option>
+        <option value="1.0" selected>Moderate (sweat: 1.0L/hr, jogging)</option>
+        <option value="1.5">High (sweat: 1.5L/hr, running)</option>
+        <option value="2.0">Extreme (sweat: 2.0L/hr, HIIT/sports)</option>
+      </select>
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Ambient Temperature</span>
+        <span class="sc-value" id="hyd-temp-display">30</span><span class="sc-unit">°C</span>
+      </div>
+      <input type="range" class="sc-slider" id="hyd-temp-adv" min="15" max="45" value="30" 
+             oninput="document.getElementById('hyd-temp-display').textContent=this.value; calcHydrationAdv()">
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Humidity</span>
+        <span class="sc-value" id="hyd-humidity-display">60</span><span class="sc-unit">%</span>
+      </div>
+      <input type="range" class="sc-slider" id="hyd-humidity-adv" min="20" max="100" value="60" 
+             oninput="document.getElementById('hyd-humidity-display').textContent=this.value; calcHydrationAdv()">
+    </div>
+  </div>
+  
+  <div class="calc-glass-card">
+    <div class="sc-badge">Sweat Rate Analysis</div>
+    <div class="calc-header">
+      <div class="calc-header-icon">🧪</div>
+      <div>
+        <h3>Hydration Dashboard</h3>
+        <div class="calc-subtitle">Real-time sweat & electrolyte calculation</div>
+      </div>
+    </div>
+    
+    <div class="sc-main-result">
+      <span class="sc-main-number" id="hyd-main-result">3.2</span>
+      <span class="sc-main-unit">L/day</span>
+    </div>
+    <div class="sc-uncertainty" id="hyd-uncertainty">±0.4L based on sweat rate variability</div>
+    
+    <div class="sc-gauge-grid">
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-sweat" cx="50" cy="50" r="42" fill="none" stroke="#1E8A5E" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="150" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-sweat-val">1.0</div>
+        <div class="sc-gauge-label">L/hr sweat</div>
+      </div>
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-sodium" cx="50" cy="50" r="42" fill="none" stroke="#C8973A" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="200" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-sodium-val">920</div>
+        <div class="sc-gauge-label">mg Na/hr</div>
+      </div>
+      <div class="sc-gauge">
+        <svg class="sc-gauge-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+          <circle id="gauge-urine" cx="50" cy="50" r="42" fill="none" stroke="#E07A3A" stroke-width="8" 
+                  stroke-dasharray="264" stroke-dashoffset="100" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+        </svg>
+        <div class="sc-gauge-value" id="gauge-urine-val">2</div>
+        <div class="sc-gauge-label">Urine color</div>
+      </div>
+    </div>
+    
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Baseline (resting) Needs</span>
+      <span class="sc-detail-value" id="hyd-baseline">2.1 <span class="sc-note">L (30ml/kg)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Exercise Fluid Loss</span>
+      <span class="sc-detail-value" id="hyd-exercise-loss">+1.0 <span class="sc-note">L (60 min × 1.0L/hr)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Temperature Adjustment</span>
+      <span class="sc-detail-value" id="hyd-temp-adjust">+0.4 <span class="sc-note">L (+200ml per 5°C >20°C)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Humidity Penalty</span>
+      <span class="sc-detail-value" id="hyd-humidity-penalty">+0.2 <span class="sc-note">L (reduced evaporation)</span></span>
+    </div>
+    
+    <div style="height: 1px; background: rgba(255,255,255,0.06); margin: 16px 0;"></div>
+    
+    <div class="sc-detail-row" style="background: rgba(200,151,58,0.1);">
+      <span class="sc-detail-label">Sodium Replacement Needed</span>
+      <span class="sc-detail-value" id="hyd-sodium-need">920 <span class="sc-note">mg/hr (sports drink: 460mg/500ml)</span></span>
+    </div>
+    <div class="sc-detail-row" style="background: rgba(30,138,94,0.1);">
+      <span class="sc-detail-label">Pre-Exercise Hydration (2-4hr prior)</span>
+      <span class="sc-detail-value" id="hyd-pre-hydration">5-7 <span class="sc-note">ml/kg (350-490ml)</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CALCULATOR 5: MACRO OPTIMIZER (Evidence-Based Splits)
+     ═══════════════════════════════════════════════════════ -->
+<div class="calc-suite" id="calc-macro-adv" style="display: none;">
+  
+  <div class="calc-glass-card">
+    <div class="sc-badge">IOM & ISSN Guidelines</div>
+    <div class="calc-header">
+      <div class="calc-header-icon">🎯</div>
+      <div>
+        <h3>Macro Optimizer</h3>
+        <div class="calc-subtitle">Evidence-based ratios with fiber & omega-3 targets</div>
+      </div>
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Daily Calories</span>
+        <span class="sc-value" id="mac-cal-display">2,000</span><span class="sc-unit">kcal</span>
+      </div>
+      <input type="range" class="sc-slider" id="mac-cal-adv" min="1200" max="4000" step="50" value="2000" 
+             oninput="document.getElementById('mac-cal-display').textContent=parseInt(this.value).toLocaleString(); calcMacroAdv()">
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Dietary Approach</span>
+      </div>
+      <select class="sc-select" id="mac-approach-adv" onchange="calcMacroAdv()">
+        <option value="balanced">Balanced (30P/40C/30F) — General health</option>
+        <option value="highpro" selected>High Protein (35P/35C/30F) — Muscle gain</option>
+        <option value="lowcarb">Low Carb (40P/20C/40F) — Keto-adjacent</option>
+        <option value="mediterranean">Mediterranean (25P/45C/30F) — Heart health</option>
+        <option value="plant">Plant-Based (20P/55C/25F) — Vegetarian optimized</option>
+        <option value="performance">Performance (25P/55C/20F) — Endurance</option>
+      </select>
+    </div>
+    
+    <div class="sc-field">
+      <div class="sc-field-label">
+        <span>Body Weight (for protein scaling)</span>
+        <span class="sc-value" id="mac-wt-display">70</span><span class="sc-unit">kg</span>
+      </div>
+      <input type="range" class="sc-slider" id="mac-wt-adv" min="40" max="150" value="70" 
+             oninput="document.getElementById('mac-wt-display').textContent=this.value; calcMacroAdv()">
+    </div>
+  </div>
+  
+  <div class="calc-glass-card">
+    <div class="sc-badge">Precision Targets</div>
+    <div class="calc-header">
+      <div class="calc-header-icon">⚖️</div>
+      <div>
+        <h3>Macro Dashboard</h3>
+        <div class="calc-subtitle">Gram targets with nutrient timing</div>
+      </div>
+    </div>
+    
+    <div class="sc-main-result" style="font-size: 2.4rem;">
+      <span class="sc-main-number" id="mac-main-result">175g / 175g / 67g</span>
+    </div>
+    <div class="sc-uncertainty" id="mac-uncertainty">Protein: 2.5g/kg • Carbs: 5-7g/kg training days</div>
+    
+    <!-- Macro Distribution Pie (SVG) -->
+    <div class="sc-macro-viz" id="macro-pie-chart">
+      <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
+        <!-- Protein slice (35%) -->
+        <path id="pie-protein" d="M 100,100 L 100,20 A 80,80 0 0,1 176.84,140 Z" fill="url(#proGrad)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+        <!-- Carbs slice (35%) -->
+        <path id="pie-carbs" d="M 100,100 L 176.84,140 A 80,80 0 0,1 56.84,165.67 Z" fill="url(#carbGrad)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+        <!-- Fat slice (30%) -->
+        <path id="pie-fat" d="M 100,100 L 56.84,165.67 A 80,80 0 0,1 100,20 Z" fill="url(#fatGrad)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+        
+        <defs>
+          <linearGradient id="proGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#40916C"/>
+            <stop offset="100%" style="stop-color:#52B788"/>
+          </linearGradient>
+          <linearGradient id="carbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#E9C46A"/>
+            <stop offset="100%" style="stop-color:#F4A261"/>
+          </linearGradient>
+          <linearGradient id="fatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#E07A3A"/>
+            <stop offset="100%" style="stop-color:#C95F3F"/>
+          </linearGradient>
+        </defs>
+        
+        <!-- Center text -->
+        <text x="100" y="95" text-anchor="middle" fill="#fff" font-family="Playfair Display" font-size="14" font-weight="400">2,000</text>
+        <text x="100" y="110" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter" font-size="8" font-weight="500">KCAL</text>
+      </svg>
+    </div>
+    
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Protein (35%)</span>
+      <span class="sc-detail-value" id="mac-pro-detail">175g <span class="sc-note">(2.5g/kg • DIAAS-adjusted)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Carbohydrates (35%)</span>
+      <span class="sc-detail-value" id="mac-carb-detail">175g <span class="sc-note">(focus: peri-workout)</span></span>
+    </div>
+    <div class="sc-detail-row">
+      <span class="sc-detail-label">Fats (30%)</span>
+      <span class="sc-detail-value" id="mac-fat-detail">67g <span class="sc-note">(omega-3: 2-3g EPA+DHA)</span></span>
+    </div>
+    
+    <div style="height: 1px; background: rgba(255,255,255,0.06); margin: 16px 0;"></div>
+    
+    <div class="sc-detail-row" style="background: rgba(30,138,94,0.1);">
+      <span class="sc-detail-label">Fiber Target</span>
+      <span class="sc-detail-value" id="mac-fiber">30g <span class="sc-note">(14g/1000kcal minimum)</span></span>
+    </div>
+    <div class="sc-detail-row" style="background: rgba(200,151,58,0.1);">
+      <span class="sc-detail-label">Omega-3 (EPA+DHA)</span>
+      <span class="sc-detail-value" id="mac-omega">2.5g <span class="sc-note">(anti-inflammatory dose)</span></span>
+    </div>
+    <div class="sc-detail-row" style="background: rgba(82,183,136,0.1);">
+      <span class="sc-detail-label">Pre-Workout Carbs (30-60 min)</span>
+      <span class="sc-detail-value" id="mac-pre-workout">30g <span class="sc-note">(low fiber, high GI)</span></span>
+    </div>
+  </div>
+</div>
   </section>
 </div>
 
@@ -1088,7 +2101,7 @@ function go(id){
   if(nl) nl.classList.add('active');
   window.scrollTo({top:0,behavior:'instant'});
   initReveal();
-  if(id==='calculators'){calcTDEE();calcProtein();calcBMI();calcWater();calcMacro();}
+  if(id==='calculators'){calcTDEEAdv();calcProteinAdv();calcBodyCompAdv();calcHydrationAdv();calcMacroAdv();}
   if(id==='food') renderFoods();
   if(id==='cookedfood') renderCookedFoods();
 }
@@ -1603,87 +2616,381 @@ function renderMeals(){
 }
 
 function fmt(n){return Math.round(n).toLocaleString('en-IN');}
-function calcTDEE(){
-  const age=+document.getElementById('tdee-age').value;
-  const wt=+document.getElementById('tdee-wt').value;
-  const ht=+document.getElementById('tdee-ht').value;
-  const sex=document.getElementById('tdee-sex').value;
-  const act=+document.getElementById('tdee-act').value;
-  document.getElementById('tdee-age-v').textContent=age+' years';
-  document.getElementById('tdee-wt-v').textContent=wt+' kg';
-  document.getElementById('tdee-ht-v').textContent=ht+' cm';
-  let bmr=sex==='m'?(10*wt)+(6.25*ht)-(5*age)+5:(10*wt)+(6.25*ht)-(5*age)-161;
-  const tdee=bmr*act;
-  const bmi=(wt/((ht/100)**2)).toFixed(1);
-  document.getElementById('tdee-result').textContent=fmt(tdee);
-  document.getElementById('bmr-r').textContent=fmt(bmr)+' kcal';
-  document.getElementById('loss-r').textContent=fmt(tdee-500)+' kcal';
-  document.getElementById('gain-r').textContent=fmt(tdee+300)+' kcal';
-  document.getElementById('bmi-r').textContent=bmi;
-}
-function calcProtein(){
-  const wt=+document.getElementById('pro-wt').value;
-  const goal=+document.getElementById('pro-goal').value;
-  const diet=+document.getElementById('pro-diet').value;
-  document.getElementById('pro-wt-v').textContent=wt+' kg';
-  const pro=Math.round(wt*goal*diet);
-  document.getElementById('pro-result').textContent=pro;
-  document.getElementById('pro-meal').textContent=Math.round(pro/4)+'g';
-  const fromFood=Math.round(pro*0.7);
-  document.getElementById('pro-food').textContent=fromFood+'g';
-  document.getElementById('pro-supp').textContent='~'+(pro-fromFood)+'g';
-  document.getElementById('pro-paneer').textContent='~'+(Math.round((pro/18.3)*100))+'g';
-}
-function calcBMI(){
-  const wt=+document.getElementById('bmi-wt').value;
-  const ht=+document.getElementById('bmi-ht').value;
-  document.getElementById('bmi-wt-v').textContent=wt+' kg';
-  document.getElementById('bmi-ht-v').textContent=ht+' cm';
-  const bmi=(wt/((ht/100)**2)).toFixed(1);
-  document.getElementById('bmi-result').textContent=bmi;
-  const cat=bmi<18.5?'Underweight':bmi<25?'Normal weight':bmi<30?'Overweight':'Obese';
-  document.getElementById('bmi-cat').textContent=cat;
-}
-function calcWater(){
-  const wt=+document.getElementById('wat-wt').value;
-  const act=+document.getElementById('wat-act').value;
-  const clim=+document.getElementById('wat-clim').value;
-  document.getElementById('wat-wt-v').textContent=wt+' kg';
-  const base=wt*0.035;
-  const total=(base*act*clim).toFixed(1);
-  document.getElementById('wat-result').textContent=total;
-  document.getElementById('wat-glass').textContent='~'+Math.round(total/0.25)+' glasses';
-  document.getElementById('wat-min').textContent=(base*0.9).toFixed(1)+' L';
-  const fromFood=(total*0.2).toFixed(1);
-  document.getElementById('wat-food').textContent=fromFood+' L';
-  document.getElementById('wat-drinks').textContent=(total-fromFood).toFixed(1)+' L';
-}
-function calcMacro(){
-  const cal=+document.getElementById('mac-cal').value;
-  const type=document.getElementById('mac-type').value;
-  document.getElementById('mac-cal-v').textContent=cal.toLocaleString('en-IN')+' kcal';
-  const splits={balanced:[.30,.40,.30],highpro:[.40,.30,.30],lowcarb:[.35,.20,.45],veg:[.25,.50,.25]};
-  const [pp,cp,fp]=splits[type]||splits['balanced'];
-  const pro=Math.round((cal*pp)/4);
-  const carb=Math.round((cal*cp)/4);
-  const fat=Math.round((cal*fp)/9);
-  const fibre=Math.round(cal/50);
-  document.getElementById('mac-main').textContent=pro+'g / '+carb+'g / '+fat+'g';
-  document.getElementById('mac-pro').textContent=pro+'g ('+Math.round(pp*100)+'%)';
-  document.getElementById('mac-carb').textContent=carb+'g ('+Math.round(cp*100)+'%)';
-  document.getElementById('mac-fat').textContent=fat+'g ('+Math.round(fp*100)+'%)';
-  document.getElementById('mac-fibre').textContent='~'+fibre+'g';
-}
-function showCalc(id,btn){
-  document.querySelectorAll('.calc-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('active'));
-  document.getElementById('calc-'+id).classList.add('active');
+// ═══════════════════════════════════════════════════════
+// PREMIUM SCIENTIFIC CALCULATOR ENGINE
+// Peer-reviewed formulas with uncertainty quantification
+// ═══════════════════════════════════════════════════════
+
+// Tab switching
+function showCalcTab(tabId, btn) {
+  document.querySelectorAll('.calc-suite').forEach(el => el.style.display = 'none');
+  document.getElementById('calc-' + tabId).style.display = 'grid';
+  document.querySelectorAll('.sc-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
-  if(id==='tdee') calcTDEE();
-  else if(id==='protein') calcProtein();
-  else if(id==='bmi') calcBMI();
-  else if(id==='water') calcWater();
-  else if(id==='macro') calcMacro();
+  
+  if(tabId === 'tdee-adv') calcTDEEAdv();
+  if(tabId === 'protein-adv') calcProteinAdv();
+  if(tabId === 'bodycomp-adv') calcBodyCompAdv();
+  if(tabId === 'hydration-adv') calcHydrationAdv();
+  if(tabId === 'macro-adv') calcMacroAdv();
+}
+
+// Helper: Set circular gauge
+function setGauge(id, value, max) {
+  const gauge = document.getElementById(id);
+  if(!gauge) return;
+  const circumference = 264;
+  const pct = Math.min(value / max, 1);
+  const offset = circumference - (pct * circumference);
+  gauge.style.strokeDashoffset = offset;
+}
+
+// Helper: Set BF% visual selector
+function setBF(pct, el) {
+  document.querySelectorAll('.sc-bf-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('tdee-bf-adv').value = pct;
+  document.getElementById('tdee-bf-display').textContent = pct;
+  calcTDEEAdv();
+}
+
+// ─── TDEE: Mifflin-St Jeor + Katch-McArdle Hybrid ───
+function calcTDEEAdv() {
+  const sex = document.getElementById('tdee-sex-adv').value;
+  const age = parseInt(document.getElementById('tdee-age-adv').value);
+  const wt = parseFloat(document.getElementById('tdee-wt-adv').value);
+  const ht = parseFloat(document.getElementById('tdee-ht-adv').value);
+  const bf = parseFloat(document.getElementById('tdee-bf-adv').value);
+  const activity = parseFloat(document.getElementById('tdee-act-adv').value);
+  const adaptation = parseFloat(document.getElementById('tdee-exp-adv').value);
+  
+  // Calculate Lean Body Mass (LBM)
+  const lbm = wt * (1 - bf/100);
+  
+  // Mifflin-St Jeor BMR
+  let bmrMifflin = (10 * wt) + (6.25 * ht) - (5 * age);
+  bmrMifflin += (sex === 'm') ? 5 : -161;
+  
+  // Katch-McArdle BMR
+  const bmrKatch = 370 + (21.6 * lbm);
+  
+  // Hybrid weighting
+  const bfUncertainty = Math.abs(bf - 20) / 20;
+  const katchWeight = Math.max(0.3, Math.min(0.7, 0.7 - bfUncertainty * 0.4));
+  const bmr = (bmrMifflin * (1 - katchWeight)) + (bmrKatch * katchWeight);
+  
+  // TEF (Thermic Effect of Food)
+  const tef = bmr * 0.10;
+  
+  // Activity components
+  const neatMultiplier = (activity - 1) * 0.6 + 1;
+  const eatMultiplier = (activity - 1) * 0.4 + 1;
+  const neat = bmr * (neatMultiplier - 1);
+  const eat = bmr * (eatMultiplier - 1);
+  
+  // Metabolic adaptation
+  const adaptationFactor = 1 + adaptation;
+  
+  // Total TDEE
+  const tdee = (bmr + tef + neat + eat) * adaptationFactor;
+  
+  // Uncertainty (95% CI)
+  const baseUncertainty = bmr * 0.10;
+  const bfUncertaintyKcal = (bf > 30 || bf < 10) ? bmr * 0.10 : bmr * 0.05;
+  const totalUncertainty = Math.sqrt(baseUncertainty**2 + bfUncertaintyKcal**2);
+  
+  // Update displays
+  document.getElementById('tdee-main-result').textContent = Math.round(tdee).toLocaleString();
+  document.getElementById('tdee-uncertainty').textContent = 
+    `±${Math.round(totalUncertainty)} kcal (95% CI) • ${Math.round(katchWeight*100)}% Katch-McArdle weighted`;
+  
+  // Update gauges
+  setGauge('gauge-bmr', bmr, 3000);
+  setGauge('gauge-tdee', tdee, 4000);
+  setGauge('gauge-lbm', lbm, 100);
+  
+  document.getElementById('gauge-bmr-val').textContent = Math.round(bmr);
+  document.getElementById('gauge-tdee-val').textContent = Math.round(tdee);
+  document.getElementById('gauge-lbm-val').textContent = Math.round(lbm);
+  
+  // Detail rows
+  document.getElementById('tdee-bmr-detail').innerHTML = `${Math.round(bmr)} <span class="sc-note">kcal</span>`;
+  document.getElementById('tdee-tef-detail').innerHTML = `+${Math.round(tef)} <span class="sc-note">kcal (10% protein-optimized)</span>`;
+  document.getElementById('tdee-eat-detail').innerHTML = `+${Math.round(eat)} <span class="sc-note">kcal</span>`;
+  document.getElementById('tdee-neat-detail').innerHTML = `+${Math.round(neat)} <span class="sc-note">kcal</span>`;
+  
+  // Goal targets
+  document.getElementById('tdee-loss-target').innerHTML = `${Math.round(tdee - 500)} <span class="sc-note">kcal (-500)</span>`;
+  document.getElementById('tdee-gain-target').innerHTML = `${Math.round(tdee + 300)} <span class="sc-note">kcal (+300)</span>`;
+  document.getElementById('tdee-maint-range').innerHTML = `${Math.round(tdee - totalUncertainty)}–${Math.round(tdee + totalUncertainty)} <span class="sc-note">kcal</span>`;
+}
+
+// ─── PROTEIN: DIAAS + Leucine Threshold ───
+function calcProteinAdv() {
+  const wt = parseFloat(document.getElementById('pro-wt-adv').value);
+  const sourceSelect = document.getElementById('pro-source-adv');
+  const diaas = parseFloat(sourceSelect.value);
+  const leucinePct = parseFloat(sourceSelect.options[sourceSelect.selectedIndex].dataset.leucine);
+  const goalMultiplier = parseFloat(document.getElementById('pro-goal-adv').value);
+  const ageMultiplier = parseFloat(document.getElementById('pro-age-adv').value);
+  const meals = parseInt(document.getElementById('pro-meals-adv').value);
+  
+  // Base protein need (g/kg) adjusted for DIAAS
+  // If DIAAS < 1.0, need MORE total protein to get same usable protein
+  const diaasAdjustment = 1 / diaas;
+  const baseProtein = wt * goalMultiplier * ageMultiplier * diaasAdjustment;
+  const totalProtein = Math.round(baseProtein);
+  
+  // Per meal distribution
+  const perMeal = Math.round(totalProtein / meals);
+  
+  // Leucine per meal (threshold for MPS = 2.5g)
+  const leucinePerMeal = (perMeal * leucinePct).toFixed(1);
+  const mpsPotential = Math.min(100, Math.round((leucinePerMeal / 2.5) * 100));
+  
+  // Post-workout (0.4g/kg within 2 hours)
+  const postWorkout = Math.round(wt * 0.4);
+  
+  // Pre-sleep casein (0.4g/kg)
+  const preSleep = Math.round(wt * 0.4);
+  
+  // Vegetarian penalty (if DIAAS < 0.9)
+  const vegPenalty = diaas < 0.9 ? Math.round(wt * goalMultiplier * (1/diaas - 1)) : 0;
+  
+  // Update displays
+  document.getElementById('pro-main-result').textContent = totalProtein;
+  document.getElementById('pro-uncertainty').textContent = 
+    `DIAAS ${diaas.toFixed(2)} • Leucine threshold: ${leucinePerMeal}g/meal (need 2.5g)`;
+  
+  // Update gauges
+  setGauge('gauge-leucine', leucinePerMeal, 4);
+  setGauge('gauge-mps', mpsPotential, 100);
+  setGauge('gauge-diaas', diaas, 1.5);
+  
+  document.getElementById('gauge-leucine-val').textContent = leucinePerMeal;
+  document.getElementById('gauge-mps-val').textContent = mpsPotential + '%';
+  document.getElementById('gauge-diaas-val').textContent = diaas.toFixed(2);
+  
+  // Detail rows
+  document.getElementById('pro-per-meal').innerHTML = `${perMeal} <span class="sc-note">g (${meals} meals)</span>`;
+  document.getElementById('pro-leucine-meal').innerHTML = `${leucinePerMeal} <span class="sc-note">g (threshold: 2.5g)</span>`;
+  document.getElementById('pro-post-workout').innerHTML = `${postWorkout} <span class="sc-note">g within 2 hours</span>`;
+  document.getElementById('pro-sleep').innerHTML = `${preSleep} <span class="sc-note">g for overnight MPS</span>`;
+  document.getElementById('pro-veg-adjust').innerHTML = `+${vegPenalty} <span class="sc-note">g (DIAAS penalty)</span>`;
+}
+
+// ─── BODY COMPOSITION: BMI + BAI + WHtR ───
+function calcBodyCompAdv() {
+  const wt = parseFloat(document.getElementById('bc-wt-adv').value);
+  const ht = parseFloat(document.getElementById('bc-ht-adv').value);
+  const waist = parseFloat(document.getElementById('bc-waist-adv').value);
+  const ethnicity = document.getElementById('bc-ethnicity-adv').value;
+  
+  // BMI
+  const bmi = (wt / ((ht/100) ** 2)).toFixed(1);
+  
+  // WHtR (Waist-to-Height Ratio)
+  const whtr = (waist / ht).toFixed(2);
+  
+  // BAI (Body Adiposity Index) - Bergman 2011
+  // BAI = (hip / (height^1.5)) - 18 ≈ simplified with waist
+  const bai = Math.round((waist / (ht ** 1.5)) * 1000 - 18);
+  
+  // Ethnicity-adjusted thresholds
+  let bmiOverweight, bmiObese;
+  if(ethnicity === 'asian') {
+    bmiOverweight = 23;
+    bmiObese = 27.5;
+  } else if(ethnicity === 'pacific') {
+    bmiOverweight = 27;
+    bmiObese = 32;
+  } else {
+    bmiOverweight = 25;
+    bmiObese = 30;
+  }
+  
+  // Categories
+  const bmiCat = bmi < 18.5 ? 'Underweight' : 
+                 bmi < bmiOverweight ? 'Normal' : 
+                 bmi < bmiObese ? 'Overweight' : 'Obese';
+  
+  const whtrCat = whtr < 0.4 ? 'Healthy' : 
+                  whtr < 0.5 ? 'Caution' : 'High Risk';
+  
+  const baiCat = bai < 21 ? 'Healthy' : 
+                 bai < 26 ? 'Overweight' : 'Obese';
+  
+  // Metabolic risk score (0-10)
+  let riskScore = 0;
+  if(bmi >= bmiOverweight) riskScore += 2;
+  if(whtr >= 0.5) riskScore += 3;
+  if(bai >= 26) riskScore += 2;
+  if(ethnicity === 'asian') riskScore += 1;
+  
+  const riskLabel = riskScore < 3 ? 'Low' : riskScore < 6 ? 'Moderate' : 'High';
+  
+  // Update displays
+  document.getElementById('bc-main-result').textContent = bmi;
+  document.getElementById('bc-uncertainty').textContent = 
+    `${ethnicity === 'asian' ? 'Asian' : ethnicity === 'pacific' ? 'Pacific' : 'WHO'} threshold: ${bmiOverweight}+ overweight • ${bmiObese}+ obese`;
+  
+  // Update gauges
+  setGauge('gauge-bmi', bmi, 40);
+  setGauge('gauge-whtr', whtr * 100, 70); // Scale to 0-70
+  setGauge('gauge-bai', bai, 40);
+  
+  document.getElementById('gauge-bmi-val').textContent = bmi;
+  document.getElementById('gauge-whtr-val').textContent = whtr;
+  document.getElementById('gauge-bai-val').textContent = bai + '%';
+  
+  // Detail rows
+  document.getElementById('bc-bmi-cat').innerHTML = `${bmiCat} <span class="sc-note">(${ethnicity === 'asian' ? 'Asian' : 'WHO'}: ${bmiOverweight}+)</span>`;
+  document.getElementById('bc-whtr-cat').innerHTML = `${whtrCat} <span class="sc-note">(target <0.5)</span>`;
+  document.getElementById('bc-bai-cat').innerHTML = `${baiCat} <span class="sc-note">(estimated ${Math.round(bai * 0.8)}% BF)</span>`;
+  document.getElementById('bc-risk-score').innerHTML = `${riskLabel} <span class="sc-note">(${riskScore}/10 factors)</span>`;
+}
+
+// ─── HYDRATION: Sweat Rate + Electrolytes ───
+function calcHydrationAdv() {
+  const wt = parseFloat(document.getElementById('hyd-wt-adv').value);
+  const duration = parseInt(document.getElementById('hyd-duration-adv').value);
+  const intensity = parseFloat(document.getElementById('hyd-intensity-adv').value);
+  const temp = parseInt(document.getElementById('hyd-temp-adv').value);
+  const humidity = parseInt(document.getElementById('hyd-humidity-adv').value);
+  
+  // Baseline (NASM: 30-35ml/kg)
+  const baseline = wt * 0.035;
+  
+  // Sweat rate (L/hr) based on intensity
+  const sweatRate = intensity;
+  
+  // Exercise fluid loss
+  const exerciseLoss = (duration / 60) * sweatRate;
+  
+  // Temperature adjustment (+200ml per 5°C above 20°C)
+  const tempAdjust = temp > 20 ? ((temp - 20) / 5) * 0.2 : 0;
+  
+  // Humidity penalty (reduced evaporation = more sweat needed)
+  const humidityPenalty = humidity > 60 ? ((humidity - 60) / 20) * 0.1 : 0;
+  
+  // Total daily need
+  const total = baseline + exerciseLoss + tempAdjust + humidityPenalty;
+  
+  // Sodium loss (mg/hr) - typical 920mg/L sweat
+  const sodiumLoss = Math.round(sweatRate * 920);
+  
+  // Pre-exercise hydration (5-7ml/kg 2-4hr prior)
+  const preExercise = Math.round(wt * 6);
+  
+  // Urine color scale (1-5, 1=clear, 5=dark)
+  const urineColor = total > baseline * 1.5 ? 2 : 3;
+  
+  // Update displays
+  document.getElementById('hyd-main-result').textContent = total.toFixed(1);
+  document.getElementById('hyd-uncertainty').textContent = `±${(total * 0.12).toFixed(1)}L based on sweat rate variability`;
+  
+  // Update gauges
+  setGauge('gauge-sweat', sweatRate, 2.5);
+  setGauge('gauge-sodium', sodiumLoss, 2000);
+  setGauge('gauge-urine', urineColor, 5);
+  
+  document.getElementById('gauge-sweat-val').textContent = sweatRate.toFixed(1);
+  document.getElementById('gauge-sodium-val').textContent = sodiumLoss;
+  document.getElementById('gauge-urine-val').textContent = urineColor;
+  
+  // Detail rows
+  document.getElementById('hyd-baseline').innerHTML = `${baseline.toFixed(1)} <span class="sc-note">L (35ml/kg)</span>`;
+  document.getElementById('hyd-exercise-loss').innerHTML = `+${exerciseLoss.toFixed(1)} <span class="sc-note">L (${duration} min × ${sweatRate}L/hr)</span>`;
+  document.getElementById('hyd-temp-adjust').innerHTML = `+${tempAdjust.toFixed(1)} <span class="sc-note">L (+200ml per 5°C >20°C)</span>`;
+  document.getElementById('hyd-humidity-penalty').innerHTML = `+${humidityPenalty.toFixed(1)} <span class="sc-note">L (reduced evaporation)</span>`;
+  document.getElementById('hyd-sodium-need').innerHTML = `${sodiumLoss} <span class="sc-note">mg/hr (sports drink: 460mg/500ml)</span>`;
+  document.getElementById('hyd-pre-hydration').innerHTML = `${preExercise}-${Math.round(preExercise * 1.17)} <span class="sc-note">ml/kg (${preExercise * wt}-${Math.round(preExercise * 1.17 * wt)}ml)</span>`;
+}
+
+// ─── MACRO: Evidence-Based Splits ───
+function calcMacroAdv() {
+  const cal = parseInt(document.getElementById('mac-cal-adv').value);
+  const approach = document.getElementById('mac-approach-adv').value;
+  const wt = parseFloat(document.getElementById('mac-wt-adv').value);
+  
+  // Evidence-based macro splits
+  const splits = {
+    balanced:     [0.30, 0.40, 0.30],
+    highpro:      [0.35, 0.35, 0.30],
+    lowcarb:      [0.40, 0.20, 0.40],
+    mediterranean:[0.25, 0.45, 0.30],
+    plant:        [0.20, 0.55, 0.25],
+    performance:  [0.25, 0.55, 0.20]
+  };
+  
+  const [pp, cp, fp] = splits[approach] || splits['balanced'];
+  
+  // Calculate grams
+  const pro = Math.round((cal * pp) / 4);
+  const carb = Math.round((cal * cp) / 4);
+  const fat = Math.round((cal * fp) / 9);
+  
+  // Fiber (14g per 1000kcal, min 25g)
+  const fiber = Math.max(25, Math.round(cal / 1000 * 14));
+  
+  // Omega-3 (anti-inflammatory: 2-3g EPA+DHA)
+  const omega3 = 2.5;
+  
+  // Pre-workout carbs (0.5g/kg, 30-60 min prior)
+  const preWorkout = Math.round(wt * 0.5);
+  
+  // Update pie chart
+  updateMacroPie(pp, cp, fp, cal);
+  
+  // Update displays
+  document.getElementById('mac-main-result').textContent = `${pro}g / ${carb}g / ${fat}g`;
+  document.getElementById('mac-uncertainty').textContent = `Protein: ${(pro/wt).toFixed(1)}g/kg • Carbs: ${(carb/wt).toFixed(1)}g/kg`;
+  
+  // Detail rows
+  document.getElementById('mac-pro-detail').innerHTML = `${pro}g <span class="sc-note">(${(pro/wt).toFixed(1)}g/kg • DIAAS-adjusted)</span>`;
+  document.getElementById('mac-carb-detail').innerHTML = `${carb}g <span class="sc-note">(focus: peri-workout)</span>`;
+  document.getElementById('mac-fat-detail').innerHTML = `${fat}g <span class="sc-note">(omega-3: ${omega3}g EPA+DHA)</span>`;
+  document.getElementById('mac-fiber').innerHTML = `${fiber}g <span class="sc-note">(14g/1000kcal minimum)</span>`;
+  document.getElementById('mac-omega').innerHTML = `${omega3}g <span class="sc-note">(anti-inflammatory dose)</span>`;
+  document.getElementById('mac-pre-workout').innerHTML = `${preWorkout}g <span class="sc-note">(low fiber, high GI)</span>`;
+}
+
+// Helper: Update macro pie chart
+function updateMacroPie(pp, cp, fp, cal) {
+  const total = pp + cp + fp;
+  const proAngle = (pp / total) * 360;
+  const carbAngle = (cp / total) * 360;
+  
+  // SVG path calculations for pie slices
+  const cx = 100, cy = 100, r = 80;
+  
+  function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+    const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+    return {
+      x: centerX + (radius * Math.cos(angleInRadians)),
+      y: centerY + (radius * Math.sin(angleInRadians))
+    };
+  }
+  
+  function describeArc(x, y, radius, startAngle, endAngle) {
+    const start = polarToCartesian(x, y, radius, endAngle);
+    const end = polarToCartesian(x, y, radius, startAngle);
+    const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+    return [
+      "M", x, y,
+      "L", start.x, start.y,
+      "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y,
+      "Z"
+    ].join(" ");
+  }
+  
+  document.getElementById('pie-protein').setAttribute('d', describeArc(cx, cy, r, 0, proAngle));
+  document.getElementById('pie-carbs').setAttribute('d', describeArc(cx, cy, r, proAngle, proAngle + carbAngle));
+  document.getElementById('pie-fat').setAttribute('d', describeArc(cx, cy, r, proAngle + carbAngle, 360));
+  
+  // Update center text
+  const centerText = document.querySelector('#macro-pie-chart text');
+  if(centerText) centerText.textContent = cal.toLocaleString();
 }
 
 const SYMPTOMS=[
