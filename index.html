@@ -136,6 +136,29 @@ button{cursor:pointer;font-family:var(--ff-sans);}
 .ss-num{font-family:var(--ff-serif);font-size:1.9rem;color:var(--forest);line-height:1;font-weight:400;}
 .ss-lbl{font-size:.72rem;color:var(--light);margin-top:4px;letter-spacing:.3px;}
 @media(max-width:600px){.stats-strip{flex-wrap:wrap;}.ss-cell{flex:0 0 50%;border-bottom:1px solid var(--border);}.ss-cell:nth-child(2){border-right:none;}}
+
+/* ---- Raw Data Accuracy Banner (premium, forest + gold) ---- */
+.rab-wrap{background:var(--forest);position:relative;overflow:hidden;}
+.rab-wrap::before{content:'';position:absolute;top:-120px;left:-80px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(200,151,58,.14) 0%,transparent 70%);}
+.rab-wrap::after{content:'';position:absolute;bottom:-140px;right:-100px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(30,138,94,.18) 0%,transparent 70%);}
+.rab-inner{max-width:var(--max);margin:0 auto;padding:46px 28px;position:relative;z-index:1;}
+.rab-top{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
+.rab-badge{flex-shrink:0;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#A87826);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(200,151,58,.35);}
+.rab-headline{font-family:var(--ff-serif);font-size:clamp(1.3rem,2.6vw,1.85rem);font-weight:500;color:#fff;line-height:1.25;letter-spacing:-.01em;}
+.rab-headline em{font-style:normal;color:var(--gold);}
+.rab-sub{color:rgba(255,255,255,.55);font-size:.92rem;max-width:680px;line-height:1.6;margin-bottom:26px;}
+.rab-bullets{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:900px){.rab-bullets{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:540px){.rab-bullets{grid-template-columns:1fr;}}
+.rab-bullet{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:14px 16px;transition:background .2s,border-color .2s;}
+.rab-bullet:hover{background:rgba(255,255,255,.07);border-color:rgba(200,151,58,.3);}
+.rab-bullet-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:rgba(82,183,136,.18);color:var(--sage);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;margin-top:1px;}
+.rab-bullet p{font-size:.82rem;color:rgba(255,255,255,.82);line-height:1.5;margin:0;}
+.rab-bullet strong{color:#fff;font-weight:600;}
+.rab-cta-row{display:flex;align-items:center;gap:16px;margin-top:26px;flex-wrap:wrap;}
+.rab-cta-row button{background:var(--gold);color:var(--forest);border:none;padding:13px 26px;border-radius:var(--r-md);font-weight:700;font-size:.86rem;transition:transform .15s,box-shadow .15s;}
+.rab-cta-row button:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(200,151,58,.35);}
+.rab-cta-note{font-size:.76rem;color:rgba(255,255,255,.4);}
 .sec{padding:80px 28px;}
 .sec-paper{background:var(--paper);}
 .sec-forest{background:var(--forest);}
@@ -473,6 +496,26 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
     <div class="ss-cell"><div class="ss-num">500+</div><div class="ss-lbl">Research summaries</div></div>
   </div>
 
+  <div class="rab-wrap">
+    <div class="rab-inner">
+      <div class="rab-top">
+        <div class="rab-badge">🏅</div>
+        <h2 class="rab-headline">India's Most Verified Raw Food Data — Built for <em>Precision</em></h2>
+      </div>
+      <p class="rab-sub">Cooked dishes vary by recipe, oil, and method. Raw data doesn't lie — it's the only way to calculate macros you can actually trust. Every number in our Raw Food Database is measured before anything changes it.</p>
+      <div class="rab-bullets">
+        <div class="rab-bullet"><span class="rab-bullet-icon">✓</span><p><strong>1,386 verified raw foods</strong> — no recipe guesswork, ever</p></div>
+        <div class="rab-bullet"><span class="rab-bullet-icon">✓</span><p>Every gram measured <strong>before</strong> cooking, oil, or seasoning changes the numbers</p></div>
+        <div class="rab-bullet"><span class="rab-bullet-icon">✓</span><p>The same standard used by <strong>dietitians and serious lifters</strong></p></div>
+        <div class="rab-bullet"><span class="rab-bullet-icon">✓</span><p>India's <strong>largest independently verified</strong> raw food dataset</p></div>
+      </div>
+      <div class="rab-cta-row">
+        <button onclick="go('food')">Explore Raw Food Database →</button>
+        <span class="rab-cta-note">For accurate macro tracking, always calculate from raw ingredients.</span>
+      </div>
+    </div>
+  </div>
+
   <section class="sec">
     <div class="wrap">
       <p class="eyebrow">🌿 What NutraInfo Covers</p>
@@ -563,6 +606,22 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
       <p style="color:rgba(255,255,255,.45);max-width:560px;margin:0 auto;">1,386 verified raw foods — vegetarian, dairy, and non-vegetarian — measured uncooked. Exact macros. Indian local names. Glycemic index.</p>
     </div>
   </header>
+
+  <div class="rab-wrap">
+    <div class="rab-inner" style="padding:34px 28px;">
+      <div class="rab-top" style="margin-bottom:14px;">
+        <div class="rab-badge" style="width:44px;height:44px;font-size:1.2rem;">🏅</div>
+        <h2 class="rab-headline" style="font-size:clamp(1.15rem,2.2vw,1.5rem);">Why raw data is the only accurate way to calculate macros</h2>
+      </div>
+      <div class="rab-bullets">
+        <div class="rab-bullet"><span class="rab-bullet-icon">✓</span><p><strong>1,386 verified raw foods</strong> — no recipe guesswork, ever</p></div>
+        <div class="rab-bullet"><span class="rab-bullet-icon">✓</span><p>Every gram measured <strong>before</strong> cooking, oil, or seasoning changes the numbers</p></div>
+        <div class="rab-bullet"><span class="rab-bullet-icon">✓</span><p>The same standard used by <strong>dietitians and serious lifters</strong></p></div>
+        <div class="rab-bullet"><span class="rab-bullet-icon">✓</span><p>India's <strong>largest independently verified</strong> raw food dataset</p></div>
+      </div>
+    </div>
+  </div>
+
   <section class="sec">
     <div class="wrap">
       <div class="fdb-shell">
