@@ -531,6 +531,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
         <div class="hero-btns">
           <button class="btn-green" onclick="go('food')">Explore Food Database →</button>
           <button class="btn-outline-w" onclick="go('deficiency')" style="display:inline-flex;align-items:center;gap:8px;"><i class="ti ti-search" style="font-size:16px;"></i>Check Deficiencies</button>
+          <button id="hero-install-btn" onclick="triggerPWAInstall()" style="display:none;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(200,151,58,.15),rgba(200,151,58,.08));border:1.5px solid rgba(200,151,58,.5);color:var(--gold);font-size:.82rem;font-weight:600;letter-spacing:.05em;padding:11px 22px;border-radius:var(--r-md);transition:background .18s,border-color .18s,transform .18s;white-space:nowrap;cursor:pointer;"><i class="ti ti-download" style="font-size:15px;"></i> Install App</button>
         </div>
       </div>
       <div class="orbital-showcase">
@@ -2448,8 +2449,10 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Show nav pill
   const pill = document.getElementById('pwa-pill');
   const mobLink = document.getElementById('mob-pwa-link');
+  const heroBtn = document.getElementById('hero-install-btn');
   if(mobLink && !isInstalled) mobLink.style.display = 'flex';
   if(pill && !isInstalled) pill.classList.add('visible');
+  if(heroBtn && !isInstalled) heroBtn.style.display = 'inline-flex';
   // Update button state
   const btn = document.getElementById('pwa-install-btn');
   const txt = document.getElementById('pwa-btn-text');
@@ -2472,9 +2475,13 @@ function setInstalledState(){
   const btn = document.getElementById('pwa-install-btn');
   const txt = document.getElementById('pwa-btn-text');
   const notice = document.getElementById('pwa-installed-notice');
+  const heroBtn = document.getElementById('hero-install-btn');
+  const pill = document.getElementById('pwa-pill');
   if(btn){ btn.classList.add('installed'); btn.disabled = true; }
   if(txt) txt.textContent = '● INSTALLED ON THIS DEVICE';
   if(notice) notice.classList.add('show');
+  if(heroBtn) heroBtn.style.display = 'none';
+  if(pill) pill.classList.remove('visible');
 }
 
 async function triggerPWAInstall(){
