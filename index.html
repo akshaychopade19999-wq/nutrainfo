@@ -1453,7 +1453,20 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
   <section class="sec">
     <div class="wrap">
       <p style="font-size:.9rem;color:var(--mid);margin-bottom:22px;font-weight:500;">Select all symptoms that apply to you:</p>
-      <div class="symptom-grid" id="symptom-grid"></div>
+      <div class="symptom-grid" id="symptom-grid">
+        <div class="sym-btn" id="sym-fatigue" onclick="toggleSym('fatigue')"><span class="si"><i class="ti ti-battery-1"></i></span><span>Fatigue / Low Energy</span></div>
+        <div class="sym-btn" id="sym-hairloss" onclick="toggleSym('hairloss')"><span class="si"><i class="ti ti-scissors"></i></span><span>Hair Loss / Thinning</span></div>
+        <div class="sym-btn" id="sym-brainfog" onclick="toggleSym('brainfog')"><span class="si"><i class="ti ti-brain"></i></span><span>Brain Fog / Poor Focus</span></div>
+        <div class="sym-btn" id="sym-immunity" onclick="toggleSym('immunity')"><span class="si"><i class="ti ti-virus"></i></span><span>Frequent Infections</span></div>
+        <div class="sym-btn" id="sym-weakness" onclick="toggleSym('weakness')"><span class="si"><i class="ti ti-barbell"></i></span><span>Muscle Weakness</span></div>
+        <div class="sym-btn" id="sym-cramps" onclick="toggleSym('cramps')"><span class="si"><i class="ti ti-bolt"></i></span><span>Muscle Cramps</span></div>
+        <div class="sym-btn" id="sym-recovery" onclick="toggleSym('recovery')"><span class="si"><i class="ti ti-heart-rate-monitor"></i></span><span>Poor Recovery</span></div>
+        <div class="sym-btn" id="sym-mood" onclick="toggleSym('mood')"><span class="si"><i class="ti ti-mood-sad"></i></span><span>Mood Changes / Low Mood</span></div>
+        <div class="sym-btn" id="sym-sleep" onclick="toggleSym('sleep')"><span class="si"><i class="ti ti-moon"></i></span><span>Poor Sleep Quality</span></div>
+        <div class="sym-btn" id="sym-skin" onclick="toggleSym('skin')"><span class="si"><i class="ti ti-droplet-off"></i></span><span>Dry Skin / Rashes</span></div>
+        <div class="sym-btn" id="sym-bone" onclick="toggleSym('bone')"><span class="si"><i class="ti ti-bone"></i></span><span>Bone Pain / Aches</span></div>
+        <div class="sym-btn" id="sym-nails" onclick="toggleSym('nails')"><span class="si"><i class="ti ti-hand-finger"></i></span><span>Brittle Nails</span></div>
+      </div>
       <button class="btn-green" onclick="checkDeficiency()" style="margin-top:4px;">Analyse My Symptoms →</button>
       <div class="deficiency-result" id="def-result">
         <div class="def-disclaimer">⚠️ <strong>Important:</strong> This is an educational tool, not a medical diagnosis. These suggestions are based on common nutritional patterns. Always consult a doctor and get blood tests for a confirmed diagnosis.</div>
@@ -1473,7 +1486,20 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
   </header>
   <section class="sec">
     <div class="wrap">
-      <div class="blood-grid" id="blood-grid"></div>
+      <div class="blood-grid" id="blood-grid">
+        <div class="blood-card"><h3>Vitamin D (25-OH)</h3><p class="bc-sub">Bone, immunity, mood, hormones</p><div class="range-bar"><div class="range-normal" style="left:33%;width:47%"></div><div class="range-marker" style="left:40%"></div></div><div class="range-labels"><span>Low</span><span>Normal (40–80 ng/mL)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">Over 70% of Indians are deficient. Impacts bones, immunity, mood, hormones and muscle function. Supplement 1000–2000 IU/day if below 30.</p></div>
+        <div class="blood-card"><h3>Vitamin B12</h3><p class="bc-sub">Nerve function, red blood cells, DNA</p><div class="range-bar"><div class="range-normal" style="left:25%;width:55%"></div><div class="range-marker" style="left:30%"></div></div><div class="range-labels"><span>Low</span><span>Normal (300–900 pg/mL)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">Deficiency extremely common in vegetarians — causes irreversible nerve damage if untreated. Supplement methylcobalamin 500–1000 mcg daily if vegetarian.</p></div>
+        <div class="blood-card"><h3>Ferritin (Iron Stores)</h3><p class="bc-sub">Iron storage, fatigue, hair health</p><div class="range-bar"><div class="range-normal" style="left:15%;width:40%"></div><div class="range-marker" style="left:22%"></div></div><div class="range-labels"><span>Low</span><span>Normal (30–150 ng/mL)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">Low ferritin causes fatigue, brain fog and hair loss even before anaemia. Very common in Indian women. Pair iron-rich foods with vitamin C.</p></div>
+        <div class="blood-card"><h3>HbA1c</h3><p class="bc-sub">Average blood sugar over 3 months</p><div class="range-bar"><div class="range-normal" style="left:10%;width:30%"></div><div class="range-marker" style="left:18%"></div></div><div class="range-labels"><span>Low</span><span>Normal (&lt;5.7%)</span><span>Diabetic (&gt;6.5%)</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">India has the second-highest number of diabetics globally. Early detection is critical. Reduce refined carbs, increase protein and fibre.</p></div>
+        <div class="blood-card"><h3>TSH (Thyroid)</h3><p class="bc-sub">Thyroid function — metabolism, energy</p><div class="range-bar"><div class="range-normal" style="left:10%;width:35%"></div><div class="range-marker" style="left:25%"></div></div><div class="range-labels"><span>Low</span><span>Normal (0.5–4.5 mIU/L)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">Thyroid issues are very common in India, especially hypothyroidism in women. Use iodised salt. Selenium from Brazil nuts supports thyroid.</p></div>
+        <div class="blood-card"><h3>Lipid Profile (LDL Cholesterol)</h3><p class="bc-sub">Cardiovascular disease risk</p><div class="range-bar"><div class="range-normal" style="left:20%;width:35%"></div><div class="range-marker" style="left:35%"></div></div><div class="range-labels"><span>Low</span><span>Optimal (&lt;100 mg/dL)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">CVD is India's leading killer. Reduce trans fats and refined carbs. Increase omega-3, fibre (oats), and plant sterols.</p></div>
+        <div class="blood-card"><h3>CBC (Haemoglobin)</h3><p class="bc-sub">Anaemia, oxygen carrying capacity</p><div class="range-bar"><div class="range-normal" style="left:35%;width:35%"></div><div class="range-marker" style="left:45%"></div></div><div class="range-labels"><span>Low</span><span>Normal (M:13–17, F:12–15 g/dL)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">India has the highest anaemia burden globally. Iron-rich foods + vitamin C + adequate B12 and folate all needed for red blood cell formation.</p></div>
+        <div class="blood-card"><h3>Serum Magnesium</h3><p class="bc-sub">Muscle, nerve, enzyme function</p><div class="range-bar"><div class="range-normal" style="left:25%;width:35%"></div><div class="range-marker" style="left:35%"></div></div><div class="range-labels"><span>Low</span><span>Normal (1.7–2.3 mg/dL)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">Most people eating processed foods are mildly deficient. Impacts sleep, stress and 300+ enzyme reactions. Almonds, spinach, pumpkin seeds.</p></div>
+        <div class="blood-card"><h3>Zinc</h3><p class="bc-sub">Immunity, wound healing, testosterone</p><div class="range-bar"><div class="range-normal" style="left:25%;width:30%"></div><div class="range-marker" style="left:38%"></div></div><div class="range-labels"><span>Low</span><span>Normal (70–120 μg/dL)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">Commonly deficient in vegetarians. Critical for immunity and reproductive health. Pumpkin seeds, sesame, cashews. Sprout legumes to improve absorption.</p></div>
+        <div class="blood-card"><h3>Vitamin B9 (Folate)</h3><p class="bc-sub">DNA synthesis, neural tube, red blood cells</p><div class="range-bar"><div class="range-normal" style="left:30%;width:40%"></div><div class="range-marker" style="left:20%"></div></div><div class="range-labels"><span>Low</span><span>Normal (3–17 ng/mL)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">Critical for pregnant women. Moong dal is the richest Indian source. Heat destroys folate — eat some raw greens daily.</p></div>
+        <div class="blood-card"><h3>Liver Function (ALT)</h3><p class="bc-sub">Liver health and fat metabolism</p><div class="range-bar"><div class="range-normal" style="left:10%;width:25%"></div><div class="range-marker" style="left:20%"></div></div><div class="range-labels"><span>Low</span><span>Normal (&lt;40 U/L)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">Non-alcoholic fatty liver disease is epidemic in India. Reduce refined carbs and sugar. Increase cruciferous vegetables. Limit alcohol.</p></div>
+        <div class="blood-card"><h3>Kidney Function (Creatinine)</h3><p class="bc-sub">Kidney filtration efficiency</p><div class="range-bar"><div class="range-normal" style="left:17%;width:33%"></div><div class="range-marker" style="left:28%"></div></div><div class="range-labels"><span>Low</span><span>Normal (M:0.7–1.3, F:0.6–1.1 mg/dL)</span><span>High</span></div><p style="font-size:.78rem;color:var(--mid);margin-top:12px;">Rising creatinine indicates decreasing kidney function. Stay well-hydrated, reduce sodium. High protein diets are safe for healthy kidneys.</p></div>
+      </div>
     </div>
   </section>
 </div>
@@ -2906,7 +2932,7 @@ function renderResearch(){
   const g = document.getElementById('research-grid');
   if(!g) return;
   // Only rebuild cards once — but ALWAYS re-run filters and stats
-  if(g.children.length === 0){
+  if(!g.querySelector(".research-card")){
     g.innerHTML = RESEARCH.map(r=>{
     const qualLabel = r.quality==='high'?'High Quality':'Moderate Quality';
     const qualClass = r.quality==='high'?'rq-high':'rq-med';
