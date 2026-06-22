@@ -2905,8 +2905,9 @@ function filterResearch(){
 function renderResearch(){
   const g = document.getElementById('research-grid');
   if(!g) return;
-  if(g.children.length>0) return; // already rendered
-  g.innerHTML = RESEARCH.map(r=>{
+  // Only rebuild cards once — but ALWAYS re-run filters and stats
+  if(g.children.length === 0){
+    g.innerHTML = RESEARCH.map(r=>{
     const qualLabel = r.quality==='high'?'High Quality':'Moderate Quality';
     const qualClass = r.quality==='high'?'rq-high':'rq-med';
     const indiaBadge = r.india?`<span class="rc-india">🇮🇳 India</span>`:'';
@@ -2933,6 +2934,7 @@ function renderResearch(){
       </div>
     </div>`;
   }).join('');
+  } // end: only build cards once
   buildResFilters();
   filterResearch();
   // Update stats
