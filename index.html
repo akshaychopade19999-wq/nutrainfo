@@ -1732,10 +1732,13 @@ window.addEventListener('scroll',()=>{
   const h=document.documentElement.scrollHeight-window.innerHeight;
   document.getElementById('pbar').style.width=(h>0?(s/h)*100:0)+'%';
 });
-function showToast(m){
+function showToast(m, duration, onClick){
   const t=document.getElementById('toast');
-  t.textContent=m;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3200);
+  t.textContent=m;
+  t.classList.add('show');
+  t.style.cursor=onClick?'pointer':'default';
+  t.onclick=onClick||null;
+  setTimeout(()=>{t.classList.remove('show');t.onclick=null;}, duration||3200);
 }
 function subNewsletter(){
   const e=document.getElementById('nl-e').value.trim();
@@ -3360,8 +3363,28 @@ function searchFAQ(q){
 if('serviceWorker' in navigator){
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
-      .then(reg => console.log('SW registered:', reg.scope))
+      .then(reg => {
+        console.log('SW registered:', reg.scope);
+        // Check for updates every 60 seconds when app is open
+        setInterval(() => reg.update(), 60000);
+        // When a new SW is waiting (update downloaded), prompt user
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+            if(newWorker.state === 'installed' && navigator.serviceWorker.controller){
+              // New version is ready — show refresh prompt
+              showToast('🔄 NutraInfo updated! Tap here to get the latest version.', 8000, ()=>location.reload());
+            }
+          });
+        });
+      })
       .catch(err => console.log('SW registration failed:', err));
+    // Listen for SW_UPDATED message from new service worker
+    navigator.serviceWorker.addEventListener('message', e => {
+      if(e.data && e.data.type === 'SW_UPDATED'){
+        showToast('✅ App updated to latest version — refresh for new features!', 6000, ()=>location.reload());
+      }
+    });
   });
 }
 
