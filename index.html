@@ -6,6 +6,12 @@
 <title>NutraInfo – Evidence-Based Nutrition for India</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css"/>
+<link rel="manifest" href="/manifest.json"/>
+<meta name="theme-color" content="#0D2B20"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="NutraInfo"/>
 <style>
 :root {
   --forest: #0D2B20;
@@ -425,6 +431,54 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 .icon-lg{width:28px;height:28px;}
 .icon-xl{width:36px;height:36px;}
 .ti-tab{font-size:24px;line-height:1;color:inherit;display:inline-flex;}
+
+/* ── PWA Install Pill (nav) ────────────────────────────────────── */
+#pwa-pill{display:none;align-items:center;gap:6px;padding:5px 13px 5px 10px;border-radius:20px;border:1.5px solid var(--gold);background:rgba(200,151,58,.1);color:var(--gold);font-size:.72rem;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:background .18s,transform .18s;white-space:nowrap;}
+#pwa-pill:hover{background:rgba(200,151,58,.22);transform:scale(1.03);}
+#pwa-pill.visible{display:flex;}
+#pwa-pill i.ti{font-size:14px;}
+/* ── PWA Install Page ────────────────────────────────────────────── */
+.pwa-hero{background:var(--forest);padding:64px 28px 72px;border-bottom:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;}
+.pwa-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(30,138,94,.18) 0%,transparent 70%);pointer-events:none;}
+.pwa-badge{display:inline-block;padding:5px 14px;border:1px solid rgba(200,151,58,.4);border-radius:20px;font-size:.7rem;font-weight:600;letter-spacing:.12em;color:rgba(200,151,58,.8);margin-bottom:24px;}
+.pwa-h1{font-family:var(--ff-serif);font-size:clamp(2rem,6vw,3.6rem);font-weight:400;color:#fff;line-height:1.15;margin-bottom:20px;max-width:680px;margin-left:auto;margin-right:auto;}
+.pwa-h1 em{color:var(--gold);font-style:italic;}
+.pwa-sub{color:rgba(255,255,255,.5);max-width:560px;margin:0 auto 36px;font-size:.95rem;line-height:1.7;}
+/* Install button states */
+.pwa-btn-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:40px;}
+#pwa-install-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;background:linear-gradient(135deg,var(--gold),#A87826);color:#fff;border:none;border-radius:8px;font-size:.88rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:transform .18s,box-shadow .18s;box-shadow:0 4px 20px rgba(200,151,58,.35);}
+#pwa-install-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,151,58,.45);}
+#pwa-install-btn.installed{background:rgba(82,183,136,.15);border:1.5px solid var(--sage);color:var(--sage);cursor:default;box-shadow:none;}
+#pwa-install-btn.installed:hover{transform:none;}
+.pwa-sub-row{font-size:.68rem;letter-spacing:.1em;color:rgba(255,255,255,.3);font-weight:600;}
+/* Stats grid */
+.pwa-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:480px;margin:0 auto;}
+.pwa-stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:18px 12px;text-align:center;}
+.pwa-stat-val{font-family:var(--ff-serif);font-size:1.5rem;color:#fff;font-weight:400;display:block;margin-bottom:4px;}
+.pwa-stat-lbl{font-size:.62rem;letter-spacing:.1em;color:rgba(255,255,255,.35);font-weight:600;}
+/* Pulse animation (signature element) */
+.pwa-pulse-wrap{position:relative;width:64px;height:64px;margin:0 auto 32px;}
+.pwa-pulse-core{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--gold));display:flex;align-items:center;justify-content:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;}
+.pwa-pulse-core i.ti{font-size:20px;color:#fff;}
+.pwa-pulse-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;border:1.5px solid rgba(82,183,136,.4);animation:pwaRing 2s ease-out infinite;}
+.pwa-pulse-ring2{animation-delay:.7s;}
+@keyframes pwaRing{0%{transform:translate(-50%,-50%) scale(.6);opacity:.8;}100%{transform:translate(-50%,-50%) scale(1.8);opacity:0;}}
+/* Steps section */
+.pwa-steps-wrap{background:#fff;border-radius:var(--r-xl);overflow:hidden;margin-top:32px;}
+.pwa-step{display:grid;grid-template-columns:72px 1fr;gap:0;border-bottom:1px solid var(--border);}
+.pwa-step:last-child{border-bottom:none;}
+.pwa-step-num{background:var(--forest);display:flex;align-items:center;justify-content:center;font-family:var(--ff-serif);font-size:2rem;font-style:italic;color:rgba(255,255,255,.15);padding:28px 0;}
+.pwa-step-body{padding:24px 24px 24px 20px;}
+.pwa-step-title{font-size:1.05rem;font-weight:600;color:var(--forest);margin-bottom:4px;}
+.pwa-step-desc{font-size:.85rem;color:#666;line-height:1.5;}
+.pwa-step-tag{display:inline-block;margin-top:8px;padding:3px 10px;background:var(--paper);border-radius:20px;font-size:.68rem;letter-spacing:.06em;color:var(--mid);font-weight:600;}
+/* Already installed banner */
+.pwa-installed-notice{display:none;background:rgba(82,183,136,.12);border:1px solid rgba(82,183,136,.3);border-radius:10px;padding:14px 20px;color:var(--sage);font-size:.85rem;text-align:center;margin-top:16px;}
+.pwa-installed-notice.show{display:block;}
+/* Footer note */
+.pwa-footnote{font-size:.75rem;color:rgba(255,255,255,.25);margin-top:24px;line-height:1.6;}
+@media(max-width:600px){.pwa-stats{gap:8px;}.pwa-stat-val{font-size:1.25rem;}.pwa-h1{font-size:1.9rem;}}
+
 </style>
 <base target="_blank">
 </head>
@@ -447,6 +501,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
       <li><a id="nl-deficiency" onclick="go('deficiency')">Deficiency Check</a></li>
       <li><a id="nl-research" onclick="go('research')">Research</a></li>
       <li><a onclick="go('calculators')" class="nav-cta">Try Free Tools</a></li>
+      <li><button id="pwa-pill" onclick="triggerPWAInstall()" aria-label="Install NutraInfo App"><i class="ti ti-download"></i> Install App</button></li>
     </ul>
     <button class="ham" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -460,6 +515,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
     <a onclick="go('blood');toggleMob()"><i class="ti ti-droplet"></i> Blood Tests</a>
     <a onclick="go('deficiency');toggleMob()"><i class="ti ti-search"></i> Deficiency Check</a>
     <a onclick="go('research');toggleMob()"><i class="ti ti-book"></i> Research Hub</a>
+    <a id="mob-pwa-link" onclick="go('install');toggleMob()" style="display:none;"><i class="ti ti-download"></i> Install App</a>
   </div>
 </nav>
 
@@ -1077,6 +1133,89 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
   </section>
 </div>
 
+<div class="page" id="page-install">
+  <!-- Hero -->
+  <div class="pwa-hero">
+    <div class="wrap" style="text-align:center;position:relative;z-index:1;">
+      <div class="pwa-badge">VOL. 01 &nbsp;·&nbsp; THE PWA EDITION</div>
+      <div class="pwa-pulse-wrap">
+        <div class="pwa-pulse-ring"></div>
+        <div class="pwa-pulse-ring pwa-pulse-ring2"></div>
+        <div class="pwa-pulse-core"><i class="ti ti-leaf"></i></div>
+      </div>
+      <h1 class="pwa-h1">Install NutraInfo as an <em>app</em><br>on your Android.</h1>
+      <p class="pwa-sub">One tap to put the entire food database — 3,500+ raw ingredients, TDEE calculators, macro tracking, and deficiency checkers — straight to your home screen. Opens full-screen, no browser bar, and weighs less than a single Reel.</p>
+      <div class="pwa-btn-wrap">
+        <button id="pwa-install-btn" onclick="triggerPWAInstall()">
+          <i class="ti ti-download"></i>
+          <span id="pwa-btn-text">✦ INSTALL ON THIS DEVICE</span>
+        </button>
+        <div class="pwa-installed-notice" id="pwa-installed-notice">
+          <i class="ti ti-circle-check"></i> &nbsp;NutraInfo is already installed on this device.
+        </div>
+        <div class="pwa-sub-row">FREE &nbsp;·&nbsp; NO PLAY STORE REQUIRED &nbsp;·&nbsp; UPDATES AUTOMATICALLY</div>
+      </div>
+      <div class="pwa-stats">
+        <div class="pwa-stat">
+          <span class="pwa-stat-val">&lt; 1 MB</span>
+          <span class="pwa-stat-lbl">INSTALL SIZE</span>
+        </div>
+        <div class="pwa-stat">
+          <span class="pwa-stat-val">0 ads</span>
+          <span class="pwa-stat-lbl">NO TRACKING</span>
+        </div>
+        <div class="pwa-stat">
+          <span class="pwa-stat-val">Offline</span>
+          <span class="pwa-stat-lbl">READS CACHED FOODS</span>
+        </div>
+      </div>
+      <p class="pwa-footnote">* Pages you've already opened stay available offline after your first visit. The full database loads on first use and caches automatically.</p>
+    </div>
+  </div>
+  <!-- Steps (browser fallback) -->
+  <section class="sec sec-paper">
+    <div class="wrap">
+      <p class="eyebrow" style="margin-bottom:8px;">Browser fallback</p>
+      <h2 class="h2" style="margin-bottom:6px;">Or install manually in 3 steps</h2>
+      <p class="sub" style="margin-bottom:28px;">If the button above doesn't appear, Chrome's built-in install flow works just as well.</p>
+      <div class="pwa-steps-wrap reveal">
+        <div class="pwa-step">
+          <div class="pwa-step-num">01</div>
+          <div class="pwa-step-body">
+            <div class="pwa-step-title">Open this page in Chrome on Android</div>
+            <div class="pwa-step-desc">Edge, Brave and Samsung Internet also support PWA install. On Safari (iOS), use the Share icon and "Add to Home Screen" instead.</div>
+            <span class="pwa-step-tag">nutrainfo.vercel.app</span>
+          </div>
+        </div>
+        <div class="pwa-step">
+          <div class="pwa-step-num">02</div>
+          <div class="pwa-step-body">
+            <div class="pwa-step-title">Tap the ⋮ menu (top right of Chrome)</div>
+            <div class="pwa-step-desc">Choose "Add to Home screen" or "Install app". The option appears when Chrome detects our PWA manifest — usually within a few seconds of the page loading.</div>
+          </div>
+        </div>
+        <div class="pwa-step">
+          <div class="pwa-step-num">03</div>
+          <div class="pwa-step-body">
+            <div class="pwa-step-title">Confirm Install</div>
+            <div class="pwa-step-desc">The NutraInfo leaf icon appears in your app drawer and home screen. Opens full-screen with no browser bar — indistinguishable from a native app.</div>
+            <span class="pwa-step-tag">OPENS FULL-SCREEN · NO BROWSER BAR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- iOS note -->
+  <section class="sec">
+    <div class="wrap">
+      <div style="background:var(--paper);border-radius:var(--r-lg);padding:24px 28px;border:1px solid var(--border);max-width:560px;margin:0 auto;text-align:left;">
+        <p class="eyebrow" style="margin-bottom:8px;">On iPhone / iPad (iOS · Safari)</p>
+        <p style="font-size:.88rem;color:#555;line-height:1.65;">Tap the <strong>Share icon</strong> <i class="ti ti-share" style="font-size:14px;color:var(--mint);vertical-align:middle;"></i> at the bottom of Safari, then tap <strong>"Add to Home Screen"</strong>. iOS doesn't support the automatic install prompt — this is the official Apple method and works identically.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
 <footer id="main-footer">
   <div class="footer-inner">
     <div class="footer-brand">
@@ -1117,7 +1256,7 @@ footer{background:var(--forest);border-top:1px solid rgba(255,255,255,.05);paddi
 <div id="toast"></div>
 
 <script>
-const PAGES=['home','food','cookedfood','supplements','meals','calculators','deficiency','blood','research','about'];
+const PAGES=['home','food','cookedfood','supplements','meals','calculators','deficiency','blood','research','about','install'];
 function go(id){
   PAGES.forEach(p=>{
     document.getElementById('page-'+p).classList.remove('active');
@@ -2285,6 +2424,85 @@ function searchFAQ(q){
   }
   return null;
 }
+
+// ── Service Worker Registration (required for PWA install prompt) ─────────────
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('SW registered:', reg.scope))
+      .catch(err => console.log('SW registration failed:', err));
+  });
+}
+
+let deferredPrompt = null;
+let isInstalled = false;
+
+// Check if already running as installed PWA
+if(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true){
+  isInstalled = true;
+}
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  // Show nav pill
+  const pill = document.getElementById('pwa-pill');
+  const mobLink = document.getElementById('mob-pwa-link');
+  if(mobLink && !isInstalled) mobLink.style.display = 'flex';
+  if(pill && !isInstalled) pill.classList.add('visible');
+  // Update button state
+  const btn = document.getElementById('pwa-install-btn');
+  const txt = document.getElementById('pwa-btn-text');
+  if(btn && !isInstalled){
+    btn.classList.remove('installed');
+    if(txt) txt.textContent = 'INSTALL ON THIS DEVICE';
+  }
+});
+
+window.addEventListener('appinstalled', () => {
+  isInstalled = true;
+  deferredPrompt = null;
+  const pill = document.getElementById('pwa-pill');
+  if(pill) pill.classList.remove('visible');
+  setInstalledState();
+  showToast('✅ NutraInfo installed! Find it in your app drawer.');
+});
+
+function setInstalledState(){
+  const btn = document.getElementById('pwa-install-btn');
+  const txt = document.getElementById('pwa-btn-text');
+  const notice = document.getElementById('pwa-installed-notice');
+  if(btn){ btn.classList.add('installed'); btn.disabled = true; }
+  if(txt) txt.textContent = '● INSTALLED ON THIS DEVICE';
+  if(notice) notice.classList.add('show');
+}
+
+async function triggerPWAInstall(){
+  if(isInstalled){ 
+    showToast('NutraInfo is already installed on this device!');
+    return; 
+  }
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if(outcome === 'accepted'){
+      showToast('Installing NutraInfo…');
+    } else {
+      showToast('Install cancelled. You can always come back to this page.');
+    }
+    deferredPrompt = null;
+  } else {
+    // No prompt available — guide to install page
+    go('install');
+    showToast('Follow the steps below to install NutraInfo on your device.');
+  }
+}
+
+// On install page load, set correct button state
+if(isInstalled){ 
+  document.addEventListener('DOMContentLoaded', setInstalledState);
+}
+
 </script>
 <!-- NutraInfo Chatbot -->
 <div id="chatbot-widget" style="position:fixed;bottom:20px;right:20px;z-index:9000;font-family:var(--ff-sans);">
