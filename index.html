@@ -1705,7 +1705,6 @@ function go(id){
   if(nl) nl.classList.add('active');
   window.scrollTo({top:0,behavior:'instant'});
   initReveal();
-  if(id==='calculators'){setTimeout(()=>{document.querySelectorAll('#calc-tdee input[type=range]').forEach(updateSliderGradient);calcTDEE();calcProtein();calcBMI();calcBodyFat();calcWater();calcMacro();calcIBW();},50);}
   if(id==='food') renderFoods();
   if(id==='cookedfood') renderCookedFoods();
   if(id==='research'){ renderResearch(); }
