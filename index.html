@@ -2946,15 +2946,27 @@ function renderResearch(){
 }
 
 window.addEventListener('load',()=>{
-  loadFoods();
-  renderSupplements();
-  renderMeals();
-  renderSymptoms();
-  renderBloodTests();
-  // Research renders lazily when the page is first opened (avoids DOM-hidden rendering issues)
-  // Calculators init lazily too
-  initReveal();
+  try{
+    loadFoods();
+    renderSupplements();
+    renderMeals();
+    renderSymptoms();
+    renderBloodTests();
+    initReveal();
+  }catch(e){
+    console.error('NutraInfo load error:',e);
+  }
 });
+// Force cache bypass: if this version tag doesn't match what SW cached, reload once
+const SITE_VERSION='v4';
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.getRegistration().then(reg=>{
+    if(reg && reg.waiting){
+      // New SW is waiting — tell it to activate immediately
+      reg.waiting.postMessage({type:'SKIP_WAITING'});
+    }
+  });
+}
 /* ════════════════════════════════════
    CHATBOT
 ════════════════════════════════════ */
