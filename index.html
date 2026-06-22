@@ -2948,16 +2948,12 @@ function renderResearch(){
 }
 
 window.addEventListener('load',()=>{
-  try{
-    loadFoods();
-    renderSupplements();
-    renderMeals();
-    renderSymptoms();
-    renderBloodTests();
-    initReveal();
-  }catch(e){
-    console.error('NutraInfo load error:',e);
-  }
+  loadFoods();
+  renderSupplements();
+  renderMeals();
+  renderSymptoms();
+  renderBloodTests();
+  initReveal();
 });
 
 /* ════════════════════════════════════
@@ -3363,11 +3359,18 @@ function searchFAQ(q){
   return null;
 }
 
-// Unregister any old service workers that may be caching stale files
+// KILL all service workers and caches immediately
 if('serviceWorker' in navigator){
   navigator.serviceWorker.getRegistrations().then(regs => {
-    regs.forEach(reg => reg.unregister());
+    regs.forEach(reg => {
+      reg.unregister();
+      console.log('SW killed:', reg.scope);
+    });
   });
+  // Also nuke all caches
+  if(window.caches){
+    caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
+  }
 }
 
 let deferredPrompt = null;
