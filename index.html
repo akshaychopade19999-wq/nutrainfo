@@ -2959,16 +2959,7 @@ window.addEventListener('load',()=>{
     console.error('NutraInfo load error:',e);
   }
 });
-// Force cache bypass: if this version tag doesn't match what SW cached, reload once
-const SITE_VERSION='v4';
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.getRegistration().then(reg=>{
-    if(reg && reg.waiting){
-      // New SW is waiting — tell it to activate immediately
-      reg.waiting.postMessage({type:'SKIP_WAITING'});
-    }
-  });
-}
+
 /* ════════════════════════════════════
    CHATBOT
 ════════════════════════════════════ */
@@ -3372,32 +3363,10 @@ function searchFAQ(q){
   return null;
 }
 
-// ── Service Worker Registration (required for PWA install prompt) ─────────────
+// Unregister any old service workers that may be caching stale files
 if('serviceWorker' in navigator){
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(reg => {
-        console.log('SW registered:', reg.scope);
-        // Check for updates every 60 seconds when app is open
-        setInterval(() => reg.update(), 60000);
-        // When a new SW is waiting (update downloaded), prompt user
-        reg.addEventListener('updatefound', () => {
-          const newWorker = reg.installing;
-          newWorker.addEventListener('statechange', () => {
-            if(newWorker.state === 'installed' && navigator.serviceWorker.controller){
-              // New version is ready — show refresh prompt
-              showToast('🔄 NutraInfo updated! Tap here to get the latest version.', 8000, ()=>location.reload());
-            }
-          });
-        });
-      })
-      .catch(err => console.log('SW registration failed:', err));
-    // Listen for SW_UPDATED message from new service worker
-    navigator.serviceWorker.addEventListener('message', e => {
-      if(e.data && e.data.type === 'SW_UPDATED'){
-        showToast('✅ App updated to latest version — refresh for new features!', 6000, ()=>location.reload());
-      }
-    });
+  navigator.serviceWorker.getRegistrations().then(regs => {
+    regs.forEach(reg => reg.unregister());
   });
 }
 
