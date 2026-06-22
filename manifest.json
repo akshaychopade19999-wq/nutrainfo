@@ -6,5 +6,5 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#16a34a",
-  "icons": []
+  "icons": [   {     "src": "https://nutrainfo.vercel.app/favicon.ico",     "sizes": "192x192",     "type": "image/png"   } ]
 }
