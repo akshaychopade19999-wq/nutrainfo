@@ -1,7 +1,7 @@
 // NutraInfo Service Worker
 // ⚠️ BUMP THIS VERSION NUMBER every time you deploy changes
 // v1 → v2 → v3 etc. This forces all users to get fresh content.
-const VERSION = 'nutrainfo-v3';
+const VERSION = 'nutrainfo-v4';
 const CACHE = VERSION;
 
 // Files to pre-cache on install
